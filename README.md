@@ -65,7 +65,7 @@ git push
 
 ### 3. 访问网站 | Enjoy
 
-打开浏览器，访问 https://github.com/William-1225/William-1225.github.io，即可查看我的个人主页
+打开浏览器，访问 https://github.com/William-1225/William-1225.github.io, 即可查看我的个人主页
 
 Fire up a browser and go to `https://github.com/William-1225/William-1225.github.io`
 
