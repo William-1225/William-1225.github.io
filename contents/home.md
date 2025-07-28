@@ -1,20 +1,17 @@
-[![XX](https://img.shields.io/badge/XX-github-blue?logo=github)](https://github.com/XX)
+[![William-1225](https://img.shields.io/badge/XX-github-blue?logo=github)](https://github.com/William-1225)
 
-I'm currently pursuing a Master's degree in XX at the Department of XX, XX University, XX.
+I'm currently pursuing a Master's degree in Computer Science at the Department of Engineering College, The University of Sydney.
 
-#### Email  
-<code>XX@XX.XX</code>  
-<code>XX@XX.XX</code>
+#### Email
 
-#### Education  
-**XX University**, Master of XX (XX – XX)  
-• GPA: XX/XX  
+<code>william429287@163.com</code>  
+<code>pinrunc@gmail.com</code>
 
-**XX University**, Exchange student <br>  
-• As a XX, represented my college as an outstanding student for a XX exchange program.  
+#### Education
 
-**XX University**, Honours Bachelor of XX (XX – XX)  
-• GPA: XX/XX (top XX%)  
+**The University of Sydney**, Master’s in Computer Science (Feb 2025 – present)
+• GPA: 70/100 (CR)
 
-#### Research Interests  
-XX, XX, XX, XX.
+**Wenzhou-Kean University**, Bachelor’s in Accounting (Sept 2020 – June 2024)
+• GPA: 3.5/4.0
+• Award: Dean’s List Scholarship (2021 & 2022)
