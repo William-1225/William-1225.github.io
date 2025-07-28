@@ -1,4 +1,4 @@
-[![William-1225](https://img.shields.io/badge/XX-github-blue?logo=github)](https://github.com/William-1225)
+[![William-1225](https://img.shields.io/badge/William-1225-github-blue?logo=github)](https://github.com/William-1225)
 
 I'm currently pursuing a Master's degree in Computer Science at the Department of Engineering College, The University of Sydney.
 

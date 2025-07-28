@@ -6,7 +6,7 @@
 
 ## 预览 | Preview
 
-[![Screenshot of the Website](https://raw.githubusercontent.com/Yixin0313/personal-homepage-template/main/screenshot_full.png)](https://yixin0313.github.io/personal-homepage-template/)
+[![Screenshot of the Website](https://github.com/William-1225/William-1225.github.io/blob/main/screenshot_full.png)](https://william-1225.github.io/)
 
 ## 介绍 | Introduction
 
