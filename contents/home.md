@@ -1,10 +1,10 @@
 [![William-1225](https://img.shields.io/badge/William--1225-blue?logo=github)](https://github.com/William-1225)
 
+悉尼大学计算机科学研究生在读
 I'm currently pursuing a Master's degree in Computer Science at the Department of Engineering College, The University of Sydney.
 
 #### Email
 
-<code>william429287@163.com</code>  
 <code>pinrunc@gmail.com</code>
 
 #### Education
