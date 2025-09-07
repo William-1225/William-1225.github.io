@@ -109,3 +109,8 @@ section .main-body{
         margin-bottom: 2rem;
     }
 }
+
+section {
+    margin-top: 3rem; /* 所有 section 顶部间距 */
+    margin-bottom: 3rem; /* 底部间距 */
+}
