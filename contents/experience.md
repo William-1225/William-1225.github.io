@@ -1,4 +1,4 @@
-### **极氪科技集团**
+### **极氪科技集团 ZEEKR**
 
 **2025.07 - 2025.09&nbsp;&nbsp;|&nbsp;&nbsp;商业分析实习生&nbsp;&nbsp;|&nbsp;&nbsp;Base: 上海**
 
@@ -8,39 +8,23 @@
 
 #### 主要贡献:
 
-- 支持上海区域销售数据分析、报表自动化及 KPI 实时追踪
+- 用户洞察：调研上海区域多家门店的销售与服务流程，搭建门店与区域透视图，对客户数据、营收波动、竞品动态
+  等交叉分析并复盘试驾完成率-订单转化率，同步构建潜在客户画像及优化销售服务闭环策略，目前已被采纳。
 
-- 利用 Python + AI 自动化流程，降低手工工作量约 50%
+- 市场研究：收集最近市场数据及咨询券商研究报告，定期跟踪竞对公司的业务动作及销售表现，参加市场、销售等部
+  门周度月度总结会并梳理记录市场政策、商业生态、品牌建设、交付效率等业务规划，撰写市场分析专题研究报告。
 
-- 搭建 Excel / BI 报表，提供管理层决策数据
+- 脚本开发：梳理跨区域跨部门报表需求，基于 Kimi 与 Playwright 模块开发 Python 脚本，实现多源数据对接、清洗
+  聚合，并搭建日报自动下发机制，通过实时更新 KPI，降低约 50%人工处理工作量，显著提升报表准确性与产出效率。
 
-- 实地调研门店，优化客户体验和销售流程<br><br>
-
-### **ZEEKR**
-
-**July 2025 – present&nbsp;&nbsp;|&nbsp;&nbsp;Business Analysis Intern&nbsp;&nbsp;|&nbsp;&nbsp;Shanghai, China**
-
-Responsible for sales operations analysis and process optimization projects in the Shanghai region at ZEEKR
-
-<br>
-
-#### Key Contributions:
-
-- Supported Shanghai regional sales data analysis, automated reporting, and real-time KPI tracking
-
-- Implemented Python + AI automation, reducing manual workload by ~50%
-
-- Built Excel/BI dashboards to provide actionable insights for management
-
-- Conducted in-store visits to optimize customer experience and sales processes
-
-<br>
+- 商业分析：复盘品牌车型月度季度动作及价格方案，根据战略规划完成销售预算测试及经营分析，评估不同区域的资
+  源配置以搭建销售预期-交付-销量-收入等多维联动报表，定期进行分析复盘，助力战略落地与业绩增长。<br><br>
 
 ---
 
 <br>
 
-### **上海交通大学**
+### **上海交通大学 Shanghai Jiao Tong University**
 
 **2024.06 - 2024.08&nbsp;&nbsp;|&nbsp;&nbsp;市场营销课程助教&nbsp;&nbsp;|&nbsp;&nbsp;Base: 上海**
 
@@ -50,37 +34,22 @@ Responsible for sales operations analysis and process optimization projects in t
 
 #### 主要贡献:
 
-- 基于 Excel 与 Stata 数据分析，辅导 30+学生市场调研项目
+- 项目辅导：辅导终身教育学院国际暑校 30 余名学生开展市场调研定量分析项目，指导设计定量分析流程及案例讲
+  解，利用 Stata 和 Excel 进行数据建模与回归分析，实现 100%结课率，优秀学生比例环比提升 25%。
 
-- 使用 SQL + Tableau 构建教学数据可视化，看板跟踪学生学习进度
+- 战略导入：引入 SWOT 和 PESTEL 工具到实际案例，指导学生优化报告结构与内容逻辑，显著提升输出质量和实用价值。
 
-- 提升课程完成率 100%，优秀学生比例提高 25% <br><br>
+- 看板搭建：利用 SQL 提取学生互动和作业数据，通过 Power BI 构建可视化看板，实现课堂学情动态监控和教学调整。
 
-### **Shanghai Jiao Tong University**
-
-**June 2024 – Aug 2024&nbsp;&nbsp;|&nbsp;&nbsp;Teaching Assistant Intern&nbsp;&nbsp;|&nbsp;&nbsp;Shanghai, China**
-
-Served as a Teaching Assistant for the Marketing course at Shanghai Jiao Tong University
-
-<br>
-
-#### Key Contributions:
-
-- Guided 30+ students in market research projects based on Excel & Stata analysis
-
-- Built SQL + Tableau dashboards to monitor student engagement and progress
-
-- Improved course completion to 100% and increased high-grade rate by 25%
-
-<br>
+- 行政沟通：与外教全程英文沟通教学及行政事务，组织跨文化交流活动，定期与学院沟通暑校运营事宜及学生动态。 <br><br>
 
 ---
 
 <br>
 
-### **东方日升集团**
+### **东方日升集团 Risen Energy**
 
-**2023.07 - 2023.09&nbsp;&nbsp;|&nbsp;&nbsp;数据分析实习生&nbsp;&nbsp;|&nbsp;&nbsp;Base: 宁波**
+**2023.07 - 2023.09&nbsp;&nbsp;|&nbsp;&nbsp;海外业务分析实习生&nbsp;&nbsp;|&nbsp;&nbsp;Base: 宁波**
 
 负责集团子公司浙江双宇电子有限公司海外市场销售工作。
 
@@ -88,24 +57,11 @@ Served as a Teaching Assistant for the Marketing course at Shanghai Jiao Tong Un
 
 #### 主要贡献:
 
-- 分析出口订单及销售数据，构建 Tableau 可视化仪表盘
+- 数据监控：负责出海业务订单跟进与全流程数据监控，通过 SQL 与 Excel 提取订单信息，并建立 ERP 系统中订单交付
+  流程节点相应信息推流机制，动态追踪交付进度，协助销售团队及时跟进客户，提高订单履约效率与流程效率。
 
-- 优化订单追踪流程，提高执行效率
+- 策略分析：分析业务资金预算、业务策略、订单及销售数据、海外销售政策、商品特性等同步调整营销及投放策略；
+  根据社媒、展会，自然流分类筛选高价值客户与热销产品以支持销售重点跟进，提升客户复购率与业务响应速度。
 
-- 进行海外市场调研，支持新品开发决策 <br><br>
-
-### **Risen Energy**
-
-**July 2023 – Sept 2023&nbsp;&nbsp;|&nbsp;&nbsp;Data Analysis Intern&nbsp;&nbsp;|&nbsp;&nbsp;Ningbo, China**
-
-Responsible for overseas sales operations at Twinsel Electronic Technology.
-
-<br>
-
-#### Key Contributions:
-
-- Analyzed export orders and sales data, created Tableau dashboards
-
-- Streamlined order tracking, improved execution efficiency
-
-- Conducted overseas market research to support product development
+- 商业分析：开展海外竞品与用户评价调研，整理产品信息、数据监测、策略与经营活动复盘等信息，输出市场趋势
+  分析报告，为新品开发和产品功能迭代提供数据支撑。 <br><br>
