@@ -8,7 +8,7 @@
 ✨ 适用于学术申请、求职展示、个人作品集展示 | Perfect for academic applications, job seeking, and portfolio showcase ✨
 
 ## 🚀 在线预览 | Live Preview
-[![Website Screenshot](https://github.com/William-1225/William-1225.github.io/blob/main/screenshot_full.png)](https://william-1225.github.io/)
+[![Website Screenshot](https://raw.githubusercontent.com/William-1225/William-1225.github.io/main/screenshot_full.png?20260312)](https://william-1225.github.io/)
 
 👉 **立即访问：[https://william-1225.github.io/](https://william-1225.github.io/)**
 
