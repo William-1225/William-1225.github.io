@@ -1,76 +1,109 @@
-![Github Forks](https://img.shields.io/github/forks/Yixin0313/personal-homepage-template?style=flat)
-![Github Stars](https://img.shields.io/github/stars/Yixin0313/personal-homepage-template?style=flat)
-![License](https://img.shields.io/github/license/Yixin0313/personal-homepage-template)
+![Github Forks](https://img.shields.io/github/forks/William-1225/William-1225.github.io?style=flat)
+![Github Stars](https://img.shields.io/github/stars/William-1225/William-1225.github.io?style=flat)
+![License](https://img.shields.io/github/license/William-1225/William-1225.github.io)
+![Last Commit](https://img.shields.io/github/last-commit/William-1225/William-1225.github.io)
+![Deploy Status](https://img.shields.io/github/deployments/William-1225/William-1225.github.io/github-pages)
 
-# 通用个人主页模板：适用于学术和求职场景 | A general-purpose template: suitable for both academic and professional use.
+# 个人主页模板 | Personal Homepage Template
+✨ 适用于学术申请、求职展示、个人作品集展示 | Perfect for academic applications, job seeking, and portfolio showcase ✨
 
-## 预览 | Preview
+## 🚀 在线预览 | Live Preview
+[![Website Screenshot](https://github.com/William-1225/William-1225.github.io/blob/main/screenshot_full.png)](https://william-1225.github.io/)
 
-[![Screenshot of the Website](https://github.com/William-1225/William-1225.github.io/blob/main/screenshot_full.png)](https://william-1225.github.io/)
+👉 **立即访问：[https://william-1225.github.io/](https://william-1225.github.io/)**
 
-## 介绍 | Introduction
+## ✨ 特性 | Features
+- 🎯 **双语言支持**：完整中英文对照界面，适合国内外使用
+- 💼 **工作经历板块**：专门为求职者设计的工作经验展示区
+- 📚 **学术项目支持**：保留了论文、项目、获奖等学术展示模块
+- 🎨 **美观现代**：简洁优雅的设计，响应式布局适配各种设备
+- ⚡ **快速部署**：基于 GitHub Pages，只需几分钟即可完成部署
+- 🔧 **易于自定义**：所有内容都在 Markdown 文件中，无需修改代码
+- 📱 **移动端友好**：完美适配手机、平板等各种屏幕尺寸
 
-这是一个**通用的个人主页模板**，基于 [Sen Li 的学术主页模板](https://github.com/senli1073/senli1073.github.io) 进行修改。
+## 📖 介绍 | Introduction
+这是一个**通用的个人主页模板**，基于 [Sen Li 的学术主页模板](https://github.com/senli1073/senli1073.github.io) 进行优化和扩展。
 
-我新增了**工作经历板块**，使其更加适用于程序员和求职者。并且使用了中英文对照版本。
+在原有学术模板基础上，我新增了**工作经历板块**，使其不仅适用于学术研究人员，也非常适合程序员、设计师等各行业求职者使用。模板采用中英文对照设计，满足不同场景需求。
 
-This is a **general-purpose personal website template**, modified from [Sen Li's academic template](https://github.com/senli1073/senli1073.github.io).
+This is a **general-purpose personal website template**, optimized and extended based on [Sen Li's academic template](https://github.com/senli1073/senli1073.github.io).
 
-I have added a **work experience section**, making it more practical for programmers and job seekers.
+I have added a **work experience section** on top of the original academic template, making it suitable not only for researchers but also for job seekers in all industries such as programmers and designers. The template adopts a bilingual (Chinese/English) design to meet the needs of different scenarios.
 
-Bilibili 教程视频：【【2025 最新保姆级教程】手把手教你用 github 制作个人主页（申学找工作必备）】https://www.bilibili.com/video/BV16nNMeFEzm?vd_source=79b688b1a191b9f9e8204aa1c3d0adab
+## 🎥 教程 | Tutorials
+- **Bilibili 视频教程**：[【2025 最新保姆级教程】手把手教你用 github 制作个人主页（申学找工作必备）](https://www.bilibili.com/video/BV16nNMeFEzm?vd_source=79b688b1a191b9f9e8204aa1c3d0adab)
+- **CSDN 图文教程**：[从零开始搭建个人主页详细指南](https://blog.csdn.net/qq_45743991/article/details/145505150?spm=1001.2014.3001.5502)
 
-CSDN 教程：https://blog.csdn.net/qq_45743991/article/details/145505150?spm=1001.2014.3001.5502
+## 🚀 快速开始 | Quick Start
+### 1. Fork 仓库 | Fork the Repository
+点击页面右上角的 Fork 按钮，将仓库复制到你的 GitHub 账户下。
 
-## 快速开始 | Getting Start
+仓库名称必须命名为 `<你的用户名>.github.io`，这样部署后你的个人网站地址将是 `https://<你的用户名>.github.io/`。
 
-### 1. Fork 该仓库 | Fork this repository
+Click the Fork button at the top right corner of the page to copy the repository to your GitHub account.
 
-仓库名称应命名为 `<用户名>.github.io`，这样你的个人网站地址将是 `https://<用户名>.github.io/`。
+The repository name must be `<your-username>.github.io`, so your website URL will be `https://<your-username>.github.io/` after deployment.
 
-The repository name should be `<username>.github.io`, which will also be your website's URL.
-
-### 2. 编辑页面内容 | Edit page content
-
-(1) 进入你想存放项目的文件夹，并克隆新的仓库 | Go to the folder where you want to store your project, and clone the new repository:
-
+### 2. 克隆到本地 | Clone to Local
+进入你想存放项目的文件夹，克隆你刚刚 Fork 的仓库：
+```bash
+git clone https://github.com/<你的用户名>/<你的用户名>.github.io.git
+cd <你的用户名>.github.io
 ```
-git clone https://github.com/<username>/<username>.github.io.git
+
+### 3. 修改内容 | Customize Content
+项目结构非常简单，所有内容都可以通过修改 `contents/` 文件夹下的文件来完成：
 ```
-
-项目的目录结构如下 | The directory structure is as follows:
-
-```.
 .
-├── contents
-└── static
-    ├── assets
-    │   └── img
-    ├── css
-    └── js
+├── contents/          # 所有页面内容都在这里
+│   ├── config.yml     # 网站配置：标题、版权、社交链接等
+│   ├── about.md       # 个人介绍部分
+│   ├── experience.md  # 工作经历部分
+│   ├── education.md   # 教育背景部分
+│   ├── projects.md    # 项目经历部分
+│   ├── publications.md # 论文发表部分
+│   ├── awards.md      # 获奖荣誉部分
+│   └── interests.md   # 兴趣爱好部分
+└── static/
+    ├── assets/img/    # 图片资源：头像、背景图等
+    ├── css/           # 样式文件
+    └── js/            # 脚本文件
 ```
 
-(2) 修改各个板块的内容 | Modify the content of each section, which corresponds to `contents/*.md`.
+修改步骤：
+1. **编辑内容**：修改 `contents/*.md` 中的内容为你自己的信息
+2. **调整配置**：修改 `contents/config.yml` 中的网站标题、版权信息、社交链接等
+3. **替换图片**：将你的头像、背景图等替换到 `static/assets/img/` 文件夹下
+4. **更新预览图**：替换根目录下的 `screenshot_full.png` 为你的网站截图
 
-(3) 调整网站设置 | Adjust the title, copyright information, and other text of the website in `contents/config.yml`
-
-(4) 替换图片 | Replace background image and photo with new ones for your web pages in `static/assets/img/`
-
-(5) 提交更改 | Push it:
-
-```
-git commit -am 'init'
+### 4. 提交部署 | Deploy
+将修改提交到 GitHub 仓库：
+```bash
+git add .
+git commit -m "Update personal information"
 git push
 ```
 
-### 3. 访问网站 | Enjoy
+提交完成后，等待几分钟，GitHub Pages 会自动部署你的网站。
 
-打开浏览器，访问 https://william-1225.github.io, 即可查看我的个人主页
+### 5. 访问网站 | Enjoy
+打开浏览器，访问 `https://<你的用户名>.github.io` 即可看到你的个人主页！
 
-Fire up a browser and go to `https://william-1225.github.io`
+## 📝 使用提示 | Tips
+- 所有内容都支持 Markdown 语法，可以自由排版
+- 可以通过修改 `static/css/custom.css` 来调整网站样式
+- 图片建议压缩后再上传，加快网站加载速度
+- 如果需要添加新的板块，可以参考现有文件的格式进行扩展
 
-## License
+## 🤝 贡献 | Contributing
+欢迎提交 Issue 和 Pull Request 来改进这个模板！如果你有好的建议或者发现了 Bug，欢迎反馈。
 
-本项目基于 MIT 许可协议，你可以自由使用和修改此模板。 Pinrun Chen 2025 年 7 月 28 日
+## 📄 许可证 | License
+本项目基于 MIT 许可协议开源，你可以自由使用、修改和分发此模板。
 
-Copyright Pinrun Chen, 2025. Licensed under an MIT license. You can copy and mess with this template.
+Copyright © 2025 Pinrun Chen. Licensed under the MIT License.
+
+---
+
+⭐ 如果这个模板对你有帮助，欢迎给个 Star 支持一下！
+If you find this template helpful, please give it a Star ⭐
