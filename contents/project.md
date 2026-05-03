@@ -1,20 +1,3 @@
-### **竞对渠道监测**
-**2026 - 至今&nbsp;&nbsp;|&nbsp;&nbsp;个人项目&nbsp;&nbsp;|&nbsp;&nbsp;每周自动更新**
-
-自动监测 17 个汽车品牌、8700+ 经销商网点的渠道动态，覆盖新增/退出变化、省级渗透分布、城市级别下沉等多个维度。
-
-`Python` &nbsp;·&nbsp; `API数据采集` &nbsp;·&nbsp; `数据处理` &nbsp;·&nbsp; `Pandas` &nbsp;·&nbsp; `ECharts可视化`
-
-#### 主要工作:
-- **数据采集**：对接 17 个品牌官网 API（含 Akamai/CF 反爬绕过、签名逆向、多轮补抓），每周自动跑全量
-- **数据处理**：三层去重（精确三元组 → 归一化地址 → 品牌+市+店名）、品牌归属切换识别、波动校验自动告警
-- **可视化展示**：单文件 ECharts 报告，支持品牌筛选、省份/城市级别下钻、新增退出明细查看
-
-<a href="report/report.html" target="_blank"><strong>► 查看最新报告</strong></a>
-<br><br>
-
----
-
 ### **上海交通大学国际暑校**
 **2024.06 - 2024.08&nbsp;&nbsp;|&nbsp;&nbsp;市场营销课程助教&nbsp;&nbsp;|&nbsp;&nbsp;Base: 上海**
 
