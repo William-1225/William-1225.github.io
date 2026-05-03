@@ -67,9 +67,9 @@ const contentData = {
 \`渠道分析\` &nbsp;·&nbsp; \`市场研究\` &nbsp;·&nbsp; \`数据可视化\` &nbsp;·&nbsp; \`Python\`
 
 #### 主要工作:
-- **市场覆盖度洞察**：横向对比各品牌在全国 31 省、五线城市的渠道渗透差异，识别下沉市场布局节奏与空白区域
+- **市场覆盖度洞察**：横向对比各品牌在全国 31 省、各线城市的渠道渗透差异，识别下沉市场布局节奏与空白区域
 - **渠道动态监测**：周度追踪新增、退出、迁址事件，及时捕捉竞品扩张/收缩信号，配合迁址识别避免误判
-- **数据自动化**：构建周更新的全自动数据流水线，从原始数据到可视化报告零人工介入，研究效率从天级缩短至分钟级
+- **数据自动化**：构建周更新的全自动数据流水线，从原始数据到可视化报告零人工介入，研究效率压缩至小时级
 
 <a href="report/report.html" target="_blank"><strong>► 查看最新报告</strong></a>
 <br><br>
@@ -152,9 +152,9 @@ Continuous tracking of 17 luxury and new-energy automotive brands across 8,700+ 
 \`Channel Analysis\` &nbsp;·&nbsp; \`Market Research\` &nbsp;·&nbsp; \`Data Visualization\` &nbsp;·&nbsp; \`Python\`
 
 #### Key Work:
-- **Market Coverage Insights**: Cross-brand comparison of dealer penetration across 31 provinces and tier-1 to tier-5 cities, identifying expansion patterns and white-space opportunities in lower-tier markets
+- **Market Coverage Insights**: Cross-brand comparison of dealer penetration across 31 provinces and all city tiers, identifying expansion patterns and white-space opportunities in lower-tier markets
 - **Channel Dynamics Monitoring**: Weekly tracking of openings, exits, and relocations to capture competitor expansion/contraction signals, with relocation detection to avoid false positives
-- **Pipeline Automation**: Built a fully automated weekly pipeline from raw data to visual report, reducing research turnaround from days to minutes
+- **Pipeline Automation**: Built a fully automated weekly pipeline from raw data to visual report, compressing research turnaround to hours
 
 <a href="report/report.html" target="_blank"><strong>► View Latest Report</strong></a>
 <br><br>
