@@ -59,7 +59,25 @@ const contentData = {
 - **竞品研究**：追踪Amazon等海外零售平台竞品动态，系统整合竞品参数、定价信息，建立竞品对比底表，针对热销产品与自有产品进行功能与价格维度横向对标，为新品开发与产品功能迭代提供数据支撑。
 - **商务支持**：整理新品产品参数对比表与报价单，对接北美存量客户开展新品介绍与选品支持，结合客户历史采购偏好推荐适配产品组合，辅助客户完成新订单周期选品决策，支持销售团队维护客户关系与复购转化。
 <br><br>`,
-        project: `### **上海交通大学国际暑校**
+        project: `### **竞对渠道监测**
+**2026 - 至今&nbsp;&nbsp;|&nbsp;&nbsp;个人项目&nbsp;&nbsp;|&nbsp;&nbsp;每周自动更新**
+
+自动监测 17 个汽车品牌、8700+ 经销商网点的渠道动态，覆盖新增/退出变化、省级渗透分布、城市级别下沉等多个维度。
+
+\`Python\` &nbsp;·&nbsp; \`API数据采集\` &nbsp;·&nbsp; \`数据处理\` &nbsp;·&nbsp; \`Pandas\` &nbsp;·&nbsp; \`ECharts可视化\`
+
+#### 主要工作:
+- **数据采集**：对接 17 个品牌官网 API（含 Akamai/CF 反爬绕过、签名逆向、多轮补抓），每周自动跑全量
+- **数据处理**：三层去重（精确三元组 → 归一化地址 → 品牌+市+店名）、品牌归属切换识别、波动校验自动告警
+- **可视化展示**：单文件 ECharts 报告，支持品牌筛选、省份/城市级别下钻、新增退出明细查看
+
+<a href="report/report.html" target="_blank"><strong>► 查看最新报告</strong></a>
+<br><br>
+
+---
+<br>
+
+### **上海交通大学国际暑校**
 **2024.06 - 2024.08&nbsp;&nbsp;|&nbsp;&nbsp;市场营销课程助教&nbsp;&nbsp;|&nbsp;&nbsp;Base: 上海**
 
 担任上海交通大学市场营销课程助教，负责课程教学支持、学生项目辅导以及教学数据分析等工作。
@@ -126,7 +144,25 @@ Overseas order management and customer analysis to support international busines
 - Conducted competitive product research on Amazon platform, provided data support for new product development.
 - Supported North American customer product selection, assisted in customer relationship maintenance and repurchase growth.
 <br><br>`,
-        project: `### **Shanghai Jiao Tong University International Summer School**
+        project: `### **Competitor Dealer Network Monitoring**
+**2026 - Present&nbsp;&nbsp;|&nbsp;&nbsp;Personal Project&nbsp;&nbsp;|&nbsp;&nbsp;Weekly Auto-Update**
+
+Automated monitoring of 17 automotive brands and 8,700+ dealer locations, covering network additions/exits, provincial penetration, and city-tier distribution.
+
+\`Python\` &nbsp;·&nbsp; \`API Scraping\` &nbsp;·&nbsp; \`Data Processing\` &nbsp;·&nbsp; \`Pandas\` &nbsp;·&nbsp; \`ECharts Visualization\`
+
+#### Key Work:
+- **Data Collection**: Reverse-engineered API endpoints for 17 brand websites (Akamai/CF bypass, signature decoding, retry logic), full-volume weekly run
+- **Data Processing**: Three-tier deduplication, brand-affiliation switch detection, automatic anomaly validation
+- **Visualization**: Single-file ECharts report with brand filtering, province/city-tier drill-down, and change details
+
+<a href="report/report.html" target="_blank"><strong>► View Latest Report</strong></a>
+<br><br>
+
+---
+<br>
+
+### **Shanghai Jiao Tong University International Summer School**
 **Jun 2024 - Aug 2024&nbsp;&nbsp;|&nbsp;&nbsp;Marketing Course Teaching Assistant&nbsp;&nbsp;|&nbsp;&nbsp;Shanghai**
 
 Supported teaching activities and student project guidance for international summer school program.
