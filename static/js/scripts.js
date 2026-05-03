@@ -62,14 +62,14 @@ const contentData = {
         project: `### **竞对渠道监测**
 **2026 - 至今&nbsp;&nbsp;|&nbsp;&nbsp;个人项目&nbsp;&nbsp;|&nbsp;&nbsp;每周自动更新**
 
-自动监测 17 个汽车品牌、8700+ 经销商网点的渠道动态，覆盖新增/退出变化、省级渗透分布、城市级别下沉等多个维度。
+面向豪华及新能源汽车板块，持续追踪 17 个主流品牌、8700+ 经销商网点的渠道布局变化，为产品定位、区域策略与渠道规划提供数据支撑。
 
-\`Python\` &nbsp;·&nbsp; \`API数据采集\` &nbsp;·&nbsp; \`数据处理\` &nbsp;·&nbsp; \`Pandas\` &nbsp;·&nbsp; \`ECharts可视化\`
+\`渠道分析\` &nbsp;·&nbsp; \`市场研究\` &nbsp;·&nbsp; \`数据可视化\` &nbsp;·&nbsp; \`Python\`
 
 #### 主要工作:
-- **数据采集**：对接 17 个品牌官网 API（含 Akamai/CF 反爬绕过、签名逆向、多轮补抓），每周自动跑全量
-- **数据处理**：三层去重（精确三元组 → 归一化地址 → 品牌+市+店名）、品牌归属切换识别、波动校验自动告警
-- **可视化展示**：单文件 ECharts 报告，支持品牌筛选、省份/城市级别下钻、新增退出明细查看
+- **市场覆盖度洞察**：横向对比各品牌在全国 31 省、五线城市的渠道渗透差异，识别下沉市场布局节奏与空白区域
+- **渠道动态监测**：周度追踪新增、退出、迁址事件，及时捕捉竞品扩张/收缩信号，配合迁址识别避免误判
+- **数据自动化**：构建周更新的全自动数据流水线，从原始数据到可视化报告零人工介入，研究效率从天级缩短至分钟级
 
 <a href="report/report.html" target="_blank"><strong>► 查看最新报告</strong></a>
 <br><br>
@@ -147,14 +147,14 @@ Overseas order management and customer analysis to support international busines
         project: `### **Competitor Dealer Network Monitoring**
 **2026 - Present&nbsp;&nbsp;|&nbsp;&nbsp;Personal Project&nbsp;&nbsp;|&nbsp;&nbsp;Weekly Auto-Update**
 
-Automated monitoring of 17 automotive brands and 8,700+ dealer locations, covering network additions/exits, provincial penetration, and city-tier distribution.
+Continuous tracking of 17 luxury and new-energy automotive brands across 8,700+ dealer locations, providing data support for product positioning, regional strategy, and channel planning.
 
-\`Python\` &nbsp;·&nbsp; \`API Scraping\` &nbsp;·&nbsp; \`Data Processing\` &nbsp;·&nbsp; \`Pandas\` &nbsp;·&nbsp; \`ECharts Visualization\`
+\`Channel Analysis\` &nbsp;·&nbsp; \`Market Research\` &nbsp;·&nbsp; \`Data Visualization\` &nbsp;·&nbsp; \`Python\`
 
 #### Key Work:
-- **Data Collection**: Reverse-engineered API endpoints for 17 brand websites (Akamai/CF bypass, signature decoding, retry logic), full-volume weekly run
-- **Data Processing**: Three-tier deduplication, brand-affiliation switch detection, automatic anomaly validation
-- **Visualization**: Single-file ECharts report with brand filtering, province/city-tier drill-down, and change details
+- **Market Coverage Insights**: Cross-brand comparison of dealer penetration across 31 provinces and tier-1 to tier-5 cities, identifying expansion patterns and white-space opportunities in lower-tier markets
+- **Channel Dynamics Monitoring**: Weekly tracking of openings, exits, and relocations to capture competitor expansion/contraction signals, with relocation detection to avoid false positives
+- **Pipeline Automation**: Built a fully automated weekly pipeline from raw data to visual report, reducing research turnaround from days to minutes
 
 <a href="report/report.html" target="_blank"><strong>► View Latest Report</strong></a>
 <br><br>
