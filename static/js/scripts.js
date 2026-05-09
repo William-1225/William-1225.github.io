@@ -60,7 +60,7 @@ const contentData = {
 - **商务支持**：整理新品产品参数对比表与报价单，对接北美存量客户开展新品介绍与选品支持，结合客户历史采购偏好推荐适配产品组合，辅助客户完成新订单周期选品决策，支持销售团队维护客户关系与复购转化。
 <br><br>`,
         project: `### **竞对渠道监测**
-**2026 - 至今&nbsp;&nbsp;|&nbsp;&nbsp;个人项目&nbsp;&nbsp;|&nbsp;&nbsp;每周自动更新**
+**2026.01-至今&nbsp;&nbsp;|&nbsp;&nbsp;个人项目&nbsp;&nbsp;|&nbsp;&nbsp;每周自动更新**
 
 面向豪华及新能源汽车板块，持续追踪 17 个主流品牌、8700+ 经销商网点的渠道布局变化，为产品定位、区域策略与渠道规划提供数据支撑。
 
@@ -71,7 +71,7 @@ const contentData = {
 - **渠道动态监测**：周度追踪新增、退出、迁址事件，及时捕捉竞品扩张/收缩信号，配合迁址识别避免误判
 - **数据自动化**：构建周更新的全自动数据流水线，从原始数据到可视化报告零人工介入，研究效率压缩至小时级
 
-<a href="report/report.html" target="_blank"><strong>► 查看最新报告</strong></a>
+<a href="report/report.html" target="_blank"><strong>查看最新报告 →</strong></a>
 <br><br>
 
 ---
@@ -145,7 +145,7 @@ Overseas order management and customer analysis to support international busines
 - Supported North American customer product selection, assisted in customer relationship maintenance and repurchase growth.
 <br><br>`,
         project: `### **Competitor Dealer Network Monitoring**
-**2026 - Present&nbsp;&nbsp;|&nbsp;&nbsp;Personal Project&nbsp;&nbsp;|&nbsp;&nbsp;Weekly Auto-Update**
+**Jan 2026 - Present&nbsp;&nbsp;|&nbsp;&nbsp;Personal Project&nbsp;&nbsp;|&nbsp;&nbsp;Weekly Auto-Update**
 
 Continuous tracking of 17 luxury and new-energy automotive brands across 8,700+ dealer locations, providing data support for product positioning, regional strategy, and channel planning.
 
@@ -156,7 +156,7 @@ Continuous tracking of 17 luxury and new-energy automotive brands across 8,700+ 
 - **Channel Dynamics Monitoring**: Weekly tracking of openings, exits, and relocations to capture competitor expansion/contraction signals, with relocation detection to avoid false positives
 - **Pipeline Automation**: Built a fully automated weekly pipeline from raw data to visual report, compressing research turnaround to hours
 
-<a href="report/report.html" target="_blank"><strong>► View Latest Report</strong></a>
+<a href="report/report.html" target="_blank"><strong>View Latest Report →</strong></a>
 <br><br>
 
 ---

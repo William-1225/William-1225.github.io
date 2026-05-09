@@ -297,16 +297,37 @@ body.dark-theme .links a:hover, body.dark-theme .links button.link-item:hover { 
 }
 body.dark-theme .page-heading { color: #a9a9b3; border-color: #3a3a3e; }
 
-/* Card */
+/* Timeline entries */
 .entry {
-  border: 1px solid #e8e8e8;
-  border-radius: 4px;
-  padding: 1.4em 1.6em;
-  margin-bottom: 1.2em;
-  transition: border-color 0.2s ease;
+  position: relative;
+  padding: 1.1em 0 1.45em 2.1em;
+  margin-bottom: .35em;
 }
-body.dark-theme .entry { border-color: #3a3a3e; }
-.entry:hover { border-color: #2d96bd; }
+.entry::before {
+  content: "";
+  position: absolute;
+  left: .46em;
+  top: 0;
+  bottom: -0.55em;
+  width: 1px;
+  background: #e3e8ec;
+  transition: background-color 0.2s ease;
+}
+.entry::after {
+  content: "";
+  position: absolute;
+  left: .16em;
+  top: 1.35em;
+  width: .62em;
+  height: .62em;
+  border-radius: 50%;
+  background: #c8c8c8;
+  box-shadow: 0 0 0 4px #f8f8f8;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+body.dark-theme .entry::before { background: #3a3a3e; }
+body.dark-theme .entry::after { box-shadow: 0 0 0 4px #1d1f21; }
+.entry:hover::after { background: #8f8f8f; }
 .entry-header {
   display: flex;
   justify-content: space-between;
@@ -336,6 +357,7 @@ body.dark-theme .entry-role { color: #888; }
 .entry-loc {
   font-size: .82em;
   color: #aaa;
+  margin-top: .1em;
 }
 .entry-divider {
   border: none;
@@ -387,34 +409,65 @@ body.dark-theme .tag { color: #6bafd0; border-color: #6bafd0; }
 
 /* Entry link */
 .entry-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: .35em;
   margin-top: .8em;
   font-size: .9em;
+  font-weight: 600;
   color: #2d96bd;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color .2s ease, border-color .2s ease, transform .2s ease;
 }
+.entry-link::after {
+  content: "→";
+  transform: translateX(0);
+  transition: transform .2s ease;
+}
+.entry-link:hover {
+  border-color: currentColor;
+  transform: translateX(2px);
+}
+.entry-link:hover::after { transform: translateX(3px); }
 body.dark-theme .entry-link { color: #6bafd0; }
 
 /* Education */
 .edu-item {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 1.2em;
   width: 100%;
-  margin-bottom: 1em;
-  padding: 1.4em 1.6em;
-  border: 1px solid #e8e8e8;
-  border-radius: 4px;
-  transition: border-color 0.2s;
+  margin-bottom: .35em;
+  padding: 1.1em 0 1.45em 2.1em;
   box-sizing: border-box;
 }
-body.dark-theme .edu-item { border-color: #3a3a3e; }
-.edu-item:hover { border-color: #2d96bd; }
-.edu-dot {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: #2d96bd;
-  flex-shrink: 0;
+.edu-item::before {
+  content: "";
+  position: absolute;
+  left: .46em;
+  top: 0;
+  bottom: -0.55em;
+  width: 1px;
+  background: #e3e8ec;
+  transition: background-color 0.2s ease;
 }
+body.dark-theme .edu-item::before { background: #3a3a3e; }
+.edu-dot {
+  position: absolute;
+  left: .16em;
+  top: 1.35em;
+  width: .62em;
+  height: .62em;
+  border-radius: 50%;
+  background: #c8c8c8;
+  box-shadow: 0 0 0 4px #f8f8f8;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.edu-item:hover .edu-dot { background: #8f8f8f; }
+body.dark-theme .edu-dot { box-shadow: 0 0 0 4px #1d1f21; }
 .edu-body { flex: 1; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .4em; }
 .edu-left {}
 .edu-school { font-size: 1.05em; font-weight: 600; color: #161209; transition: color .2s; }
@@ -476,7 +529,8 @@ body.dark-theme .stat { border-color: #3a3a3e; }
   .navbar-mobile { display: block; }
   .intro { transform: translateY(10vh); }
   .page-view { padding: 1.5rem 1em 3rem; }
-  .entry { padding: 1em 1.2em; }
+  .entry { padding: 1em 0 1.3em 1.8em; }
+  .edu-item { padding: 1em 0 1.3em 1.8em; }
   .entry-header { flex-direction: column; gap: .2em; }
 }
 </style>
@@ -574,7 +628,7 @@ body.dark-theme .stat { border-color: #3a3a3e; }
           <div>
             <div class="entry-company" id="c-jlr-co">捷豹路虎中国</div>
             <div class="entry-role" id="c-jlr-role">商务运营实习生</div>
-            <div class="entry-loc" id="c-jlr-loc">📍 上海</div>
+            <div class="entry-loc" id="c-jlr-loc">上海</div>
           </div>
           <div class="entry-date" id="c-jlr-date">2025.12 – 2026.03</div>
         </div>
@@ -593,7 +647,7 @@ body.dark-theme .stat { border-color: #3a3a3e; }
           <div>
             <div class="entry-company" id="c-zeekr-co">极氪智能科技</div>
             <div class="entry-role" id="c-zeekr-role">商业分析实习生</div>
-            <div class="entry-loc" id="c-zeekr-loc">📍 上海</div>
+            <div class="entry-loc" id="c-zeekr-loc">上海</div>
           </div>
           <div class="entry-date" id="c-zeekr-date">2025.07 – 2025.10</div>
         </div>
@@ -612,7 +666,7 @@ body.dark-theme .stat { border-color: #3a3a3e; }
           <div>
             <div class="entry-company" id="c-risen-co">东方日升新能源</div>
             <div class="entry-role" id="c-risen-role">海外市场实习生</div>
-            <div class="entry-loc" id="c-risen-loc">📍 宁波</div>
+            <div class="entry-loc" id="c-risen-loc">宁波</div>
           </div>
           <div class="entry-date" id="c-risen-date">2023.06 – 2023.09</div>
         </div>
@@ -638,7 +692,7 @@ body.dark-theme .stat { border-color: #3a3a3e; }
             <div class="entry-company" id="p-dealer-co">竞对渠道监测</div>
             <div class="entry-role" id="p-dealer-role">个人项目 · 每周自动更新</div>
           </div>
-          <div class="entry-date" id="p-dealer-date">2026 – 至今</div>
+          <div class="entry-date" id="p-dealer-date">2026.01-至今</div>
         </div>
         <hr class="entry-divider"/>
         <div class="entry-label" id="p-label1">主要工作</div>
@@ -653,7 +707,7 @@ body.dark-theme .stat { border-color: #3a3a3e; }
           <span class="tag" id="t3">数据可视化</span>
           <span class="tag">Python</span>
         </div>
-        <a class="entry-link" href="report/report.html" target="_blank" id="dealer-link">► 查看最新报告</a>
+        <a class="entry-link" href="report/report.html" target="_blank" id="dealer-link">查看最新报告</a>
       </div>
 
       <div class="entry">
@@ -694,7 +748,7 @@ body.dark-theme .stat { border-color: #3a3a3e; }
           </div>
         </div>
         <div class="edu-item">
-          <div class="edu-dot" style="background:#aaa"></div>
+          <div class="edu-dot"></div>
           <div class="edu-body">
             <div class="edu-left">
               <div class="edu-school" id="e2-school">温州肯恩大学</div>
@@ -780,9 +834,9 @@ var T = {
     about_bio: '悉尼大学计算机硕士在读，本科会计学背景，横跨商业分析与软件工程。曾在捷豹路虎、极氪智能科技等头部汽车企业完成多段实习，专注数据驱动决策、自动化工具开发与市场研究。',
     stat_a:'段实习经历', stat_b:'追踪汽车品牌', stat_c:'监测经销商网点', stat_d:'报表效率提升',
     career_heading:'Career',
-    jlr_co:'捷豹路虎中国', jlr_role:'商务运营实习生', jlr_loc:'📍 上海', jlr_date:'2025.12 – 2026.03',
-    zeekr_co:'极氪智能科技', zeekr_role:'商业分析实习生', zeekr_loc:'📍 上海', zeekr_date:'2025.07 – 2025.10',
-    risen_co:'东方日升新能源', risen_role:'海外市场实习生', risen_loc:'📍 宁波', risen_date:'2023.06 – 2023.09',
+    jlr_co:'捷豹路虎中国', jlr_role:'商务运营实习生', jlr_loc:'上海', jlr_date:'2025.12 – 2026.03',
+    zeekr_co:'极氪智能科技', zeekr_role:'商业分析实习生', zeekr_loc:'上海', zeekr_date:'2025.07 – 2025.10',
+    risen_co:'东方日升新能源', risen_role:'海外市场实习生', risen_loc:'宁波', risen_date:'2023.06 – 2023.09',
     label_contrib:'主要贡献',
     jlr1:'<strong>渠道洞察</strong> — <span class="dim">基于 Claude Code 搭建经销商网络自动监测体系，覆盖 15+ 品牌、10,000+ 网点，调研周期压缩至小时级</span>',
     jlr2:'<strong>竞对分析</strong> — <span class="dim">分析 5+ 豪华品牌销量与产品规划，输出 5+ 份竞品分析报告</span>',
@@ -797,13 +851,13 @@ var T = {
     risen3:'<strong>竞品研究</strong> — <span class="dim">追踪 Amazon 竞品，建立竞品对比底表</span>',
     risen4:'<strong>商务支持</strong> — <span class="dim">对接北美客户，辅助新品介绍与选品</span>',
     proj_heading:'Projects',
-    dealer_co:'竞对渠道监测', dealer_role:'个人项目 · 每周自动更新', dealer_date:'2026 – 至今',
+    dealer_co:'竞对渠道监测', dealer_role:'个人项目 · 每周自动更新', dealer_date:'2026.01-至今',
     label_work:'主要工作',
     dealer1:'<strong>市场覆盖度洞察</strong> — <span class="dim">横向对比 17 个品牌在全国 31 省、各线城市的渠道渗透差异</span>',
     dealer2:'<strong>渠道动态监测</strong> — <span class="dim">周度追踪 8,700+ 网点新增/退出/迁址事件</span>',
     dealer3:'<strong>数据自动化</strong> — <span class="dim">全自动数据流水线，从原始数据到可视化报告零人工介入</span>',
     t1:'渠道分析', t2:'市场研究', t3:'数据可视化',
-    dealer_link:'► 查看最新报告',
+    dealer_link:'查看最新报告',
     sjtu_co:'上海交通大学国际暑校', sjtu_role:'市场营销课程助教', sjtu_date:'2024.06 – 2024.08',
     label_contrib2:'主要贡献',
     sjtu1:'<span class="dim">辅导 30+ 名学生开展市场调研项目，基于 Stata 和 Excel 进行数据建模与回归分析</span>',
@@ -822,9 +876,9 @@ var T = {
     about_bio: 'Master of Computer Science candidate at the University of Sydney, with a Bachelor of Accounting background bridging business analytics and software engineering. Multiple internship stints at top automotive companies including Jaguar Land Rover and ZEEKR, focused on data-driven decision-making, automation, and market research.',
     stat_a:'Internships', stat_b:'Brands Tracked', stat_c:'Dealers Monitored', stat_d:'Reporting Faster',
     career_heading:'Career',
-    jlr_co:'Jaguar Land Rover China', jlr_role:'Business Operations Intern', jlr_loc:'📍 Shanghai', jlr_date:'Dec 2025 – Mar 2026',
-    zeekr_co:'ZEEKR Intelligent Technology', zeekr_role:'Business Analysis Intern', zeekr_loc:'📍 Shanghai', zeekr_date:'Jul 2025 – Oct 2025',
-    risen_co:'Risen Energy Co., Ltd.', risen_role:'Overseas Marketing Intern', risen_loc:'📍 Ningbo', risen_date:'Jun 2023 – Sep 2023',
+    jlr_co:'Jaguar Land Rover China', jlr_role:'Business Operations Intern', jlr_loc:'Shanghai', jlr_date:'Dec 2025 – Mar 2026',
+    zeekr_co:'ZEEKR Intelligent Technology', zeekr_role:'Business Analysis Intern', zeekr_loc:'Shanghai', zeekr_date:'Jul 2025 – Oct 2025',
+    risen_co:'Risen Energy Co., Ltd.', risen_role:'Overseas Marketing Intern', risen_loc:'Ningbo', risen_date:'Jun 2023 – Sep 2023',
     label_contrib:'Key Contributions',
     jlr1:'<strong>Channel Insights</strong> — <span class="dim">Built automated dealer monitoring via Claude Code covering 15+ brands & 10,000+ outlets, compressing research to hours</span>',
     jlr2:'<strong>Competitive Analysis</strong> — <span class="dim">Analyzed 5+ luxury brands\' sales and product strategies, delivered 5+ competitive reports</span>',
@@ -839,13 +893,13 @@ var T = {
     risen3:'<strong>Competitive Research</strong> — <span class="dim">Tracked Amazon competitors, built comparison database</span>',
     risen4:'<strong>Business Support</strong> — <span class="dim">Supported North American client product selection</span>',
     proj_heading:'Projects',
-    dealer_co:'Competitor Dealer Network Monitor', dealer_role:'Personal Project · Weekly Auto-Update', dealer_date:'2026 – Present',
+    dealer_co:'Competitor Dealer Network Monitor', dealer_role:'Personal Project · Weekly Auto-Update', dealer_date:'Jan 2026 - Present',
     label_work:'Key Work',
     dealer1:'<strong>Market Coverage</strong> — <span class="dim">Cross-brand penetration analysis across 31 provinces and all city tiers</span>',
     dealer2:'<strong>Channel Dynamics</strong> — <span class="dim">Weekly tracking of 8,700+ outlets for openings, exits, and relocations</span>',
     dealer3:'<strong>Pipeline Automation</strong> — <span class="dim">Fully automated weekly pipeline from raw data to visual report</span>',
     t1:'Channel Analysis', t2:'Market Research', t3:'Data Visualization',
-    dealer_link:'► View Latest Report',
+    dealer_link:'View Latest Report',
     sjtu_co:'SJTU International Summer School', sjtu_role:'Marketing Teaching Assistant', sjtu_date:'Jun 2024 – Aug 2024',
     label_contrib2:'Key Contributions',
     sjtu1:'<span class="dim">Tutored 30+ students in market research using Stata and Excel for data modeling and regression</span>',
