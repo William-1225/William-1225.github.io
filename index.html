@@ -1,193 +1,902 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Academic Webpage" />
-    <meta name="author" content="yixin0313" />
-    <title id="title"></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="author" content="Pinrun Chen">
+<meta name="description" content="William's Homepage">
+<title>William's Homepage</title>
+<link rel="icon" href="static/assets/favicon.ico">
+<style>
+/* ─── FONT (Chic: Chinese-first system stack) ─── */
+@charset "utf-8";
+body {
+  font-size: 11pt;
+  font-weight: normal;
+  line-height: 2em;
+  overflow: overlay;
+  background-color: #fbfbfb;
+  color: #161209;
+  font-family: 'Microsoft Jhenghei', 'Lantinghei SC', 'PingFang SC', 'Segoe UI', 'Microsoft Yahei', Arial, sans-serif;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+  margin: 0;
+}
 
-    <!-- Icon -->
-    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+/* ─── SCROLLBAR (Chic: applied to html, overlay on body) ─── */
+html::-webkit-scrollbar { width: 8px; height: 8px; }
+html::-webkit-scrollbar-thumb { height: 40px; background-color: #eee; border-radius: 16px; }
+html::-webkit-scrollbar-thumb:hover { background-color: #ddd; }
+body.dark-theme {
+  background-color: #292a2d;
+  color: #a9a9b3;
+  overflow: overlay;
+}
+*,*::before,*::after { box-sizing: border-box; }
 
-    <!-- Bootstrap icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+/* ─── LINKS ─── */
+a {
+  color: #161209;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+}
+a:hover { color: #2d96bd; text-decoration: none; }
+body.dark-theme a { color: #a9a9b3; }
+body.dark-theme a:hover { color: #fff; }
 
-    <!-- Google fonts-->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap"
-        rel="stylesheet" />
+/* ─── WRAPPER ─── */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
 
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link type="text/css" href="static/css/styles.css" rel="stylesheet" />
-    <link type="text/css" href="static/css/main.css" rel="stylesheet" />
+/* ─── NAVBAR (desktop) ─── */
+.navbar {
+  height: 4rem;
+  line-height: 4rem;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  background-color: #fbfbfb;
+  transition: background-color 0.2s ease;
+}
+body.dark-theme .navbar { background-color: #292a2d; }
+.navbar .container {
+  width: auto;
+  max-width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.header-logo a {
+  padding: 0;
+  font-size: 11pt;
+  color: #161209;
+}
+body.dark-theme .header-logo a { color: #a9a9b3; }
+.navbar .menu { display: flex; align-items: center; }
+.navbar .menu a,
+.navbar .menu button.menu-item {
+  padding: 0 8px;
+  color: #161209;
+  font-size: 11pt;
+  font-family: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 4rem;
+  transition: color 0.2s ease;
+}
+body.dark-theme .navbar .menu a,
+body.dark-theme .navbar .menu button.menu-item { color: #a9a9b3; }
+.navbar .menu a:hover,
+.navbar .menu button.menu-item:hover { background-color: transparent; color: #2d96bd; }
+body.dark-theme .navbar .menu a:hover,
+body.dark-theme .navbar .menu button.menu-item:hover { color: #fff; }
+.navbar .menu .active { font-weight: 900; color: #161209; }
+body.dark-theme .navbar .menu .active { color: #fff; }
 
-    <!-- Bootstrap core JS-->
-    <script type="text/javascript" src="static/js/bootstrap.bundle.min.js"></script>
+/* dark mode toggle (Chic-style checkbox) */
+.switch_default { display: none; }
+.toggleBtn {
+  margin-left: 15px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background: #ccc;
+  border-radius: 20px;
+  vertical-align: middle;
+  transform: translateY(0.1em) translateX(0.5em);
+  transition: background 0.2s;
+}
+.toggleBtn::after {
+  content: '';
+  position: absolute;
+  width: 16px; height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  top: 2px; left: 2px;
+  transition: left 0.2s;
+}
+.switch_default:checked + .toggleBtn { background: #2d96bd; }
+.switch_default:checked + .toggleBtn::after { left: 22px; }
 
-    <!-- For Compatability -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+/* lang toggle button */
+.lang-btn {
+  padding: 0 8px;
+  color: #161209;
+  font-size: 11pt;
+  font-family: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 4rem;
+  transition: color 0.2s ease;
+}
+body.dark-theme .lang-btn { color: #a9a9b3; }
+.lang-btn:hover { color: #2d96bd; }
+body.dark-theme .lang-btn:hover { color: #fff; }
 
-    <!-- Markdown -->
-    <script type="text/javascript" src="static/js/marked.min.js"></script>
+/* ─── MOBILE NAV ─── */
+.navbar-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #fbfbfb;
+  transition: background-color 0.2s;
+}
+body.dark-theme .navbar-mobile { background-color: #292a2d; }
+.navbar-mobile .container {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.navbar-mobile .navbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  line-height: 4rem;
+}
+.navbar-mobile .navbar-header a { color: #161209; font-size: 11pt; }
+body.dark-theme .navbar-mobile .navbar-header a { color: #a9a9b3; }
+#mobile-toggle-theme { margin-left: .5em; color: #a9a9b3 !important; font-size: 10pt; }
+.menu-toggle {
+  cursor: pointer;
+  font-size: 11pt;
+  color: #161209;
+  user-select: none;
+}
+body.dark-theme .menu-toggle { color: #a9a9b3; }
+.navbar-mobile .menu {
+  display: none;
+  flex-direction: column;
+  padding-bottom: .75em;
+}
+.navbar-mobile .menu.active { display: flex; }
+.navbar-mobile .menu a,
+.navbar-mobile .menu button.menu-item {
+  display: block;
+  padding: .3em 0;
+  color: #161209;
+  font-size: 11pt;
+  font-family: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  line-height: 2em;
+}
+body.dark-theme .navbar-mobile .menu a,
+body.dark-theme .navbar-mobile .menu button.menu-item { color: #a9a9b3; }
 
-    <!-- Mathematics -->
-    <script>
-        // See https://docs.mathjax.org/en/latest/index.html for more details.
-        MathJax = {
-            tex: {
-                packages: {},              // extensions to use
-                inlineMath: [              // start/end delimiter pairs for in-line math
-                    ['$', '$'],
-                    ['\\(', '\\)']
-                ],
-                displayMath: [             // start/end delimiter pairs for display math
-                    ['$$', '$$'],
-                    ['\\[', '\\]']
-                ],
-                processEscapes: false,      // use \$ to produce a literal dollar sign
-                processEnvironments: true, // process \begin{xxx}...\end{xxx} outside math mode
-                processRefs: true,         // process \ref{...} outside of math mode
-                digits: /^(?:[0-9]+(?:\{,\}[0-9]{3})*(?:\.[0-9]*)?|\.[0-9]+)/,    // pattern for recognizing numbers
-                tags: 'all',              // or 'ams' or 'all'
-                tagSide: 'right',          // side for \tag macros
-                tagIndent: '0.8em',        // amount to indent tags
-                useLabelIds: true,         // use label name rather than tag for ids
-                maxMacros: 10000,          // maximum number of macro substitutions per expression
-                maxBuffer: 5 * 1024,       // maximum size for the internal TeX string (5K)
-                // baseURL:                   // URL for use with links to tags (when there is a <base> tag in effect)
-                // (document.getElementsByTagName('base').length === 0) ? '' : String(document.location).replace(/#.*$/, ''),
-                formatError:               // function called when TeX syntax errors occur
-                    (jax, err) => jax.formatError(err)
-            }
-        };
-    </script>
-    <script type="text/javascript" id="MathJax-script"
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-    <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+/* ─── MAIN ─── */
+.main {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+  display: flex;
+  flex-direction: column;
+  padding-top: 4rem;
+}
 
-    <!-- Core JS-->
-    <script type="text/javascript" src="static/js/scripts.js"></script>
-    <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
+/* ─── HERO / PROFILE ─── */
+#hero-view {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.intro {
+  text-align: center;
+}
+.intro .avatar { padding: 10px; }
+.intro .avatar img {
+  width: 128px;
+  height: auto;
+  display: inline-block;
+  border-radius: 100%;
+  box-shadow: 0 0 0 0.3618em rgba(0, 0, 0, 0.05);
+  transition: all ease 0.4s;
+}
+.intro .avatar img:hover {
+  transform: translateY(-0.75em);
+}
+.nickname {
+  font-size: 2em;
+  font-weight: normal;
+  color: #161209;
+  transition: color 0.2s ease;
+}
+body.dark-theme .nickname { color: #a9a9b3; }
+.description {
+  color: inherit;
+  font-size: 11pt;
+  line-height: 2em;
+}
+.links a, .links button.link-item {
+  padding: 0 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 11pt;
+  font-family: inherit;
+  color: #161209;
+  transition: color 0.2s ease;
+}
+.links a:hover, .links button.link-item:hover { background-color: transparent; color: #2d96bd; }
+body.dark-theme .links a, body.dark-theme .links button.link-item { color: #a9a9b3; }
+body.dark-theme .links a:hover, body.dark-theme .links button.link-item:hover { color: #fff; }
+.links .icon {
+  font-size: 2em;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}
+.links .icon svg {
+  width: 1em; height: 1em;
+  fill: currentColor;
+  display: block;
+}
 
+/* ─── CONTENT PAGES ─── */
+.page-view {
+  display: none;
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 2rem 1em 4rem;
+}
+.page-view.active { display: block; }
+
+/* Page section heading */
+.page-heading {
+  font-size: 1.5em;
+  font-weight: normal;
+  color: #161209;
+  margin-bottom: .2em;
+  padding-bottom: .3em;
+  border-bottom: 1px solid #e0e0e0;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+body.dark-theme .page-heading { color: #a9a9b3; border-color: #3a3a3e; }
+
+/* Card */
+.entry {
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  padding: 1.4em 1.6em;
+  margin-bottom: 1.2em;
+  transition: border-color 0.2s ease;
+}
+body.dark-theme .entry { border-color: #3a3a3e; }
+.entry:hover { border-color: #2d96bd; }
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: .5em;
+  margin-bottom: .6em;
+}
+.entry-company {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #161209;
+  transition: color 0.2s;
+}
+body.dark-theme .entry-company { color: #e0e0e0; }
+.entry-date {
+  font-size: .85em;
+  color: #888;
+  white-space: nowrap;
+}
+.entry-role {
+  font-size: .9em;
+  color: #555;
+  line-height: 1.5;
+}
+body.dark-theme .entry-role { color: #888; }
+.entry-loc {
+  font-size: .82em;
+  color: #aaa;
+}
+.entry-divider {
+  border: none;
+  border-top: 1px solid #e8e8e8;
+  margin: .8em 0;
+  transition: border-color 0.2s;
+}
+body.dark-theme .entry-divider { border-color: #3a3a3e; }
+.entry-label {
+  font-size: .78em;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: .5em;
+}
+.entry-bullets {
+  padding-left: 1.2em;
+  margin: 0;
+}
+.entry-bullets li {
+  font-size: .92em;
+  line-height: 1.8;
+  margin-bottom: .3em;
+  color: #161209;
+  transition: color 0.2s;
+}
+body.dark-theme .entry-bullets li { color: #a9a9b3; }
+.entry-bullets li strong { font-weight: 600; color: inherit; }
+.dim { color: #666; }
+body.dark-theme .dim { color: #777; }
+
+/* Tags */
+.entry-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35em;
+  margin-top: .8em;
+}
+.tag {
+  font-size: .75em;
+  color: #2d96bd;
+  border: 1px solid #2d96bd;
+  border-radius: 3px;
+  padding: .1em .5em;
+  line-height: 1.6;
+}
+body.dark-theme .tag { color: #6bafd0; border-color: #6bafd0; }
+
+/* Entry link */
+.entry-link {
+  display: inline-block;
+  margin-top: .8em;
+  font-size: .9em;
+  color: #2d96bd;
+}
+body.dark-theme .entry-link { color: #6bafd0; }
+
+/* Education */
+.edu-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 1.4em 1.6em;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+body.dark-theme .edu-item { border-color: #3a3a3e; }
+.edu-item:hover { border-color: #2d96bd; }
+.edu-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: #2d96bd;
+  flex-shrink: 0;
+}
+.edu-body { flex: 1; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .4em; }
+.edu-left {}
+.edu-school { font-size: 1.05em; font-weight: 600; color: #161209; transition: color .2s; }
+body.dark-theme .edu-school { color: #e0e0e0; }
+.edu-degree { font-size: .9em; color: #555; transition: color .2s; margin-top: .15em; }
+body.dark-theme .edu-degree { color: #888; }
+.edu-date { font-size: .85em; color: #888; white-space: nowrap; }
+
+/* About stats */
+.about-bio {
+  font-size: 11pt;
+  line-height: 2em;
+  color: #555;
+  margin-bottom: 1.5em;
+  transition: color .2s;
+}
+body.dark-theme .about-bio { color: #888; }
+.stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8em;
+}
+.stat {
+  flex: 1;
+  min-width: 120px;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  padding: 1em;
+  text-align: center;
+  transition: border-color .2s;
+}
+body.dark-theme .stat { border-color: #3a3a3e; }
+.stat:hover { border-color: #2d96bd; }
+.stat-num { font-size: 1.8em; font-weight: 300; color: #2d96bd; display: block; line-height: 1.2; }
+.stat-label { font-size: .78em; color: #aaa; margin-top: .2em; }
+
+/* ─── FOOTER ─── */
+.footer {
+  height: 4rem;
+  width: 100%;
+  text-align: center;
+  line-height: 4rem;
+  font-size: 11pt;
+}
+.copyright { font-size: 14px; }
+
+/* ─── CONTAINER ─── */
+.container {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+/* ─── HERO NO-SCROLL ─── */
+/* overflow:hidden removed — footer was getting clipped by browser chrome */
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .navbar { display: none; }
+  .navbar-mobile { display: block; }
+  .intro { transform: translateY(10vh); }
+  .page-view { padding: 1.5rem 1em 3rem; }
+  .entry { padding: 1em 1.2em; }
+  .entry-header { flex-direction: column; gap: .2em; }
+}
+</style>
 </head>
+<body>
 
-<body id="page-top">
-    <!-- Navigation-->
-    <nav class="header navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
-        <div class="container px-5">
-            <a id="page-top-title" class="navbar-brand fw-bold" href="#page-top"></a>
-            <!-- <a href="#page-top"><img src="static/assets/img/CUMT_LOGO.svg" style="width: 11rem;"></a> -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                MENU
-                <i class="bi-list"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                    <li class="nav-item">
-                        <a id="nav-home" class="nav-link me-lg-3" href="#home">首页</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="nav-education" class="nav-link me-lg-3" href="#education">教育经历</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="nav-experience" class="nav-link me-lg-3" href="#experience">实习经历</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="nav-project" class="nav-link me-lg-3" href="#project">项目经历</a>
-                    </li>
-                    <li class="nav-item">
-                        <button id="lang-toggle" class="btn btn-outline-primary btn-sm">EN</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Top Section -->
-    <section class="top-section" style="background-image: url('static/assets/img/background.jpeg');">
-        <div class="top-section-content">
-            <div class="container px-5">
-                <h2 id="top-section-bg-text" class="text-white display-3 lh-1 font-alt"></h2>
-            </div>
-        </div>
-    </section>
-    <!-- Top Section -->
-
-    <!-- Photo -->
-    <div class="container px-5">
-        <div id="avatar">
-            <img class="shadow" src="static/assets/img/photo.png">
-        </div>
+<!-- ── DESKTOP NAV ── -->
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-header header-logo">
+        <a href="#" onclick="showHero(event)">Pinrun Chen</a>
+      </div>
+      <div class="menu navbar-right">
+        <button class="menu-item" data-page="about" onclick="showPage('about',this)">About</button>
+        <button class="menu-item" data-page="career" onclick="showPage('career',this)">Career</button>
+        <button class="menu-item" data-page="projects" onclick="showPage('projects',this)">Projects</button>
+        <button class="menu-item" data-page="education" onclick="showPage('education',this)">Education</button>
+        <button class="lang-btn" id="lang-btn" onclick="toggleLang()">EN</button>
+        <input id="switch_default" type="checkbox" class="switch_default">
+        <label for="switch_default" class="toggleBtn" title="Toggle dark mode"></label>
+      </div>
     </div>
-    <!-- Photo -->
+  </nav>
 
-    <!-- Home -->
-    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="home">
-        <div class="container px-5">
-            <header>
-                <h2 id="home-subtitle"> </h2>
-                <!-- <span class="bi bi-list"></span> -->
-            </header>
-            <div class="main-body" id="home-md"></div>
+  <!-- ── MOBILE NAV ── -->
+  <nav class="navbar-mobile" id="nav-mobile">
+    <div class="container">
+      <div class="navbar-header">
+        <div>
+          <a href="#" onclick="showHero(event)">Pinrun Chen</a>
+          <a id="mobile-toggle-theme" onclick="toggleThemeManual()">·&nbsp;Light</a>
         </div>
-    </section>
-    <!-- Home -->
-    
-    <!-- Education -->
-    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="education">
-        <div class="container px-5">
-            <header>
-                <h2 id="education-subtitle"><i class="bi-layers-fill"></i> EDUCATION</h2>
-            </header>
-            <div class="main-body" id="education-md"></div>
-        </div>
-    </section>
-    <!-- Education -->
+        <div class="menu-toggle" onclick="mobileBtn()">☰ Menu</div>
+      </div>
+      <div class="menu" id="mobile-menu">
+        <button class="menu-item" onclick="showPage('about',null,true)">About</button>
+        <button class="menu-item" onclick="showPage('career',null,true)">Career</button>
+        <button class="menu-item" onclick="showPage('projects',null,true)">Projects</button>
+        <button class="menu-item" onclick="showPage('education',null,true)">Education</button>
+        <button class="lang-btn" onclick="toggleLang()">EN</button>
+      </div>
+    </div>
+  </nav>
+</header>
 
-    <!-- Experience -->
-    <section class="bg-gradient-primary-to-secondary-dark mt5 md5" id="experience">
-        <div class="container px-5">
-            <header>
-                <h2 id="experience-subtitle"><i class="bi bi-briefcase-fill"></i> 实习经历 </h2>
-            </header>
-            <div class="main-body" id="experience-md"></div>
-        </div>
-    </section>
-    <!-- Experience -->
+<!-- ── WRAPPER ── -->
+<div class="wrapper">
+  <div class="main">
 
-    <!-- Project -->
-    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="project">
-        <div class="container px-5">
-            <header>
-                <h2 id="project-subtitle"><i class="bi bi-file-earmark-code-fill"></i> 项目经历 </h2>
-            </header>
-            <div class="main-body" id="project-md"></div>
+    <!-- HERO -->
+    <div id="hero-view">
+      <div class="container profile-container">
+        <div class="intro">
+          <div class="avatar">
+            <img src="static/assets/img/photo.png" alt="William" />
+          </div>
+          <div class="nickname" id="hero-name">陈品润 · William</div>
+          <div class="description" id="hero-desc">
+            悉尼大学计算机硕士在读
+          </div>
+          <div class="links">
+            <a class="link-item" title="GitHub" href="https://github.com/William-1225" target="_blank">
+              <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></span>
+            </a>
+            <a class="link-item" title="Email" href="mailto:pinrunc@gmail.com">
+              <span class="icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+            </a>
+          </div>
         </div>
-    </section>
-    <!-- Project -->
+      </div>
 
-    <!-- Footer-->
-    <footer class="bg-bottom text-center py-5">
-        <div class="container px-5">
-            <div class="text-white-50 small">
-                <div id="copyright-text" class="mb-2"></div>
-                <a id="github-link" href="https://github.com/senli1073">Github</a>
-                <span class="mx-1">&middot;</span>
-                <a id="license-link"
-                    href="https://github.com/senli1073/senli1073.github.io/blob/main/LICENSE">License</a>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="page-view" id="page-about">
+      <div class="page-heading" id="about-heading">About</div>
+      <br>
+      <p class="about-bio" id="about-bio">悉尼大学计算机硕士在读，本科会计学背景，横跨商业分析与软件工程。曾在捷豹路虎、极氪智能科技等头部汽车企业完成多段实习，专注数据驱动决策、自动化工具开发与市场研究。</p>
+      <div class="stats-row">
+        <div class="stat"><span class="stat-num">3</span><div class="stat-label" id="stat-a">段实习经历</div></div>
+        <div class="stat"><span class="stat-num">17</span><div class="stat-label" id="stat-b">追踪汽车品牌</div></div>
+        <div class="stat"><span class="stat-num">8700+</span><div class="stat-label" id="stat-c">监测经销商网点</div></div>
+        <div class="stat"><span class="stat-num">60%</span><div class="stat-label" id="stat-d">报表效率提升</div></div>
+      </div>
+          </div>
+
+    <!-- CAREER -->
+    <div class="page-view" id="page-career">
+      <div class="page-heading" id="career-heading">Career</div>
+      <br>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <div class="entry-company" id="c-jlr-co">捷豹路虎中国</div>
+            <div class="entry-role" id="c-jlr-role">商务运营实习生</div>
+            <div class="entry-loc" id="c-jlr-loc">📍 上海</div>
+          </div>
+          <div class="entry-date" id="c-jlr-date">2025.12 – 2026.03</div>
+        </div>
+        <hr class="entry-divider"/>
+        <div class="entry-label" id="c-label1">主要贡献</div>
+        <ul class="entry-bullets">
+          <li id="jlr1"><strong>渠道洞察</strong> — <span class="dim">基于 Claude Code 搭建经销商网络自动监测体系，覆盖 15+ 品牌、10,000+ 网点，调研周期压缩至小时级</span></li>
+          <li id="jlr2"><strong>竞对分析</strong> — <span class="dim">分析 5+ 豪华品牌销量与产品规划，输出 5+ 份竞品分析报告，支持产品定位与市场策略</span></li>
+          <li id="jlr3"><strong>残值研究</strong> — <span class="dim">整合中汽协 5,000+ 条二手车交易数据，构建残值分析底表，支持定价与生命周期管理</span></li>
+          <li id="jlr4"><strong>情报综研</strong> — <span class="dim">持续追踪 20+ 车企月度销量，撰写 3 期月度市场快报及 5+ 专题分析报告</span></li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <div class="entry-company" id="c-zeekr-co">极氪智能科技</div>
+            <div class="entry-role" id="c-zeekr-role">商业分析实习生</div>
+            <div class="entry-loc" id="c-zeekr-loc">📍 上海</div>
+          </div>
+          <div class="entry-date" id="c-zeekr-date">2025.07 – 2025.10</div>
+        </div>
+        <hr class="entry-divider"/>
+        <div class="entry-label" id="c-label2">主要贡献</div>
+        <ul class="entry-bullets">
+          <li id="zeekr1"><strong>数据分析</strong> — <span class="dim">基于销售漏斗模型拆解上海战区全链路数据，定位转化瓶颈，输出分析报告</span></li>
+          <li id="zeekr2"><strong>看板搭建</strong> — <span class="dim">Python + Playwright 自动采集多源数据，报表产出耗时降低约 60%</span></li>
+          <li id="zeekr3"><strong>运营优化</strong> — <span class="dim">实地调研 5+ 门店，识别一线运营痛点，支持区域销售 SOP 优化</span></li>
+          <li id="zeekr4"><strong>市场研究</strong> — <span class="dim">跟踪 5+ 竞品品牌动态，撰写专题分析报告</span></li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <div class="entry-company" id="c-risen-co">东方日升新能源</div>
+            <div class="entry-role" id="c-risen-role">海外市场实习生</div>
+            <div class="entry-loc" id="c-risen-loc">📍 宁波</div>
+          </div>
+          <div class="entry-date" id="c-risen-date">2023.06 – 2023.09</div>
+        </div>
+        <hr class="entry-divider"/>
+        <div class="entry-label" id="c-label3">主要贡献</div>
+        <ul class="entry-bullets">
+          <li id="risen1"><strong>数据监控</strong> — <span class="dim">维护 ERP 系统出海订单全流程交付节点，提升订单履约效率</span></li>
+          <li id="risen2"><strong>获客分析</strong> — <span class="dim">多渠道线索价值评估与优先级排序，识别高意向客户，提升转化效率</span></li>
+          <li id="risen3"><strong>竞品研究</strong> — <span class="dim">追踪 Amazon 竞品动态，建立竞品对比底表，为新品开发提供数据支撑</span></li>
+          <li id="risen4"><strong>商务支持</strong> — <span class="dim">对接北美存量客户，辅助新品介绍与选品决策</span></li>
+        </ul>
+      </div>
+          </div>
+
+    <!-- PROJECTS -->
+    <div class="page-view" id="page-projects">
+      <div class="page-heading" id="proj-heading">Projects</div>
+      <br>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <div class="entry-company" id="p-dealer-co">竞对渠道监测</div>
+            <div class="entry-role" id="p-dealer-role">个人项目 · 每周自动更新</div>
+          </div>
+          <div class="entry-date" id="p-dealer-date">2026 – 至今</div>
+        </div>
+        <hr class="entry-divider"/>
+        <div class="entry-label" id="p-label1">主要工作</div>
+        <ul class="entry-bullets">
+          <li id="dealer1"><strong>市场覆盖度洞察</strong> — <span class="dim">横向对比 17 个品牌在全国 31 省、各线城市的渠道渗透差异，识别空白区域</span></li>
+          <li id="dealer2"><strong>渠道动态监测</strong> — <span class="dim">周度追踪 8,700+ 网点新增/退出/迁址事件，捕捉竞品扩张收缩信号</span></li>
+          <li id="dealer3"><strong>数据自动化</strong> — <span class="dim">全自动数据流水线，从原始数据到可视化报告零人工介入，效率压缩至小时级</span></li>
+        </ul>
+        <div class="entry-tags">
+          <span class="tag" id="t1">渠道分析</span>
+          <span class="tag" id="t2">市场研究</span>
+          <span class="tag" id="t3">数据可视化</span>
+          <span class="tag">Python</span>
+        </div>
+        <a class="entry-link" href="report/report.html" target="_blank" id="dealer-link">► 查看最新报告</a>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <div class="entry-company" id="p-sjtu-co">上海交通大学国际暑校</div>
+            <div class="entry-role" id="p-sjtu-role">市场营销课程助教</div>
+          </div>
+          <div class="entry-date" id="p-sjtu-date">2024.06 – 2024.08</div>
+        </div>
+        <hr class="entry-divider"/>
+        <div class="entry-label" id="p-label2">主要贡献</div>
+        <ul class="entry-bullets">
+          <li id="sjtu1"><span class="dim">辅导 30+ 名学生开展市场调研项目，基于 Stata 和 Excel 进行数据建模与回归分析</span></li>
+          <li id="sjtu2"><span class="dim">嵌入 SWOT 与 PESTEL 框架，实现 <strong>100% 结课率</strong>，优秀报告占比环比提升 25%</span></li>
+        </ul>
+        <div class="entry-tags">
+          <span class="tag" id="t4">教学辅导</span>
+          <span class="tag">Stata</span>
+          <span class="tag">Excel</span>
+        </div>
+      </div>
+          </div>
+
+    <!-- EDUCATION -->
+    <div class="page-view" id="page-education">
+      <div class="page-heading" id="edu-heading">Education</div>
+      <br>
+      <div>
+        <div class="edu-item">
+          <div class="edu-dot"></div>
+          <div class="edu-body">
+            <div class="edu-left">
+              <div class="edu-school" id="e1-school">悉尼大学</div>
+              <div class="edu-degree" id="e1-degree">计算机科学硕士</div>
             </div>
+            <div class="edu-date" id="e1-date">2025.02 – 2027.02</div>
+          </div>
         </div>
-    </footer>
+        <div class="edu-item">
+          <div class="edu-dot" style="background:#aaa"></div>
+          <div class="edu-body">
+            <div class="edu-left">
+              <div class="edu-school" id="e2-school">温州肯恩大学</div>
+              <div class="edu-degree" id="e2-degree">会计学学士</div>
+            </div>
+            <div class="edu-date" id="e2-date">2020.09 – 2024.07</div>
+          </div>
+        </div>
+      </div>
+          </div>
 
+  </div><!-- /.main -->
+
+  <footer class="footer">
+    <div class="copyright">
+      <span>© Pinrun Chen | Powered by <a href="https://github.com/William-1225" target="_blank">GitHub</a> &amp; <a href="https://siricee.github.io/hexo-theme-Chic/" target="_blank">Chic</a></span>
+    </div>
+  </footer>
+</div><!-- /.wrapper -->
+
+<script>
+// ── DARK MODE (Chic uses body.dark-theme + checkbox) ──
+var checkbox = document.getElementById('switch_default');
+var mobileThemeLink = document.getElementById('mobile-toggle-theme');
+
+function applyTheme(dark) {
+  if (dark) {
+    document.body.classList.add('dark-theme');
+    checkbox.checked = true;
+    if (mobileThemeLink) mobileThemeLink.textContent = '· Dark';
+  } else {
+    document.body.classList.remove('dark-theme');
+    checkbox.checked = false;
+    if (mobileThemeLink) mobileThemeLink.textContent = '· Light';
+  }
+  localStorage.setItem('theme', dark ? 'dark' : 'light');
+}
+checkbox.addEventListener('change', function() { applyTheme(this.checked); });
+function toggleThemeManual() { applyTheme(!checkbox.checked); }
+// init
+(function() {
+  var saved = localStorage.getItem('theme');
+  applyTheme(saved === 'dark');
+})();
+
+// ── MOBILE MENU ──
+function mobileBtn() {
+  var menu = document.getElementById('mobile-menu');
+  menu.classList.toggle('active');
+}
+
+// ── PAGE ROUTING ──
+var currentPage = null;
+function showHero(e) {
+  if (e) e.preventDefault();
+  document.getElementById('hero-view').style.display = '';
+  document.querySelectorAll('.page-view').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.menu-item[data-page]').forEach(function(b){ b.classList.remove('active'); });
+  currentPage = null;
+  document.getElementById('mobile-menu').classList.remove('active');
+  window.scrollTo(0,0);
+}
+function showPage(id, btn, fromMobile) {
+  document.getElementById('hero-view').style.display = 'none';
+  document.querySelectorAll('.page-view').forEach(function(p){ p.classList.remove('active'); });
+  document.getElementById('page-' + id).classList.add('active');
+  document.querySelectorAll('.menu-item[data-page]').forEach(function(b){ b.classList.remove('active'); });
+  document.querySelectorAll('.menu-item[data-page="'+id+'"]').forEach(function(b){ b.classList.add('active'); });
+  currentPage = id;
+  if (fromMobile) document.getElementById('mobile-menu').classList.remove('active');
+  window.scrollTo(0,0);
+}
+
+// ── LANG ──
+var lang = 'zh';
+var T = {
+  zh: {
+    brand: 'Pinrun Chen',
+    nav: ['About','Career','Projects','Education'],
+    hero_name: '陈品润 · William',
+    hero_desc: '悉尼大学计算机硕士在读',
+    about_heading: 'About',
+    about_bio: '悉尼大学计算机硕士在读，本科会计学背景，横跨商业分析与软件工程。曾在捷豹路虎、极氪智能科技等头部汽车企业完成多段实习，专注数据驱动决策、自动化工具开发与市场研究。',
+    stat_a:'段实习经历', stat_b:'追踪汽车品牌', stat_c:'监测经销商网点', stat_d:'报表效率提升',
+    career_heading:'Career',
+    jlr_co:'捷豹路虎中国', jlr_role:'商务运营实习生', jlr_loc:'📍 上海', jlr_date:'2025.12 – 2026.03',
+    zeekr_co:'极氪智能科技', zeekr_role:'商业分析实习生', zeekr_loc:'📍 上海', zeekr_date:'2025.07 – 2025.10',
+    risen_co:'东方日升新能源', risen_role:'海外市场实习生', risen_loc:'📍 宁波', risen_date:'2023.06 – 2023.09',
+    label_contrib:'主要贡献',
+    jlr1:'<strong>渠道洞察</strong> — <span class="dim">基于 Claude Code 搭建经销商网络自动监测体系，覆盖 15+ 品牌、10,000+ 网点，调研周期压缩至小时级</span>',
+    jlr2:'<strong>竞对分析</strong> — <span class="dim">分析 5+ 豪华品牌销量与产品规划，输出 5+ 份竞品分析报告</span>',
+    jlr3:'<strong>残值研究</strong> — <span class="dim">整合中汽协 5,000+ 条二手车数据，构建残值分析底表，支持定价与生命周期管理</span>',
+    jlr4:'<strong>情报综研</strong> — <span class="dim">持续追踪 20+ 车企，撰写 3 期月度快报及 5+ 专题报告</span>',
+    zeekr1:'<strong>数据分析</strong> — <span class="dim">基于销售漏斗模型拆解上海战区全链路数据，定位转化瓶颈</span>',
+    zeekr2:'<strong>看板搭建</strong> — <span class="dim">Python + Playwright 自动采集多源数据，报表产出耗时降低约 60%</span>',
+    zeekr3:'<strong>运营优化</strong> — <span class="dim">实地调研 5+ 门店，识别一线运营痛点，支持 SOP 优化</span>',
+    zeekr4:'<strong>市场研究</strong> — <span class="dim">跟踪 5+ 竞品品牌动态，撰写专题分析报告</span>',
+    risen1:'<strong>数据监控</strong> — <span class="dim">维护 ERP 系统出海订单全流程交付节点</span>',
+    risen2:'<strong>获客分析</strong> — <span class="dim">多渠道线索价值评估，识别高意向客户</span>',
+    risen3:'<strong>竞品研究</strong> — <span class="dim">追踪 Amazon 竞品，建立竞品对比底表</span>',
+    risen4:'<strong>商务支持</strong> — <span class="dim">对接北美客户，辅助新品介绍与选品</span>',
+    proj_heading:'Projects',
+    dealer_co:'竞对渠道监测', dealer_role:'个人项目 · 每周自动更新', dealer_date:'2026 – 至今',
+    label_work:'主要工作',
+    dealer1:'<strong>市场覆盖度洞察</strong> — <span class="dim">横向对比 17 个品牌在全国 31 省、各线城市的渠道渗透差异</span>',
+    dealer2:'<strong>渠道动态监测</strong> — <span class="dim">周度追踪 8,700+ 网点新增/退出/迁址事件</span>',
+    dealer3:'<strong>数据自动化</strong> — <span class="dim">全自动数据流水线，从原始数据到可视化报告零人工介入</span>',
+    t1:'渠道分析', t2:'市场研究', t3:'数据可视化',
+    dealer_link:'► 查看最新报告',
+    sjtu_co:'上海交通大学国际暑校', sjtu_role:'市场营销课程助教', sjtu_date:'2024.06 – 2024.08',
+    label_contrib2:'主要贡献',
+    sjtu1:'<span class="dim">辅导 30+ 名学生开展市场调研项目，基于 Stata 和 Excel 进行数据建模与回归分析</span>',
+    sjtu2:'<span class="dim">嵌入 SWOT 与 PESTEL 框架，实现 <strong>100% 结课率</strong>，优秀报告占比环比提升 25%</span>',
+    t4:'教学辅导',
+    edu_heading:'Education',
+    e1_school:'悉尼大学', e1_degree:'计算机科学硕士', e1_date:'2025.02 – 2027.02',
+    e2_school:'温州肯恩大学', e2_degree:'会计学学士', e2_date:'2020.09 – 2024.07',
+  },
+  en: {
+    brand: 'Pinrun Chen',
+    nav: ['About','Career','Projects','Education'],
+    hero_name: 'Pinrun Chen · William',
+    hero_desc: 'Master of Computer Science @ University of Sydney',
+    about_heading: 'About',
+    about_bio: 'Master of Computer Science candidate at the University of Sydney, with a Bachelor of Accounting background bridging business analytics and software engineering. Multiple internship stints at top automotive companies including Jaguar Land Rover and ZEEKR, focused on data-driven decision-making, automation, and market research.',
+    stat_a:'Internships', stat_b:'Brands Tracked', stat_c:'Dealers Monitored', stat_d:'Reporting Faster',
+    career_heading:'Career',
+    jlr_co:'Jaguar Land Rover China', jlr_role:'Business Operations Intern', jlr_loc:'📍 Shanghai', jlr_date:'Dec 2025 – Mar 2026',
+    zeekr_co:'ZEEKR Intelligent Technology', zeekr_role:'Business Analysis Intern', zeekr_loc:'📍 Shanghai', zeekr_date:'Jul 2025 – Oct 2025',
+    risen_co:'Risen Energy Co., Ltd.', risen_role:'Overseas Marketing Intern', risen_loc:'📍 Ningbo', risen_date:'Jun 2023 – Sep 2023',
+    label_contrib:'Key Contributions',
+    jlr1:'<strong>Channel Insights</strong> — <span class="dim">Built automated dealer monitoring via Claude Code covering 15+ brands & 10,000+ outlets, compressing research to hours</span>',
+    jlr2:'<strong>Competitive Analysis</strong> — <span class="dim">Analyzed 5+ luxury brands\' sales and product strategies, delivered 5+ competitive reports</span>',
+    jlr3:'<strong>Residual Value</strong> — <span class="dim">Built RV analysis model with 5,000+ used-car transactions to support pricing & lifecycle management</span>',
+    jlr4:'<strong>Market Intelligence</strong> — <span class="dim">Tracked 20+ automakers, published 3 monthly bulletins and 5+ industry reports</span>',
+    zeekr1:'<strong>Data Analysis</strong> — <span class="dim">Full-funnel sales analysis across Shanghai stores, identified conversion bottlenecks</span>',
+    zeekr2:'<strong>Dashboard Build</strong> — <span class="dim">Python + Playwright automation reduced report generation by ~60%</span>',
+    zeekr3:'<strong>Operations</strong> — <span class="dim">On-site audits across 5+ stores, optimized regional sales SOPs</span>',
+    zeekr4:'<strong>Market Research</strong> — <span class="dim">Tracked 5+ competitors, authored strategy reports</span>',
+    risen1:'<strong>Order Monitoring</strong> — <span class="dim">Maintained ERP delivery tracking for overseas orders</span>',
+    risen2:'<strong>Lead Analysis</strong> — <span class="dim">Evaluated multi-channel leads, identified high-value segments</span>',
+    risen3:'<strong>Competitive Research</strong> — <span class="dim">Tracked Amazon competitors, built comparison database</span>',
+    risen4:'<strong>Business Support</strong> — <span class="dim">Supported North American client product selection</span>',
+    proj_heading:'Projects',
+    dealer_co:'Competitor Dealer Network Monitor', dealer_role:'Personal Project · Weekly Auto-Update', dealer_date:'2026 – Present',
+    label_work:'Key Work',
+    dealer1:'<strong>Market Coverage</strong> — <span class="dim">Cross-brand penetration analysis across 31 provinces and all city tiers</span>',
+    dealer2:'<strong>Channel Dynamics</strong> — <span class="dim">Weekly tracking of 8,700+ outlets for openings, exits, and relocations</span>',
+    dealer3:'<strong>Pipeline Automation</strong> — <span class="dim">Fully automated weekly pipeline from raw data to visual report</span>',
+    t1:'Channel Analysis', t2:'Market Research', t3:'Data Visualization',
+    dealer_link:'► View Latest Report',
+    sjtu_co:'SJTU International Summer School', sjtu_role:'Marketing Teaching Assistant', sjtu_date:'Jun 2024 – Aug 2024',
+    label_contrib2:'Key Contributions',
+    sjtu1:'<span class="dim">Tutored 30+ students in market research using Stata and Excel for data modeling and regression</span>',
+    sjtu2:'<span class="dim">Applied SWOT & PESTEL frameworks, achieved <strong>100% completion rate</strong> with 25% increase in excellent reports</span>',
+    t4:'Teaching',
+    edu_heading:'Education',
+    e1_school:'University of Sydney', e1_degree:'Master of Computer Science', e1_date:'Feb 2025 – Feb 2027',
+    e2_school:'Wenzhou-Kean University', e2_degree:'Bachelor of Accounting', e2_date:'Sep 2020 – Jun 2024',
+  }
+};
+
+function applyLang() {
+  var t = T[lang];
+  var setT = function(id, val) { var el = document.getElementById(id); if(el) el.textContent = val; };
+  var setH = function(id, val) { var el = document.getElementById(id); if(el) el.innerHTML = val; };
+  setT('hero-name', t.hero_name);
+  setT('hero-desc', t.hero_desc);
+  setT('about-bio', t.about_bio);
+  setT('about-heading', t.about_heading);
+  setT('stat-a', t.stat_a); setT('stat-b', t.stat_b); setT('stat-c', t.stat_c); setT('stat-d', t.stat_d);
+  setT('career-heading', t.career_heading);
+  setT('c-jlr-co', t.jlr_co); setT('c-jlr-role', t.jlr_role); setT('c-jlr-loc', t.jlr_loc); setT('c-jlr-date', t.jlr_date);
+  setT('c-zeekr-co', t.zeekr_co); setT('c-zeekr-role', t.zeekr_role); setT('c-zeekr-loc', t.zeekr_loc); setT('c-zeekr-date', t.zeekr_date);
+  setT('c-risen-co', t.risen_co); setT('c-risen-role', t.risen_role); setT('c-risen-loc', t.risen_loc); setT('c-risen-date', t.risen_date);
+  setT('c-label1', t.label_contrib); setT('c-label2', t.label_contrib); setT('c-label3', t.label_contrib);
+  setH('jlr1', t.jlr1); setH('jlr2', t.jlr2); setH('jlr3', t.jlr3); setH('jlr4', t.jlr4);
+  setH('zeekr1', t.zeekr1); setH('zeekr2', t.zeekr2); setH('zeekr3', t.zeekr3); setH('zeekr4', t.zeekr4);
+  setH('risen1', t.risen1); setH('risen2', t.risen2); setH('risen3', t.risen3); setH('risen4', t.risen4);
+  setT('proj-heading', t.proj_heading);
+  setT('p-dealer-co', t.dealer_co); setT('p-dealer-role', t.dealer_role); setT('p-dealer-date', t.dealer_date);
+  setT('p-label1', t.label_work);
+  setH('dealer1', t.dealer1); setH('dealer2', t.dealer2); setH('dealer3', t.dealer3);
+  setT('t1', t.t1); setT('t2', t.t2); setT('t3', t.t3);
+  setT('dealer-link', t.dealer_link);
+  setT('p-sjtu-co', t.sjtu_co); setT('p-sjtu-role', t.sjtu_role); setT('p-sjtu-date', t.sjtu_date);
+  setT('p-label2', t.label_contrib2);
+  setH('sjtu1', t.sjtu1); setH('sjtu2', t.sjtu2);
+  setT('t4', t.t4);
+  setT('edu-heading', t.edu_heading);
+  setT('e1-school', t.e1_school); setT('e1-degree', t.e1_degree); setT('e1-date', t.e1_date);
+  setT('e2-school', t.e2_school); setT('e2-degree', t.e2_degree); setT('e2-date', t.e2_date);
+  document.getElementById('lang-btn').textContent = lang === 'zh' ? 'EN' : '中文';
+  document.querySelectorAll('.lang-btn').forEach(function(b){ b.textContent = lang === 'zh' ? 'EN' : '中文'; });
+}
+
+function toggleLang() {
+  lang = lang === 'zh' ? 'en' : 'zh';
+  applyLang();
+}
+
+document.addEventListener('DOMContentLoaded', applyLang);
+</script>
 </body>
-
 </html>
