@@ -549,7 +549,7 @@ body.dark-theme .stat { border-color: #3a3a3e; }
         <button class="menu-item" data-page="career" onclick="showPage('career',this)">Career</button>
         <button class="menu-item" data-page="projects" onclick="showPage('projects',this)">Projects</button>
         <button class="menu-item" data-page="education" onclick="showPage('education',this)">Education</button>
-        <button class="lang-btn" id="lang-btn" onclick="toggleLang()">EN</button>
+        <button class="lang-btn" id="lang-btn" onclick="toggleLang()">中文</button>
         <input id="switch_default" type="checkbox" class="switch_default">
         <label for="switch_default" class="toggleBtn" title="Toggle dark mode"></label>
       </div>
@@ -571,7 +571,7 @@ body.dark-theme .stat { border-color: #3a3a3e; }
         <button class="menu-item" onclick="showPage('career',null,true)">Career</button>
         <button class="menu-item" onclick="showPage('projects',null,true)">Projects</button>
         <button class="menu-item" onclick="showPage('education',null,true)">Education</button>
-        <button class="lang-btn" onclick="toggleLang()">EN</button>
+        <button class="lang-btn" onclick="toggleLang()">中文</button>
       </div>
     </div>
   </nav>
@@ -823,7 +823,7 @@ function showPage(id, btn, fromMobile) {
 }
 
 // ── LANG ──
-var lang = 'zh';
+var lang = 'en';
 var T = {
   zh: {
     brand: 'Pinrun Chen',
