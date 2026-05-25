@@ -126,6 +126,16 @@
   .tab.active{color:var(--acc);border-bottom-color:var(--acc);font-weight:600}
   .dl-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font-size:13px;text-decoration:none;cursor:pointer}
   .dl-btn:hover{border-color:var(--acc);color:var(--acc)}
+  .download-page{padding:56px 64px;background:var(--bg);overflow-y:auto}
+  .download-page .page-title{font-size:22px;font-weight:700;margin-bottom:30px}
+  .download-list{display:flex;flex-direction:column;gap:18px;max-width:960px}
+  .download-page .dl-card{min-height:128px;padding:24px 28px;gap:28px;border-radius:10px}
+  .download-page .dl-card-name{font-size:18px;font-weight:700;margin-bottom:6px}
+  .download-page .dl-card > div:first-child{min-width:360px}
+  .download-page .dl-card-meta{font-size:14px;line-height:1.7;max-width:none;white-space:nowrap}
+  .download-page .dl-actions{gap:14px}
+  .download-page .dl-select{min-width:270px;height:48px;font-size:16px;line-height:48px;padding:0 44px 0 24px;border-radius:8px}
+  .download-page .dl-btn{font-size:16px;padding:11px 22px;border-radius:8px;background:var(--card)}
 
   /* 主体 */
   .body{padding:14px 28px;flex:1;overflow-y:auto;min-height:0}
@@ -219,6 +229,7 @@
   <div class="nav-group">
     <div class="nav-item active" data-page="viz"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 2 5-7"/></svg>可视化查询</div>
     <div class="nav-item" data-page="report"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>当期报告</div>
+    <div class="nav-item" data-page="monthly"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="m8 15 2 2 4-5"/></svg>月度报告</div>
     <div class="nav-item" data-page="download"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>数据下载</div>
   </div>
   <div class="side-action-group">
@@ -364,10 +375,15 @@
   <div id="reportBody"></div>
 </div>
 
+<!-- 右侧：月度报告 -->
+<div id="page-monthly" class="page" style="display:none;overflow-y:auto">
+  <div id="monthlyBody"></div>
+</div>
+
 <!-- 右侧：数据下载 -->
-<div id="page-download" class="page" style="display:none;padding:40px">
+<div id="page-download" class="page download-page" style="display:none">
   <div class="page-title">数据下载</div>
-  <div id="downloadList" style="display:flex;flex-direction:column;gap:12px;max-width:480px"></div>
+  <div id="downloadList" class="download-list"></div>
 </div>
 
 </div><!-- /app -->
@@ -438,7 +454,8 @@ const TREND_QUICK_DEFS = {
 };
 const CN_GEO = "./cn.json";
 
-let DATA, CUR, PREV, MANIFEST=null, SNAP_CACHE={}, RENDER_SEQ=0, netChart, mapChart, trendChart, provMapChart, jieStoreChart, jieSubChart, mapLoaded=false;
+let DATA, CUR, PREV, MANIFEST=null, SNAP_CACHE={}, LOC_CACHE={}, REPORT_DATA_CACHE={}, RENDER_SEQ=0, REPORT_PAIR=null, netChart, mapChart, trendChart, provMapChart, jieStoreChart, jieSubChart, mapLoaded=false;
+let MONTHLY_PAIR=null;
 let SEL_BRANDS   = new Set();   // 空集 = 全部品牌
 let SUB_CHECKED  = null;        // 单品牌钻取时使用; SEL_BRANDS.size===1 才生效
 let SEL_REGIONS  = new Set();   // 空集 = 全选
@@ -525,6 +542,7 @@ async function boot(){
     ro.observe(document.getElementById('provMapChart'));
   }
   render();
+  prewarmReports();
 }
 
 async function ensureSnap(ts){
@@ -551,6 +569,14 @@ async function ensureSnap(ts){
   return snap;
 }
 
+async function ensureLocations(ts){
+  if(LOC_CACHE[ts]) return LOC_CACHE[ts];
+  const snap = await ensureSnap(ts);
+  const locs = buildLocations(snap.dealers);
+  LOC_CACHE[ts] = locs;
+  return locs;
+}
+
 function switchTab(name){
   CUR_TAB = name;
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.tab===name));
@@ -565,7 +591,7 @@ function switchTab(name){
 /* ── 左侧导航切换 ── */
 function switchPage(name){
   document.querySelectorAll('.nav-item').forEach(el=>el.classList.toggle('active', el.dataset.page===name));
-  ['viz','report','download'].forEach(p=>{
+  ['viz','report','monthly','download'].forEach(p=>{
     document.getElementById('page-'+p).style.display = p===name ? (p==='viz'?'flex':'block') : 'none';
   });
   if(name==='viz'){
@@ -575,11 +601,16 @@ function switchPage(name){
     netChart.resize(); trendChart.resize(); provMapChart.resize(); jieStoreChart.resize(); jieSubChart.resize();
   }
   if(name==='report') _initReport();
+  if(name==='monthly') _initMonthlyReport();
   if(name==='download') _initDownload();
 }
 
 async function loadManifest(){
   if(MANIFEST) return MANIFEST;
+  if(window.__MANIFEST__){
+    MANIFEST = window.__MANIFEST__;
+    return MANIFEST;
+  }
   try{
     const r = await fetch('manifest.json',{cache:'no-store'});
     MANIFEST = await r.json();
@@ -592,40 +623,343 @@ async function loadManifest(){
 function _scopeReportCss(css){
   return css.replace(
     /([^{}@][^{}]*)\{/g,
-    (m, sel) => sel.split(',').map(s=>`#reportBody ${s.trim()}`).join(',') + '{'
+    (m, sel) => sel.split(',').flatMap(s=>[`#reportBody ${s.trim()}`, `#monthlyBody ${s.trim()}`]).join(',') + '{'
   );
+}
+
+async function ensureReportStyle(){
+  if(document.getElementById('_rStyle')) return;
+  if(window.__REPORT_CSS__){
+    const scoped = _scopeReportCss(window.__REPORT_CSS__);
+    const s = document.createElement('style'); s.id='_rStyle';
+    s.textContent = scoped; document.head.appendChild(s);
+    return;
+  }
+  const manifest = await loadManifest();
+  if(manifest.reportHtml){
+    try{
+      const r = await fetch(manifest.reportHtml,{cache:'no-store'});
+      const html = await r.text();
+      const css = (html.match(/<style>([\s\S]*?)<\/style>/i)||[])[1];
+      if(css && !document.getElementById('_rStyle')){
+        const s = document.createElement('style'); s.id='_rStyle';
+        s.textContent = _scopeReportCss(css); document.head.appendChild(s);
+      }
+    }catch(e){}
+  }
 }
 
 async function _initReport(){
   const el = document.getElementById('reportBody');
-  if(el._done) return;
+  if(el._done && el._rendered) return;
   el._done = true;
-  if(window.__REPORT_CSS__ && !document.getElementById('_rStyle')){
-    const scoped = _scopeReportCss(window.__REPORT_CSS__);
-    const s = document.createElement('style'); s.id='_rStyle';
-    s.textContent = scoped; document.head.appendChild(s);
+  await ensureReportStyle();
+  renderDynamicReport();
+}
+
+function reportPairs(){
+  const snaps = DATA.snapshots || [];
+  const out = [];
+  for(let i=1;i<snaps.length;i++){
+    out.push({oldTs:snaps[i-1].ts, newTs:snaps[i].ts, label:`${fmtTs(snaps[i-1].ts)} → ${fmtTs(snaps[i].ts)}`});
   }
-  if(window.__REPORT_HTML__){
-    el.innerHTML = window.__REPORT_HTML__;
-    return;
+  return out;
+}
+function nextMonthKey(yyyymm){
+  const y = Number(yyyymm.slice(0,4));
+  const m = Number(yyyymm.slice(4,6));
+  const d = new Date(y, m, 1);
+  return `${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}`;
+}
+function firstMondayTs(yyyymm){
+  const y = Number(yyyymm.slice(0,4));
+  const m = Number(yyyymm.slice(4,6)) - 1;
+  const d = new Date(y, m, 1);
+  const add = (8 - d.getDay()) % 7;
+  d.setDate(1 + add);
+  return `${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}`;
+}
+function monthLabel(yyyymm){ return `${yyyymm.slice(0,4)}年${Number(yyyymm.slice(4,6))}月`; }
+function monthlyPairs(){
+  const snaps = [...(DATA.snapshots || [])].sort((a,b)=>a.ts.localeCompare(b.ts));
+  const firstByMonth = {};
+  for(const s of snaps){
+    const ym = s.ts.slice(0,6);
+    if(!firstByMonth[ym]) firstByMonth[ym] = s.ts;
   }
-  const manifest = await loadManifest();
-  if(!manifest.reportHtml){
-    el.innerHTML = '<p style="color:var(--mute);padding:60px;text-align:center">请先运行 generate_report.py 后重新导出</p>';
-    return;
+  return Object.keys(firstByMonth).sort().map(ym=>{
+    const nextYm = nextMonthKey(ym);
+    const newTs = firstByMonth[nextYm] || null;
+    const expectedTs = firstMondayTs(nextYm);
+    return {
+      month: ym,
+      oldTs: firstByMonth[ym],
+      newTs,
+      expectedTs,
+      label: newTs ? `${monthLabel(ym)}｜${fmtTs(firstByMonth[ym])} → ${fmtTs(newTs)}` : `${monthLabel(ym)}｜${fmtTs(firstByMonth[ym])} → 待 ${fmtTs(expectedTs)} 更新`,
+    };
+  });
+}
+function prewarmReports(){
+  const run = async () => {
+    try{
+      const rp = reportPairs().at(-1);
+      if(rp) await computePairReportData(rp.oldTs, rp.newTs);
+      const mp = monthlyPairs().at(-1);
+      if(mp){
+        if(mp.newTs){
+          await computePairReportData(mp.oldTs, mp.newTs);
+        } else if(DATA.snapshots && DATA.snapshots.length){
+          await Promise.all([ensureLocations(mp.oldTs), ensureLocations(DATA.snapshots.at(-1).ts)]);
+        }
+      }
+    }catch(e){}
+  };
+  if('requestIdleCallback' in window) requestIdleCallback(run, {timeout:2000});
+  else setTimeout(run, 300);
+}
+function reportDateText(ts){ return `${ts.slice(0,4)}年${ts.slice(4,6)}月${ts.slice(6)}日`; }
+function reportDeltaHtml(v, suffix=''){
+  if(v>0) return `<span class="pos">+${v}${suffix}</span>`;
+  if(v<0) return `<span class="neg">${v}${suffix}</span>`;
+  return `<span class="zero">—</span>`;
+}
+function reportNameList(rows, limit=3){
+  const names = rows.map(x=>x.n).filter(Boolean);
+  if(!names.length) return '';
+  return names.slice(0, limit).join('、') + (names.length>limit ? '等' : '');
+}
+function reportBrandRows(curLocs, prevLocs){
+  const brands = [...new Set([...curLocs.map(l=>l.g), ...prevLocs.map(l=>l.g)])];
+  return brands.map(g=>{
+    const cur = curLocs.filter(l=>l.g===g);
+    const prev = prevLocs.filter(l=>l.g===g);
+    const diff = pairPeriodChanges(cur, prev);
+    const cities = new Set(cur.map(l=>`${l.p}${l.c}`)).size;
+    const prevCities = new Set(prev.map(l=>`${l.p}${l.c}`)).size;
+    return {g, cur, prev, diff, cities, cityDelta:cities-prevCities};
+  }).sort((a,b)=>b.cur.length-a.cur.length);
+}
+async function computePairReportData(oldTs, newTs){
+  const key = `${oldTs}|${newTs}`;
+  if(REPORT_DATA_CACHE[key]) return REPORT_DATA_CACHE[key];
+  const [prevLocs, curLocs] = await Promise.all([ensureLocations(oldTs), ensureLocations(newTs)]);
+  const allDiff = pairPeriodChanges(curLocs, prevLocs);
+  const rows = reportBrandRows(curLocs, prevLocs);
+  const data = {curLocs, prevLocs, allDiff, rows, totalDelta:curLocs.length - prevLocs.length};
+  REPORT_DATA_CACHE[key] = data;
+  return data;
+}
+function renderReportRows(rows){
+  const max = Math.max(1, ...rows.map(r=>r.cur.length));
+  return rows.map(r=>{
+    const add = reportNameList(r.diff.added);
+    const rem = reportNameList(r.diff.removed);
+    const changeDetail = [
+      add ? `<div class="detail-add">+新增 ${add}</div>` : '',
+      rem ? `<div class="detail-rem">−退出 ${rem}</div>` : '',
+    ].join('');
+    return `<tr>
+      <td class="brand-cell"><span class="dot"></span>${r.g}</td>
+      <td><div class="bar-wrap"><div class="bar-fill" style="width:${(r.cur.length/max*100).toFixed(1)}%;background:#5d7a8a"></div><span class="bar-val">${r.cur.length}</span></div></td>
+      <td class="num">${reportDeltaHtml(r.cur.length-r.prev.length)}</td>
+      <td class="num">${r.cities}</td>
+      <td class="num">${reportDeltaHtml(r.cityDelta)}</td>
+      <td class="detail-cell">${changeDetail || '<span class="zero">—</span>'}</td>
+    </tr>`;
+  }).join('');
+}
+function renderReportBrandDetails(rows){
+  return rows.filter(r=>r.diff.added.length || r.diff.removed.length || r.diff.changed.length).map(r=>{
+    const bits = [];
+    if(r.diff.added.length) bits.push(`新增：${reportNameList(r.diff.added, 8)}`);
+    if(r.diff.removed.length) bits.push(`退出：${reportNameList(r.diff.removed, 8)}`);
+    if(r.diff.changed.length) bits.push(`名称/地址变更：${reportNameList(r.diff.changed, 6)}`);
+    return `<div class="brand-block">
+      <h3>${r.g}</h3>
+      <p>净变化 ${reportDeltaHtml(r.cur.length-r.prev.length, ' 家')}；${bits.join('；')}</p>
+    </div>`;
+  }).join('') || '<p style="color:var(--mute)">本期无品牌变化详情</p>';
+}
+async function renderDynamicReport(){
+  const el = document.getElementById('reportBody');
+  const pairs = reportPairs();
+  if(!pairs.length){ el.innerHTML = '<p style="color:var(--mute);padding:60px;text-align:center">至少需要 2 期数据才能生成报告</p>'; return; }
+  if(!REPORT_PAIR) REPORT_PAIR = pairs[pairs.length-1];
+  const pair = pairs.find(p=>p.oldTs===REPORT_PAIR.oldTs && p.newTs===REPORT_PAIR.newTs) || pairs[pairs.length-1];
+  REPORT_PAIR = pair;
+  const cacheKey = `${pair.oldTs}|${pair.newTs}`;
+  if(!REPORT_DATA_CACHE[cacheKey]){
+    el.innerHTML = '<p style="color:var(--mute);padding:60px;text-align:center">报告加载中…</p>';
+    await new Promise(requestAnimationFrame);
   }
-  try{
-    const r = await fetch(manifest.reportHtml,{cache:'no-store'});
-    const html = await r.text();
-    const css = (html.match(/<style>([\s\S]*?)<\/style>/i)||[])[1];
-    if(css && !document.getElementById('_rStyle')){
-      const s = document.createElement('style'); s.id='_rStyle';
-      s.textContent = _scopeReportCss(css); document.head.appendChild(s);
+  const {curLocs, allDiff, rows, totalDelta} = await computePairReportData(pair.oldTs, pair.newTs);
+  const changedBrands = new Set([...allDiff.added, ...allDiff.removed, ...allDiff.changed].map(x=>x.g)).size;
+  const options = pairs.map(p=>`<option value="${p.oldTs}|${p.newTs}" ${p.oldTs===pair.oldTs&&p.newTs===pair.newTs?'selected':''}>${p.label}</option>`).join('');
+  el.innerHTML = `<div class="hero">
+    <div class="hero-top">
+      <span class="logo">渠道研究</span>
+    </div>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:10px">
+      <h1 style="margin:0">竞对汽车品牌销售网点变化报告</h1>
+      <label style="display:flex;align-items:center;gap:12px;font-size:15px;color:var(--mute);margin-top:4px;white-space:nowrap">
+        对比区间
+        <select id="reportPairSel" style="font-size:15px;padding:8px 14px;min-width:230px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--fg)">${options}</select>
+      </label>
+    </div>
+    <div class="sub">数据周期：${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}　｜　覆盖品牌：${new Set(curLocs.map(l=>l.g)).size} 个　｜　报告日期：${reportDateText(pair.newTs)}</div>
+  </div>
+  <div class="body">
+    <div class="layout">
+      <div class="col-left">
+        <div class="sec-title">销售网点数（家）& 城市覆盖</div>
+        <table>
+          <thead><tr><th style="width:110px">品牌</th><th style="min-width:180px">销售网点数（当期）</th><th>净变化</th><th>覆盖城市</th><th>城市变化</th><th>本期动态</th></tr></thead>
+          <tbody>${renderReportRows(rows)}</tbody>
+        </table>
+        <div class="footnote">
+          <p>说明：本页按所选相邻期动态计算，当前区间为 ${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}。物理网点以品牌组、店名、省份、地址综合去重；同店名称或地址变化会优先识别为变更，不计入新增/退出。</p>
+          <p>鸿蒙智行与奥迪按品牌组统计总网点，子品牌交叉经营会合并到同一物理网点。</p>
+        </div>
+      </div>
+      <div class="col-right">
+        <div class="sec-title">本期概览</div>
+        <div class="kpi-row">
+          <div class="kpi"><div class="k-label">当期总网点</div><div class="k-val">${curLocs.length.toLocaleString()}</div><div class="k-sub">较上期 ${reportDeltaHtml(totalDelta, ' 家')}</div></div>
+          <div class="kpi"><div class="k-label">覆盖品牌</div><div class="k-val">${new Set(curLocs.map(l=>l.g)).size}</div><div class="k-sub">含新能源 / 豪华</div></div>
+          <div class="kpi"><div class="k-label">本期新增</div><div class="k-val">${allDiff.added.length}</div><div class="k-sub">跨 ${new Set(allDiff.added.map(x=>x.g)).size} 个品牌</div></div>
+          <div class="kpi"><div class="k-label">本期退出</div><div class="k-val">${allDiff.removed.length}</div><div class="k-sub">跨 ${new Set(allDiff.removed.map(x=>x.g)).size} 个品牌</div></div>
+        </div>
+        <div class="sec-title">品牌变化详情</div>
+        <div class="brand-detail-body">${renderReportBrandDetails(rows)}</div>
+      </div>
+    </div>
+    <footer>竞对经销商网点监测 · 数据截至 ${fmtTs(pair.newTs)}</footer>
+  </div>`;
+  const sel = document.getElementById('reportPairSel');
+  el._rendered = true;
+  sel.onchange = () => {
+    const [oldTs, newTs] = sel.value.split('|');
+    REPORT_PAIR = {oldTs, newTs};
+    renderDynamicReport();
+  };
+}
+
+async function _initMonthlyReport(){
+  const el = document.getElementById('monthlyBody');
+  if(el._done && el._rendered) return;
+  el._done = true;
+  await ensureReportStyle();
+  renderMonthlyReport();
+}
+
+async function renderMonthlyReport(){
+  const el = document.getElementById('monthlyBody');
+  const pairs = monthlyPairs();
+  if(!pairs.length){ el.innerHTML = '<p style="color:var(--mute);padding:60px;text-align:center">暂无可生成月度报告的数据</p>'; return; }
+  if(!MONTHLY_PAIR) MONTHLY_PAIR = pairs[pairs.length-1];
+  const pair = pairs.find(p=>p.month===MONTHLY_PAIR.month) || pairs[pairs.length-1];
+  MONTHLY_PAIR = pair;
+  const options = pairs.map(p=>`<option value="${p.month}" ${p.month===pair.month?'selected':''}>${p.label}</option>`).join('');
+  if(!pair.newTs){
+    const latestTs = DATA.snapshots.at(-1).ts;
+    const [startLocs, latestLocs] = await Promise.all([ensureLocations(pair.oldTs), ensureLocations(latestTs)]);
+    const latestSnap = await ensureSnap(latestTs);
+    const partialDiff = pair.oldTs === latestSnap.ts ? {added:[], removed:[], changed:[]} : pairPeriodChanges(latestLocs, startLocs);
+    el.innerHTML = `<div class="hero">
+      <div class="hero-top">
+        <span class="logo">月度渠道研究</span>
+      </div>
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:10px">
+        <h1 style="margin:0">竞对汽车品牌销售网点月度变化报告</h1>
+        <label style="display:flex;align-items:center;gap:12px;font-size:15px;color:var(--mute);margin-top:4px;white-space:nowrap">
+          月度区间
+          <select id="monthlyPairSel" style="font-size:15px;padding:8px 14px;min-width:300px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--fg)">${options}</select>
+        </label>
+      </div>
+      <div class="sub">月度周期：${fmtTs(pair.oldTs)} → 待 ${fmtTs(pair.expectedTs)} 更新　｜　更新频率：每月首个发布日对比　｜　当前状态：框架已就绪</div>
+    </div>
+    <div class="body">
+      <div class="layout">
+        <div class="col-left">
+          <div class="sec-title">月度报告框架</div>
+          <table>
+            <tbody>
+              <tr><td class="brand-cell">起始快照</td><td>${fmtTs(pair.oldTs)}</td></tr>
+              <tr><td class="brand-cell">目标快照</td><td>${fmtTs(pair.expectedTs)}（待下周一数据进入后自动生成）</td></tr>
+              <tr><td class="brand-cell">当前可用进度</td><td>已加载至 ${fmtTs(latestSnap.ts)}；起始网点 ${startLocs.length.toLocaleString()} 家，当前最新 ${latestLocs.length.toLocaleString()} 家</td></tr>
+              <tr><td class="brand-cell">本月阶段变化</td><td>截至 ${fmtTs(latestSnap.ts)}，新增 ${partialDiff.added.length} 家、退出 ${partialDiff.removed.length} 家、名称/地址变更 ${partialDiff.changed.length} 条</td></tr>
+            </tbody>
+          </table>
+          <div class="footnote">
+            <p>月度报告规则：取当月第一次发布的数据作为起点，取下个月第一次发布的数据作为终点。2026年5月的起点是 2026/05/04，终点预计为 2026/06/01。</p>
+            <p>6月1日全流程跑完后，本页会自动从框架状态切换为完整月度对比，不需要再改页面结构。</p>
+          </div>
+        </div>
+        <div class="col-right">
+          <div class="sec-title">待更新项目</div>
+          <div class="kpi-row">
+            <div class="kpi"><div class="k-label">起始网点</div><div class="k-val">${startLocs.length.toLocaleString()}</div><div class="k-sub">${fmtTs(pair.oldTs)}</div></div>
+            <div class="kpi"><div class="k-label">目标日期</div><div class="k-val" style="font-size:20px">${fmtTs(pair.expectedTs)}</div><div class="k-sub">下月第一次发布</div></div>
+            <div class="kpi"><div class="k-label">阶段新增</div><div class="k-val">${partialDiff.added.length}</div><div class="k-sub">截至 ${fmtTs(latestSnap.ts)}</div></div>
+            <div class="kpi"><div class="k-label">阶段退出</div><div class="k-val">${partialDiff.removed.length}</div><div class="k-sub">截至 ${fmtTs(latestSnap.ts)}</div></div>
+          </div>
+          <div class="sec-title">说明</div>
+          <div class="brand-block"><h3>为什么先搭框架</h3><p>当前还缺少 2026/06/01 快照，不能形成完整 2026/05/04 → 2026/06/01 的月度闭环。先保留框架和规则，避免下周数据进入后再改结构。</p></div>
+        </div>
+      </div>
+    </div>`;
+  } else {
+    const cacheKey = `${pair.oldTs}|${pair.newTs}`;
+    if(!REPORT_DATA_CACHE[cacheKey]){
+      el.innerHTML = '<p style="color:var(--mute);padding:60px;text-align:center">月度报告加载中…</p>';
+      await new Promise(requestAnimationFrame);
     }
-    const body = (html.match(/(<div class="hero">[\s\S]*)<\/body>/i)||[])[1];
-    el.innerHTML = body ? body.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '') : html;
-  }catch(e){
-    el.innerHTML = '<p style="color:var(--neg);padding:60px;text-align:center">当期报告加载失败</p>';
+    const {curLocs, allDiff, rows, totalDelta} = await computePairReportData(pair.oldTs, pair.newTs);
+    el.innerHTML = `<div class="hero">
+      <div class="hero-top">
+        <span class="logo">月度渠道研究</span>
+      </div>
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:10px">
+        <h1 style="margin:0">竞对汽车品牌销售网点月度变化报告</h1>
+        <label style="display:flex;align-items:center;gap:12px;font-size:15px;color:var(--mute);margin-top:4px;white-space:nowrap">
+          月度区间
+          <select id="monthlyPairSel" style="font-size:15px;padding:8px 14px;min-width:300px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--fg)">${options}</select>
+        </label>
+      </div>
+      <div class="sub">月度周期：${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}　｜　覆盖品牌：${new Set(curLocs.map(l=>l.g)).size} 个　｜　报告日期：${reportDateText(pair.newTs)}</div>
+    </div>
+    <div class="body">
+      <div class="layout">
+        <div class="col-left">
+          <div class="sec-title">销售网点数（家）& 城市覆盖</div>
+          <table>
+            <thead><tr><th style="width:110px">品牌</th><th style="min-width:180px">销售网点数（月末）</th><th>净变化</th><th>覆盖城市</th><th>城市变化</th><th>月度动态</th></tr></thead>
+            <tbody>${renderReportRows(rows)}</tbody>
+          </table>
+          <div class="footnote"><p>月度报告按当月第一次发布至下月第一次发布计算，当前区间为 ${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}。</p></div>
+        </div>
+        <div class="col-right">
+          <div class="sec-title">月度概览</div>
+          <div class="kpi-row">
+            <div class="kpi"><div class="k-label">月末总网点</div><div class="k-val">${curLocs.length.toLocaleString()}</div><div class="k-sub">较月初 ${reportDeltaHtml(totalDelta, ' 家')}</div></div>
+            <div class="kpi"><div class="k-label">覆盖品牌</div><div class="k-val">${new Set(curLocs.map(l=>l.g)).size}</div><div class="k-sub">含新能源 / 豪华</div></div>
+            <div class="kpi"><div class="k-label">月度新增</div><div class="k-val">${allDiff.added.length}</div><div class="k-sub">跨 ${new Set(allDiff.added.map(x=>x.g)).size} 个品牌</div></div>
+            <div class="kpi"><div class="k-label">月度退出</div><div class="k-val">${allDiff.removed.length}</div><div class="k-sub">跨 ${new Set(allDiff.removed.map(x=>x.g)).size} 个品牌</div></div>
+          </div>
+          <div class="sec-title">品牌变化详情</div>
+          <div class="brand-detail-body">${renderReportBrandDetails(rows)}</div>
+        </div>
+      </div>
+    </div>`;
+  }
+  const sel = document.getElementById('monthlyPairSel');
+  el._rendered = true;
+  if(sel){
+    sel.onchange = () => {
+      MONTHLY_PAIR = {month: sel.value};
+      renderMonthlyReport();
+    };
   }
 }
 
@@ -640,6 +974,48 @@ async function _initDownload(){
   const xlsxHref = xlsx => xlsx.b64
     ? `data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,${xlsx.b64}`
     : xlsx.href;
+  const manifest = await loadManifest();
+  const summaryItems = Array.isArray(manifest.summaryDownloads) ? manifest.summaryDownloads : [];
+  const reportItems = Array.isArray(manifest.reportDownloads) ? manifest.reportDownloads : [];
+  if(summaryItems.length || reportItems.length){
+    const cards = [];
+    const selectorCard = (title, meta, items, id) => {
+      const latestIdx = Math.max(items.length - 1, 0);
+      const opts = items.map((x, i) => {
+        const label = x.label ? x.label.replace(/\b(\d{4})(\d{2})(\d{2})\b/g, '$1/$2/$3') : (fmtDate8(x.ts) || x.name);
+        return `<option value="${i}" ${i===latestIdx?'selected':''}>${label}</option>`;
+      }).join('');
+      const cur = items[latestIdx];
+      return `<div class="dl-card">
+        <div><div class="dl-card-name">${title}</div>
+        <div class="dl-card-meta">${meta}</div></div>
+        <div class="dl-actions">
+          <select class="dl-select" id="${id}">${opts}</select>
+          <a class="dl-btn" id="${id}Btn" href="${cur.href}" download="${cur.name}">下载 xlsx</a>
+        </div>
+      </div>`;
+    };
+    if(summaryItems.length){
+      cards.push(selectorCard('网点汇总数据', '按数据期数下载原始汇总 Excel（所有品牌）', summaryItems, 'summaryDownloadSel'));
+    }
+    if(reportItems.length){
+      cards.push(selectorCard('网点变化对比报告', '按相邻两期下载对比报告；默认最新上一期 vs 当期', reportItems, 'reportDownloadSel'));
+    }
+    el.innerHTML = cards.join('');
+    const bind = (id, items) => {
+      const sel = document.getElementById(id);
+      const btn = document.getElementById(id + 'Btn');
+      if(!sel || !btn) return;
+      sel.onchange = () => {
+        const x = items[Number(sel.value)];
+        btn.href = x.href;
+        btn.download = x.name;
+      };
+    };
+    bind('summaryDownloadSel', summaryItems);
+    bind('reportDownloadSel', reportItems);
+    return;
+  }
   if(summaryXlsx && summaryXlsx.b64){
     files.push({
       name: summaryXlsx.name,
@@ -654,51 +1030,7 @@ async function _initDownload(){
       meta: '网点变化对比报告（品牌总量、省级对比、新增/减少/变更明细）'
     });
   }
-  if(!files.length){
-    const manifest = await loadManifest();
-    const summaryItems = Array.isArray(manifest.summaryDownloads) ? manifest.summaryDownloads : [];
-    const reportItems = Array.isArray(manifest.reportDownloads) ? manifest.reportDownloads : [];
-    if(summaryItems.length || reportItems.length){
-      const cards = [];
-      const selectorCard = (title, meta, items, id) => {
-        const latestIdx = Math.max(items.length - 1, 0);
-        const opts = items.map((x, i) => {
-          const label = x.label || fmtDate8(x.ts) || x.name;
-          return `<option value="${i}" ${i===latestIdx?'selected':''}>${label}</option>`;
-        }).join('');
-        const cur = items[latestIdx];
-        return `<div class="dl-card">
-          <div><div class="dl-card-name">${title}</div>
-          <div class="dl-card-meta">${meta}</div></div>
-          <div class="dl-actions">
-            <select class="dl-select" id="${id}">${opts}</select>
-            <a class="dl-btn" id="${id}Btn" href="${cur.href}" download="${cur.name}">下载 xlsx</a>
-          </div>
-        </div>`;
-      };
-      if(summaryItems.length){
-        cards.push(selectorCard('网点汇总数据', '按数据期数下载原始汇总 Excel（所有品牌）', summaryItems, 'summaryDownloadSel'));
-      }
-      if(reportItems.length){
-        cards.push(selectorCard('网点变化对比报告', '按相邻两期下载对比报告；默认最新上一期 vs 当期', reportItems, 'reportDownloadSel'));
-      }
-      el.innerHTML = cards.join('');
-      const bind = (id, items) => {
-        const sel = document.getElementById(id);
-        const btn = document.getElementById(id + 'Btn');
-        if(!sel || !btn) return;
-        sel.onchange = () => {
-          const x = items[Number(sel.value)];
-          btn.href = x.href;
-          btn.download = x.name;
-        };
-      };
-      bind('summaryDownloadSel', summaryItems);
-      bind('reportDownloadSel', reportItems);
-      return;
-    }
-    if(Array.isArray(manifest.downloads)) files.push(...manifest.downloads);
-  }
+  if(!files.length && Array.isArray(manifest.downloads)) files.push(...manifest.downloads);
   if(!files.length){
     el.innerHTML='<p style="color:var(--mute)">未找到可下载文件</p>'; return;
   }
@@ -766,7 +1098,7 @@ function _sameNameCityKey(x){
   return `${x.g}||${String(x.n||'').trim()}||${stripSuffix(x.p)}||${x.c||''}`;
 }
 function pairPeriodChanges(curLocs, prevLocs){
-  if(!PREV) return {added:[], removed:[], changed:[]};
+  if(!prevLocs) return {added:[], removed:[], changed:[]};
   const ck = new Set(curLocs.map(lkLoc)), pk = new Set(prevLocs.map(lkLoc));
   let added = curLocs.filter(l => !pk.has(lkLoc(l)));
   let removed = prevLocs.filter(l => !ck.has(lkLoc(l)));
