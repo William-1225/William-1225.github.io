@@ -729,17 +729,6 @@ function reportNameList(rows, limit=3){
   if(!names.length) return '';
   return names.slice(0, limit).join('、') + (names.length>limit ? '等' : '');
 }
-function reportBrandRows(curLocs, prevLocs){
-  const brands = [...new Set([...curLocs.map(l=>l.g), ...prevLocs.map(l=>l.g)])];
-  return brands.map(g=>{
-    const cur = curLocs.filter(l=>l.g===g);
-    const prev = prevLocs.filter(l=>l.g===g);
-    const diff = pairPeriodChanges(cur, prev);
-    const cities = new Set(cur.map(l=>`${l.p}${l.c}`)).size;
-    const prevCities = new Set(prev.map(l=>`${l.p}${l.c}`)).size;
-    return {g, cur, prev, diff, cities, cityDelta:cities-prevCities};
-  }).sort((a,b)=>b.cur.length-a.cur.length);
-}
 // 把预计算 view 还原成 renderers 期望的 data 形状
 function _hydrateView(view){
   const rows = view.rows.map(r => ({
@@ -774,15 +763,10 @@ async function computePairReportData(oldTs, newTs){
   const key = `${oldTs}|${newTs}`;
   if(REPORT_DATA_CACHE[key]) return REPORT_DATA_CACHE[key];
   const view = await _tryFetchView(oldTs, newTs);
-  if(view){
-    const data = _hydrateView(view);
-    REPORT_DATA_CACHE[key] = data;
-    return data;
+  if(!view){
+    throw new Error(`缺少预计算 view: data/views/report_${oldTs}_vs_${newTs}.json —— 请先跑 scripts/precompute_views.mjs`);
   }
-  const [prevLocs, curLocs] = await Promise.all([ensureLocations(oldTs), ensureLocations(newTs)]);
-  const allDiff = pairPeriodChanges(curLocs, prevLocs);
-  const rows = reportBrandRows(curLocs, prevLocs);
-  const data = {curLocs, prevLocs, allDiff, rows, totalDelta:curLocs.length - prevLocs.length};
+  const data = _hydrateView(view);
   REPORT_DATA_CACHE[key] = data;
   return data;
 }
