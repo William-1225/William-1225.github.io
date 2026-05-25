@@ -436,7 +436,7 @@ const TREND_QUICK_DEFS = {
 };
 const CN_GEO = "./cn.json";
 
-let DATA, CUR, PREV, MANIFEST=null, netChart, mapChart, trendChart, provMapChart, jieStoreChart, jieSubChart, mapLoaded=false;
+let DATA, CUR, PREV, MANIFEST=null, SNAP_CACHE={}, RENDER_SEQ=0, netChart, mapChart, trendChart, provMapChart, jieStoreChart, jieSubChart, mapLoaded=false;
 let SEL_BRANDS   = new Set();   // 空集 = 全部品牌
 let SUB_CHECKED  = null;        // 单品牌钻取时使用; SEL_BRANDS.size===1 才生效
 let SEL_REGIONS  = new Set();   // 空集 = 全选
@@ -455,10 +455,10 @@ let TREND_HOVER_SERIES = null;
 
 async function boot(){
   try{
-    const r = await fetch('data.json',{cache:'no-store'});
+    const r = await fetch('data/snapshots.json',{cache:'no-store'});
     DATA = await r.json();
   }catch(e){
-    document.body.innerHTML = '<div class="err">无法加载 data.json —— 请用 <code>python -m http.server</code> 在 report/ 目录下启动后访问</div>';
+    document.body.innerHTML = '<div class="err">无法加载 data/snapshots.json —— 请用 <code>python -m http.server</code> 在 report/ 目录下启动后访问</div>';
     return;
   }
   const snapSel=document.getElementById('snap'), prevSel=document.getElementById('prev');
@@ -523,6 +523,22 @@ async function boot(){
     ro.observe(document.getElementById('provMapChart'));
   }
   render();
+}
+
+async function ensureSnap(ts){
+  if(!ts) return null;
+  if(SNAP_CACHE[ts]) return SNAP_CACHE[ts];
+  const meta = DATA.snapshots.find(s=>s.ts===ts);
+  if(!meta) return null;
+  if(meta.dealers){
+    SNAP_CACHE[ts] = meta;
+    return meta;
+  }
+  if(!meta.href) throw new Error(`缺少 ${ts} 明细路径`);
+  const r = await fetch(meta.href,{cache:'no-store'});
+  const snap = await r.json();
+  SNAP_CACHE[ts] = snap;
+  return snap;
 }
 
 function switchTab(name){
@@ -907,9 +923,18 @@ function updateFilterDDLabels(){
   setVal('ddBrand', brandLbl());
 }
 
-function render(){
-  CUR  = getSnap(document.getElementById('snap').value);
-  PREV = getSnap(document.getElementById('prev').value) || null;
+async function render(){
+  const seq = ++RENDER_SEQ;
+  const curTs = document.getElementById('snap').value;
+  const prevTs = document.getElementById('prev').value;
+  try{
+    CUR  = await ensureSnap(curTs);
+    PREV = prevTs ? await ensureSnap(prevTs) : null;
+  }catch(e){
+    document.getElementById('meta').textContent = '数据加载失败';
+    return;
+  }
+  if(seq !== RENDER_SEQ) return;
   if(!CUR) return;
 
   // 级联失效清洗：上游变则下游失效项清除
@@ -1243,6 +1268,9 @@ function trendBrandParts(d){
 
 // 计算每期每品牌/子品牌的 location 数（受全局筛选 cat/region/tier + SEL_BRANDS 影响）
 function trendSeriesData(){
+  if(DATA.snapshots.every(s=>s.trendCounts)){
+    return DATA.snapshots.map(s=>({ts:s.ts, counts:s.trendCounts || {}}));
+  }
   return DATA.snapshots.map(s=>{
     let list = filterGlobal(s.dealers);
     if(SEL_BRANDS.size) list = list.filter(d=>SEL_BRANDS.has(d.g));

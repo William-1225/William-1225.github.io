@@ -1,5 +1,5 @@
 {
-  "data": "data.json",
+  "data": "data/snapshots.json",
   "geo": "cn.json",
   "reportHtml": "network_report_0525.html",
   "downloads": [
