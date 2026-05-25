@@ -477,7 +477,7 @@ async function boot(){
     const r = await fetch('data/snapshots.json',{cache:'no-store'});
     DATA = await r.json();
   }catch(e){
-    document.body.innerHTML = '<div class="err">无法加载 data/snapshots.json —— 请使用线上入口，或用离线版 network_research_standalone.html</div>';
+    document.body.innerHTML = '<div class="err">无法加载 data/snapshots.json —— 请通过线上入口访问</div>';
     return;
   }
   const snapSel=document.getElementById('snap'), prevSel=document.getElementById('prev');
