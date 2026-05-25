@@ -460,7 +460,7 @@ async function boot(){
     const r = await fetch('data/snapshots.json',{cache:'no-store'});
     DATA = await r.json();
   }catch(e){
-    document.body.innerHTML = '<div class="err">无法加载 data/snapshots.json —— 请用 <code>python -m http.server</code> 在 report/ 目录下启动后访问</div>';
+    document.body.innerHTML = '<div class="err">无法加载 data/snapshots.json —— 请使用线上入口，或用离线版 network_research_standalone.html</div>';
     return;
   }
   const snapSel=document.getElementById('snap'), prevSel=document.getElementById('prev');

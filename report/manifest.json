@@ -1,7 +1,7 @@
 {
   "data": "data/snapshots.json",
   "geo": "cn.json",
-  "reportHtml": "network_report_0525.html",
+  "reportHtml": "reports/network_report_0525.html",
   "downloads": [
     {
       "ts": "20260525",
