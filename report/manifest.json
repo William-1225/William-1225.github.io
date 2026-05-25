@@ -1,0 +1,17 @@
+{
+  "data": "data.json",
+  "geo": "cn.json",
+  "reportHtml": "network_report_0525.html",
+  "downloads": [
+    {
+      "name": "汇总_20260525.xlsx",
+      "href": "downloads/汇总_20260525.xlsx",
+      "meta": "当期网点汇总数据（所有品牌）"
+    },
+    {
+      "name": "网点变化对比报告_20260525.xlsx",
+      "href": "downloads/网点变化对比报告_20260525.xlsx",
+      "meta": "网点变化对比报告（品牌总量、省级对比、新增/减少/变更明细）"
+    }
+  ]
+}
