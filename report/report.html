@@ -33,9 +33,11 @@
   .side-action .ico{width:16px;height:16px;color:currentColor;opacity:.9;flex-shrink:0}
   /* ── 数据下载页 ── */
   .page-title{font-size:16px;font-weight:600;color:var(--fg);margin-bottom:24px}
-  .dl-card{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:var(--card);border:1px solid var(--line);border-radius:8px}
+  .dl-card{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 18px;background:var(--card);border:1px solid var(--line);border-radius:8px}
   .dl-card-name{font-size:13px;font-weight:600;color:var(--fg)}
   .dl-card-meta{font-size:11px;color:var(--mute);margin-top:2px}
+  .dl-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+  .dl-select{min-width:170px}
   .dl-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);font-size:12px;text-decoration:none;cursor:pointer;white-space:nowrap}
   .dl-btn:hover{border-color:var(--acc);color:var(--acc)}
 
@@ -537,6 +539,14 @@ async function ensureSnap(ts){
   if(!meta.href) throw new Error(`缺少 ${ts} 明细路径`);
   const r = await fetch(meta.href,{cache:'no-store'});
   const snap = await r.json();
+  if(snap.columns && snap.rows){
+    snap.dealers = snap.rows.map(row => {
+      const obj = {};
+      snap.columns.forEach((k, i) => { obj[k] = row[i] == null ? '' : row[i]; });
+      return obj;
+    });
+    delete snap.rows;
+  }
   SNAP_CACHE[ts] = snap;
   return snap;
 }
@@ -626,6 +636,10 @@ async function _initDownload(){
   const summaryXlsx = window.__SUMMARY_XLSX__;
   const reportXlsx = window.__REPORT_XLSX__;
   const files = [];
+  const fmtDate8 = ts => String(ts||'').replace(/^(\d{4})(\d{2})(\d{2})$/, '$1/$2/$3');
+  const xlsxHref = xlsx => xlsx.b64
+    ? `data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,${xlsx.b64}`
+    : xlsx.href;
   if(summaryXlsx && summaryXlsx.b64){
     files.push({
       name: summaryXlsx.name,
@@ -642,15 +656,54 @@ async function _initDownload(){
   }
   if(!files.length){
     const manifest = await loadManifest();
+    const summaryItems = Array.isArray(manifest.summaryDownloads) ? manifest.summaryDownloads : [];
+    const reportItems = Array.isArray(manifest.reportDownloads) ? manifest.reportDownloads : [];
+    if(summaryItems.length || reportItems.length){
+      const cards = [];
+      const selectorCard = (title, meta, items, id) => {
+        const latestIdx = Math.max(items.length - 1, 0);
+        const opts = items.map((x, i) => {
+          const label = x.label || fmtDate8(x.ts) || x.name;
+          return `<option value="${i}" ${i===latestIdx?'selected':''}>${label}</option>`;
+        }).join('');
+        const cur = items[latestIdx];
+        return `<div class="dl-card">
+          <div><div class="dl-card-name">${title}</div>
+          <div class="dl-card-meta">${meta}</div></div>
+          <div class="dl-actions">
+            <select class="dl-select" id="${id}">${opts}</select>
+            <a class="dl-btn" id="${id}Btn" href="${cur.href}" download="${cur.name}">下载 xlsx</a>
+          </div>
+        </div>`;
+      };
+      if(summaryItems.length){
+        cards.push(selectorCard('网点汇总数据', '按数据期数下载原始汇总 Excel（所有品牌）', summaryItems, 'summaryDownloadSel'));
+      }
+      if(reportItems.length){
+        cards.push(selectorCard('网点变化对比报告', '按相邻两期下载对比报告；默认最新上一期 vs 当期', reportItems, 'reportDownloadSel'));
+      }
+      el.innerHTML = cards.join('');
+      const bind = (id, items) => {
+        const sel = document.getElementById(id);
+        const btn = document.getElementById(id + 'Btn');
+        if(!sel || !btn) return;
+        sel.onchange = () => {
+          const x = items[Number(sel.value)];
+          btn.href = x.href;
+          btn.download = x.name;
+        };
+      };
+      bind('summaryDownloadSel', summaryItems);
+      bind('reportDownloadSel', reportItems);
+      return;
+    }
     if(Array.isArray(manifest.downloads)) files.push(...manifest.downloads);
   }
   if(!files.length){
     el.innerHTML='<p style="color:var(--mute)">未找到可下载文件</p>'; return;
   }
   el.innerHTML = files.map(xlsx => {
-    const href = xlsx.b64
-      ? `data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,${xlsx.b64}`
-      : xlsx.href;
+    const href = xlsxHref(xlsx);
     return `<div class="dl-card">
     <div><div class="dl-card-name">${xlsx.name}</div>
     <div class="dl-card-meta">${xlsx.meta}</div></div>

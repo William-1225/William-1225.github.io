@@ -4,13 +4,65 @@
   "reportHtml": "network_report_0525.html",
   "downloads": [
     {
+      "ts": "20260525",
       "name": "汇总_20260525.xlsx",
-      "href": "downloads/汇总_20260525.xlsx",
+      "href": "downloads/summary/汇总_20260525.xlsx",
       "meta": "当期网点汇总数据（所有品牌）"
     },
     {
-      "name": "网点变化对比报告_20260525.xlsx",
-      "href": "downloads/网点变化对比报告_20260525.xlsx",
+      "ts": "20260525",
+      "label": "20260518 → 20260525",
+      "name": "网点变化对比报告_20260518_vs_20260525.xlsx",
+      "href": "downloads/reports/网点变化对比报告_20260518_vs_20260525.xlsx",
+      "meta": "网点变化对比报告（品牌总量、省级对比、新增/减少/变更明细）"
+    }
+  ],
+  "summaryDownloads": [
+    {
+      "ts": "20260504",
+      "name": "汇总_20260504.xlsx",
+      "href": "downloads/summary/汇总_20260504.xlsx",
+      "meta": "当期网点汇总数据（所有品牌）"
+    },
+    {
+      "ts": "20260511",
+      "name": "汇总_20260511.xlsx",
+      "href": "downloads/summary/汇总_20260511.xlsx",
+      "meta": "当期网点汇总数据（所有品牌）"
+    },
+    {
+      "ts": "20260518",
+      "name": "汇总_20260518.xlsx",
+      "href": "downloads/summary/汇总_20260518.xlsx",
+      "meta": "当期网点汇总数据（所有品牌）"
+    },
+    {
+      "ts": "20260525",
+      "name": "汇总_20260525.xlsx",
+      "href": "downloads/summary/汇总_20260525.xlsx",
+      "meta": "当期网点汇总数据（所有品牌）"
+    }
+  ],
+  "reportDownloads": [
+    {
+      "ts": "20260511",
+      "label": "20260504 → 20260511",
+      "name": "网点变化对比报告_20260504_vs_20260511.xlsx",
+      "href": "downloads/reports/网点变化对比报告_20260504_vs_20260511.xlsx",
+      "meta": "网点变化对比报告（品牌总量、省级对比、新增/减少/变更明细）"
+    },
+    {
+      "ts": "20260518",
+      "label": "20260511 → 20260518",
+      "name": "网点变化对比报告_20260511_vs_20260518.xlsx",
+      "href": "downloads/reports/网点变化对比报告_20260511_vs_20260518.xlsx",
+      "meta": "网点变化对比报告（品牌总量、省级对比、新增/减少/变更明细）"
+    },
+    {
+      "ts": "20260525",
+      "label": "20260518 → 20260525",
+      "name": "网点变化对比报告_20260518_vs_20260525.xlsx",
+      "href": "downloads/reports/网点变化对比报告_20260518_vs_20260525.xlsx",
       "meta": "网点变化对比报告（品牌总量、省级对比、新增/减少/变更明细）"
     }
   ]
