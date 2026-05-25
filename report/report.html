@@ -740,9 +740,45 @@ function reportBrandRows(curLocs, prevLocs){
     return {g, cur, prev, diff, cities, cityDelta:cities-prevCities};
   }).sort((a,b)=>b.cur.length-a.cur.length);
 }
+// 把预计算 view 还原成 renderers 期望的 data 形状
+function _hydrateView(view){
+  const rows = view.rows.map(r => ({
+    g: r.g,
+    cur: new Array(r.curCount).fill({g:r.g}),
+    prev: new Array(r.prevCount).fill({g:r.g}),
+    cities: r.cities,
+    cityDelta: r.cityDelta,
+    diff: r.diff,
+  }));
+  // curLocs 仅在 renderDynamicReport/renderMonthlyReport 里被取 length 和 map(l=>l.g) 用作品牌数
+  const curLocs = view.rows.flatMap(r => new Array(r.curCount).fill(0).map(()=>({g:r.g})));
+  const prevLocs = view.rows.flatMap(r => new Array(r.prevCount).fill(0).map(()=>({g:r.g})));
+  return {
+    curLocs, prevLocs,
+    allDiff: view.allDiff,
+    rows,
+    totalDelta: view.curTotal - view.prevTotal,
+  };
+}
+async function _tryFetchView(oldTs, newTs){
+  // 离线 standalone 内联在 window.__VIEWS__
+  const key = `${oldTs}_vs_${newTs}`;
+  if(window.__VIEWS__ && window.__VIEWS__[key]) return window.__VIEWS__[key];
+  try{
+    const r = await fetch(`data/views/report_${oldTs}_vs_${newTs}.json`, {cache:'no-store'});
+    if(!r.ok) return null;
+    return await r.json();
+  }catch(e){ return null; }
+}
 async function computePairReportData(oldTs, newTs){
   const key = `${oldTs}|${newTs}`;
   if(REPORT_DATA_CACHE[key]) return REPORT_DATA_CACHE[key];
+  const view = await _tryFetchView(oldTs, newTs);
+  if(view){
+    const data = _hydrateView(view);
+    REPORT_DATA_CACHE[key] = data;
+    return data;
+  }
   const [prevLocs, curLocs] = await Promise.all([ensureLocations(oldTs), ensureLocations(newTs)]);
   const allDiff = pairPeriodChanges(curLocs, prevLocs);
   const rows = reportBrandRows(curLocs, prevLocs);
