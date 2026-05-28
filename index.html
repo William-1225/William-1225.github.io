@@ -304,7 +304,7 @@ body.dark-theme .page-heading { color: #a9a9b3; border-color: #3a3a3e; }
   margin-bottom: .35em;
 }
 .entry.has-logo {
-  padding-left: 6.2em;
+  padding-left: 2.1em;
 }
 .entry::before {
   content: "";
@@ -337,7 +337,7 @@ body.dark-theme .page-heading { color: #a9a9b3; border-color: #3a3a3e; }
 .entry-logo {
   position: absolute;
   left: 2.1em;
-  top: 1.05em;
+  top: 1.15em;
   width: 3.6em;
   height: 3.6em;
   border: 1px solid #e1e4e8;
@@ -351,6 +351,11 @@ body.dark-theme .page-heading { color: #a9a9b3; border-color: #3a3a3e; }
   box-shadow: 0 1px 2px rgba(0,0,0,.04);
   z-index: 1;
   transition: border-color .2s ease, background .2s ease;
+}
+.entry.has-logo .entry-header {
+  min-height: 3.8em;
+  padding-left: 4.45em;
+  align-items: center;
 }
 .entry-logo img {
   width: 100%;
@@ -583,12 +588,16 @@ body.dark-theme .stat { border-color: #3a3a3e; }
   .intro { transform: translateY(10vh); }
   .page-view { padding: 1.5rem 1em 3rem; }
   .entry { padding: 1em 0 1.3em 1.8em; }
-  .entry.has-logo { padding-left: 5.8em; }
+  .entry.has-logo { padding-left: 1.8em; }
   .entry-logo {
     width: 3.25em;
     height: 3.25em;
-    left: 2em;
-    top: 1em;
+    left: 1.8em;
+    top: 1.08em;
+  }
+  .entry.has-logo .entry-header {
+    min-height: 3.45em;
+    padding-left: 4.05em;
   }
   .entry.has-logo::before { left: .46em; }
   .edu-item { padding: 1em 0 1.3em 1.8em; }
@@ -699,7 +708,7 @@ body.dark-theme .stat { border-color: #3a3a3e; }
         <hr class="entry-divider"/>
         <div class="entry-label" id="c-label1">主要贡献</div>
         <ul class="entry-bullets">
-          <li id="jlr1"><strong>渠道洞察</strong> — <span class="dim">搭建竞对经销商渠道网络监测平台，覆盖 17 个品牌、8,800+ 网点，支持区域、城市等级、品牌多维下钻</span></li>
+          <li id="jlr1"><strong>渠道洞察</strong> — <span class="dim">搭建竞对经销商渠道监测平台，覆盖17品牌/8,800+网点，支持区域、城市等级、品牌下钻</span></li>
           <li id="jlr2"><strong>竞对分析</strong> — <span class="dim">分析 5+ 豪华品牌销量与产品规划，输出 5+ 份竞品分析报告，支持产品定位与市场策略</span></li>
           <li id="jlr3"><strong>残值研究</strong> — <span class="dim">整合中汽协 5,000+ 条二手车交易数据，构建残值分析底表，支持定价与生命周期管理</span></li>
           <li id="jlr4"><strong>情报综研</strong> — <span class="dim">持续追踪 20+ 车企月度销量，撰写 3 期月度市场快报及 5+ 专题分析报告</span></li>
@@ -930,7 +939,7 @@ var T = {
     zeekr_co:'极氪智能科技', zeekr_role:'商业分析实习生', zeekr_loc:'上海', zeekr_date:'2025.07 – 2025.10',
     risen_co:'东方日升新能源', risen_role:'海外市场实习生', risen_loc:'宁波', risen_date:'2023.06 – 2023.09',
     label_contrib:'主要贡献',
-    jlr1:'<strong>渠道洞察</strong> — <span class="dim">搭建竞对经销商渠道网络监测平台，覆盖 17 个品牌、8,800+ 网点，支持区域、城市等级、品牌多维下钻</span>',
+    jlr1:'<strong>渠道洞察</strong> — <span class="dim">搭建竞对经销商渠道监测平台，覆盖17品牌/8,800+网点，支持区域、城市等级、品牌下钻</span>',
     jlr2:'<strong>竞对分析</strong> — <span class="dim">分析 5+ 豪华品牌销量与产品规划，输出 5+ 份竞品分析报告</span>',
     jlr3:'<strong>残值研究</strong> — <span class="dim">整合中汽协 5,000+ 条二手车数据，构建残值分析底表，支持定价与生命周期管理</span>',
     jlr4:'<strong>情报综研</strong> — <span class="dim">持续追踪 20+ 车企，撰写 3 期月度快报及 5+ 专题报告</span>',
@@ -975,7 +984,7 @@ var T = {
     zeekr_co:'ZEEKR Intelligent Technology', zeekr_role:'Business Analysis Intern', zeekr_loc:'Shanghai', zeekr_date:'Jul 2025 – Oct 2025',
     risen_co:'Risen Energy Co., Ltd.', risen_role:'Overseas Marketing Intern', risen_loc:'Ningbo', risen_date:'Jun 2023 – Sep 2023',
     label_contrib:'Key Contributions',
-    jlr1:'<strong>Channel Insights</strong> — <span class="dim">Built competitor dealer network monitoring covering 17 brands and 8,800+ outlets, with drill-downs by region, city tier, and brand</span>',
+    jlr1:'<strong>Channel Insights</strong> — <span class="dim">Built dealer network monitor covering 17 brands/8,800+ outlets, with region, city-tier, and brand drill-downs</span>',
     jlr2:'<strong>Competitive Analysis</strong> — <span class="dim">Analyzed 5+ luxury brands\' sales and product strategies, delivered 5+ competitive reports</span>',
     jlr3:'<strong>Residual Value</strong> — <span class="dim">Built RV analysis model with 5,000+ used-car transactions to support pricing & lifecycle management</span>',
     jlr4:'<strong>Market Intelligence</strong> — <span class="dim">Tracked 20+ automakers, published 3 monthly bulletins and 5+ industry reports</span>',
