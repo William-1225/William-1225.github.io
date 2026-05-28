@@ -164,48 +164,24 @@
   .err{color:var(--neg);padding:30px;text-align:center}
   .empty{color:var(--mute);text-align:center;padding:60px 0}
 
-  /* === 口径说明 modal === */
-  button.ghost{background:#fff;color:var(--fg);border:1px solid var(--line);padding:5px 11px;border-radius:6px;font:inherit;cursor:pointer;font-size:13px;display:inline-flex;align-items:center;gap:5px;transition:all .12s}
-  button.ghost:hover{border-color:var(--acc);color:var(--acc);background:#f6fafe}
-  .doc-mask{position:fixed;inset:0;background:rgba(15,23,42,.42);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);z-index:100;display:none;align-items:flex-start;justify-content:center;padding:6vh 16px;overflow-y:auto}
-  .doc-mask.show{display:flex}
-  .doc{background:#fff;width:100%;max-width:820px;max-height:88vh;border-radius:10px;border:1px solid var(--line);box-shadow:0 24px 64px -12px rgba(15,23,42,.28),0 0 0 1px rgba(15,23,42,.04);display:flex;flex-direction:column;overflow:hidden;animation:docIn .22s cubic-bezier(.2,.7,.3,1)}
-  @keyframes docIn{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
-  .doc-head{padding:16px 22px 14px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:14px;background:linear-gradient(180deg,#fcfdff,#fff)}
-  .doc-head h2{margin:0 0 3px;font-size:16px;font-weight:600;letter-spacing:-.01em}
-  .doc-head .sub{color:var(--mute);font-size:13px}
-  .doc-head .x{margin-left:auto;background:transparent;border:1px solid var(--line);width:28px;height:28px;border-radius:6px;cursor:pointer;color:var(--mute);font-size:13px;line-height:1;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .doc-head .x:hover{border-color:var(--neg);color:var(--neg)}
-  .doc-body{padding:16px 22px 22px;overflow-y:auto;flex:1;font-size:13px;line-height:1.65}
-  .doc-body section{margin-bottom:18px}
-  .doc-body h3{font-size:13px;text-transform:uppercase;letter-spacing:.7px;color:var(--mute);font-weight:600;margin:0 0 8px;padding-bottom:6px;border-bottom:1px dashed var(--line)}
-  .cat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0 10px}
-  .cat-card{padding:10px 12px;border-radius:7px;border:1px solid;font-size:13px;line-height:1.5}
-  .cat-card .nm{font-size:13px;font-weight:600;display:block;margin-bottom:2px}
-  .cat-sales,.cat-service,.cat-body{background:#f8fbff;border-color:#dbeafe;color:#1e3a8a}
-  .cat-card .nm{color:#1d4ed8}
-  .rules{background:#f6f8fa;border:1px solid var(--line);border-radius:7px;padding:11px 14px;font-size:15.5px;color:#3a4250}
-  .rules code{background:#fff;border:1px solid var(--line);padding:1px 5px;border-radius:3px;font-size:14.5px;color:var(--acc);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-  .rules ul{margin:6px 0 0;padding-left:18px}
-  .rules li{margin:3px 0}
-  .brand-list{display:flex;flex-direction:column;gap:7px}
-  .b{border:1px solid var(--line);border-radius:7px;background:#fff;border-left:3px solid var(--acc);transition:box-shadow .15s,border-color .15s}
-  .b.special{border-left-color:#bf8700;background:#fbfbfb}
-  .b:hover{box-shadow:0 1px 3px rgba(15,23,42,.06)}
-  .b summary{padding:9px 13px;cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;font-size:13px;user-select:none}
-  .b summary::-webkit-details-marker{display:none}
-  .b summary::before{content:'▸';color:var(--mute);font-size:13px;transition:transform .15s}
-  .b[open] summary::before{transform:rotate(90deg)}
-  .b .name{font-weight:600}
-  .b .tag{font-size:13.5px;padding:1px 7px;border-radius:9px;background:#eaeef2;color:var(--mute);letter-spacing:.3px}
-  .b.special .tag{background:#fbfbfb;color:#7d4e00}
-  .b .src{margin-left:auto;color:var(--mute);font-size:14.5px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-  .b .body{padding:2px 14px 12px 28px;color:#3a4250;font-size:15.5px;line-height:1.7}
-  .b .body dl{display:grid;grid-template-columns:78px 1fr;gap:3px 12px;margin:0}
-  .b .body dt{color:var(--mute);font-size:14.5px;padding-top:1px}
-  .b .body dd{margin:0}
-  .b .body .note{margin-top:6px;padding:7px 10px;background:#f8fbff;border-left:2px solid var(--acc);border-radius:0 4px 4px 0;color:#1e3a8a;font-size:13px}
-  .b.special .body .note{background:#fbfbfb;border-left-color:#bf8700;color:#5d4500}
+  /* === 口径说明页面 === */
+  .doc-page{overflow-y:auto;background:var(--bg)}
+  .doc-wrap{padding:24px 28px 32px;max-width:1280px;margin:0 auto}
+  .doc-title{font-size:20px;font-weight:700;margin:0 0 4px;color:var(--fg)}
+  .doc-sub{color:var(--mute);font-size:13px;margin-bottom:16px}
+  .doc-note{background:#f6f8fa;border:1px solid var(--line);border-radius:8px;padding:12px 14px;color:#344054;font-size:13px;line-height:1.65;margin-bottom:14px}
+  .doc-note b{color:var(--fg)}
+  .doc-table-wrap{border:1px solid var(--line);border-radius:8px;overflow:auto;background:#fff}
+  .doc-table{width:100%;min-width:920px;border-collapse:collapse;font-size:13px}
+  .doc-table th,.doc-table td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+  .doc-table th{position:sticky;top:0;background:#f8fafc;z-index:1;color:#475467;font-weight:600;white-space:nowrap}
+  .doc-table tbody tr:hover{background:#fbfcfe}
+  .doc-table tbody tr:last-child td{border-bottom:0}
+  .doc-table .brand-col{width:120px;font-weight:600;color:var(--fg);white-space:nowrap}
+  .doc-table .sales-col{width:270px}
+  .doc-table .service-col{width:210px;color:#475467}
+  .doc-table .note-col{min-width:320px;color:#344054}
+  .doc-table .muted{color:#b7c0cc}
 
   /* ── 全局滚动条：细款半透明 ── */
   ::-webkit-scrollbar{width:10px;height:10px}
@@ -230,10 +206,8 @@
     <div class="nav-item active" data-page="viz"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 2 5-7"/></svg>可视化查询</div>
     <div class="nav-item" data-page="report"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>当期报告</div>
     <div class="nav-item" data-page="monthly"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="m8 15 2 2 4-5"/></svg>月度报告</div>
+    <div class="nav-item" data-page="doc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>口径说明</div>
     <div class="nav-item" data-page="download"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>数据下载</div>
-  </div>
-  <div class="side-action-group">
-    <button class="side-action" id="docBtn" type="button" title="查看各品牌统计口径说明"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>口径说明</button>
   </div>
 </nav>
 
@@ -380,6 +354,11 @@
   <div id="monthlyBody"></div>
 </div>
 
+<!-- 右侧：口径说明 -->
+<div id="page-doc" class="page doc-page" style="display:none">
+  <div class="doc-wrap" id="docBody"></div>
+</div>
+
 <!-- 右侧：数据下载 -->
 <div id="page-download" class="page download-page" style="display:none">
   <div class="page-title">数据下载</div>
@@ -387,20 +366,6 @@
 </div>
 
 </div><!-- /app -->
-
-<!-- 口径说明 modal（浮层，在 app 外） -->
-<div class="doc-mask" id="docMask" role="dialog" aria-modal="true" aria-labelledby="docTitle">
-  <div class="doc" role="document">
-    <div class="doc-head">
-      <div>
-        <h2 id="docTitle">统计口径说明</h2>
-        <div class="sub">更新日期：2026-05 · 共 22 个品牌（含鸿蒙智行 5 个子品牌）· 业务参阅文档</div>
-      </div>
-      <button class="x" id="docClose" aria-label="关闭">✕</button>
-    </div>
-    <div class="doc-body" id="docBody"></div>
-  </div>
-</div>
 
 <script>
 const stripSuffix = s => (s||"").replace(/(维吾尔自治区|壮族自治区|回族自治区|自治区|特别行政区|省|市)$/,"");
@@ -591,7 +556,7 @@ function switchTab(name){
 /* ── 左侧导航切换 ── */
 function switchPage(name){
   document.querySelectorAll('.nav-item').forEach(el=>el.classList.toggle('active', el.dataset.page===name));
-  ['viz','report','monthly','download'].forEach(p=>{
+  ['viz','report','monthly','doc','download'].forEach(p=>{
     document.getElementById('page-'+p).style.display = p===name ? (p==='viz'?'flex':'block') : 'none';
   });
   if(name==='viz'){
@@ -602,6 +567,7 @@ function switchPage(name){
   }
   if(name==='report') _initReport();
   if(name==='monthly') _initMonthlyReport();
+  if(name==='doc') renderDoc();
   if(name==='download') _initDownload();
 }
 
@@ -2309,105 +2275,66 @@ function exportCSV(){
   a.click(); URL.revokeObjectURL(url);
 }
 
-/* ========= 口径说明 modal ========= */
+/* ========= 口径说明页面 ========= */
 const DOC_BRANDS = [
-  {b:'蔚来', note:'蔚来所有网点（直营店、交付中心、服务中心等）均计入统计，销售口径包含全部职能类型。'},
-  {b:'理想', note:'包含零售中心、用户服务中心、交付中心，数据来自官网经销商查询页面。'},
-  {b:'小鹏', note:'包含销售门店与售后服务网点，数据来自官网门店查询页面。'},
-  {b:'小米', note:'销售门店、交付中心、售后维修分别采集后合并，完整覆盖各职能类型。'},
-  {b:'鸿蒙智行', sub:'问界 / 智界 / 享界 / 尊界 / 尚界', note:'一个实体门店通常同时挂靠多个子品牌（如同一家店同时经营问界和智界）。各子品牌数字存在交叉，整体网点数按物理门店统计。', special:true},
-  {b:'特斯拉', note:'特斯拉全部为直营模式，所有网点统一计入销售口径。', special:true},
-  {b:'一汽奥迪', note:'纯二手车展厅单独标注，不计入新车销售网点数。', special:true},
-  {b:'上汽奥迪', note:'上汽奥迪与一汽奥迪为独立品牌渠道，本报告分开统计，数字不叠加。'},
-  {b:'奔驰', note:'部分网点设有专项中心（如 AMG 性能中心、迈巴赫专区），体现在备注列，不影响网点总数统计。', special:true},
-  {b:'宝马', note:'包含宝马授权经销商（含 4S 店）及独立售后服务网点，数据来自官网经销商查询页面。'},
-  {b:'雷克萨斯', note:'包含雷克萨斯授权经销商及服务中心，数据来自官网经销商查询页面。'},
-  {b:'沃尔沃', note:'沃尔沃纯电体验空间（名称含"空间"）计入销售口径。', special:true},
-  {b:'保时捷', note:'包含保时捷中心（4S）、展厅及认证售后服务网点，数据来自官网经销商查询页面。'},
-  {b:'阿斯顿马丁', note:'部分经销商在同一城市设有多个实体地址，每个地址单独计为一个网点。'},
-  {b:'宾利', note:'包含宾利授权经销商及服务网点，数据来自官网经销商查询页面。'},
-  {b:'法拉利', note:'包含法拉利授权经销商及服务中心，数据来自官网各城市经销商页面。'},
-  {b:'兰博基尼', note:'包含兰博基尼授权经销商及售后服务网点，数据来自官网经销商查询页面。'},
-  {b:'劳斯莱斯', note:'包含劳斯莱斯授权经销商及服务网点，数据来自官网经销商查询页面。'},
+  {b:'蔚来', sales:'直营店、交付中心、服务中心等', service:'', note:'蔚来所有网点（直营店、交付中心、服务中心等）均计入统计，销售口径包含全部职能类型。'},
+  {b:'理想', sales:'零售中心、用户服务中心、交付中心', service:'', note:'包含零售中心、用户服务中心、交付中心，数据来自官网经销商查询页面。'},
+  {b:'小鹏', sales:'销售门店、体验中心、交付中心', service:'售后服务网点', note:'包含销售门店与售后服务网点，数据来自官网门店查询页面。'},
+  {b:'小米', sales:'销售门店、交付中心', service:'售后维修', note:'销售门店、交付中心、售后维修分别采集后合并，完整覆盖各职能类型。'},
+  {b:'鸿蒙智行', sales:'体验店、用户中心、授权销售网点等', service:'', note:'一个实体门店通常同时挂靠多个子品牌（如同一家店同时经营问界和智界）。各子品牌数字存在交叉，整体网点数按物理门店统计。'},
+  {b:'特斯拉', sales:'直营门店、交付中心、服务中心等', service:'', note:'特斯拉全部为直营模式，所有网点统一计入销售口径。'},
+  {b:'一汽奥迪', sales:'授权经销商、新车销售网点', service:'服务网点', note:'纯二手车展厅单独标注，不计入新车销售网点数。'},
+  {b:'上汽奥迪', sales:'用户中心、授权销售网点', service:'服务网点', note:'上汽奥迪与一汽奥迪为独立品牌渠道，本报告分开统计，数字不叠加。'},
+  {b:'奔驰', sales:'授权经销商、4S 店、展厅', service:'服务中心', note:'部分网点设有专项中心（如 AMG 性能中心、迈巴赫专区），体现在备注列，不影响网点总数统计。'},
+  {b:'宝马', sales:'宝马授权经销商（含 4S 店）', service:'独立售后服务网点', note:'包含宝马授权经销商（含 4S 店）及独立售后服务网点，数据来自官网经销商查询页面。'},
+  {b:'雷克萨斯', sales:'授权经销商', service:'服务中心', note:'包含雷克萨斯授权经销商及服务中心，数据来自官网经销商查询页面。'},
+  {b:'沃尔沃', sales:'授权经销商、纯电体验空间', service:'服务/钣喷网点', note:'沃尔沃纯电体验空间（名称含"空间"）计入销售口径。'},
+  {b:'保时捷', sales:'保时捷中心（4S）、展厅', service:'认证售后服务网点', note:'包含保时捷中心（4S）、展厅及认证售后服务网点，数据来自官网经销商查询页面。'},
+  {b:'阿斯顿·马丁', sales:'授权经销商、展厅', service:'服务网点', note:'部分经销商在同一城市设有多个实体地址，每个地址单独计为一个网点。'},
+  {b:'宾利', sales:'授权经销商、展厅', service:'服务网点', note:'包含宾利授权经销商及服务网点，数据来自官网经销商查询页面。'},
+  {b:'法拉利', sales:'授权经销商、展厅', service:'服务中心', note:'包含法拉利授权经销商及服务中心，数据来自官网各城市经销商页面。'},
+  {b:'兰博基尼', sales:'授权经销商、展厅', service:'售后服务网点、钣喷', note:'包含兰博基尼授权经销商及售后服务网点，数据来自官网经销商查询页面。'},
+  {b:'劳斯莱斯', sales:'授权经销商、展厅', service:'服务网点', note:'包含劳斯莱斯授权经销商及服务网点，数据来自官网经销商查询页面。'},
 ];
 
 function renderDoc(){
   const body = document.getElementById('docBody');
   if(body.dataset.rendered) return;
 
-  let html = '';
+  const rows = DOC_BRANDS.map(x => `<tr>
+    <td class="brand-col">${x.b}</td>
+    <td class="sales-col">${x.sales || '<span class="muted">-</span>'}</td>
+    <td class="service-col">${x.service || '<span class="muted">-</span>'}</td>
+    <td class="note-col">${x.note || ''}</td>
+  </tr>`).join('');
 
-  // 全局规则
-  html += `<section>
-    <h3>网点如何分类</h3>
-    <div class="cat-row">
-      <div class="cat-card cat-sales"><span class="nm">销售</span>凡是能买车的网点，包括 4S 店、展厅、体验中心、交付中心等，统一归为销售</div>
-      <div class="cat-card cat-service"><span class="nm">服务</span>只做售后、不卖车的网点，如维修中心、服务站</div>
-      <div class="cat-card cat-body"><span class="nm">钣喷</span>专门做钣金喷漆的网点</div>
+  const html = `
+    <h1 class="doc-title">统计口径说明</h1>
+    <div class="doc-sub">更新日期：2026-05 · 共 22 个品牌（含鸿蒙智行 5 个子品牌）· 口径表按品牌/品牌组展示</div>
+    <div class="doc-note">
+      <b>说明：</b>本表重点说明各品牌纳入销售网点统计的门店类型。售后网点不是本报告的核心关注对象，因此仅在品牌有明确单独售后口径、且会影响网点统计理解时补充说明；否则售后列留空。
     </div>
-    <div class="rules">
-      一个网点同时有销售和售后职能（如标准 4S 店），计入销售，不拆分统计。
+    <div class="doc-table-wrap">
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th>品牌</th>
+            <th>销售</th>
+            <th>售后</th>
+            <th>备注</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
     </div>
-  </section>`;
-
-  // 去重 + 过滤
-  html += `<section>
-    <h3>如何避免重复计数</h3>
-    <div class="rules">
-      同一品牌的网点数据经过以下清洗，确保每个实体门店只计一次：
-      <ul>
-        <li>名称和地址完全相同的重复条目直接合并</li>
-        <li>同一地址挂了多种服务类型（如"销售"和"售后"分开录入）→ 合并为一个网点，类型取销售优先</li>
-        <li>同一城市内名称相同的网点合并；不同城市的同名网点不合并</li>
-      </ul>
+    <div class="doc-note" style="margin-top:14px">
+      <b>统计范围：</b>港澳台网点不纳入统计，仅统计中国大陆门店。跨期对比会按品牌组、原始店名、省份和地址识别同一物理网点；命中的同店地址或名称变化不计入新增/退出。
     </div>
-  </section>
-  <section>
-    <h3>跨期对比框架</h3>
-    <div class="rules">
-      <ul>
-        <li>第一层用"品牌组 + 原始店名 + 省份 + 地址"识别同一物理网点，命中即视为存量</li>
-        <li>第二层处理地址更新：同品牌组、同完整店名、同省同市时，继续比较区县、路名门牌和地址相似度；若新增和退出各只有一条同名同城候选，也视为地址变更</li>
-        <li>第三层处理名称更新：同品牌组下，如果地址高度相似，或规范化店名主干高度相似，视为同店改名/类型调整</li>
-        <li>以上都无法配对的记录，才进入新增或退出；命中的地址变更会使用本期新地址展示，不计入新增/退出</li>
-      </ul>
-    </div>
-  </section>
-  <section>
-    <h3>统计范围</h3>
-    <div class="rules">
-      港澳台网点不纳入统计，仅统计中国大陆门店。
-    </div>
-  </section>`;
-
-  // 品牌列表
-  html += `<section><h3>各品牌特殊说明</h3><div class="brand-list">`;
-  for(const x of DOC_BRANDS){
-    const cls = x.special ? 'b special' : 'b';
-    const tag = x.special ? '<span class="tag">特殊处理</span>' : '<span class="tag">标准</span>';
-    const subL = x.sub ? `<div style="color:var(--mute);font-size:12px;margin:4px 0 2px">${x.sub}</div>` : '';
-    const noteL = x.note ? `<div class="note">${x.note}</div>` : '';
-    const bodyContent = (subL || noteL) ? `<div class="body">${subL}${noteL}</div>` : '';
-    html += `<details class="${cls}">
-      <summary><span class="name">${x.b}</span>${tag}</summary>
-      ${bodyContent}
-    </details>`;
-  }
-  html += `</div></section>`;
+  `;
 
   body.innerHTML = html;
   body.dataset.rendered = '1';
 }
-
-(function initDoc(){
-  const mask = document.getElementById('docMask');
-  const open = ()=>{ renderDoc(); mask.classList.add('show'); document.body.style.overflow='hidden'; };
-  const close = ()=>{ mask.classList.remove('show'); document.body.style.overflow=''; };
-  document.getElementById('docBtn').addEventListener('click', open);
-  document.getElementById('docClose').addEventListener('click', close);
-  mask.addEventListener('click', e=>{ if(e.target===mask) close(); });
-  document.addEventListener('keydown', e=>{ if(e.key==='Escape' && mask.classList.contains('show')) close(); });
-})();
 
 boot();
 </script>
