@@ -171,17 +171,28 @@
   .doc-sub{color:var(--mute);font-size:13px;margin-bottom:16px}
   .doc-note{background:#f6f8fa;border:1px solid var(--line);border-radius:8px;padding:12px 14px;color:#344054;font-size:13px;line-height:1.65;margin-bottom:14px}
   .doc-note b{color:var(--fg)}
+  .doc-rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:14px}
+  .doc-rule{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.65;color:#344054}
+  .doc-rule h3{font-size:13px;margin:0 0 6px;color:var(--fg);font-weight:650}
+  .doc-rule ul{margin:6px 0 0;padding-left:18px}
+  .doc-rule li{margin:2px 0}
   .doc-table-wrap{border:1px solid var(--line);border-radius:8px;overflow:auto;background:#fff}
   .doc-table{width:100%;min-width:920px;border-collapse:collapse;font-size:13px}
   .doc-table th,.doc-table td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
   .doc-table th{position:sticky;top:0;background:#f8fafc;z-index:1;color:#475467;font-weight:600;white-space:nowrap}
   .doc-table tbody tr:hover{background:#fbfcfe}
   .doc-table tbody tr:last-child td{border-bottom:0}
-  .doc-table .brand-col{width:120px;font-weight:600;color:var(--fg);white-space:nowrap}
+  .doc-table .group-row td{font-weight:650;color:var(--fg);background:#fbfcfe;padding:8px 12px}
+  .doc-table .group-row .group-label{display:inline-flex;align-items:center;gap:7px}
+  .doc-table .group-row .group-label::before{content:"";display:inline-block;width:4px;height:18px;border-radius:4px;background:var(--group)}
+  .doc-table .brand-col{width:120px;font-weight:600;color:var(--fg);white-space:nowrap;border-left:4px solid var(--group)}
   .doc-table .sales-col{width:270px}
   .doc-table .service-col{width:210px;color:#475467}
   .doc-table .note-col{min-width:320px;color:#344054}
   .doc-table .muted{color:#b7c0cc}
+  .cat-ev{--group:#10b981}
+  .cat-luxury{--group:#2563eb}
+  .cat-super{--group:#d97706}
 
   /* ── 全局滚动条：细款半透明 ── */
   ::-webkit-scrollbar{width:10px;height:10px}
@@ -206,8 +217,8 @@
     <div class="nav-item active" data-page="viz"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 2 5-7"/></svg>可视化查询</div>
     <div class="nav-item" data-page="report"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>当期报告</div>
     <div class="nav-item" data-page="monthly"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="m8 15 2 2 4-5"/></svg>月度报告</div>
-    <div class="nav-item" data-page="doc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>口径说明</div>
     <div class="nav-item" data-page="download"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>数据下载</div>
+    <div class="nav-item" data-page="doc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>口径说明</div>
   </div>
 </nav>
 
@@ -2277,42 +2288,82 @@ function exportCSV(){
 
 /* ========= 口径说明页面 ========= */
 const DOC_BRANDS = [
-  {b:'蔚来', sales:'直营店、交付中心、服务中心等', service:'', note:'蔚来所有网点（直营店、交付中心、服务中心等）均计入统计，销售口径包含全部职能类型。'},
-  {b:'理想', sales:'零售中心、用户服务中心、交付中心', service:'', note:'包含零售中心、用户服务中心、交付中心，数据来自官网经销商查询页面。'},
-  {b:'小鹏', sales:'销售门店、体验中心、交付中心', service:'售后服务网点', note:'包含销售门店与售后服务网点，数据来自官网门店查询页面。'},
-  {b:'小米', sales:'销售门店、交付中心', service:'售后维修', note:'销售门店、交付中心、售后维修分别采集后合并，完整覆盖各职能类型。'},
-  {b:'鸿蒙智行', sales:'体验店、用户中心、授权销售网点等', service:'', note:'一个实体门店通常同时挂靠多个子品牌（如同一家店同时经营问界和智界）。各子品牌数字存在交叉，整体网点数按物理门店统计。'},
-  {b:'特斯拉', sales:'直营门店、交付中心、服务中心等', service:'', note:'特斯拉全部为直营模式，所有网点统一计入销售口径。'},
-  {b:'一汽奥迪', sales:'授权经销商、新车销售网点', service:'服务网点', note:'纯二手车展厅单独标注，不计入新车销售网点数。'},
-  {b:'上汽奥迪', sales:'用户中心、授权销售网点', service:'服务网点', note:'上汽奥迪与一汽奥迪为独立品牌渠道，本报告分开统计，数字不叠加。'},
-  {b:'奔驰', sales:'授权经销商、4S 店、展厅', service:'服务中心', note:'部分网点设有专项中心（如 AMG 性能中心、迈巴赫专区），体现在备注列，不影响网点总数统计。'},
-  {b:'宝马', sales:'宝马授权经销商（含 4S 店）', service:'独立售后服务网点', note:'包含宝马授权经销商（含 4S 店）及独立售后服务网点，数据来自官网经销商查询页面。'},
-  {b:'雷克萨斯', sales:'授权经销商', service:'服务中心', note:'包含雷克萨斯授权经销商及服务中心，数据来自官网经销商查询页面。'},
-  {b:'沃尔沃', sales:'授权经销商、纯电体验空间', service:'服务/钣喷网点', note:'沃尔沃纯电体验空间（名称含"空间"）计入销售口径。'},
-  {b:'保时捷', sales:'保时捷中心（4S）、展厅', service:'认证售后服务网点', note:'包含保时捷中心（4S）、展厅及认证售后服务网点，数据来自官网经销商查询页面。'},
-  {b:'阿斯顿·马丁', sales:'授权经销商、展厅', service:'服务网点', note:'部分经销商在同一城市设有多个实体地址，每个地址单独计为一个网点。'},
-  {b:'宾利', sales:'授权经销商、展厅', service:'服务网点', note:'包含宾利授权经销商及服务网点，数据来自官网经销商查询页面。'},
-  {b:'法拉利', sales:'授权经销商、展厅', service:'服务中心', note:'包含法拉利授权经销商及服务中心，数据来自官网各城市经销商页面。'},
-  {b:'兰博基尼', sales:'授权经销商、展厅', service:'售后服务网点、钣喷', note:'包含兰博基尼授权经销商及售后服务网点，数据来自官网经销商查询页面。'},
-  {b:'劳斯莱斯', sales:'授权经销商、展厅', service:'服务网点', note:'包含劳斯莱斯授权经销商及服务网点，数据来自官网经销商查询页面。'},
+  {cat:'ev', b:'蔚来', sales:'直营店、交付中心、服务中心等', service:'', note:'蔚来所有网点（直营店、交付中心、服务中心等）均计入统计，销售口径包含全部职能类型。'},
+  {cat:'ev', b:'理想', sales:'零售中心、用户服务中心、交付中心', service:'', note:'包含零售中心、用户服务中心、交付中心，数据来自官网经销商查询页面。'},
+  {cat:'ev', b:'小鹏', sales:'销售门店、体验中心、交付中心', service:'售后服务网点', note:'包含销售门店与售后服务网点，数据来自官网门店查询页面。'},
+  {cat:'ev', b:'小米', sales:'销售门店、交付中心', service:'售后维修', note:'销售门店、交付中心、售后维修分别采集后合并，完整覆盖各职能类型。'},
+  {cat:'ev', b:'鸿蒙智行', sales:'体验店、用户中心、授权销售网点等', service:'', note:'一个实体门店通常同时挂靠多个子品牌（如同一家店同时经营问界和智界）。各子品牌数字存在交叉，整体网点数按物理门店统计。'},
+  {cat:'ev', b:'特斯拉', sales:'直营门店、交付中心、服务中心等', service:'', note:'特斯拉全部为直营模式，所有网点统一计入销售口径。'},
+  {cat:'luxury', b:'一汽奥迪', sales:'授权经销商、新车销售网点', service:'服务网点', note:'纯二手车展厅单独标注，不计入新车销售网点数。'},
+  {cat:'luxury', b:'上汽奥迪', sales:'用户中心、授权销售网点', service:'服务网点', note:'上汽奥迪与一汽奥迪为独立品牌渠道，本报告分开统计，数字不叠加。'},
+  {cat:'luxury', b:'奔驰', sales:'授权经销商、4S 店、展厅', service:'服务中心', note:'部分网点设有专项中心（如 AMG 性能中心、迈巴赫专区），体现在备注列，不影响网点总数统计。'},
+  {cat:'luxury', b:'宝马', sales:'宝马授权经销商（含 4S 店）', service:'独立售后服务网点', note:'包含宝马授权经销商（含 4S 店）及独立售后服务网点，数据来自官网经销商查询页面。'},
+  {cat:'luxury', b:'雷克萨斯', sales:'授权经销商', service:'服务中心', note:'包含雷克萨斯授权经销商及服务中心，数据来自官网经销商查询页面。'},
+  {cat:'luxury', b:'沃尔沃', sales:'授权经销商、纯电体验空间', service:'服务/钣喷网点', note:'沃尔沃纯电体验空间（名称含"空间"）计入销售口径。'},
+  {cat:'luxury', b:'保时捷', sales:'保时捷中心（4S）、展厅', service:'认证售后服务网点', note:'包含保时捷中心（4S）、展厅及认证售后服务网点，数据来自官网经销商查询页面。'},
+  {cat:'super', b:'阿斯顿·马丁', sales:'授权经销商、展厅', service:'服务网点', note:'部分经销商在同一城市设有多个实体地址，每个地址单独计为一个网点。'},
+  {cat:'super', b:'宾利', sales:'授权经销商、展厅', service:'服务网点', note:'包含宾利授权经销商及服务网点，数据来自官网经销商查询页面。'},
+  {cat:'super', b:'法拉利', sales:'授权经销商、展厅', service:'服务中心', note:'包含法拉利授权经销商及服务中心，数据来自官网各城市经销商页面。'},
+  {cat:'super', b:'兰博基尼', sales:'授权经销商、展厅', service:'售后服务网点、钣喷', note:'包含兰博基尼授权经销商及售后服务网点，数据来自官网经销商查询页面。'},
+  {cat:'super', b:'劳斯莱斯', sales:'授权经销商、展厅', service:'服务网点', note:'包含劳斯莱斯授权经销商及服务网点，数据来自官网经销商查询页面。'},
+];
+const DOC_GROUPS = [
+  {key:'ev', label:'新能源'},
+  {key:'luxury', label:'豪华'},
+  {key:'super', label:'超豪华'},
 ];
 
 function renderDoc(){
   const body = document.getElementById('docBody');
   if(body.dataset.rendered) return;
 
-  const rows = DOC_BRANDS.map(x => `<tr>
-    <td class="brand-col">${x.b}</td>
-    <td class="sales-col">${x.sales || '<span class="muted">-</span>'}</td>
-    <td class="service-col">${x.service || '<span class="muted">-</span>'}</td>
-    <td class="note-col">${x.note || ''}</td>
-  </tr>`).join('');
+  const rows = DOC_GROUPS.map(g => {
+    const items = DOC_BRANDS.filter(x => x.cat === g.key).map(x => `<tr class="cat-${g.key}">
+      <td class="brand-col">${x.b}</td>
+      <td class="sales-col">${x.sales || '<span class="muted">-</span>'}</td>
+      <td class="service-col">${x.service || '<span class="muted">-</span>'}</td>
+      <td class="note-col">${x.note || ''}</td>
+    </tr>`).join('');
+    return `<tr class="group-row cat-${g.key}"><td colspan="4"><span class="group-label">${g.label}</span></td></tr>${items}`;
+  }).join('');
 
   const html = `
     <h1 class="doc-title">统计口径说明</h1>
     <div class="doc-sub">更新日期：2026-05 · 共 22 个品牌（含鸿蒙智行 5 个子品牌）· 口径表按品牌/品牌组展示</div>
     <div class="doc-note">
       <b>说明：</b>本表重点说明各品牌纳入销售网点统计的门店类型。售后网点不是本报告的核心关注对象，因此仅在品牌有明确单独售后口径、且会影响网点统计理解时补充说明；否则售后列留空。
+    </div>
+    <div class="doc-rules">
+      <div class="doc-rule">
+        <h3>网点如何分类</h3>
+        <ul>
+          <li>销售：凡是能买车的网点，包括 4S 店、展厅、体验中心、交付中心等，统一归为销售。</li>
+          <li>服务：只做售后、不卖车的网点，如维修中心、服务站。</li>
+          <li>钣喷：专门做钣金喷漆的网点。</li>
+          <li>一个网点同时有销售和售后职能（如标准 4S 店），计入销售，不拆分统计。</li>
+        </ul>
+      </div>
+      <div class="doc-rule">
+        <h3>如何避免重复计数</h3>
+        <ul>
+          <li>名称和地址完全相同的重复条目直接合并。</li>
+          <li>同一地址挂了多种服务类型时，合并为一个网点，类型取销售优先。</li>
+          <li>同一城市内名称相同的网点合并；不同城市的同名网点不合并。</li>
+        </ul>
+      </div>
+      <div class="doc-rule">
+        <h3>跨期对比框架</h3>
+        <ul>
+          <li>第一层用“品牌组 + 原始店名 + 省份 + 地址”识别同一物理网点。</li>
+          <li>第二层处理地址更新：继续比较区县、路名门牌和地址相似度；单一同名同城候选也视为地址变更。</li>
+          <li>第三层处理名称更新：同品牌组下，地址或规范化店名主干高度相似时，视为同店改名/类型调整。</li>
+          <li>以上都无法配对的记录，才进入新增或退出。</li>
+        </ul>
+      </div>
+      <div class="doc-rule">
+        <h3>统计范围</h3>
+        港澳台网点不纳入统计，仅统计中国大陆门店。命中的同店地址或名称变化会使用本期新地址展示，不计入新增/退出。
+      </div>
     </div>
     <div class="doc-table-wrap">
       <table class="doc-table">
@@ -2321,14 +2372,11 @@ function renderDoc(){
             <th>品牌</th>
             <th>销售</th>
             <th>售后</th>
-            <th>备注</th>
+            <th>备注说明</th>
           </tr>
         </thead>
         <tbody>${rows}</tbody>
       </table>
-    </div>
-    <div class="doc-note" style="margin-top:14px">
-      <b>统计范围：</b>港澳台网点不纳入统计，仅统计中国大陆门店。跨期对比会按品牌组、原始店名、省份和地址识别同一物理网点；命中的同店地址或名称变化不计入新增/退出。
     </div>
   `;
 
