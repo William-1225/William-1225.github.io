@@ -770,6 +770,31 @@ body.dark-theme .stat { border-color: #3a3a3e; }
       <div class="entry">
         <div class="entry-header">
           <div>
+            <div class="entry-company" id="p-news-co">汽车行业新闻聚合看板</div>
+            <div class="entry-role" id="p-news-role">个人项目 · 每日自动更新</div>
+          </div>
+          <div class="entry-date" id="p-news-date">2026.05-至今</div>
+        </div>
+        <hr class="entry-divider"/>
+        <div class="entry-label" id="p-label-news">主要工作</div>
+        <ul class="entry-bullets">
+          <li id="news1"><strong>多源采集</strong> — <span class="dim">基于 Python + Playwright 每日抓取盖世汽车、汽车之家、第一电动等主流媒体资讯</span></li>
+          <li id="news2"><strong>智能处理</strong> — <span class="dim">LLM 自动摘要、四维分类（行业大事/分品牌/新能源·智驾/舆情·热点）与品牌标签，跨天去重</span></li>
+          <li id="news3"><strong>看板呈现</strong> — <span class="dim">分类筛选、品牌与来源下钻、全文搜索、要点置顶，每日自动发布</span></li>
+        </ul>
+        <div class="entry-tags">
+          <span class="tag" id="t-news-1">资讯聚合</span>
+          <span class="tag" id="t-news-2">LLM 摘要</span>
+          <span class="tag" id="t-news-3">数据可视化</span>
+          <span class="tag">Python</span>
+          <span class="tag">Playwright</span>
+        </div>
+        <a class="entry-link" href="news/" target="_blank" id="news-link">查看新闻看板</a>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div>
             <div class="entry-company" id="p-xhs-co">小红书 SUV 用户口碑监测</div>
             <div class="entry-role" id="p-xhs-role">个人项目 · 社媒 UGC 洞察</div>
           </div>
@@ -957,6 +982,13 @@ var T = {
     risen1:'<strong>获客分析</strong> — <span class="dim">基于询盘频次、历史成交与客户体量评估多渠道线索价值，识别高意向客户与热销产品组合</span>',
     risen2:'<strong>竞品研究</strong> — <span class="dim">追踪 Amazon 等海外零售平台竞品动态，建立参数与定价对比底表，为新品开发提供数据支撑</span>',
     proj_heading:'Projects',
+    news_co:'汽车行业新闻聚合看板', news_role:'个人项目 · 每日自动更新', news_date:'2026.05-至今',
+    label_work_news:'主要工作',
+    news1:'<strong>多源采集</strong> — <span class="dim">基于 Python + Playwright 每日抓取盖世汽车、汽车之家、第一电动等主流媒体资讯</span>',
+    news2:'<strong>智能处理</strong> — <span class="dim">LLM 自动摘要、四维分类与品牌标签，跨天去重</span>',
+    news3:'<strong>看板呈现</strong> — <span class="dim">分类筛选、品牌与来源下钻、全文搜索、要点置顶，每日自动发布</span>',
+    tnews1:'资讯聚合', tnews2:'LLM 摘要', tnews3:'数据可视化',
+    news_link:'查看新闻看板',
     xhs_co:'小红书 SUV 用户口碑监测', xhs_role:'个人项目 · 社媒 UGC 洞察', xhs_date:'2026.04 – 2026.05',
     xhs1:'<strong>UGC 数据采集</strong> — <span class="dim">基于 Python + Playwright 搭建小红书汽车笔记采集与清洗 pipeline，累计覆盖 2w+ 条真实用户内容</span>',
     xhs2:'<strong>口碑洞察</strong> — <span class="dim">围绕 14 个品牌、32 款热门 SUV 设计关键词矩阵，识别车型痛点、情感倾向与差异化优势</span>',
@@ -1002,6 +1034,13 @@ var T = {
     risen1:'<strong>Lead Analysis</strong> — <span class="dim">Evaluated multi-channel leads by inquiry frequency, transaction history, and customer scale to identify high-intent customers</span>',
     risen2:'<strong>Competitive Research</strong> — <span class="dim">Tracked Amazon and overseas retail competitors, building parameter and pricing comparison tables for new product development</span>',
     proj_heading:'Projects',
+    news_co:'Auto Industry News Dashboard', news_role:'Personal Project · Daily Auto-Update', news_date:'May 2026 - Present',
+    label_work_news:'Key Work',
+    news1:'<strong>Multi-Source Crawl</strong> — <span class="dim">Daily Python + Playwright crawl of mainstream auto media (Gasgoo, Autohome, D1EV)</span>',
+    news2:'<strong>Smart Processing</strong> — <span class="dim">LLM summarization, 4-way categorization, brand tagging, and cross-day dedup</span>',
+    news3:'<strong>Dashboard</strong> — <span class="dim">Category filters, brand/source drill-down, full-text search, top-news highlights, auto-published daily</span>',
+    tnews1:'News Aggregation', tnews2:'LLM Summary', tnews3:'Data Visualization',
+    news_link:'View News Dashboard',
     xhs_co:'Xiaohongshu SUV User Sentiment Monitor', xhs_role:'Personal Project · Social UGC Insights', xhs_date:'Apr 2026 – May 2026',
     xhs1:'<strong>UGC Pipeline</strong> — <span class="dim">Built a Python + Playwright pipeline for Xiaohongshu automotive posts, collecting and cleaning 20k+ real user notes</span>',
     xhs2:'<strong>Sentiment Insights</strong> — <span class="dim">Designed keyword matrices across 14 brands and 32 popular SUVs to identify pain points, sentiment shifts, and brand advantages</span>',
@@ -1043,6 +1082,11 @@ function applyLang() {
   setH('zeekr1', t.zeekr1); setH('zeekr2', t.zeekr2); setH('zeekr3', t.zeekr3); setH('zeekr4', t.zeekr4);
   setH('risen1', t.risen1); setH('risen2', t.risen2);
   setT('proj-heading', t.proj_heading);
+  setT('p-news-co', t.news_co); setT('p-news-role', t.news_role); setT('p-news-date', t.news_date);
+  setT('p-label-news', t.label_work_news);
+  setH('news1', t.news1); setH('news2', t.news2); setH('news3', t.news3);
+  setT('t-news-1', t.tnews1); setT('t-news-2', t.tnews2); setT('t-news-3', t.tnews3);
+  setT('news-link', t.news_link);
   setT('p-xhs-co', t.xhs_co); setT('p-xhs-role', t.xhs_role); setT('p-xhs-date', t.xhs_date);
   setT('p-label-xhs', t.label_work);
   setH('xhs1', t.xhs1); setH('xhs2', t.xhs2); setH('xhs3', t.xhs3);
