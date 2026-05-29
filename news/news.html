@@ -1,153 +1,315 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>汽车行业新闻看板</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 <style>
-  :root{
-    --bg:#f4f5f7; --card:#ffffff; --ink:#1f2328; --sub:#6b7280; --line:#e5e7eb;
-    --accent:#2f6fed; --hot:#e5484d; --new:#16a34a; --chip:#eef2f8;
-  }
+  :root { --bg:#f7fafc; --panel:#ffffff; --line:#e2e8f0; --fg:#1a202c; --mute:#718096;
+          --acc:#2563eb; --acc-soft:#eaf2ff; --pos:#059669; --neg:#dc2626; --warn:#d97706;
+          --card:#ffffff; --side-bg:#111827; --side-line:#243244; --side-hover:#1f2937;
+          --side-fg:#f8fafc; --side-mute:#a7b0bf; --side-active:#1e40af; --side-active-fg:#ffffff; }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;}
-  header{background:var(--card);border-bottom:1px solid var(--line);padding:18px 20px;}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 16px;}
-  h1{font-size:20px;margin:0 0 4px;}
-  .meta{color:var(--sub);font-size:13px;}
-  .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px;}
-  select,input[type=search]{font-size:14px;padding:7px 10px;border:1px solid var(--line);
-    border-radius:8px;background:#fff;color:var(--ink);}
-  input[type=search]{flex:1;min-width:180px;}
-  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
-  .chip{padding:6px 12px;border:1px solid var(--line);border-radius:20px;background:var(--chip);
-    cursor:pointer;font-size:13px;color:var(--ink);user-select:none;}
-  .chip.active{background:var(--accent);color:#fff;border-color:var(--accent);}
-  .chip .n{opacity:.7;margin-left:4px;font-size:12px;}
-  main{max-width:1080px;margin:0 auto;padding:18px 16px 60px;}
-  .section-title{font-size:14px;color:var(--sub);margin:18px 4px 8px;font-weight:600;}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;
-    padding:14px 16px;margin-bottom:10px;}
-  .card.top{border-left:3px solid var(--hot);}
-  .card a.title{color:var(--ink);text-decoration:none;font-size:16px;font-weight:600;line-height:1.4;}
-  .card a.title:hover{color:var(--accent);}
-  .summary{color:#374151;font-size:14px;margin:6px 0 8px;line-height:1.5;}
-  .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12px;color:var(--sub);}
-  .tag{padding:2px 8px;border-radius:6px;background:var(--chip);color:#334155;}
-  .tag.cat{background:#e8f0fe;color:#1a56db;}
-  .tag.brand{background:#f0fdf4;color:#15803d;}
-  .badge-new{color:#fff;background:var(--new);padding:1px 6px;border-radius:6px;font-size:11px;}
-  .imp{margin-left:auto;font-variant-numeric:tabular-nums;}
-  .imp b{color:var(--hot);}
-  .empty{color:var(--sub);text-align:center;padding:40px;}
-  footer{color:var(--sub);font-size:12px;text-align:center;padding:24px;}
+  body{margin:0;background:var(--bg);color:var(--fg);font:13px/1.55 -apple-system,Segoe UI,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;height:100vh;overflow:hidden}
+  .app{display:flex;height:100vh;width:100vw;overflow:hidden}
+  .page{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+  /* 左侧导航 */
+  .sidebar{width:200px;min-width:200px;background:var(--side-bg);border-right:1px solid var(--side-line);display:flex;flex-direction:column;flex-shrink:0}
+  .sidebar-logo{padding:24px 20px 20px;font-size:20px;font-weight:700;color:var(--side-fg);line-height:1.2;border-bottom:1px solid var(--side-line)}
+  .sidebar-logo .sub{font-size:13px;font-weight:400;color:var(--side-mute);margin-top:5px;text-transform:uppercase}
+  .nav-group{display:flex;flex-direction:column;padding:12px;gap:12px}
+  .nav-item{position:relative;display:flex;align-items:center;gap:10px;padding:11px 12px 11px 14px;cursor:pointer;color:var(--side-mute);font-size:16px;border-radius:8px;transition:all .12s}
+  .nav-item:hover{background:var(--side-hover);color:var(--side-fg)}
+  .nav-item.active{background:var(--side-active);color:var(--side-active-fg);font-weight:600}
+  .nav-item.active::before{content:"";position:absolute;left:6px;top:9px;bottom:9px;width:3px;border-radius:3px;background:var(--side-active-fg)}
+  .nav-item .ico{width:16px;height:16px;flex-shrink:0}
+  .side-foot{margin-top:auto;padding:16px 20px;border-top:1px solid var(--side-line);font-size:11px;color:var(--side-mute);line-height:1.6}
+  /* 顶栏 */
+  header{padding:22px 28px 14px;background:var(--bg);position:sticky;top:0;z-index:10}
+  .titlebar{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+  .titlebar h1{margin:0;font-size:24px;font-weight:700;color:var(--fg)}
+  .titlebar .meta{color:var(--mute);font-size:12px;margin-left:auto;text-align:right}
+  .filter-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  select,button,input{font:inherit}
+  button{background:var(--card);color:var(--fg);border:1px solid var(--line);padding:7px 12px;border-radius:6px;cursor:pointer;font-size:13px}
+  button:hover{border-color:var(--acc)}
+  .search{flex:1;min-width:180px;max-width:340px;padding:7px 12px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--fg)}
+  /* .dd 下拉 */
+  .dd{position:relative;display:inline-flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:6px 11px;cursor:pointer;font-size:13px;user-select:none;transition:border-color .12s}
+  .dd:hover{border-color:var(--acc)}
+  .dd.open{border-color:var(--acc);box-shadow:0 0 0 3px rgba(59,130,246,.08)}
+  .dd .dd-lbl{color:var(--mute);font-size:11px;letter-spacing:.2px}
+  .dd .dd-val{color:var(--fg);font-weight:500}
+  .dd .dd-arrow{color:var(--mute);font-size:10px;margin-left:2px;transition:transform .15s}
+  .dd.open .dd-arrow{transform:rotate(180deg);color:var(--acc)}
+  .dd .dd-pop{display:none;position:absolute;top:calc(100% + 6px);left:0;min-width:200px;max-width:320px;background:var(--card);border:1px solid var(--line);border-radius:8px;box-shadow:0 10px 28px rgba(15,23,42,.1);z-index:50;cursor:default}
+  .dd .dd-pop .dd-pop-inner{padding:6px;max-height:60vh;overflow-y:auto}
+  .dd.open .dd-pop{display:block}
+  .dd .dd-pop .opt{padding:7px 10px;border-radius:6px;cursor:pointer;font-size:13px;display:flex;align-items:center;gap:9px;line-height:1.3}
+  .dd .dd-pop .opt:hover{background:#fbfbfb}
+  .dd .dd-pop .opt.sel{color:var(--acc);font-weight:600}
+  .dd .dd-pop .opt .check{width:14px;height:14px;border:1.5px solid #cbd5e1;border-radius:3px;background:#fff;flex-shrink:0;position:relative;transition:all .12s}
+  .dd .dd-pop .opt:hover > .check{border-color:var(--acc)}
+  .dd .dd-pop .opt.sel > .check{background:var(--acc);border-color:var(--acc)}
+  .dd .dd-pop .opt.sel > .check::after{content:'';position:absolute;left:3.5px;top:0;width:5px;height:9px;border:solid #fff;border-width:0 1.5px 1.5px 0;transform:rotate(45deg)}
+  .dd .dd-pop .opt .nm{flex:1}
+  .dd .dd-pop .opt .cnt{color:var(--mute);font-size:12px;margin-left:auto;padding-left:8px}
+  /* KPI */
+  .kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding:10px 28px 14px;background:var(--bg)}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 16px}
+  .kpi .label{font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.5px;font-weight:500;margin-bottom:6px}
+  .kpi .value{font-size:24px;font-weight:600;line-height:1.2}
+  /* chips */
+  .chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 28px 12px;background:var(--bg)}
+  .chip{background:var(--card);border:1px solid var(--line);padding:6px 12px;border-radius:14px;cursor:pointer;font-size:13px;display:inline-flex;align-items:center;gap:6px;transition:all .12s;user-select:none}
+  .chip:hover{border-color:var(--acc)}
+  .chip.active{border-color:var(--acc);background:var(--acc-soft);color:var(--acc)}
+  .chip .n{font-weight:600}
+  /* 主体 */
+  .body{padding:14px 28px 40px;flex:1;overflow-y:auto;min-height:0}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px;margin-bottom:14px}
+  .ct-title{font-size:12px;font-weight:600;color:var(--fg);margin:0 0 8px;padding-left:2px}
+  .charts{display:flex;gap:14px;align-items:stretch}
+  .charts > div{flex:1;min-width:0}
+  #catChart,#brandChart{height:240px}
+  .sec-title{font-size:13px;font-weight:600;color:var(--fg);margin:4px 2px 10px;display:flex;align-items:center;gap:8px}
+  .sec-title::before{content:"";width:4px;height:15px;border-radius:4px;background:var(--acc)}
+  /* 新闻条目 */
+  .news{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .item{background:var(--card);padding:13px 16px;display:flex;flex-direction:column;gap:6px}
+  .item:hover{background:#fbfcfe}
+  .item.top{border-left:3px solid var(--warn)}
+  .item a.t{color:var(--fg);text-decoration:none;font-size:15px;font-weight:600;line-height:1.45}
+  .item a.t:hover{color:var(--acc)}
+  .item .sum{color:#475467;font-size:13px;line-height:1.5}
+  .item .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12px;color:var(--mute)}
+  .pill{display:inline-block;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:500;background:#f1f5f9;color:var(--mute);white-space:nowrap}
+  .pill.brand{background:#ecfdf5;color:#065f46}
+  .pill.cat-行业大事{background:#eaf2ff;color:#1d4ed8}
+  .pill.cat-分品牌{background:#f1f5f9;color:#475467}
+  .pill.cat-新能源·智驾{background:#ecfdf5;color:#047857}
+  .pill.cat-舆情·热点{background:#fef2f2;color:#b91c1c}
+  .badge-new{color:#fff;background:var(--pos);padding:1px 7px;border-radius:6px;font-size:11px}
+  .imp{margin-left:auto;font-variant-numeric:tabular-nums;color:var(--mute)}
+  .imp b{color:var(--warn)}
+  .src{color:var(--mute)}
+  .empty{color:var(--mute);text-align:center;padding:60px 0}
+  /* 口径说明 */
+  .doc-page{overflow-y:auto;background:var(--bg);padding:24px 28px 40px}
+  .doc-title{font-size:20px;font-weight:700;margin:0 0 4px}
+  .doc-sub{color:var(--mute);font-size:13px;margin-bottom:16px}
+  .doc-rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .doc-rule{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 16px;font-size:13px;line-height:1.7;color:#344054}
+  .doc-rule h3{font-size:13px;margin:0 0 8px;color:var(--fg);font-weight:650}
+  .doc-rule ul{margin:6px 0 0;padding-left:18px}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-thumb{background:#8f8f8f;border-radius:8px;border:2px solid transparent;background-clip:content-box}
 </style>
 </head>
 <body>
-<header><div class="wrap">
-  <h1>汽车行业新闻看板</h1>
-  <div class="meta" id="meta">加载中…</div>
-  <div class="controls">
-    <select id="dateSel"></select>
-    <select id="brandSel"><option value="">全部品牌</option></select>
-    <select id="sourceSel"><option value="">全部来源</option></select>
-    <input type="search" id="q" placeholder="搜索标题 / 摘要…">
-  </div>
-  <div class="chips" id="catChips"></div>
-</div></header>
+<div class="app">
 
-<main>
+<nav class="sidebar">
+  <div class="sidebar-logo">汽车资讯<div class="sub">每日行业新闻</div></div>
+  <div class="nav-group">
+    <div class="nav-item active" data-page="feed"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V4a2 2 0 0 1 2-2h10l4 4v16"/><path d="M16 2v4h4"/><path d="M8 10h8M8 14h8M8 18h5"/></svg>资讯看板</div>
+    <div class="nav-item" data-page="doc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>口径说明</div>
+  </div>
+  <div class="side-foot">数据来自公开汽车媒体资讯<br>仅供学习研究</div>
+</nav>
+
+<!-- 资讯看板 -->
+<div id="page-feed" class="page">
+<header>
+  <div class="titlebar">
+    <h1>汽车行业新闻看板</h1>
+    <div class="meta" id="meta">加载中…</div>
+  </div>
+  <div class="filter-row">
+    <div class="dd" data-dd="date">
+      <span class="dd-lbl">日期</span><span class="dd-val" id="ddDate">-</span><span class="dd-arrow">▾</span>
+      <div class="dd-pop"><div class="dd-pop-inner" id="datePop"></div></div>
+    </div>
+    <div class="dd" data-dd="brand">
+      <span class="dd-lbl">品牌</span><span class="dd-val" id="ddBrand">全部</span><span class="dd-arrow">▾</span>
+      <div class="dd-pop"><div class="dd-pop-inner" id="brandPop"></div></div>
+    </div>
+    <div class="dd" data-dd="source">
+      <span class="dd-lbl">来源</span><span class="dd-val" id="ddSource">全部</span><span class="dd-arrow">▾</span>
+      <div class="dd-pop"><div class="dd-pop-inner" id="sourcePop"></div></div>
+    </div>
+    <input class="search" id="q" placeholder="搜索标题 / 摘要…">
+    <button id="reset" style="margin-left:auto">重置</button>
+  </div>
+</header>
+
+<div class="kpi-row" id="kpiRow"></div>
+<div class="chips" id="catChips"></div>
+
+<div class="body">
+  <div class="panel">
+    <div class="charts">
+      <div><div class="ct-title">分类分布</div><div id="catChart"></div></div>
+      <div><div class="ct-title">热门品牌 Top 10</div><div id="brandChart"></div></div>
+    </div>
+  </div>
   <div id="topSection"></div>
-  <div class="section-title" id="listTitle">全部新闻</div>
-  <div id="list"></div>
-</main>
-<footer>auto-news · 数据来自公开汽车媒体资讯，仅供学习研究</footer>
+  <div class="sec-title" id="listTitle">全部新闻</div>
+  <div class="news" id="list"></div>
+</div>
+</div>
+
+<!-- 口径说明 -->
+<div id="page-doc" class="page doc-page" style="display:none">
+  <div class="doc-title">口径说明</div>
+  <div class="doc-sub">汽车行业新闻每日聚合看板 · 数据流与处理口径</div>
+  <div class="doc-rules">
+    <div class="doc-rule"><h3>数据源</h3>盖世汽车、汽车之家、第一电动等主流汽车媒体的公开资讯列表。Playwright 每日抓取，礼貌延时，遵守站点 robots。</div>
+    <div class="doc-rule"><h3>四维分类</h3><ul><li><b>行业大事</b>：政策 / 销量 / 产销 / 财报 / 产业链 / 价格</li><li><b>分品牌</b>：以某车企或品牌动态为主</li><li><b>新能源·智驾</b>：电动化 / 电池 / 智驾 / 智能座舱</li><li><b>舆情·热点</b>：争议 / 维权 / 事故 / 口碑</li></ul></div>
+    <div class="doc-rule"><h3>智能处理</h3>带 LLM 时由 GPT 输出一句话摘要、分类、品牌标签与重要度；无 key 时走关键词规则兜底。重要度综合来源权重、信号词与品牌命中。</div>
+    <div class="doc-rule"><h3>去重与排序</h3>URL 归一指纹去重，<code>seen_ids</code> 跨天去重并标记「新」。列表按重要度降序、时间次之；「今日要点」取重要度 Top 8。</div>
+  </div>
+</div>
+
+</div>
 
 <script>
-const state={feed:null,cat:"",brand:"",source:"",q:""};
+const PILL_CAT=["行业大事","分品牌","新能源·智驾","舆情·热点"];
+const state={feed:null,cat:"",brands:new Set(),sources:new Set(),q:""};
+let catChart,brandChart;
+
+function fmtDate(s){return `${s.slice(0,4)}-${s.slice(4,6)}-${s.slice(6,8)}`;}
+function esc(s){return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
+// ── 导航切页 ──
+document.querySelectorAll('.nav-item').forEach(n=>n.onclick=()=>{
+  document.querySelectorAll('.nav-item').forEach(x=>x.classList.remove('active'));
+  n.classList.add('active');
+  const p=n.dataset.page;
+  document.getElementById('page-feed').style.display = p==='feed'?'flex':'none';
+  document.getElementById('page-doc').style.display  = p==='doc'?'block':'none';
+  if(p==='feed'){catChart&&catChart.resize();brandChart&&brandChart.resize();}
+});
+
+// ── .dd 开合 ──
+function closeAllDD(){document.querySelectorAll('.dd.open').forEach(d=>d.classList.remove('open'));}
+document.querySelectorAll('.dd').forEach(dd=>{
+  dd.addEventListener('click',e=>{
+    if(e.target.closest('.dd-pop'))return;
+    const open=dd.classList.contains('open');closeAllDD();if(!open)dd.classList.add('open');
+  });
+});
+document.addEventListener('click',e=>{if(!e.target.closest('.dd'))closeAllDD();});
 
 async function loadIndex(){
   const idx=await fetch("./data/index.json").then(r=>r.json());
-  const sel=document.getElementById("dateSel");
-  sel.innerHTML=idx.dates.map(d=>`<option value="${d}">${fmtDate(d)}</option>`).join("");
-  sel.value=idx.latest;
-  sel.onchange=()=>loadFeed(sel.value);
+  const pop=document.getElementById("datePop");
+  pop.innerHTML=idx.dates.map(d=>`<div class="opt" data-d="${d}"><span class="nm">${fmtDate(d)}</span></div>`).join("");
+  pop.querySelectorAll(".opt").forEach(o=>o.onclick=()=>{closeAllDD();loadFeed(o.dataset.d);});
   await loadFeed(idx.latest);
 }
-function fmtDate(s){return `${s.slice(0,4)}-${s.slice(4,6)}-${s.slice(6,8)}`;}
 
 async function loadFeed(stamp){
   state.feed=await fetch(`./data/feed_${stamp}.json`).then(r=>r.json());
-  state.cat="";state.brand="";state.source="";state.q="";
+  state.cat="";state.brands.clear();state.sources.clear();state.q="";
   document.getElementById("q").value="";
-  buildCatChips();buildBrandSel();buildSourceSel();render();
+  document.getElementById("ddDate").textContent=fmtDate(stamp);
   const f=state.feed;
-  document.getElementById("meta").textContent=
-    `${fmtDate(f.stamp)} · 共 ${f.total} 条 · 生成于 ${f.generated_at.replace("T"," ")}`;
+  document.getElementById("meta").innerHTML=
+    `${fmtDate(f.stamp)} · 共 <b>${f.total}</b> 条 · 生成于 ${f.generated_at.replace("T"," ")}`;
+  buildKpi();buildCatChips();buildBrandDD();buildSourceDD();drawCharts();updateDDLabels();render();
 }
 
+function buildKpi(){
+  const f=state.feed,srcN=new Set(f.items.map(i=>i.source_name)).size;
+  const cards=[["今日总数",f.total],...PILL_CAT.map(c=>[c,f.category_counts[c]||0])];
+  document.getElementById("kpiRow").innerHTML=cards.map(([l,v])=>
+    `<div class="kpi"><div class="label">${l}</div><div class="value">${v}</div></div>`).join("");
+}
 function buildCatChips(){
-  const f=state.feed,box=document.getElementById("catChips");
-  let html=`<span class="chip ${state.cat===""?"active":""}" data-c="">全部<span class="n">${f.total}</span></span>`;
-  f.categories.forEach(c=>{
-    html+=`<span class="chip ${state.cat===c?"active":""}" data-c="${c}">${c}<span class="n">${f.category_counts[c]||0}</span></span>`;
-  });
-  box.innerHTML=html;
+  const f=state.feed;
+  let html=`<div class="chip ${state.cat===""?"active":""}" data-c="">全部 <span class="n">${f.total}</span></div>`;
+  PILL_CAT.forEach(c=>{html+=`<div class="chip ${state.cat===c?"active":""}" data-c="${c}">${c} <span class="n">${f.category_counts[c]||0}</span></div>`;});
+  const box=document.getElementById("catChips");box.innerHTML=html;
   box.querySelectorAll(".chip").forEach(el=>el.onclick=()=>{state.cat=el.dataset.c;buildCatChips();render();});
 }
-function buildBrandSel(){
-  const sel=document.getElementById("brandSel"),bc=state.feed.brand_counts||{};
-  sel.innerHTML='<option value="">全部品牌</option>'+
-    Object.keys(bc).map(b=>`<option value="${b}">${b} (${bc[b]})</option>`).join("");
-  sel.onchange=()=>{state.brand=sel.value;render();};
+function buildMulti(popId,counts,set,labelId,label){
+  const pop=document.getElementById(popId);
+  pop.innerHTML=Object.entries(counts).map(([k,v])=>
+    `<div class="opt ${set.has(k)?"sel":""}" data-k="${esc(k)}"><span class="check"></span><span class="nm">${esc(k)}</span><span class="cnt">${v}</span></div>`).join("")
+    || '<div class="opt" style="color:var(--mute);cursor:default">无</div>';
+  pop.querySelectorAll(".opt[data-k]").forEach(o=>o.onclick=()=>{
+    const k=o.dataset.k;set.has(k)?set.delete(k):set.add(k);
+    o.classList.toggle("sel");updateDDLabels();render();
+  });
 }
-function buildSourceSel(){
-  const sel=document.getElementById("sourceSel");
-  const names=[...new Set(state.feed.items.map(i=>i.source_name))];
-  sel.innerHTML='<option value="">全部来源</option>'+
-    names.map(n=>`<option value="${n}">${n}</option>`).join("");
-  sel.onchange=()=>{state.source=sel.value;render();};
+function buildBrandDD(){buildMulti("brandPop",state.feed.brand_counts,state.brands);}
+function buildSourceDD(){
+  const sc={};state.feed.items.forEach(i=>{sc[i.source_name]=(sc[i.source_name]||0)+1;});
+  buildMulti("sourcePop",sc,state.sources);
 }
+function updateDDLabels(){
+  document.getElementById("ddBrand").textContent=state.brands.size?`${state.brands.size} 个品牌`:"全部";
+  document.getElementById("ddSource").textContent=state.sources.size?`${state.sources.size} 个来源`:"全部";
+}
+
+function drawCharts(){
+  const f=state.feed;
+  catChart=catChart||echarts.init(document.getElementById("catChart"));
+  brandChart=brandChart||echarts.init(document.getElementById("brandChart"));
+  const cats=PILL_CAT, cvals=cats.map(c=>f.category_counts[c]||0);
+  catChart.setOption({grid:{left:88,right:24,top:8,bottom:8},tooltip:{trigger:"axis",axisPointer:{type:"shadow"}},
+    xAxis:{type:"value",show:false},yAxis:{type:"category",data:cats,axisLine:{show:false},axisTick:{show:false},axisLabel:{color:"#475467"}},
+    series:[{type:"bar",data:cvals,barWidth:16,itemStyle:{color:"#2563eb",borderRadius:[0,4,4,0]},label:{show:true,position:"right",color:"#718096"}}]});
+  const be=Object.entries(f.brand_counts).slice(0,10).reverse();
+  brandChart.setOption({grid:{left:64,right:24,top:8,bottom:8},tooltip:{trigger:"axis",axisPointer:{type:"shadow"}},
+    xAxis:{type:"value",show:false},yAxis:{type:"category",data:be.map(x=>x[0]),axisLine:{show:false},axisTick:{show:false},axisLabel:{color:"#475467"}},
+    series:[{type:"bar",data:be.map(x=>x[1]),barWidth:13,itemStyle:{color:"#059669",borderRadius:[0,4,4,0]},label:{show:true,position:"right",color:"#718096"}}]});
+}
+window.addEventListener("resize",()=>{catChart&&catChart.resize();brandChart&&brandChart.resize();});
+
 document.getElementById("q").oninput=e=>{state.q=e.target.value.trim();render();};
+document.getElementById("reset").onclick=()=>{
+  state.cat="";state.brands.clear();state.sources.clear();state.q="";
+  document.getElementById("q").value="";
+  buildCatChips();buildBrandDD();buildSourceDD();updateDDLabels();render();
+};
 
 function match(it){
   if(state.cat&&it.category!==state.cat)return false;
-  if(state.brand&&!(it.brands||[]).includes(state.brand))return false;
-  if(state.source&&it.source_name!==state.source)return false;
-  if(state.q){const t=(it.title+" "+(it.summary||"")).toLowerCase();
-    if(!t.includes(state.q.toLowerCase()))return false;}
+  if(state.brands.size&&!(it.brands||[]).some(b=>state.brands.has(b)))return false;
+  if(state.sources.size&&!state.sources.has(it.source_name))return false;
+  if(state.q){const t=(it.title+" "+(it.summary||"")).toLowerCase();if(!t.includes(state.q.toLowerCase()))return false;}
   return true;
 }
-function cardHtml(it,top){
-  const brands=(it.brands||[]).map(b=>`<span class="tag brand">${b}</span>`).join("");
-  return `<div class="card ${top?"top":""}">
-    <a class="title" href="${it.url}" target="_blank" rel="noopener">${esc(it.title)}</a>
-    ${it.summary&&it.summary!==it.title?`<div class="summary">${esc(it.summary)}</div>`:""}
+function itemHtml(it,top){
+  const brands=(it.brands||[]).map(b=>`<span class="pill brand">${esc(b)}</span>`).join("");
+  return `<div class="item ${top?"top":""}">
+    <a class="t" href="${it.url}" target="_blank" rel="noopener">${esc(it.title)}</a>
+    ${it.summary&&it.summary!==it.title?`<div class="sum">${esc(it.summary)}</div>`:""}
     <div class="row">
-      ${it.category?`<span class="tag cat">${it.category}</span>`:""}
+      ${it.category?`<span class="pill cat-${it.category}">${it.category}</span>`:""}
       ${brands}
-      <span class="tag">${esc(it.source_name||"")}</span>
+      <span class="src">${esc(it.source_name||"")}</span>
       <span>${it.publish_date||""}</span>
       ${it.is_new?'<span class="badge-new">新</span>':""}
       <span class="imp">热度 <b>${it.importance||0}</b></span>
     </div></div>`;
 }
-function esc(s){return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
-
 function render(){
   const f=state.feed;
-  const topIds=new Set(f.top||[]);
-  const topItems=f.items.filter(i=>topIds.has(i.item_id));
+  const noFilter=state.cat===""&&!state.brands.size&&!state.sources.size&&state.q==="";
   const ts=document.getElementById("topSection");
-  if(state.cat===""&&state.brand===""&&state.source===""&&state.q===""){
-    ts.innerHTML=`<div class="section-title">今日要点</div>`+topItems.map(i=>cardHtml(i,true)).join("");
+  if(noFilter){
+    const topIds=new Set(f.top||[]);
+    const topItems=f.items.filter(i=>topIds.has(i.item_id));
+    ts.innerHTML=`<div class="sec-title">今日要点</div><div class="news">${topItems.map(i=>itemHtml(i,true)).join("")}</div>`;
     document.getElementById("listTitle").textContent="全部新闻";
   }else{ts.innerHTML="";document.getElementById("listTitle").textContent="筛选结果";}
   const list=f.items.filter(match);
-  const box=document.getElementById("list");
-  box.innerHTML=list.length?list.map(i=>cardHtml(i,false)).join(""):
-    '<div class="empty">没有符合条件的新闻</div>';
+  document.getElementById("list").innerHTML=list.length?list.map(i=>itemHtml(i,false)).join(""):
+    '<div class="item"><div class="empty">没有符合条件的新闻</div></div>';
 }
 loadIndex().catch(e=>{document.getElementById("meta").textContent="加载失败："+e;});
 </script>
