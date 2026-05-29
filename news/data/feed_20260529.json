@@ -1,7 +1,7 @@
 {
   "stamp": "20260529",
-  "generated_at": "2026-05-29T11:29:33",
-  "total": 111,
+  "generated_at": "2026-05-29T12:51:32",
+  "total": 186,
   "categories": [
     "行业大事",
     "分品牌",
@@ -9,35 +9,40 @@
     "舆情·热点"
   ],
   "category_counts": {
-    "行业大事": 74,
-    "分品牌": 19,
-    "新能源·智驾": 17,
-    "舆情·热点": 1
+    "行业大事": 127,
+    "分品牌": 25,
+    "新能源·智驾": 32,
+    "舆情·热点": 2
   },
   "brand_counts": {
-    "比亚迪": 7,
+    "比亚迪": 13,
+    "特斯拉": 8,
+    "蔚来": 7,
+    "问界": 6,
+    "丰田": 6,
     "吉利": 6,
-    "问界": 5,
-    "蔚来": 5,
-    "大众": 4,
-    "小鹏": 3,
-    "特斯拉": 3,
+    "大众": 5,
+    "小鹏": 4,
+    "小米": 4,
+    "理想": 3,
     "奥迪": 3,
-    "理想": 2,
-    "丰田": 2,
+    "日产": 3,
+    "奇瑞": 2,
+    "上汽": 2,
     "一汽": 2,
     "江淮": 2,
     "法拉利": 2,
     "阿维塔": 1,
     "现代": 1,
-    "上汽": 1,
     "岚图": 1,
+    "本田": 1,
+    "腾势": 1,
+    "别克": 1,
     "长城": 1,
     "坦克": 1,
     "沃尔沃": 1,
     "宝马": 1,
     "广汽": 1,
-    "奇瑞": 1,
     "魏牌": 1,
     "极氪": 1,
     "奔驰": 1
@@ -46,11 +51,11 @@
     "97cd5a05d3d8e1d4",
     "10136f577d31eea0",
     "0de256779f6b542d",
+    "ebaf7609d68d1021",
     "76c36f3114d7f275",
     "d15610a138959372",
     "cd3f589d83921d88",
-    "dc0221df943f0ec7",
-    "5f5bf86f9242e119"
+    "0201e61e3794f044"
   ],
   "items": [
     {
@@ -71,7 +76,7 @@
       ],
       "importance": 38,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "小鹏2026年Q1财报发布：毛利率达20.6%",
@@ -91,7 +96,7 @@
       ],
       "importance": 32,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "全新一代问界M9上市24小时订单突破2万台",
@@ -109,6 +114,24 @@
       "brands": [
         "问界"
       ],
+      "importance": 32,
+      "enriched_by": "rule",
+      "is_new": false
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644893536407732798",
+      "title": "中国车企首次突破产销量1亿辆大关",
+      "publish_time": "16小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "ebaf7609d68d1021",
+      "publish_ts": 1779965492.390398,
+      "publish_date": "2026-05-28",
+      "summary": "中国车企首次突破产销量1亿辆大关",
+      "category": "行业大事",
+      "brands": [],
       "importance": 32,
       "enriched_by": "rule",
       "is_new": true
@@ -131,7 +154,7 @@
       ],
       "importance": 30,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "全新一代问界M9上市24小时订单突破2万台",
@@ -151,7 +174,7 @@
       ],
       "importance": 30,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "理想汽车2026年Q1财报：交付9.5万辆，稳居20万元以上新能源中国品牌第一",
@@ -170,6 +193,72 @@
         "理想"
       ],
       "importance": 30,
+      "enriched_by": "rule",
+      "is_new": false
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644495580408054297",
+      "title": "超越比亚迪，特斯拉成一季度全球纯电动车销量冠军，小米排名第七",
+      "publish_time": "",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "0201e61e3794f044",
+      "publish_ts": 1780020000.0,
+      "publish_date": "2026-05-29",
+      "summary": "超越比亚迪，特斯拉成一季度全球纯电动车销量冠军，小米排名第七",
+      "category": "新能源·智驾",
+      "brands": [
+        "比亚迪",
+        "小米",
+        "特斯拉"
+      ],
+      "importance": 28,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644806232091804185",
+      "title": "雷军目标快实现！全球新能源汽车销量：小米秒掉大众、丰田",
+      "publish_time": "21小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "10bff3e829de3697",
+      "publish_ts": 1779947492.39066,
+      "publish_date": "2026-05-28",
+      "summary": "雷军目标快实现！全球新能源汽车销量：小米秒掉大众、丰田",
+      "category": "行业大事",
+      "brands": [
+        "小米",
+        "丰田",
+        "大众"
+      ],
+      "importance": 28,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644783589255086616",
+      "title": "4月份欧洲市场特斯拉销量暴增46.5%，但却被比亚迪与奇瑞碾压",
+      "publish_time": "23小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "832be11605cf1455",
+      "publish_ts": 1779940292.390679,
+      "publish_date": "2026-05-28",
+      "summary": "4月份欧洲市场特斯拉销量暴增46.5%，但却被比亚迪与奇瑞碾压",
+      "category": "行业大事",
+      "brands": [
+        "比亚迪",
+        "特斯拉",
+        "奇瑞"
+      ],
+      "importance": 28,
       "enriched_by": "rule",
       "is_new": true
     },
@@ -192,7 +281,7 @@
       ],
       "importance": 26,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "现代汽车印度公司宣布6月1日起全系车型涨价，最高上调12,800卢比",
@@ -212,7 +301,7 @@
       ],
       "importance": 24,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "全新吉利星愿上市6.18万起，标配宁德时代电芯+千里浩瀚智驾H3",
@@ -232,7 +321,7 @@
       ],
       "importance": 24,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "售47.98万起 新款问界M9正式上市 140多项升级/全系标配6激光雷达",
@@ -252,7 +341,7 @@
       ],
       "importance": 22,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "毛利率20.6% 研发投入同比增加46.8% 小鹏集团2026年第一季度财报",
@@ -272,7 +361,7 @@
       ],
       "importance": 22,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "中国首个”亿级车企“诞生！ 上汽集团正式交付第1亿辆新车",
@@ -292,7 +381,7 @@
       ],
       "importance": 22,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "限时6.18万起 座舱/驾控五大焕新 超100项升级 新款吉利星愿上市",
@@ -312,7 +401,7 @@
       ],
       "importance": 22,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "丰田汽车4月全球销量84.9万辆 中国市场106479辆 同比下降25.4%",
@@ -332,7 +421,7 @@
       ],
       "importance": 22,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "最大续航1008km？疑似比亚迪大汉续航泄露 有望于6月上市",
@@ -352,7 +441,7 @@
       ],
       "importance": 22,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "5年0息 月供低至2460元！特斯拉发布6月购车权益",
@@ -372,7 +461,7 @@
       ],
       "importance": 22,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "越野范儿的小型SUV 搭载14.6英寸中控屏 新款吉利牛仔官图发布",
@@ -392,7 +481,7 @@
       ],
       "importance": 22,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "蔚来ES9上市 电池租用价39万元起 支持沙漠弹跳脱困/雷达探测涉水",
@@ -412,7 +501,7 @@
       ],
       "importance": 22,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "别乱买！新款问界M9上市 高低配差在哪？舒适配置才是关键区别！",
@@ -432,7 +521,7 @@
       ],
       "importance": 22,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "EV晨报 | 马斯克1万亿美元薪酬方案获通过；黄仁勋称中国将在AI竞赛中击败美国；中国一汽与大众、奥迪、丰田达成明年购买合作意向",
@@ -455,7 +544,7 @@
       ],
       "importance": 22,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "10万级四驱轿车来了，吉利银河星耀7 MAX正式上市",
@@ -475,7 +564,7 @@
       ],
       "importance": 22,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "吉利银河星耀7 MAX全系标配四驱，权益后上市限时指导价9.88万起",
@@ -495,7 +584,7 @@
       ],
       "importance": 22,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "新款车型也中招！特斯拉召回14575辆Model Y：少个认证标签",
@@ -515,7 +604,7 @@
       ],
       "importance": 22,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "权益后售价28.29万-36.99万，岚图泰山X8正式上市",
@@ -535,6 +624,108 @@
       ],
       "importance": 22,
       "enriched_by": "rule",
+      "is_new": false
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644583804296315416",
+      "title": "今年Q1全球插混销量：比亚迪稳居龙头 市占率超1/4断崖领先",
+      "publish_time": "",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "47954795bf5019c3",
+      "publish_ts": 1780020000.0,
+      "publish_date": "2026-05-29",
+      "summary": "今年Q1全球插混销量：比亚迪稳居龙头 市占率超1/4断崖领先",
+      "category": "行业大事",
+      "brands": [
+        "比亚迪"
+      ],
+      "importance": 20,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644562502390694425",
+      "title": "全球电动汽车销量前五：特斯拉两款，中国三款，合计吃掉20%市场",
+      "publish_time": "",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "7bb057626414d2e8",
+      "publish_ts": 1780020000.0,
+      "publish_date": "2026-05-29",
+      "summary": "全球电动汽车销量前五：特斯拉两款，中国三款，合计吃掉20%市场",
+      "category": "行业大事",
+      "brands": [
+        "特斯拉"
+      ],
+      "importance": 20,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644555110563414590",
+      "title": "被撕掉＂遮羞布＂的日系三强！日产本田和丰田真不是一个级别的！",
+      "publish_time": "",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "74bccd96f1612da3",
+      "publish_ts": 1780020000.0,
+      "publish_date": "2026-05-29",
+      "summary": "被撕掉＂遮羞布＂的日系三强！日产本田和丰田真不是一个级别的！",
+      "category": "分品牌",
+      "brands": [
+        "丰田",
+        "本田",
+        "日产"
+      ],
+      "importance": 20,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644545965730873918",
+      "title": "全新问界M9系列上市1小时大定超11000台 48万起售",
+      "publish_time": "",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "a619002aa4abb131",
+      "publish_ts": 1780020000.0,
+      "publish_date": "2026-05-29",
+      "summary": "全新问界M9系列上市1小时大定超11000台 48万起售",
+      "category": "行业大事",
+      "brands": [
+        "问界"
+      ],
+      "importance": 20,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644509476914184729",
+      "title": "首月6822台到月销不足两千，日产N6为何销量遇冷？",
+      "publish_time": "",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "196f26f141ed5bff",
+      "publish_ts": 1780020000.0,
+      "publish_date": "2026-05-29",
+      "summary": "首月6822台到月销不足两千，日产N6为何销量遇冷？",
+      "category": "行业大事",
+      "brands": [
+        "日产"
+      ],
+      "importance": 20,
+      "enriched_by": "rule",
       "is_new": true
     },
     {
@@ -553,7 +744,7 @@
       "brands": [],
       "importance": 20,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "国际|4月欧洲新车销量增长7%至115万辆",
@@ -571,7 +762,7 @@
       "brands": [],
       "importance": 20,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "2026年4月燃油车型/新能源车型销量榜：燃油车自主领跑，新能源多元竞速丨盖世汽车研究院",
@@ -589,7 +780,7 @@
       "brands": [],
       "importance": 20,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "2026年4月乘用车自主品牌销量榜",
@@ -605,6 +796,206 @@
       "summary": "2026年4月乘用车自主品牌销量榜",
       "category": "行业大事",
       "brands": [],
+      "importance": 20,
+      "enriched_by": "rule",
+      "is_new": false
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645110788419748376",
+      "title": "成都一小米车主遇轻微剐蹭提出理赔遭拒，报警维权时遭对方三次殴打致肋骨骨折，警方已立案",
+      "publish_time": "1小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "83c38d81d0d71004",
+      "publish_ts": 1780019492.389755,
+      "publish_date": "2026-05-29",
+      "summary": "成都一小米车主遇轻微剐蹭提出理赔遭拒，报警维权时遭对方三次殴打致肋骨骨折，警方已立案",
+      "category": "舆情·热点",
+      "brands": [
+        "小米"
+      ],
+      "importance": 20,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644963664898474558",
+      "title": "增程车卖不动了？1-4月销量榜出炉 仅一款累计销量超3万 理想L6第二",
+      "publish_time": "11小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "b455120da9b8f8ef",
+      "publish_ts": 1779983492.390323,
+      "publish_date": "2026-05-29",
+      "summary": "增程车卖不动了？1-4月销量榜出炉 仅一款累计销量超3万 理想L6第二",
+      "category": "行业大事",
+      "brands": [
+        "理想"
+      ],
+      "importance": 20,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644927922603999769",
+      "title": "变天了！4月中大型轿车销量，小米SU7夺冠，铂智7第6，尚界Z7第35",
+      "publish_time": "13小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "90c841ebdb85a961",
+      "publish_ts": 1779976292.390342,
+      "publish_date": "2026-05-28",
+      "summary": "变天了！4月中大型轿车销量，小米SU7夺冠，铂智7第6，尚界Z7第35",
+      "category": "行业大事",
+      "brands": [
+        "小米"
+      ],
+      "importance": 20,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644881950755488318",
+      "title": "比亚迪在欧洲销量大涨124.5%，销量28,183辆！",
+      "publish_time": "16小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "83383812cb883bdb",
+      "publish_ts": 1779965492.390417,
+      "publish_date": "2026-05-28",
+      "summary": "比亚迪在欧洲销量大涨124.5%，销量28,183辆！",
+      "category": "行业大事",
+      "brands": [
+        "比亚迪"
+      ],
+      "importance": 20,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644861273033228862",
+      "title": "2026年4月日产在华销量大跌超三成 成全球业绩主要拖累项",
+      "publish_time": "17小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "0bc5947cd507ce63",
+      "publish_ts": 1779961892.390491,
+      "publish_date": "2026-05-28",
+      "summary": "2026年4月日产在华销量大跌超三成 成全球业绩主要拖累项",
+      "category": "行业大事",
+      "brands": [
+        "日产"
+      ],
+      "importance": 20,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644868066823930430",
+      "title": "丰田4月全球销量下滑，中国市场跌幅引关注",
+      "publish_time": "17小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "0d6a2bfa2707337f",
+      "publish_ts": 1779961892.390472,
+      "publish_date": "2026-05-28",
+      "summary": "丰田4月全球销量下滑，中国市场跌幅引关注",
+      "category": "行业大事",
+      "brands": [
+        "丰田"
+      ],
+      "importance": 20,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644850173197255193",
+      "title": "丰田4月全球销售84.9万辆，同比下降，中东出口销量大幅下滑",
+      "publish_time": "18小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "0ee0fe036dc9e538",
+      "publish_ts": 1779958292.390528,
+      "publish_date": "2026-05-28",
+      "summary": "丰田4月全球销售84.9万辆，同比下降，中东出口销量大幅下滑",
+      "category": "行业大事",
+      "brands": [
+        "丰田"
+      ],
+      "importance": 20,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644853544624931352",
+      "title": "全新腾势Z9GT累计交付超10000台",
+      "publish_time": "18小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "92a2f02b9adafd07",
+      "publish_ts": 1779958292.39051,
+      "publish_date": "2026-05-28",
+      "summary": "全新腾势Z9GT累计交付超10000台",
+      "category": "行业大事",
+      "brands": [
+        "腾势"
+      ],
+      "importance": 20,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644838138770293272",
+      "title": "别克品牌汽车销量排行榜（最新）",
+      "publish_time": "19小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "e7234d0cbee259eb",
+      "publish_ts": 1779954692.390547,
+      "publish_date": "2026-05-28",
+      "summary": "别克品牌汽车销量排行榜（最新）",
+      "category": "行业大事",
+      "brands": [
+        "别克"
+      ],
+      "importance": 20,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644812664758469145",
+      "title": "哥伦比亚4月新车销量暴增54%，中国品牌翻倍，特斯拉Model Y第1",
+      "publish_time": "20小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "0a7f4ee8ed13accf",
+      "publish_ts": 1779951092.390622,
+      "publish_date": "2026-05-28",
+      "summary": "哥伦比亚4月新车销量暴增54%，中国品牌翻倍，特斯拉Model Y第1",
+      "category": "行业大事",
+      "brands": [
+        "特斯拉"
+      ],
       "importance": 20,
       "enriched_by": "rule",
       "is_new": true
@@ -628,7 +1019,7 @@
       ],
       "importance": 18,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "余承东：问界M9地球最强！ 李斌：蔚来ES9主动悬架领先一代！",
@@ -649,7 +1040,7 @@
       ],
       "importance": 18,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "限时19.48万起 磁流变底盘/最高综合续航1330km 极狐问道V9上市",
@@ -667,7 +1058,7 @@
       "brands": [],
       "importance": 18,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "至境L7纯电版官方谍照发布 搭配800V架构/6C快充/超700km续航",
@@ -685,7 +1076,7 @@
       "brands": [],
       "importance": 18,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "缤果Pro正式上市：5.68万元起，超80项全系标配",
@@ -703,7 +1094,7 @@
       "brands": [],
       "importance": 18,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Stellantis发布STLA One模块化整车平台",
@@ -720,6 +1111,96 @@
       "category": "行业大事",
       "brands": [],
       "importance": 18,
+      "enriched_by": "rule",
+      "is_new": false
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644568454263325208",
+      "title": "2026年前4月插电混动销车销量榜，自主霸榜，合资覆没",
+      "publish_time": "",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "1f84dbf9ab325ac6",
+      "publish_ts": 1780020000.0,
+      "publish_date": "2026-05-29",
+      "summary": "2026年前4月插电混动销车销量榜，自主霸榜，合资覆没",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 16,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644523880983347774",
+      "title": "5月第三周车市数据出炉，新能源周度渗透率首次突破7成",
+      "publish_time": "",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "7055e9ff2bc12a44",
+      "publish_ts": 1780020000.0,
+      "publish_date": "2026-05-29",
+      "summary": "5月第三周车市数据出炉，新能源周度渗透率首次突破7成",
+      "category": "新能源·智驾",
+      "brands": [],
+      "importance": 16,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644505671530136126",
+      "title": "2026年1-4月中国新能源汽车厂商零售销量排行榜TOP10（附榜单）",
+      "publish_time": "",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "fcacfcf665236735",
+      "publish_ts": 1780020000.0,
+      "publish_date": "2026-05-29",
+      "summary": "2026年1-4月中国新能源汽车厂商零售销量排行榜TOP10（附榜单）",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 16,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644471506935890456",
+      "title": "外媒：电动汽车强劲，欧洲汽车销量连续第三个月增长",
+      "publish_time": "",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "4f71fbcdf2e0037b",
+      "publish_ts": 1780020000.0,
+      "publish_date": "2026-05-29",
+      "summary": "外媒：电动汽车强劲，欧洲汽车销量连续第三个月增长",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 16,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644460842695950910",
+      "title": "欧洲4月新车注册量增长7% 纯电动汽车销量同比大涨38%",
+      "publish_time": "",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "749653c9c398c633",
+      "publish_ts": 1780020000.0,
+      "publish_date": "2026-05-29",
+      "summary": "欧洲4月新车注册量增长7% 纯电动汽车销量同比大涨38%",
+      "category": "新能源·智驾",
+      "brands": [],
+      "importance": 16,
       "enriched_by": "rule",
       "is_new": true
     },
@@ -741,7 +1222,7 @@
       ],
       "importance": 16,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "【盖世快讯】宁德时代拟发行50亿元绿色科创债；何小鹏称L4自动驾驶有望两年内实现",
@@ -761,7 +1242,7 @@
       ],
       "importance": 16,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "江淮汽车塔什干合资工厂正式开业",
@@ -781,7 +1262,7 @@
       ],
       "importance": 16,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "蔚来CEO李斌：整车成本已涨了1万元左右",
@@ -801,7 +1282,7 @@
       ],
       "importance": 16,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "项兴初：江淮人“不辜负这个时代”",
@@ -821,7 +1302,7 @@
       ],
       "importance": 16,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "沃尔沃获准继续向美国进口联网汽车",
@@ -839,6 +1320,240 @@
       "brands": [
         "沃尔沃"
       ],
+      "importance": 16,
+      "enriched_by": "rule",
+      "is_new": false
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645079450090144318",
+      "title": "百花齐放！4月插电混动SUV销量榜：钛7夺冠，银河M9第8，豹8第47",
+      "publish_time": "3小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "4abb6c77e14fbc85",
+      "publish_ts": 1780012292.390305,
+      "publish_date": "2026-05-29",
+      "summary": "百花齐放！4月插电混动SUV销量榜：钛7夺冠，银河M9第8，豹8第47",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 16,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645080884559069758",
+      "title": "电动车跑不动欧盟委员的出差路，政策喊得响现实卡得死",
+      "publish_time": "3小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "a418cdaf58255916",
+      "publish_ts": 1780012292.389968,
+      "publish_date": "2026-05-29",
+      "summary": "电动车跑不动欧盟委员的出差路，政策喊得响现实卡得死",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 16,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645026768348283454",
+      "title": "能量密度突破500Wh，黑磷快充逆袭，固态电池还有戏？中科院团队",
+      "publish_time": "7小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "b9851968aecdc61d",
+      "publish_ts": 1779997892.390174,
+      "publish_date": "2026-05-29",
+      "summary": "能量密度突破500Wh，黑磷快充逆袭，固态电池还有戏？中科院团队",
+      "category": "新能源·智驾",
+      "brands": [],
+      "importance": 16,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644983784202797593",
+      "title": "3分钟充满、续航翻倍！固态电池重大突破，油车这次真要慌了？",
+      "publish_time": "10小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "7418126cb0871b5f",
+      "publish_ts": 1779987092.390248,
+      "publish_date": "2026-05-29",
+      "summary": "3分钟充满、续航翻倍！固态电池重大突破，油车这次真要慌了？",
+      "category": "新能源·智驾",
+      "brands": [],
+      "importance": 16,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644902397806166590",
+      "title": "ACEA公布4月欧洲各国汽车销量数据！",
+      "publish_time": "15小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "79747fbd3aa3b9f4",
+      "publish_ts": 1779969092.39038,
+      "publish_date": "2026-05-28",
+      "summary": "ACEA公布4月欧洲各国汽车销量数据！",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 16,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644904973024854553",
+      "title": "ACEA公布4月欧洲各国汽车销量数据！",
+      "publish_time": "15小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "0ba9d24ed43f9de4",
+      "publish_ts": 1779969092.390361,
+      "publish_date": "2026-05-28",
+      "summary": "ACEA公布4月欧洲各国汽车销量数据！",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 16,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644871670783607320",
+      "title": "真的牛！1-4月微小型车销量排名：新能源大胜，海鸥第4，飞度第16",
+      "publish_time": "17小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "02ab95422c0380f7",
+      "publish_ts": 1779961892.390454,
+      "publish_date": "2026-05-28",
+      "summary": "真的牛！1-4月微小型车销量排名：新能源大胜，海鸥第4，飞度第16",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 16,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644745475639771673",
+      "title": "太提气了！国产大型轿车首夺销量冠军，单月1142台碾压BBA旗舰",
+      "publish_time": "昨天 09:20",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "d836525198488e82",
+      "publish_ts": 1779933600.0,
+      "publish_date": "2026-05-28",
+      "summary": "太提气了！国产大型轿车首夺销量冠军，单月1142台碾压BBA旗舰",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 16,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644744984525160984",
+      "title": "增程车市场凉了？4月没一款销量过万",
+      "publish_time": "昨天 09:19",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "44d43655fbfb9e01",
+      "publish_ts": 1779933600.0,
+      "publish_date": "2026-05-28",
+      "summary": "增程车市场凉了？4月没一款销量过万",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 16,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644743515025146392",
+      "title": "中大型轿车不火了？4月仅一款销量过万",
+      "publish_time": "昨天 09:13",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "cd8084eec9a0ee4e",
+      "publish_ts": 1779933600.0,
+      "publish_date": "2026-05-28",
+      "summary": "中大型轿车不火了？4月仅一款销量过万",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 16,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644726109493363262",
+      "title": "欧洲2026年4月车市：纯电突破20%，中国品牌占十分之一",
+      "publish_time": "昨天 08:15",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "02a864777d976fbd",
+      "publish_ts": 1779933600.0,
+      "publish_date": "2026-05-28",
+      "summary": "欧洲2026年4月车市：纯电突破20%，中国品牌占十分之一",
+      "category": "新能源·智驾",
+      "brands": [],
+      "importance": 16,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644720706550383128",
+      "title": "真惨！1-4月中型SUV销量榜：燃油车前十占七，途观L丢冠，唐第35",
+      "publish_time": "昨天 07:42",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "2a891287335e7d64",
+      "publish_ts": 1779933600.0,
+      "publish_date": "2026-05-28",
+      "summary": "真惨！1-4月中型SUV销量榜：燃油车前十占七，途观L丢冠，唐第35",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 16,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644624301664485950",
+      "title": "MPV销量大洗牌：仅3款月销破5千，赛那夺冠，GL8跌出前五",
+      "publish_time": "昨天 01:31",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "7c86f1f8fa5c8c64",
+      "publish_ts": 1779933600.0,
+      "publish_date": "2026-05-28",
+      "summary": "MPV销量大洗牌：仅3款月销破5千，赛那夺冠，GL8跌出前五",
+      "category": "行业大事",
+      "brands": [],
       "importance": 16,
       "enriched_by": "rule",
       "is_new": true
@@ -861,7 +1576,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "智驾免费潮来袭，6.4万特斯拉FSD是真香还是收割？",
@@ -881,7 +1596,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "吉利银河赞助总台2026世界杯转播，助力亿万观众畅享足坛盛宴",
@@ -901,7 +1616,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "宝马沈阳生产基地迎第700万辆下线 “新世代”平台即将登场",
@@ -921,7 +1636,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "双电机四驱/三排座椅加热 广汽传祺向往M8 PHEV L实车亮相",
@@ -941,7 +1656,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "大众ID.ERA 9X辅助驾驶到底行不行？《智驾晚高峰》给你答案！",
@@ -961,7 +1676,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "刘展术将出任大众汽车（安徽）数字化销售服务有限公司首席执行官",
@@ -981,7 +1696,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "这诱惑谁禁得起？法拉利申请10余个全新车型名商标 “GTO”再启用",
@@ -1001,7 +1716,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "奇瑞联合日企推出新品牌EMTA 首款纯电K-Car计划2027年推出",
@@ -1021,7 +1736,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "前法拉利CEO狠批纯电Luce：标志拿掉吧，它可能会毁掉法拉利！",
@@ -1041,7 +1756,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "藏不住了！粤港澳大湾区车展展馆图曝光 比亚迪芯片意外剧透？",
@@ -1061,7 +1776,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "奥迪CEO暧昧表示：评估硬派越野SUV/新R8用“小牛”动力是好主意",
@@ -1081,7 +1796,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "预售28.98万起 900V高压架构/VGR渐进式转向 一文看懂奥迪E7X",
@@ -1101,7 +1816,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "221km/h爆胎 魏牌V9X为一个瞬间做了多少准备",
@@ -1121,7 +1836,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "增程/纯电双动力 品牌旗舰轿车 一汽悦意08将于5月29日开启预售",
@@ -1141,7 +1856,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "ES8不香了？入门版电池租用价39万元就很顶？蔚来ES9配置差异速览",
@@ -1161,7 +1876,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "新款乐道L60将于5月29日开启预售 引入激光雷达/蔚来ES9同款芯片",
@@ -1181,7 +1896,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "配KW绞牙避震 极氪001五周年纪念版将于5月29日限量加售",
@@ -1201,7 +1916,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "比亚迪“兜底”城市领航",
@@ -1221,7 +1936,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "卓驭欧洲总部正式开业，并宣布与大众新合作",
@@ -1241,7 +1956,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "浩思动力荣获奔驰“最佳合作奖”！",
@@ -1261,7 +1976,7 @@
       ],
       "importance": 14,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "汽车行业利润率持续探底，钱被谁赚走了",
@@ -1279,7 +1994,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "沃兰特航空eVTOL完成有人驾驶转换飞行",
@@ -1297,7 +2012,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "卓驭欧洲总部正式开业",
@@ -1315,7 +2030,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "C Talk | 浩思动力首席执行官Matias Giannini：实现碳中和，纯电并非唯一路径，多元动力才是答案",
@@ -1333,7 +2048,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "地瓜机器人与自变量达成战略合作",
@@ -1351,7 +2066,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "放在车顶的小蓝灯，逃不过的面子工程？",
@@ -1369,7 +2084,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "华为新定律，把智驾芯片的赛道给换了？",
@@ -1387,7 +2102,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "欧洲车市4月持续增长 中国品牌份额扩大",
@@ -1405,7 +2120,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "优必选与沐曦股份成立新公司，或面向具身智能端侧芯片",
@@ -1423,7 +2138,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Helm.ai推出基础模型GenSim-3和VidGen-3",
@@ -1441,7 +2156,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "伟世通与Smart Eye合作",
@@ -1459,7 +2174,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Elektrobit和ETAS推出集成式ADAS软件栈",
@@ -1477,7 +2192,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Model Y成挪威首款注册量超10万辆车型",
@@ -1495,7 +2210,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "把“锁电”选择权还给消费者",
@@ -1513,7 +2228,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "搭载于全新MG 4X，地平线征程®6E上车",
@@ -1531,7 +2246,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "ROHM面向车载48V系统开发出MOSFET新品",
@@ -1549,7 +2264,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "C Talk | Mike Schoofs：从地图到位置智能，TomTom正在进入Al汽车深水区",
@@ -1567,7 +2282,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "C Talk | 曼胡默尔集团总裁兼首席执行官 吴柯巍：在中国速度与全球变革中，重新定义过滤技术的价值",
@@ -1585,7 +2300,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Seeds | 中科第五纪完成数亿元A轮融资",
@@ -1603,7 +2318,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "蚂蚁集团领投，光轮智能完成新一轮融资",
@@ -1621,7 +2336,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "高瓴、美团领投，天机智能完成10亿融资",
@@ -1639,7 +2354,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "ABLIC扩展面向汽车ECU的48V电源产品",
@@ -1657,7 +2372,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "越南VinFast签署29份全球售后合作备忘",
@@ -1675,7 +2390,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "二手电动车成美国二手车市场最实惠选择",
@@ -1693,7 +2408,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "南非拟加强电动汽车电池制造商激励措施",
@@ -1711,7 +2426,7 @@
       "brands": [],
       "importance": 12,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Candera推出CGI Studio 3.16版本",
@@ -1727,6 +2442,146 @@
       "summary": "Candera推出CGI Studio 3.16版本",
       "category": "行业大事",
       "brands": [],
+      "importance": 12,
+      "enriched_by": "rule",
+      "is_new": false
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7642863273100313113",
+      "title": "终于回过味了？网传比亚迪将限制免费闪充，“羊毛党”算盘白打了",
+      "publish_time": "2小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "82c9d4bcb3a04f39",
+      "publish_ts": 1780015892.389855,
+      "publish_date": "2026-05-29",
+      "summary": "终于回过味了？网传比亚迪将限制免费闪充，“羊毛党”算盘白打了",
+      "category": "分品牌",
+      "brands": [
+        "比亚迪"
+      ],
+      "importance": 12,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645105132841353753",
+      "title": "流媒体后视镜哪家强？蔚来真的不一样！",
+      "publish_time": "2小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "2b43870775f89d77",
+      "publish_ts": 1780015892.389816,
+      "publish_date": "2026-05-29",
+      "summary": "流媒体后视镜哪家强？蔚来真的不一样！",
+      "category": "分品牌",
+      "brands": [
+        "蔚来"
+      ],
+      "importance": 12,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645106181384421912",
+      "title": "特斯拉FSD落地将至？6.4万高价智驾能否立足国内市场",
+      "publish_time": "2小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "c8847e09526b97ec",
+      "publish_ts": 1780015892.389777,
+      "publish_date": "2026-05-29",
+      "summary": "特斯拉FSD落地将至？6.4万高价智驾能否立足国内市场",
+      "category": "新能源·智驾",
+      "brands": [
+        "特斯拉"
+      ],
+      "importance": 12,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645081363125223961",
+      "title": "当”何不食肉糜”的人站上汽车展台",
+      "publish_time": "3小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "a481d0b999865480",
+      "publish_ts": 1780012292.389949,
+      "publish_date": "2026-05-29",
+      "summary": "当”何不食肉糜”的人站上汽车展台",
+      "category": "分品牌",
+      "brands": [
+        "上汽"
+      ],
+      "importance": 12,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645061323101487678",
+      "title": "李斌掏空家底，蔚来跳入火海",
+      "publish_time": "5小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "6337aeaf5c03bbdd",
+      "publish_ts": 1780005092.3901,
+      "publish_date": "2026-05-29",
+      "summary": "李斌掏空家底，蔚来跳入火海",
+      "category": "分品牌",
+      "brands": [
+        "蔚来"
+      ],
+      "importance": 12,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644969210141901337",
+      "title": "比亚迪智能化下半场比拼，王传福：智驾的能力一定会全面超越人类",
+      "publish_time": "10小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "1ff00551f867bf0b",
+      "publish_ts": 1779987092.390286,
+      "publish_date": "2026-05-29",
+      "summary": "比亚迪智能化下半场比拼，王传福：智驾的能力一定会全面超越人类",
+      "category": "新能源·智驾",
+      "brands": [
+        "比亚迪"
+      ],
+      "importance": 12,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644737733390746137",
+      "title": "小鹏GX“爆单”，新势力格局出现新变数？",
+      "publish_time": "昨天 08:52",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "fefe667222ee5346",
+      "publish_ts": 1779933600.0,
+      "publish_date": "2026-05-28",
+      "summary": "小鹏GX“爆单”，新势力格局出现新变数？",
+      "category": "分品牌",
+      "brands": [
+        "小鹏"
+      ],
       "importance": 12,
       "enriched_by": "rule",
       "is_new": true
@@ -1747,7 +2602,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "AMG GT四门跑车纯电版欧洲开订 15.5万欧元起 满配价直逼V12超跑",
@@ -1765,7 +2620,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "外观细节优化 中期改款斯柯达柯迪亚克谍照曝光",
@@ -1783,7 +2638,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "售价1.1万元 风云T9L推出猎鹰700智享选装包 还有外观内饰的升级",
@@ -1801,7 +2656,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "16.98万元起 内饰/驾驶体验等七大升级 新款尚界H5开启预售",
@@ -1819,7 +2674,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "采用全新配色及金色元素 尊界S800 Grand Design将于5月29日亮相",
@@ -1837,7 +2692,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "华为提了个新定律，把智驾芯片的赛道给换了？",
@@ -1855,7 +2710,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "放在车顶的小蓝灯，逃不过的面子工程？",
@@ -1873,7 +2728,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "汽车行业利润率持续探底，钱到底被谁赚走了？",
@@ -1891,7 +2746,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Helm.ai推出基础模型GenSim-3和VidGen-3",
@@ -1909,7 +2764,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "地瓜机器人与自变量达成战略合作",
@@ -1927,7 +2782,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "伟世通与Smart Eye开发出集成驾驶员监控功能的液晶仪表盘",
@@ -1945,7 +2800,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Elektrobit和ETAS联合推出集成式ADAS软件栈",
@@ -1963,7 +2818,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "ABLIC扩展面向汽车ECU的48V电源产品组合",
@@ -1981,7 +2836,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Candera推出CGI Studio 3.16版本 覆盖车载HMI开发全流程",
@@ -1999,7 +2854,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "弗吉尼亚理工大学利用“储备池计算”解锁软体机器人控制",
@@ -2017,7 +2872,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "芝浦工业大学设计出增强型YOLO框架 将360度小目标检测准确率提升至90%",
@@ -2035,7 +2890,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Brain Corp与加州大学圣地亚哥分校合作 提升自主机器人理解真实环境的能力",
@@ -2053,7 +2908,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "东北大学开发出全新镁合金阳极策略 提高固态电池稳定性和离子传输性能",
@@ -2071,7 +2926,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "MIT新算法让智能手机激光雷达可追踪隐藏物体",
@@ -2089,7 +2944,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "走进江铃｜新技术·新生态·新EV 供应链技术展暨供应商对接会圆满落幕",
@@ -2107,7 +2962,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "布雷博与宁波华翔签署合资协议",
@@ -2125,7 +2980,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Diodes推出高灵敏度霍尔效应锁存器 提升位置传感性能",
@@ -2143,7 +2998,7 @@
       "brands": [],
       "importance": 10,
       "enriched_by": "rule",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "米其林推出面向软件定义汽车的通用轮胎数字孪生",
@@ -2160,6 +3015,564 @@
       "category": "行业大事",
       "brands": [],
       "importance": 10,
+      "enriched_by": "rule",
+      "is_new": false
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644541896282669630",
+      "title": "从热销到承压 智界R7的出路在哪？",
+      "publish_time": "",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "ad1720bd3bd99914",
+      "publish_ts": 1780020000.0,
+      "publish_date": "2026-05-29",
+      "summary": "从热销到承压 智界R7的出路在哪？",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644491786135781913",
+      "title": "2026Q1全球新能源汽车承压",
+      "publish_time": "",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "f39e63ba7a2717ae",
+      "publish_ts": 1780020000.0,
+      "publish_date": "2026-05-29",
+      "summary": "2026Q1全球新能源汽车承压",
+      "category": "新能源·智驾",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644476378528498201",
+      "title": "车市为何还没有回暖迹象，都是哪些车在拖后腿？",
+      "publish_time": "",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "6e18c4466e592917",
+      "publish_ts": 1780020000.0,
+      "publish_date": "2026-05-29",
+      "summary": "车市为何还没有回暖迹象，都是哪些车在拖后腿？",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645111399463076376",
+      "title": "三款国产新能源SUV中保研全优通关",
+      "publish_time": "1小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "f9d5ce773b3dd251",
+      "publish_ts": 1780019492.389728,
+      "publish_date": "2026-05-29",
+      "summary": "三款国产新能源SUV中保研全优通关",
+      "category": "新能源·智驾",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645111399463043608",
+      "title": "福建省住建厅关于做好智慧停车规划、设置及运营管理的建议答复",
+      "publish_time": "1小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "6bf36d09c474d422",
+      "publish_ts": 1780019492.389585,
+      "publish_date": "2026-05-29",
+      "summary": "福建省住建厅关于做好智慧停车规划、设置及运营管理的建议答复",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645095861298709017",
+      "title": "人间世事皆在蜕变，智能出行已成大势",
+      "publish_time": "2小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "55459b61f8eb3f42",
+      "publish_ts": 1780015892.389874,
+      "publish_date": "2026-05-29",
+      "summary": "人间世事皆在蜕变，智能出行已成大势",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645101046850814488",
+      "title": "历年新能源车占比_202604",
+      "publish_time": "2小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "8af895a2b3fcc48e",
+      "publish_ts": 1780015892.389835,
+      "publish_date": "2026-05-29",
+      "summary": "历年新能源车占比_202604",
+      "category": "新能源·智驾",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645103818900013592",
+      "title": "肥东何时迎造车项目落地",
+      "publish_time": "2小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "4f1cc6b97f6bd719",
+      "publish_ts": 1780015892.389797,
+      "publish_date": "2026-05-29",
+      "summary": "肥东何时迎造车项目落地",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645078549229503038",
+      "title": "别再硬撑了！6月1日起疲劳驾驶“动真格”必看",
+      "publish_time": "3小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "cc15d85244f9fffd",
+      "publish_ts": 1780012292.390007,
+      "publish_date": "2026-05-29",
+      "summary": "别再硬撑了！6月1日起疲劳驾驶“动真格”必看",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645079703266853438",
+      "title": "油价终于大跳水！95号汽油或将重回8元时代",
+      "publish_time": "3小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "7d794a27521ec94a",
+      "publish_ts": 1780012292.389986,
+      "publish_date": "2026-05-29",
+      "summary": "油价终于大跳水！95号汽油或将重回8元时代",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645086503550747198",
+      "title": "电车没干掉油车，却把路边修理厂逼上了绝路",
+      "publish_time": "3小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "d02813c31dbdaacf",
+      "publish_ts": 1780012292.389931,
+      "publish_date": "2026-05-29",
+      "summary": "电车没干掉油车，却把路边修理厂逼上了绝路",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645086503550878270",
+      "title": "中国小厂撼动全球,八爪鱼零件震惊硅谷,新昌密码谁人知",
+      "publish_time": "3小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "b3f9fb8f94d8db1a",
+      "publish_ts": 1780012292.389912,
+      "publish_date": "2026-05-29",
+      "summary": "中国小厂撼动全球,八爪鱼零件震惊硅谷,新昌密码谁人知",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645089981899719230",
+      "title": "新能源汽车渗透率飙升，从根本上重锤传统汽修行业",
+      "publish_time": "3小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "7076d547130521af",
+      "publish_ts": 1780012292.389893,
+      "publish_date": "2026-05-29",
+      "summary": "新能源汽车渗透率飙升，从根本上重锤传统汽修行业",
+      "category": "新能源·智驾",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645069555815465534",
+      "title": "2026年修车大洗牌：路边店，该关门还是转型？",
+      "publish_time": "4小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "4411906e99f94bae",
+      "publish_ts": 1780008692.390063,
+      "publish_date": "2026-05-29",
+      "summary": "2026年修车大洗牌：路边店，该关门还是转型？",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645071545320718910",
+      "title": "下月起油价或迎拐点：2026年国内汽油走势与2018年行情高度共振",
+      "publish_time": "4小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "676a390a65d40afd",
+      "publish_ts": 1780008692.390044,
+      "publish_date": "2026-05-29",
+      "summary": "下月起油价或迎拐点：2026年国内汽油走势与2018年行情高度共振",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645072797731488281",
+      "title": "L3准入终于来了！限速50公里、不卖个人，无人驾驶为何越批越憋屈",
+      "publish_time": "4小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "7f1c09f0e4dd039b",
+      "publish_ts": 1780008692.390025,
+      "publish_date": "2026-05-29",
+      "summary": "L3准入终于来了！限速50公里、不卖个人，无人驾驶为何越批越憋屈",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645054472590557720",
+      "title": "燃油车时代真的结束了吗？一场汽车革命的深度观察",
+      "publish_time": "5小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "853c9ee3c8a583b2",
+      "publish_ts": 1780005092.390137,
+      "publish_date": "2026-05-29",
+      "summary": "燃油车时代真的结束了吗？一场汽车革命的深度观察",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645056677615600190",
+      "title": "电车当道,十年后还会有燃油车吗？",
+      "publish_time": "5小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "88163ebf0b780b76",
+      "publish_ts": 1780005092.390119,
+      "publish_date": "2026-05-29",
+      "summary": "电车当道,十年后还会有燃油车吗？",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645060760745738777",
+      "title": "6月1日新规落地！闭眼2秒算疲劳驾驶，24小时生活全倒查！",
+      "publish_time": "5小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "efbcf18f45509262",
+      "publish_ts": 1780005092.390082,
+      "publish_date": "2026-05-29",
+      "summary": "6月1日新规落地！闭眼2秒算疲劳驾驶，24小时生活全倒查！",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645046002449547838",
+      "title": "6月1日新规落地：疲劳驾驶严查，开车的你要小心了",
+      "publish_time": "6小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "5e8801f5e1eeaf2d",
+      "publish_ts": 1780001492.390155,
+      "publish_date": "2026-05-29",
+      "summary": "6月1日新规落地：疲劳驾驶严查，开车的你要小心了",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645006255098200638",
+      "title": "新能源车重量的隐患：从排量税到“重量税”的历史重演",
+      "publish_time": "8小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "4ef6ac8ab8774c23",
+      "publish_ts": 1779994292.39021,
+      "publish_date": "2026-05-29",
+      "summary": "新能源车重量的隐患：从排量税到“重量税”的历史重演",
+      "category": "新能源·智驾",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645015373158629950",
+      "title": "兵败如山倒！大批加油站悄悄关门，油车的天，彻底变了",
+      "publish_time": "8小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "41d8b0f1f4c3d41b",
+      "publish_ts": 1779994292.390192,
+      "publish_date": "2026-05-29",
+      "summary": "兵败如山倒！大批加油站悄悄关门，油车的天，彻底变了",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644999987302351385",
+      "title": "天津北辰汽车改色膜合法备案攻略！2026最新流程，改色不被罚",
+      "publish_time": "9小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "e9ee397f2ae4fdca",
+      "publish_ts": 1779990692.390229,
+      "publish_date": "2026-05-29",
+      "summary": "天津北辰汽车改色膜合法备案攻略！2026最新流程，改色不被罚",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644983734756082238",
+      "title": "六次在华合资五次倒闭，Stellantis这回终于想明白了 | 电厂",
+      "publish_time": "10小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "07f50b0e3645cc29",
+      "publish_ts": 1779987092.390267,
+      "publish_date": "2026-05-29",
+      "summary": "六次在华合资五次倒闭，Stellantis这回终于想明白了 | 电厂",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644874166868623896",
+      "title": "新能源品牌竞争加剧，最终谁会上桌",
+      "publish_time": "17小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "9367582a144edcf1",
+      "publish_ts": 1779961892.390435,
+      "publish_date": "2026-05-28",
+      "summary": "新能源品牌竞争加剧，最终谁会上桌",
+      "category": "新能源·智驾",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644816514085224984",
+      "title": "欧洲4月新车注册量增7% 中国品牌电动车份额破15%",
+      "publish_time": "20小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "f7edad9fd397d8ed",
+      "publish_ts": 1779951092.390641,
+      "publish_date": "2026-05-28",
+      "summary": "欧洲4月新车注册量增7% 中国品牌电动车份额破15%",
+      "category": "新能源·智驾",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644820541211329086",
+      "title": "2025SUV 深度解析：冰火博弈，燃油堡垒加速土崩瓦解",
+      "publish_time": "20小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "cf79dc80ce03cb1b",
+      "publish_ts": 1779951092.390604,
+      "publish_date": "2026-05-28",
+      "summary": "2025SUV 深度解析：冰火博弈，燃油堡垒加速土崩瓦解",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644825455535374872",
+      "title": "BBA 一季度平均降幅 15% 传统燃油豪华车进入价跌量缩周期",
+      "publish_time": "20小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "dbde82505e6404c3",
+      "publish_ts": 1779951092.390585,
+      "publish_date": "2026-05-28",
+      "summary": "BBA 一季度平均降幅 15% 传统燃油豪华车进入价跌量缩周期",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644829098359390744",
+      "title": "每出口2辆车就有1辆新能源，巴西最爱买",
+      "publish_time": "20小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "c7257e732d31fe74",
+      "publish_ts": 1779951092.390566,
+      "publish_date": "2026-05-28",
+      "summary": "每出口2辆车就有1辆新能源，巴西最爱买",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644769848858591768",
+      "title": "彻底摆脱平台期，4月出口近百万辆，国产车迈入广阔天地？",
+      "publish_time": "23小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "9b4d6929f173ea7f",
+      "publish_ts": 1779940292.390697,
+      "publish_date": "2026-05-28",
+      "summary": "彻底摆脱平台期，4月出口近百万辆，国产车迈入广阔天地？",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
+      "enriched_by": "rule",
+      "is_new": true
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7644679986649137688",
+      "title": "2026购车补贴申领全攻略：三大补贴如何领？手把手教你省钱",
+      "publish_time": "昨天 05:09",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-29T02:51:16.704128+00:00",
+      "item_id": "876bf52a384b3a83",
+      "publish_ts": 1779933600.0,
+      "publish_date": "2026-05-28",
+      "summary": "2026购车补贴申领全攻略：三大补贴如何领？手把手教你省钱",
+      "category": "行业大事",
+      "brands": [],
+      "importance": 8,
       "enriched_by": "rule",
       "is_new": true
     }
