@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>汽车行业新闻看板</title>
-<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 <style>
   :root { --bg:#f7fafc; --panel:#ffffff; --line:#e2e8f0; --fg:#1a202c; --mute:#718096;
           --acc:#2563eb; --acc-soft:#eaf2ff; --pos:#059669; --neg:#dc2626; --warn:#d97706;
@@ -68,32 +67,35 @@
   .chip .n{font-weight:600}
   /* 主体 */
   .body{padding:14px 28px 40px;flex:1;overflow-y:auto;min-height:0}
-  .panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px;margin-bottom:14px}
-  .ct-title{font-size:12px;font-weight:600;color:var(--fg);margin:0 0 8px;padding-left:2px}
-  .charts{display:flex;gap:14px;align-items:stretch}
-  .charts > div{flex:1;min-width:0}
-  #catChart,#brandChart{height:240px}
-  .sec-title{font-size:13px;font-weight:600;color:var(--fg);margin:4px 2px 10px;display:flex;align-items:center;gap:8px}
+  .sec-title{font-size:13px;font-weight:600;color:var(--fg);margin:18px 2px 12px;display:flex;align-items:center;gap:8px}
+  .sec-title:first-child{margin-top:4px}
   .sec-title::before{content:"";width:4px;height:15px;border-radius:4px;background:var(--acc)}
-  /* 新闻条目 */
-  .news{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
-  .item{background:var(--card);padding:13px 16px;display:flex;flex-direction:column;gap:6px}
-  .item:hover{background:#fbfcfe}
-  .item.top{border-left:3px solid var(--warn)}
-  .item a.t{color:var(--fg);text-decoration:none;font-size:15px;font-weight:600;line-height:1.45}
-  .item a.t:hover{color:var(--acc)}
-  .item .sum{color:#475467;font-size:13px;line-height:1.5}
-  .item .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12px;color:var(--mute)}
-  .pill{display:inline-block;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:500;background:#f1f5f9;color:var(--mute);white-space:nowrap}
+  /* 卡片时间线 */
+  .timeline{position:relative;display:flex;flex-direction:column;gap:14px}
+  .timeline::before{content:"";position:absolute;left:55px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .tl-row{display:flex;gap:18px;align-items:flex-start;position:relative}
+  .tl-gutter{width:48px;flex-shrink:0;text-align:right;padding-top:17px;color:var(--mute);font-size:12px;font-weight:600;font-variant-numeric:tabular-nums}
+  .tl-gutter .dot{position:absolute;left:50px;top:19px;width:11px;height:11px;border-radius:50%;background:var(--pos);box-shadow:0 0 0 3px var(--bg)}
+  .tl-row.top .tl-gutter .dot{background:var(--warn)}
+  .card{flex:1;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 18px;transition:border-color .15s,transform .1s}
+  .card:hover{border-color:#cbd5e1}
+  .card.top{border-left:3px solid var(--warn)}
+  .card-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:7px}
+  .card .src{font-size:12px;color:var(--mute);flex:1;min-width:0;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .card .src .dt{color:#94a3b8}
+  .score{flex-shrink:0;min-width:38px;height:38px;border-radius:10px;background:var(--acc-soft);color:var(--acc);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:700;font-size:15px;line-height:1;padding:0 8px}
+  .score .lab{font-size:9px;font-weight:500;color:var(--mute);margin-top:2px}
+  .card a.t{color:var(--fg);text-decoration:none;font-size:15.5px;font-weight:600;line-height:1.5;display:block}
+  .card a.t:hover{color:var(--acc)}
+  .card .sum{color:#475467;font-size:13px;line-height:1.6;margin-top:7px}
+  .card .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px;align-items:center}
+  .pill{display:inline-block;padding:3px 9px;border-radius:6px;font-size:12px;font-weight:500;background:#f1f5f9;color:var(--mute);white-space:nowrap}
   .pill.brand{background:#ecfdf5;color:#065f46}
   .pill.cat-行业大事{background:#eaf2ff;color:#1d4ed8}
   .pill.cat-分品牌{background:#f1f5f9;color:#475467}
   .pill.cat-新能源·智驾{background:#ecfdf5;color:#047857}
   .pill.cat-舆情·热点{background:#fef2f2;color:#b91c1c}
-  .badge-new{color:#fff;background:var(--pos);padding:1px 7px;border-radius:6px;font-size:11px}
-  .imp{margin-left:auto;font-variant-numeric:tabular-nums;color:var(--mute)}
-  .imp b{color:var(--warn)}
-  .src{color:var(--mute)}
+  .badge-new{color:#fff;background:var(--pos);padding:2px 8px;border-radius:6px;font-size:11px;font-weight:600}
   .empty{color:var(--mute);text-align:center;padding:60px 0}
   /* 口径说明 */
   .doc-page{overflow-y:auto;background:var(--bg);padding:24px 28px 40px}
@@ -148,15 +150,9 @@
 <div class="chips" id="catChips"></div>
 
 <div class="body">
-  <div class="panel">
-    <div class="charts">
-      <div><div class="ct-title">分类分布</div><div id="catChart"></div></div>
-      <div><div class="ct-title">热门品牌 Top 10</div><div id="brandChart"></div></div>
-    </div>
-  </div>
   <div id="topSection"></div>
   <div class="sec-title" id="listTitle">全部新闻</div>
-  <div class="news" id="list"></div>
+  <div class="timeline" id="list"></div>
 </div>
 </div>
 
@@ -165,9 +161,9 @@
   <div class="doc-title">口径说明</div>
   <div class="doc-sub">汽车行业新闻每日聚合看板 · 数据流与处理口径</div>
   <div class="doc-rules">
-    <div class="doc-rule"><h3>数据源</h3>盖世汽车、汽车之家、第一电动等主流汽车媒体的公开资讯列表。Playwright 每日抓取，礼貌延时，遵守站点 robots。</div>
+    <div class="doc-rule"><h3>数据源</h3>盖世汽车、汽车之家、第一电动、懂车帝等主流汽车媒体的公开资讯列表。多数源走 Playwright 抓取，反爬较硬的站（如懂车帝）走 curl 抓 SSR 页面；每日运行，礼貌延时，遵守站点 robots。</div>
     <div class="doc-rule"><h3>四维分类</h3><ul><li><b>行业大事</b>：政策 / 销量 / 产销 / 财报 / 产业链 / 价格</li><li><b>分品牌</b>：以某车企或品牌动态为主</li><li><b>新能源·智驾</b>：电动化 / 电池 / 智驾 / 智能座舱</li><li><b>舆情·热点</b>：争议 / 维权 / 事故 / 口碑</li></ul></div>
-    <div class="doc-rule"><h3>智能处理</h3>带 LLM 时由 GPT 输出一句话摘要、分类、品牌标签与重要度；无 key 时走关键词规则兜底。重要度综合来源权重、信号词与品牌命中。</div>
+    <div class="doc-rule"><h3>智能处理</h3>带 LLM 时由大模型（默认 Gemini 2.0 Flash，可回退 OpenAI）输出一句话摘要、分类、品牌标签与重要度；无 key 时走关键词规则兜底。重要度综合来源权重、信号词与品牌命中。</div>
     <div class="doc-rule"><h3>去重与排序</h3>URL 归一指纹去重，<code>seen_ids</code> 跨天去重并标记「新」。列表按重要度降序、时间次之；「今日要点」取重要度 Top 8。</div>
   </div>
 </div>
@@ -177,7 +173,6 @@
 <script>
 const PILL_CAT=["行业大事","分品牌","新能源·智驾","舆情·热点"];
 const state={feed:null,cat:"",brands:new Set(),sources:new Set(),q:""};
-let catChart,brandChart;
 
 function fmtDate(s){return `${s.slice(0,4)}-${s.slice(4,6)}-${s.slice(6,8)}`;}
 function esc(s){return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
@@ -189,7 +184,6 @@ document.querySelectorAll('.nav-item').forEach(n=>n.onclick=()=>{
   const p=n.dataset.page;
   document.getElementById('page-feed').style.display = p==='feed'?'flex':'none';
   document.getElementById('page-doc').style.display  = p==='doc'?'block':'none';
-  if(p==='feed'){catChart&&catChart.resize();brandChart&&brandChart.resize();}
 });
 
 // ── .dd 开合 ──
@@ -218,7 +212,7 @@ async function loadFeed(stamp){
   const f=state.feed;
   document.getElementById("meta").innerHTML=
     `${fmtDate(f.stamp)} · 共 <b>${f.total}</b> 条 · 生成于 ${f.generated_at.replace("T"," ")}`;
-  buildKpi();buildCatChips();buildBrandDD();buildSourceDD();drawCharts();updateDDLabels();render();
+  buildKpi();buildCatChips();buildBrandDD();buildSourceDD();updateDDLabels();render();
 }
 
 function buildKpi(){
@@ -254,21 +248,6 @@ function updateDDLabels(){
   document.getElementById("ddSource").textContent=state.sources.size?`${state.sources.size} 个来源`:"全部";
 }
 
-function drawCharts(){
-  const f=state.feed;
-  catChart=catChart||echarts.init(document.getElementById("catChart"));
-  brandChart=brandChart||echarts.init(document.getElementById("brandChart"));
-  const cats=PILL_CAT, cvals=cats.map(c=>f.category_counts[c]||0);
-  catChart.setOption({grid:{left:88,right:24,top:8,bottom:8},tooltip:{trigger:"axis",axisPointer:{type:"shadow"}},
-    xAxis:{type:"value",show:false},yAxis:{type:"category",data:cats,axisLine:{show:false},axisTick:{show:false},axisLabel:{color:"#475467"}},
-    series:[{type:"bar",data:cvals,barWidth:16,itemStyle:{color:"#2563eb",borderRadius:[0,4,4,0]},label:{show:true,position:"right",color:"#718096"}}]});
-  const be=Object.entries(f.brand_counts).slice(0,10).reverse();
-  brandChart.setOption({grid:{left:64,right:24,top:8,bottom:8},tooltip:{trigger:"axis",axisPointer:{type:"shadow"}},
-    xAxis:{type:"value",show:false},yAxis:{type:"category",data:be.map(x=>x[0]),axisLine:{show:false},axisTick:{show:false},axisLabel:{color:"#475467"}},
-    series:[{type:"bar",data:be.map(x=>x[1]),barWidth:13,itemStyle:{color:"#059669",borderRadius:[0,4,4,0]},label:{show:true,position:"right",color:"#718096"}}]});
-}
-window.addEventListener("resize",()=>{catChart&&catChart.resize();brandChart&&brandChart.resize();});
-
 document.getElementById("q").oninput=e=>{state.q=e.target.value.trim();render();};
 document.getElementById("reset").onclick=()=>{
   state.cat="";state.brands.clear();state.sources.clear();state.q="";
@@ -285,16 +264,24 @@ function match(it){
 }
 function itemHtml(it,top){
   const brands=(it.brands||[]).map(b=>`<span class="pill brand">${esc(b)}</span>`).join("");
-  return `<div class="item ${top?"top":""}">
-    <a class="t" href="${it.url}" target="_blank" rel="noopener">${esc(it.title)}</a>
-    ${it.summary&&it.summary!==it.title?`<div class="sum">${esc(it.summary)}</div>`:""}
-    <div class="row">
-      ${it.category?`<span class="pill cat-${it.category}">${it.category}</span>`:""}
-      ${brands}
-      <span class="src">${esc(it.source_name||"")}</span>
-      <span>${it.publish_date||""}</span>
-      ${it.is_new?'<span class="badge-new">新</span>':""}
-      <span class="imp">热度 <b>${it.importance||0}</b></span>
+  const gut=it.publish_time||(it.publish_date?it.publish_date.slice(5):"");
+  return `<div class="tl-row ${top?"top":""}">
+    <div class="tl-gutter">${esc(gut)}<span class="dot"></span></div>
+    <div class="card ${top?"top":""}">
+      <div class="card-head">
+        <div class="src">
+          <span>${esc(it.source_name||"")}</span>
+          ${it.publish_date?`<span class="dt">${it.publish_date}</span>`:""}
+          ${it.is_new?'<span class="badge-new">新</span>':""}
+        </div>
+        <div class="score">${it.importance||0}<span class="lab">热度</span></div>
+      </div>
+      <a class="t" href="${it.url}" target="_blank" rel="noopener">${esc(it.title)}</a>
+      ${it.summary&&it.summary!==it.title?`<div class="sum">${esc(it.summary)}</div>`:""}
+      <div class="tags">
+        ${it.category?`<span class="pill cat-${it.category}">${it.category}</span>`:""}
+        ${brands}
+      </div>
     </div></div>`;
 }
 function render(){
@@ -304,12 +291,12 @@ function render(){
   if(noFilter){
     const topIds=new Set(f.top||[]);
     const topItems=f.items.filter(i=>topIds.has(i.item_id));
-    ts.innerHTML=`<div class="sec-title">今日要点</div><div class="news">${topItems.map(i=>itemHtml(i,true)).join("")}</div>`;
+    ts.innerHTML=`<div class="sec-title">今日要点</div><div class="timeline">${topItems.map(i=>itemHtml(i,true)).join("")}</div>`;
     document.getElementById("listTitle").textContent="全部新闻";
   }else{ts.innerHTML="";document.getElementById("listTitle").textContent="筛选结果";}
   const list=f.items.filter(match);
   document.getElementById("list").innerHTML=list.length?list.map(i=>itemHtml(i,false)).join(""):
-    '<div class="item"><div class="empty">没有符合条件的新闻</div></div>';
+    '<div class="empty">没有符合条件的新闻</div>';
 }
 loadIndex().catch(e=>{document.getElementById("meta").textContent="加载失败："+e;});
 </script>
