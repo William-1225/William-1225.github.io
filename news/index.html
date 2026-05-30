@@ -73,10 +73,10 @@
   .sec-title::before{content:"";width:4px;height:15px;border-radius:4px;background:var(--acc)}
   /* 卡片时间线 */
   .timeline{position:relative;display:flex;flex-direction:column;gap:14px}
-  .timeline::before{content:"";position:absolute;left:55px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .timeline::before{content:"";position:absolute;left:83px;top:6px;bottom:6px;width:2px;background:var(--line)}
   .tl-row{display:flex;gap:18px;align-items:flex-start;position:relative}
-  .tl-gutter{width:48px;flex-shrink:0;text-align:right;padding-top:17px;color:var(--mute);font-size:12px;font-weight:600;font-variant-numeric:tabular-nums}
-  .tl-gutter .dot{position:absolute;left:50px;top:19px;width:11px;height:11px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 3px var(--bg)}
+  .tl-gutter{width:76px;flex-shrink:0;text-align:right;padding-top:17px;color:var(--mute);font-size:12px;font-weight:600;font-variant-numeric:tabular-nums}
+  .tl-gutter .dot{position:absolute;left:78px;top:19px;width:11px;height:11px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 3px var(--bg)}
   .tl-row.top .tl-gutter .dot{background:var(--warn)}
   .card{flex:1;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;transition:border-color .15s,box-shadow .15s}
   .card:hover{border-color:#cbd5e1;box-shadow:0 2px 10px rgba(15,23,42,.05)}
@@ -90,9 +90,9 @@
   .score{flex-shrink:0;min-width:38px;height:24px;border-radius:999px;background:#eff6ff;border:1px solid #bfdbfe;color:var(--acc);display:inline-flex;align-items:center;justify-content:center;padding:0 10px;font-weight:700;font-size:13px;line-height:1}
   .card a.t{color:var(--fg);text-decoration:none;font-size:16px;font-weight:600;line-height:1.5;display:block}
   .card a.t:hover{color:var(--acc)}
-  .card-body{display:flex;gap:14px;align-items:flex-start}
+  .card-body{display:block}
   .card-main{flex:1;min-width:0}
-  .card .thumb{flex-shrink:0;display:block;width:128px;height:80px;border-radius:9px;overflow:hidden;margin-top:2px;background:#f1f5f9}
+  .card .thumb{display:block;width:min(300px,100%);aspect-ratio:16/9;border-radius:9px;overflow:hidden;margin-top:10px;background:#f1f5f9}
   .card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
   .card .sum{color:#475467;font-size:13px;line-height:1.7;margin-top:8px}
   .card .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px;align-items:center}
@@ -106,7 +106,7 @@
   .doc-page{overflow-y:auto;background:var(--bg);padding:24px 28px 40px}
   .doc-title{font-size:20px;font-weight:700;margin:0 0 4px}
   .doc-sub{color:var(--mute);font-size:13px;margin-bottom:16px}
-  .doc-rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .doc-rules{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;max-width:900px}
   .doc-rule{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 16px;font-size:13px;line-height:1.7;color:#344054}
   .doc-rule h3{font-size:13px;margin:0 0 8px;color:var(--fg);font-weight:650}
   .doc-rule ul{margin:6px 0 0;padding-left:18px}
@@ -168,8 +168,6 @@
   <div class="doc-rules">
     <div class="doc-rule"><h3>数据源</h3>盖世汽车、汽车之家、第一电动、懂车帝等主流汽车媒体的公开资讯列表。多数源走 Playwright 抓取，反爬较硬的站（如懂车帝）走 curl 抓 SSR 页面；每日运行，礼貌延时，遵守站点 robots。</div>
     <div class="doc-rule"><h3>五维主题分类</h3><ul><li><b>政策</b>：政策 / 补贴 / 法规 / 标准 / 召回 / 监管</li><li><b>市场</b>：销量 / 交付 / 财报 / 价格 / 产业链 / 并购融资</li><li><b>产品</b>：新车发布 / 上市 / 亮相 / 改款 / 试驾实拍</li><li><b>技术</b>：电动化 / 电池 / 智驾 / 智能座舱</li><li><b>舆情</b>：争议 / 维权 / 事故 / 口碑</li></ul><div style="margin-top:8px;color:var(--mute)">品牌为独立标签（可在「品牌」下拉筛选），不单独成类。</div></div>
-    <div class="doc-rule"><h3>智能处理</h3>由本机 Codex（无需 API key）输出摘要、看点、分类、品牌标签与重要度；无 Codex 时走关键词规则兜底。重要度综合来源权重、信号词与品牌命中。</div>
-    <div class="doc-rule"><h3>去重与排序</h3>URL 归一指纹去重，<code>seen_ids</code> 跨天去重并标记「新」。列表按重要度降序、时间次之；「今日要点」取重要度 Top 8。</div>
   </div>
 </div>
 
@@ -181,14 +179,12 @@ const state={feed:null,view:"featured",cat:"",brands:new Set(),sources:new Set()
 
 function fmtDate(s){return `${s.slice(0,4)}-${s.slice(4,6)}-${s.slice(6,8)}`;}
 function esc(s){return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
-// 时间线左栏：显示文章发布的「时:分」（对齐 aihot），不写日期。
-// 仅当源提供了真实发布时间（publish_time 非空）才显示，否则留空——
-// 盖世/第一电动等列表页不给文章时间，避免显示估算的 12:00 造假。
+// 时间线左栏：有真实时刻显示「时:分」，否则显示发布日期，避免留空。
 function hhmm(it){
-  if(!it.publish_time) return "";
   if(it.publish_ts){const d=new Date(it.publish_ts*1000);
-    if(!isNaN(d)) return String(d.getHours()).padStart(2,'0')+":"+String(d.getMinutes()).padStart(2,'0');}
-  return /^\d{1,2}:\d{2}/.test(it.publish_time)?it.publish_time:"";
+    if(!isNaN(d)&&it.publish_time) return String(d.getHours()).padStart(2,'0')+":"+String(d.getMinutes()).padStart(2,'0');}
+  if(/^\d{1,2}:\d{2}/.test(it.publish_time||"")) return it.publish_time;
+  return it.publish_date ? it.publish_date.slice(5) : "—";
 }
 
 // ── 导航切页 ──
@@ -205,12 +201,12 @@ function applyView(){
   const feat=state.view==='featured';
   document.getElementById('feedTitle').textContent=feat?'精选':'全部动态';
   document.getElementById('feedSub').textContent=feat?'每日自动挑选的高价值汽车资讯':'当日全部汽车行业资讯';
-  // 精选页隐藏分类药丸与品牌/来源下拉（跨类目策划流）
-  document.getElementById('catSeg').style.display=feat?'none':'';
+  document.getElementById('catSeg').style.display='';
   document.querySelector('[data-dd="brand"]').style.display=feat?'none':'';
   document.querySelector('[data-dd="source"]').style.display=feat?'none':'';
-  // 进入精选时清掉脏筛选态
-  if(feat){state.cat="";state.brands.clear();state.sources.clear();updateDDLabels();}
+  // 进入精选时仅清掉品牌/来源，保留分类筛选。
+  if(feat){state.brands.clear();state.sources.clear();updateDDLabels();}
+  buildCatSeg();
   render();
 }
 
@@ -242,8 +238,10 @@ async function loadFeed(stamp){
 
 function buildCatSeg(){
   const f=state.feed;
-  let html=`<div class="pill-tab ${state.cat===""?"active":""}" data-c="">全部 <span class="n">${f.total}</span></div>`;
-  PILL_CAT.forEach(c=>{html+=`<div class="pill-tab ${state.cat===c?"active":""}" data-c="${c}">${c} <span class="n">${f.category_counts[c]||0}</span></div>`;});
+  const base=state.view==='featured'?f.items.filter(it=>it.is_featured):f.items;
+  const counts={};PILL_CAT.forEach(c=>counts[c]=0);base.forEach(it=>{if(counts[it.category]!=null)counts[it.category]++;});
+  let html=`<div class="pill-tab ${state.cat===""?"active":""}" data-c="">全部 <span class="n">${base.length}</span></div>`;
+  PILL_CAT.forEach(c=>{html+=`<div class="pill-tab ${state.cat===c?"active":""}" data-c="${c}">${c} <span class="n">${counts[c]||0}</span></div>`;});
   const box=document.getElementById("catSeg");box.innerHTML=html;
   box.querySelectorAll(".pill-tab").forEach(el=>el.onclick=()=>{state.cat=el.dataset.c;buildCatSeg();render();});
 }
@@ -304,13 +302,13 @@ function itemHtml(it,feat){
        <div class="card-main">
       <a class="t" href="${it.url}" target="_blank" rel="noopener">${esc(it.title)}</a>
       ${hasSum?`<div class="sum">${esc(it.summary)}</div>`:""}
+      ${it.image?`<a class="thumb" href="${it.url}" target="_blank" rel="noopener"><img src="${it.image}" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.thumb').remove()"></a>`:""}
       <div class="tags">
         ${it.category?`<span class="pill cat-${it.category}">${it.category}</span>`:""}
         ${brands}
       </div>
       ${hasTake?`<div class="reason"><div class="rbox"><b>看点：</b>${esc(it.takeaway)}</div></div>`:""}
        </div>
-       ${it.image?`<a class="thumb" href="${it.url}" target="_blank" rel="noopener"><img src="${it.image}" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.thumb').remove()"></a>`:""}
       </div>
     </div></div>`;
 }
@@ -320,6 +318,7 @@ function render(){
   let list;
   if(feat){
     list=f.items.filter(it=>it.is_featured);
+    if(state.cat)list=list.filter(it=>it.category===state.cat);
     if(state.q){const q=state.q.toLowerCase();list=list.filter(it=>(it.title+" "+(it.summary||"")).toLowerCase().includes(q));}
   }else{
     list=f.items.filter(match);
