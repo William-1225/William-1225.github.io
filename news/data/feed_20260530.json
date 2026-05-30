@@ -1,7 +1,7 @@
 {
   "stamp": "20260530",
-  "generated_at": "2026-05-30T19:45:53",
-  "total": 333,
+  "generated_at": "2026-05-30T20:46:23",
+  "total": 334,
   "categories": [
     "政策",
     "市场",
@@ -10,45 +10,47 @@
     "舆情"
   ],
   "category_counts": {
-    "政策": 17,
-    "市场": 171,
-    "产品": 43,
-    "技术": 58,
-    "舆情": 9
+    "政策": 19,
+    "市场": 174,
+    "产品": 45,
+    "技术": 59,
+    "舆情": 7
   },
   "brand_counts": {
     "??": 27,
-    "比亚迪": 24,
-    "特斯拉": 17,
-    "丰田": 10,
+    "比亚迪": 25,
+    "特斯拉": 16,
+    "丰田": 11,
+    "法拉利": 9,
     "蔚来": 9,
     "问界": 8,
-    "法拉利": 8,
-    "吉利": 7,
+    "吉利": 8,
     "小鹏": 6,
     "Waymo": 6,
     "奥迪": 6,
     "极氪": 5,
+    "华为": 5,
     "大众": 5,
-    "???": 5,
     "宁德时代": 4,
+    "雷克萨斯": 4,
     "一汽": 4,
     "理想": 4,
-    "华为": 4,
     "零跑": 4,
     "小米": 4,
+    "奔驰": 4,
     "广汽": 4,
     "江淮": 4,
     "????": 3,
-    "雷克萨斯": 3,
     "上汽": 3,
-    "奔驰": 3,
+    "???": 3,
     "赛力斯": 2,
     "阿维塔": 2,
+    "卓驭科技": 2,
     "曦诺未来": 2,
     "Rivian": 2,
     "亿咖通": 2,
     "长城": 2,
+    "宝马": 2,
     "浩思动力": 2,
     "沃尔沃": 2,
     "奇瑞": 2,
@@ -56,15 +58,14 @@
     "TDK": 2,
     "宇树": 2,
     "魔视智能": 1,
-    "卓驭科技": 1,
     "佑驾创新": 1,
     "速腾聚创": 1,
     "仰望": 1,
+    "千里浩瀚": 1,
     "智己": 1,
     "TPK": 1,
     "坦克": 1,
     "零一汽车": 1,
-    "宝马": 1,
     "布雷博": 1,
     "Stellantis": 1,
     "岚图": 1,
@@ -74,6 +75,7 @@
     "赛豆": 1,
     "iCAR": 1,
     "OPPO": 1,
+    "保时捷": 1,
     "别克": 1,
     "地瓜机器人": 1,
     "自变量": 1,
@@ -87,18 +89,17 @@
     "魏牌": 1,
     "沃兰特航空": 1,
     "现代": 1,
-    "Jeep": 1,
-    "马牌": 1
+    "Jeep": 1
   },
   "top": [
     "c7589c3022eab9ab",
     "6dde52a7d7bf41e2",
     "dc0221df943f0ec7",
     "85e48c3cae0d8418",
-    "0f19b2f0868996c9",
     "0caa30731a9e8fe8",
     "e87aef60ca11b244",
-    "79fc1ed3b667b660"
+    "79fc1ed3b667b660",
+    "0f7c5dceefd0cdd8"
   ],
   "items": [
     {
@@ -189,28 +190,6 @@
         "宁德时代"
       ],
       "importance": 91,
-      "is_featured": true,
-      "enriched_by": "codex",
-      "is_new": false
-    },
-    {
-      "url": "https://www.dongchedi.com/article/7645540617627370008",
-      "title": "比亚迪宣布为城市NOA兜底1年“赔付无上限”这3个细节你必须知道",
-      "publish_time": "4小时前",
-      "snippet": "",
-      "source": "dongchedi",
-      "source_name": "懂车帝",
-      "crawled_at": "2026-05-30T09:30:59.504912+00:00",
-      "item_id": "0f19b2f0868996c9",
-      "publish_ts": 1780119075.096493,
-      "publish_date": "2026-05-30",
-      "summary": "比亚迪宣布为城市NOA兜底一年，并称赔付无上限。",
-      "takeaway": "智驾责任承诺可能重塑用户信任。",
-      "category": "技术",
-      "brands": [
-        "比亚迪"
-      ],
-      "importance": 90,
       "is_featured": true,
       "enriched_by": "codex",
       "is_new": false
@@ -564,6 +543,30 @@
       "is_new": false
     },
     {
+      "url": "https://www.dongchedi.com/article/7645593550508655128",
+      "title": "7万的车也给智驾兜底，自研芯片发布，比亚迪能反超华为？",
+      "publish_time": "2小时前",
+      "snippet": "",
+      "image": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-30T10:44:01.350680+00:00",
+      "item_id": "195430236f31588d",
+      "publish_ts": 1780130674.339773,
+      "publish_date": "2026-05-30",
+      "summary": "比亚迪发布自研芯片并将智驾兜底延伸至低价车型。",
+      "takeaway": "智驾责任与芯片自研成为竞争焦点。",
+      "category": "技术",
+      "brands": [
+        "比亚迪",
+        "华为"
+      ],
+      "importance": 82,
+      "is_featured": true,
+      "enriched_by": "codex",
+      "is_new": true
+    },
+    {
       "url": "https://www.dongchedi.com/article/7645574928225845822",
       "title": "国内L4级智驾技术深度观察:魔视智能 . 卓驭科技、佑驾创新全景扫描",
       "publish_time": "2小时前",
@@ -775,26 +778,27 @@
       "is_new": false
     },
     {
-      "url": "https://www.dongchedi.com/article/7645543427723264537",
-      "title": "10位车主索赔395万，特斯拉自动驾驶更大的挑战你应该知道",
-      "publish_time": "4小时前",
+      "url": "https://www.dongchedi.com/article/7645572373374091838",
+      "title": "比亚迪「智驾兜底」背后：高阶辅助驾驶，开始拼责任了",
+      "publish_time": "3小时前",
       "snippet": "",
+      "image": "",
       "source": "dongchedi",
       "source_name": "懂车帝",
-      "crawled_at": "2026-05-30T09:30:59.504912+00:00",
-      "item_id": "a5bf4b355151d9de",
-      "publish_ts": 1780119075.096454,
+      "crawled_at": "2026-05-30T10:44:01.350680+00:00",
+      "item_id": "acd4001896cc0c10",
+      "publish_ts": 1780127074.339958,
       "publish_date": "2026-05-30",
-      "summary": "10位车主向特斯拉索赔395万元，涉及自动驾驶争议。",
-      "takeaway": "自动驾驶纠纷考验品牌合规与信任。",
-      "category": "舆情",
+      "summary": "文章解析比亚迪智驾兜底背后的高阶辅助驾驶责任竞争。",
+      "takeaway": "智驾竞争从功能转向责任承诺。",
+      "category": "技术",
       "brands": [
-        "特斯拉"
+        "比亚迪"
       ],
       "importance": 80,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": false
+      "is_new": true
     },
     {
       "title": "Banyan、Cedar等系统车型可享 蔚来世界模型即将迎来新一轮更新",
@@ -864,6 +868,27 @@
       "is_new": false
     },
     {
+      "url": "https://www.dongchedi.com/article/7645611994342933054",
+      "title": "“港车北上”政策延长5年！",
+      "publish_time": "1小时前",
+      "snippet": "",
+      "image": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-30T10:44:01.350680+00:00",
+      "item_id": "238317fcc475cecc",
+      "publish_ts": 1780134274.339515,
+      "publish_date": "2026-05-30",
+      "summary": "“港车北上”政策将延长5年，便利跨境车辆通行。",
+      "takeaway": "跨境出行政策延续利好粤港流动。",
+      "category": "政策",
+      "brands": [],
+      "importance": 78,
+      "is_featured": true,
+      "enriched_by": "codex",
+      "is_new": true
+    },
+    {
       "url": "https://www.dongchedi.com/article/7645606020525818392",
       "title": "特斯拉入局，比亚迪兜底：智驾该收钱了",
       "publish_time": "31分钟前",
@@ -905,28 +930,6 @@
       ],
       "importance": 78,
       "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": false
-    },
-    {
-      "url": "https://www.dongchedi.com/article/7645532833880064537",
-      "title": "如何看待比亚迪5月28日智能化战略发布会？",
-      "publish_time": "5小时前",
-      "snippet": "",
-      "source": "dongchedi",
-      "source_name": "懂车帝",
-      "crawled_at": "2026-05-30T09:30:59.504912+00:00",
-      "item_id": "29d756c1b68196d4",
-      "publish_ts": 1780115475.096552,
-      "publish_date": "2026-05-30",
-      "summary": "???????5?28???????????????",
-      "takeaway": "?????????????",
-      "category": "??",
-      "brands": [
-        "???"
-      ],
-      "importance": 78,
-      "is_featured": true,
       "enriched_by": "codex",
       "is_new": false
     },
@@ -993,28 +996,6 @@
         "??"
       ],
       "importance": 78,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": false
-    },
-    {
-      "url": "https://www.dongchedi.com/article/7645527736064639550",
-      "title": "华为乾崑ADS持续升级！机械车位一把进",
-      "publish_time": "5小时前",
-      "snippet": "",
-      "source": "dongchedi",
-      "source_name": "懂车帝",
-      "crawled_at": "2026-05-30T09:30:59.504912+00:00",
-      "item_id": "848e26eac83a3871",
-      "publish_ts": 1780115475.096731,
-      "publish_date": "2026-05-30",
-      "summary": "华为乾崑ADS持续升级，新增或强化机械车位泊车能力。",
-      "takeaway": "智能泊车成为高阶辅助驾驶卖点。",
-      "category": "技术",
-      "brands": [
-        "华为"
-      ],
-      "importance": 77,
       "is_featured": false,
       "enriched_by": "codex",
       "is_new": false
@@ -1128,6 +1109,30 @@
       "is_new": false
     },
     {
+      "url": "https://www.dongchedi.com/article/7645593505784742424",
+      "title": "丰田暂停开发雷克萨斯LF-ZC纯电车型，因全球纯电需求放缓",
+      "publish_time": "2小时前",
+      "snippet": "",
+      "image": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-30T10:44:01.350680+00:00",
+      "item_id": "2c8620613d139302",
+      "publish_ts": 1780130674.339792,
+      "publish_date": "2026-05-30",
+      "summary": "丰田因全球纯电需求放缓暂停雷克萨斯LF-ZC开发。",
+      "takeaway": "传统车企继续调整纯电产品节奏。",
+      "category": "产品",
+      "brands": [
+        "丰田",
+        "雷克萨斯"
+      ],
+      "importance": 76,
+      "is_featured": true,
+      "enriched_by": "codex",
+      "is_new": true
+    },
+    {
       "url": "https://www.dongchedi.com/article/7645557042257855000",
       "title": "新势力一季报\"放榜\"，零跑登顶销量冠军蔚来增速近翻倍",
       "publish_time": "3小时前",
@@ -1148,7 +1153,7 @@
       "importance": 76,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645555084805833241",
@@ -1785,6 +1790,31 @@
       "is_new": false
     },
     {
+      "url": "https://www.dongchedi.com/article/7645596528152707646",
+      "title": "吉利整合辅助驾驶团队至千里浩瀚，助力打造“第二个华为”",
+      "publish_time": "2小时前",
+      "snippet": "",
+      "image": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-30T10:44:01.350680+00:00",
+      "item_id": "c1ea674bb2864971",
+      "publish_ts": 1780130674.339735,
+      "publish_date": "2026-05-30",
+      "summary": "吉利将辅助驾驶团队整合至千里浩瀚，强化智驾能力。",
+      "takeaway": "吉利集中资源补强智能驾驶体系。",
+      "category": "技术",
+      "brands": [
+        "吉利",
+        "千里浩瀚",
+        "华为"
+      ],
+      "importance": 74,
+      "is_featured": false,
+      "enriched_by": "codex",
+      "is_new": true
+    },
+    {
       "url": "https://www.dongchedi.com/article/7645595328544358937",
       "title": "七位大佬集体“喊疼”！利润率腰斩，车企真的要撑不住了？",
       "publish_time": "1小时前",
@@ -1823,28 +1853,6 @@
       ],
       "importance": 74,
       "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": false
-    },
-    {
-      "url": "https://www.dongchedi.com/article/7645532101458510398",
-      "title": "特斯拉又被送上法庭，10位车主索赔395万，自动驾驶是否虚假宣传",
-      "publish_time": "5小时前",
-      "snippet": "",
-      "source": "dongchedi",
-      "source_name": "懂车帝",
-      "crawled_at": "2026-05-30T09:30:59.504912+00:00",
-      "item_id": "742c9f480594235c",
-      "publish_ts": 1780115475.096611,
-      "publish_date": "2026-05-30",
-      "summary": "?????????????????????395???",
-      "takeaway": "?????????????",
-      "category": "??",
-      "brands": [
-        "???"
-      ],
-      "importance": 74,
-      "is_featured": true,
       "enriched_by": "codex",
       "is_new": false
     },
@@ -2006,6 +2014,27 @@
       "is_new": false
     },
     {
+      "url": "https://www.dongchedi.com/article/7645608994815902232",
+      "title": "欧盟急眼打压中国电动车？别怕，咱们手里有牌！",
+      "publish_time": "1小时前",
+      "snippet": "",
+      "image": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-30T10:44:01.350680+00:00",
+      "item_id": "225b1ec0874ed17b",
+      "publish_ts": 1780134274.339575,
+      "publish_date": "2026-05-30",
+      "summary": "文章讨论欧盟对中国电动车的限制及中方应对筹码。",
+      "takeaway": "欧盟贸易压力牵动中国车企出海。",
+      "category": "政策",
+      "brands": [],
+      "importance": 70,
+      "is_featured": false,
+      "enriched_by": "codex",
+      "is_new": true
+    },
+    {
       "url": "https://www.dongchedi.com/article/7645591117614301721",
       "title": "深圳车圈集体发声：别再卷价格！最后亏的全是自己利润",
       "publish_time": "1小时前",
@@ -2134,6 +2163,29 @@
       "is_featured": false,
       "enriched_by": "codex",
       "is_new": false
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645563605211431449",
+      "title": "比亚迪“叫好不叫座”：销量封神、技术顶流，为何股价趴地不起？",
+      "publish_time": "4小时前",
+      "snippet": "",
+      "image": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-30T10:44:01.350680+00:00",
+      "item_id": "9fe97725bc6ba4a6",
+      "publish_ts": 1780123474.340015,
+      "publish_date": "2026-05-30",
+      "summary": "文章分析比亚迪销量、技术表现与股价低迷之间的反差。",
+      "takeaway": "资本市场对车企盈利质量更敏感。",
+      "category": "市场",
+      "brands": [
+        "比亚迪"
+      ],
+      "importance": 68,
+      "is_featured": false,
+      "enriched_by": "codex",
+      "is_new": true
     },
     {
       "url": "https://www.dongchedi.com/article/7645204731383759385",
@@ -2567,28 +2619,6 @@
         "法拉利"
       ],
       "importance": 68,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": false
-    },
-    {
-      "url": "https://www.dongchedi.com/article/7645537720684560921",
-      "title": "香港人宁愿多花钱买比亚迪，打醒了多少被车标绑架的中国人！",
-      "publish_time": "4小时前",
-      "snippet": "",
-      "source": "dongchedi",
-      "source_name": "懂车帝",
-      "crawled_at": "2026-05-30T09:30:59.504912+00:00",
-      "item_id": "dcd6d26057a3413f",
-      "publish_ts": 1780119075.096533,
-      "publish_date": "2026-05-30",
-      "summary": "文章称香港消费者愿意加价购买比亚迪，引发品牌认知讨论。",
-      "takeaway": "中国品牌在港市场认可度提升。",
-      "category": "市场",
-      "brands": [
-        "比亚迪"
-      ],
-      "importance": 67,
       "is_featured": false,
       "enriched_by": "codex",
       "is_new": false
@@ -3170,6 +3200,29 @@
       "is_new": false
     },
     {
+      "url": "https://www.dongchedi.com/article/7645590715984773656",
+      "title": "前天比亚迪开发布会，人都听打瞌睡了，但友商连PPT都没办法改",
+      "publish_time": "2小时前",
+      "snippet": "",
+      "image": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-30T10:44:01.350680+00:00",
+      "item_id": "23aa14a7f2fcebae",
+      "publish_ts": 1780130674.339921,
+      "publish_date": "2026-05-30",
+      "summary": "文章评论比亚迪发布会内容及其对竞争对手的影响。",
+      "takeaway": "比亚迪技术发布继续压迫同业节奏。",
+      "category": "产品",
+      "brands": [
+        "比亚迪"
+      ],
+      "importance": 66,
+      "is_featured": false,
+      "enriched_by": "codex",
+      "is_new": true
+    },
+    {
       "url": "https://www.dongchedi.com/article/7645553237546140185",
       "title": "蓝电更名赛豆，字节AI加持，赛力斯再次改写宿命？",
       "publish_time": "3小时前",
@@ -3232,28 +3285,6 @@
       "category": "舆情",
       "brands": [
         "华为"
-      ],
-      "importance": 64,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": false
-    },
-    {
-      "url": "https://www.dongchedi.com/article/7645540519510344217",
-      "title": "意媒：比亚迪与F1高层将进行会面，前者还会观看摩纳哥大奖赛",
-      "publish_time": "4小时前",
-      "snippet": "",
-      "source": "dongchedi",
-      "source_name": "懂车帝",
-      "crawled_at": "2026-05-30T09:30:59.504912+00:00",
-      "item_id": "27f52a519c24689d",
-      "publish_ts": 1780119075.096473,
-      "publish_date": "2026-05-30",
-      "summary": "意媒称比亚迪将与F1高层会面，并观看摩纳哥大奖赛。",
-      "takeaway": "比亚迪海外品牌曝光继续扩展。",
-      "category": "市场",
-      "brands": [
-        "比亚迪"
       ],
       "importance": 64,
       "is_featured": false,
@@ -3385,6 +3416,29 @@
       "is_featured": false,
       "enriched_by": "codex",
       "is_new": false
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645607782691193406",
+      "title": "每天车闻：卓驭科技欧洲总部开业",
+      "publish_time": "1小时前",
+      "snippet": "",
+      "image": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-30T10:44:01.350680+00:00",
+      "item_id": "eaf8f180cd26facd",
+      "publish_ts": 1780134274.339601,
+      "publish_date": "2026-05-30",
+      "summary": "卓驭科技欧洲总部开业，推进海外业务布局。",
+      "takeaway": "中国智驾供应链继续加速出海。",
+      "category": "市场",
+      "brands": [
+        "卓驭科技"
+      ],
+      "importance": 62,
+      "is_featured": false,
+      "enriched_by": "codex",
+      "is_new": true
     },
     {
       "url": "https://www.dongchedi.com/article/7645591093668823614",
@@ -4343,6 +4397,31 @@
       "is_new": false
     },
     {
+      "url": "https://www.dongchedi.com/article/7645611198788125246",
+      "title": "奔驰、宝马、保时捷经销商联手了！以后买车能便宜吗？真相扎心！",
+      "publish_time": "1小时前",
+      "snippet": "",
+      "image": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-30T10:44:01.350680+00:00",
+      "item_id": "468f6892271d980b",
+      "publish_ts": 1780134274.339536,
+      "publish_date": "2026-05-30",
+      "summary": "奔驰、宝马、保时捷经销商合作引发终端价格讨论。",
+      "takeaway": "豪华车渠道整合或影响终端议价。",
+      "category": "市场",
+      "brands": [
+        "奔驰",
+        "宝马",
+        "保时捷"
+      ],
+      "importance": 60,
+      "is_featured": false,
+      "enriched_by": "codex",
+      "is_new": true
+    },
+    {
       "url": "https://www.dongchedi.com/article/7645558044977349144",
       "title": "三分钟看懂磷酸锰铁锂电池",
       "publish_time": "3小时前",
@@ -4567,6 +4646,27 @@
       "is_new": false
     },
     {
+      "url": "https://www.dongchedi.com/article/7645614239259820606",
+      "title": "涨价、跌量、新车扎堆",
+      "publish_time": "1小时前",
+      "snippet": "",
+      "image": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-30T10:44:01.350680+00:00",
+      "item_id": "69644977da9723b3",
+      "publish_ts": 1780134274.339488,
+      "publish_date": "2026-05-30",
+      "summary": "车市出现涨价、销量下滑与新车集中上市等现象。",
+      "takeaway": "价格和销量分化反映市场压力。",
+      "category": "市场",
+      "brands": [],
+      "importance": 58,
+      "is_featured": false,
+      "enriched_by": "codex",
+      "is_new": true
+    },
+    {
       "url": "https://www.dongchedi.com/article/7645596388801233432",
       "title": "油车大佬急砸钱，新能源车抢饭碗，谁在背后悄悄翻盘？",
       "publish_time": "1小时前",
@@ -4654,6 +4754,29 @@
       "is_new": false
     },
     {
+      "url": "https://www.dongchedi.com/article/7645598195648856600",
+      "title": "法拉利自毁传奇之后，中国车企里，谁来接手超跑定义权？",
+      "publish_time": "2小时前",
+      "snippet": "",
+      "image": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-30T10:44:01.350680+00:00",
+      "item_id": "8d2f8a6d960f2ef7",
+      "publish_ts": 1780130674.339697,
+      "publish_date": "2026-05-30",
+      "summary": "文章讨论法拉利变化后中国车企在超跑领域的机会。",
+      "takeaway": "中国品牌高端性能叙事受到关注。",
+      "category": "市场",
+      "brands": [
+        "法拉利"
+      ],
+      "importance": 57,
+      "is_featured": false,
+      "enriched_by": "codex",
+      "is_new": true
+    },
+    {
       "url": "https://www.dongchedi.com/article/7645603446913188414",
       "title": "油价不断上涨是电车兴起的原因吗？",
       "publish_time": "43分钟前",
@@ -4718,44 +4841,25 @@
       "is_new": false
     },
     {
-      "url": "https://www.dongchedi.com/article/7645538133601550872",
-      "title": "现在的电车只是过渡！等到2027年，才是新能源车真正的起点！",
-      "publish_time": "4小时前",
+      "url": "https://www.dongchedi.com/article/7645610704606626328",
+      "title": "2.5吨电动车，全靠4个\"黑圈圈\"硬撑？",
+      "publish_time": "1小时前",
       "snippet": "",
+      "image": "",
       "source": "dongchedi",
       "source_name": "懂车帝",
-      "crawled_at": "2026-05-30T09:30:59.504912+00:00",
-      "item_id": "ae998334d340039c",
-      "publish_ts": 1780119075.096513,
+      "crawled_at": "2026-05-30T10:44:01.350680+00:00",
+      "item_id": "d7578b70cda0018a",
+      "publish_ts": 1780134274.339556,
       "publish_date": "2026-05-30",
-      "summary": "文章认为当前电动车仍是过渡阶段，2027年或迎来新能源车新起点。",
-      "takeaway": "市场预期转向下一代新能源周期。",
-      "category": "市场",
+      "summary": "文章关注重型电动车对轮胎承载和性能的要求。",
+      "takeaway": "电动车增重推高轮胎技术门槛。",
+      "category": "技术",
       "brands": [],
-      "importance": 55,
+      "importance": 54,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": false
-    },
-    {
-      "url": "https://www.dongchedi.com/article/7645532553809920537",
-      "title": "油价又要变！92号汽油可能要涨，不少老司机都在提前加油了",
-      "publish_time": "5小时前",
-      "snippet": "",
-      "source": "dongchedi",
-      "source_name": "懂车帝",
-      "crawled_at": "2026-05-30T09:30:59.504912+00:00",
-      "item_id": "2a2ad8963b7c326e",
-      "publish_ts": 1780115475.096572,
-      "publish_date": "2026-05-30",
-      "summary": "?????????????92??????????",
-      "takeaway": "????????????",
-      "category": "??",
-      "brands": [],
-      "importance": 55,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": false
+      "is_new": true
     },
     {
       "url": "https://www.dongchedi.com/article/7645204321738654233",
@@ -5642,26 +5746,6 @@
       "is_new": false
     },
     {
-      "url": "https://www.dongchedi.com/article/7645528409904464408",
-      "title": "熟人借车被抵押，AI起底国内最防不胜防的“熟人骗局”",
-      "publish_time": "5小时前",
-      "snippet": "",
-      "source": "dongchedi",
-      "source_name": "懂车帝",
-      "crawled_at": "2026-05-30T09:30:59.504912+00:00",
-      "item_id": "300edcf3c5e49309",
-      "publish_ts": 1780115475.096711,
-      "publish_date": "2026-05-30",
-      "summary": "文章以熟人借车被抵押为例，讨论国内熟人骗局风险。",
-      "takeaway": "车辆资产处置风险延伸到社会治理。",
-      "category": "舆情",
-      "brands": [],
-      "importance": 50,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": false
-    },
-    {
       "title": "从看月亮“神器”到头顶“花瓶” 激光雷达魔幻史（上）",
       "url": "https://www.autohome.com.cn/tech/202605/1314411.html",
       "publish_time": "",
@@ -6526,28 +6610,6 @@
       "is_new": false
     },
     {
-      "url": "https://www.dongchedi.com/article/7645528360122139160",
-      "title": "轮胎为什么都是黑色的？这事你得问马牌",
-      "publish_time": "5小时前",
-      "snippet": "",
-      "source": "dongchedi",
-      "source_name": "懂车帝",
-      "crawled_at": "2026-05-30T09:30:59.504912+00:00",
-      "item_id": "d68cd6ae7b9b6409",
-      "publish_ts": 1780115475.09665,
-      "publish_date": "2026-05-30",
-      "summary": "文章科普轮胎普遍呈黑色的材料原因，并提到马牌。",
-      "takeaway": "轮胎材料科普带有品牌关联。",
-      "category": "技术",
-      "brands": [
-        "马牌"
-      ],
-      "importance": 42,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": false
-    },
-    {
       "url": "https://www.dongchedi.com/article/7645203967592825406",
       "title": "如果你最近半年一直在观望买车，可能已经发现不对劲了。",
       "publish_time": "1小时前",
@@ -7048,46 +7110,6 @@
       "is_new": false
     },
     {
-      "url": "https://www.dongchedi.com/article/7645529741105414718",
-      "title": "2026年揭秘：高性价比烧机油汽修门店何以声名远扬",
-      "publish_time": "5小时前",
-      "snippet": "",
-      "source": "dongchedi",
-      "source_name": "懂车帝",
-      "crawled_at": "2026-05-30T09:30:59.504912+00:00",
-      "item_id": "1b1fe320717b53e9",
-      "publish_ts": 1780115475.096631,
-      "publish_date": "2026-05-30",
-      "summary": "???????????????????????",
-      "takeaway": "?????????????",
-      "category": "??",
-      "brands": [],
-      "importance": 36,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": false
-    },
-    {
-      "url": "https://www.dongchedi.com/article/7645531665250861592",
-      "title": "2026北京京牌行业权威三甲：金牌车务领跑，小赢、橙子稳居前列",
-      "publish_time": "5小时前",
-      "snippet": "",
-      "source": "dongchedi",
-      "source_name": "懂车帝",
-      "crawled_at": "2026-05-30T09:30:59.504912+00:00",
-      "item_id": "2c0260e080d27436",
-      "publish_ts": 1780115475.096592,
-      "publish_date": "2026-05-30",
-      "summary": "????????????????????????????",
-      "takeaway": "????????????",
-      "category": "??",
-      "brands": [],
-      "importance": 32,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": false
-    },
-    {
       "url": "https://www.dongchedi.com/article/7645569328490807870",
       "title": "上海商务车改装工厂哪家更靠谱",
       "publish_time": "2小时前",
@@ -7106,6 +7128,27 @@
       "is_featured": false,
       "enriched_by": "codex",
       "is_new": false
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645563753379283480",
+      "title": "2026年探秘：贵阳哪家汽修厂治烧机油最靠谱？",
+      "publish_time": "4小时前",
+      "snippet": "",
+      "image": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-30T10:44:01.350680+00:00",
+      "item_id": "7a1e43e6c6109a3d",
+      "publish_ts": 1780123474.339997,
+      "publish_date": "2026-05-30",
+      "summary": "文章介绍贵阳地区汽修厂处理烧机油问题的选择。",
+      "takeaway": "本地维修服务信息行业价值有限。",
+      "category": "市场",
+      "brands": [],
+      "importance": 30,
+      "is_featured": false,
+      "enriched_by": "codex",
+      "is_new": true
     },
     {
       "url": "https://www.dongchedi.com/article/7645189990472892990",

@@ -90,6 +90,10 @@
   .score{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:#eff6ff;border:1px solid #bfdbfe;color:var(--acc);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;line-height:1}
   .card a.t{color:var(--fg);text-decoration:none;font-size:16px;font-weight:600;line-height:1.5;display:block}
   .card a.t:hover{color:var(--acc)}
+  .card-body{display:flex;gap:14px;align-items:flex-start}
+  .card-main{flex:1;min-width:0}
+  .card .thumb{flex-shrink:0;display:block;width:128px;height:80px;border-radius:9px;overflow:hidden;margin-top:2px;background:#f1f5f9}
+  .card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
   .card .sum{color:#475467;font-size:13px;line-height:1.7;margin-top:8px}
   .card .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px;align-items:center}
   .card .reason{margin-top:13px;padding-top:13px;border-top:1px solid #eef1f5;font-size:13px;line-height:1.65}
@@ -296,6 +300,8 @@ function itemHtml(it,feat){
           <span class="score" title="热度">${it.importance||0}</span>
         </div>
       </div>
+      <div class="card-body">
+       <div class="card-main">
       <a class="t" href="${it.url}" target="_blank" rel="noopener">${esc(it.title)}</a>
       ${hasSum?`<div class="sum">${esc(it.summary)}</div>`:""}
       <div class="tags">
@@ -303,6 +309,9 @@ function itemHtml(it,feat){
         ${brands}
       </div>
       ${hasTake?`<div class="reason"><div class="rbox"><b>看点：</b>${esc(it.takeaway)}</div></div>`:""}
+       </div>
+       ${it.image?`<a class="thumb" href="${it.url}" target="_blank" rel="noopener"><img src="${it.image}" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.thumb').remove()"></a>`:""}
+      </div>
     </div></div>`;
 }
 function render(){
