@@ -1,6 +1,6 @@
 {
   "stamp": "20260530",
-  "generated_at": "2026-05-30T21:46:12",
+  "generated_at": "2026-05-30T21:50:36",
   "total": 315,
   "categories": [
     "政策",
@@ -11,24 +11,24 @@
   ],
   "category_counts": {
     "政策": 19,
-    "市场": 172,
-    "产品": 44,
-    "技术": 58,
-    "舆情": 9
+    "市场": 177,
+    "产品": 48,
+    "技术": 61,
+    "舆情": 10
   },
   "brand_counts": {
     "比亚迪": 24,
     "特斯拉": 16,
     "丰田": 11,
-    "??": 9,
-    "法拉利": 9,
+    "法拉利": 10,
     "蔚来": 9,
     "问界": 8,
     "吉利": 8,
     "小鹏": 6,
+    "宁德时代": 6,
     "Waymo": 6,
     "奥迪": 6,
-    "宁德时代": 5,
+    "广汽": 6,
     "华为": 5,
     "大众": 5,
     "小米": 5,
@@ -38,37 +38,40 @@
     "理想": 4,
     "零跑": 4,
     "奔驰": 4,
-    "广汽": 4,
     "江淮": 4,
+    "阿维塔": 3,
     "上汽": 3,
-    "阿维塔": 2,
+    "奇瑞": 3,
     "卓驭科技": 2,
     "曦诺未来": 2,
     "Rivian": 2,
+    "启境": 2,
     "亿咖通": 2,
     "长城": 2,
     "宝马": 2,
     "浩思动力": 2,
     "沃尔沃": 2,
-    "奇瑞": 2,
-    "???": 2,
     "本田": 2,
     "TDK": 2,
     "宇树": 2,
     "赛力斯": 1,
-    "????": 1,
     "魔视智能": 1,
     "佑驾创新": 1,
     "速腾聚创": 1,
+    "尚界": 1,
     "千里浩瀚": 1,
+    "领克": 1,
     "TPK": 1,
     "坦克": 1,
     "零一汽车": 1,
+    "中国一汽": 1,
+    "悦意": 1,
     "布雷博": 1,
     "Stellantis": 1,
     "岚图": 1,
     "长安": 1,
     "东风": 1,
+    "延锋": 1,
     "OPPO": 1,
     "保时捷": 1,
     "别克": 1,
@@ -93,8 +96,8 @@
     "85e48c3cae0d8418",
     "0caa30731a9e8fe8",
     "e87aef60ca11b244",
-    "79fc1ed3b667b660",
-    "0f7c5dceefd0cdd8"
+    "0f7c5dceefd0cdd8",
+    "abb10203de039942"
   ],
   "items": [
     {
@@ -110,15 +113,15 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "头部信号强，需重点跟踪",
-      "enriched_by": "codex",
-      "importance": 91,
-      "category": "技术",
-      "is_featured": true,
+      "summary": "【盖世快讯】宁德时代拟发行50亿元绿色科创债；何小鹏称L4自动驾驶有望两年内实现，涉及汽车技术与智能化进展。",
       "brands": [
         "小鹏",
         "宁德时代"
       ],
-      "summary": "【盖世快讯】宁德时代拟发行50亿元绿色科创债；何小鹏称L4自动驾驶有望两年内实现，涉及汽车技术与智能化进展。",
+      "importance": 91,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -133,15 +136,15 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "头部信号强，需重点跟踪",
-      "enriched_by": "codex",
-      "importance": 91,
-      "category": "市场",
-      "is_featured": true,
+      "summary": "赛力斯汽车董事长张正萍：问界46个月交付100万辆，M9连续两年领跑50万级市场，反映汽车市场动态。",
       "brands": [
         "问界",
         "赛力斯"
       ],
-      "summary": "赛力斯汽车董事长张正萍：问界46个月交付100万辆，M9连续两年领跑50万级市场，反映汽车市场动态。",
+      "importance": 91,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -156,15 +159,15 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "头部信号强，需重点跟踪",
-      "enriched_by": "codex",
-      "importance": 91,
-      "category": "技术",
-      "is_featured": true,
+      "summary": "EV晨报 ： 比亚迪发布中国首款4nm智驾芯片“璇玑A3”，王传福承诺为城市领航安全兜底；阿维塔12夺驾魔鬼路段挑战赛北",
       "brands": [
         "比亚迪",
         "阿维塔"
       ],
-      "summary": "EV晨报 ： 比亚迪发布中国首款4nm智驾芯片“璇玑A3”，王传福承诺为城市领航安全兜底；阿维塔12夺驾魔鬼路段挑战赛北",
+      "importance": 91,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -179,15 +182,15 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "头部信号强，需重点跟踪",
-      "enriched_by": "codex",
-      "importance": 91,
-      "category": "技术",
-      "is_featured": true,
+      "summary": "【盖世快讯】宁德时代拟发行50亿元绿色科创债；何小鹏称L4自动驾驶有望两年内实现，涉及汽车技术与智能化进展。",
       "brands": [
         "小鹏",
         "宁德时代"
       ],
-      "summary": "【盖世快讯】宁德时代拟发行50亿元绿色科创债；何小鹏称L4自动驾驶有望两年内实现，涉及汽车技术与智能化进展。",
+      "importance": 91,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -203,14 +206,14 @@
       "publish_ts": 1780130687.37764,
       "publish_date": "2026-05-30",
       "takeaway": "换电网络规模化进入加速阶段。",
-      "enriched_by": "codex",
-      "importance": 88,
-      "category": "技术",
-      "is_featured": true,
+      "summary": "宁德时代称巧克力换电站累计落站1650座，今年预计突破3000座。",
       "brands": [
         "宁德时代"
       ],
-      "summary": "宁德时代称巧克力换电站累计落站1650座，今年预计突破3000座。",
+      "importance": 88,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -226,35 +229,12 @@
       "publish_ts": 1780123487.378014,
       "publish_date": "2026-05-30",
       "takeaway": "中欧汽车贸易争议继续升温。",
-      "enriched_by": "codex",
+      "summary": "中汽协批评欧盟产能过剩说法，称其属于伪命题。",
+      "brands": [],
       "importance": 88,
       "category": "政策",
-      "is_featured": true,
-      "brands": [],
-      "summary": "中汽协批评欧盟产能过剩说法，称其属于伪命题。",
-      "is_new": false
-    },
-    {
-      "title": "不起火、不爆炸、不怕冷！宁德时代钠离子电池今年规模量产",
-      "url": "https://www.d1ev.com/news/qiye/301216",
-      "publish_time": "",
-      "snippet": "",
-      "image": "",
-      "source": "d1ev",
-      "source_name": "第一电动",
-      "crawled_at": "2026-05-30T11:44:01.253467+00:00",
-      "item_id": "79fc1ed3b667b660",
-      "publish_ts": 1780106400.0,
-      "publish_date": "2026-05-30",
-      "takeaway": "?????????????",
       "enriched_by": "codex",
-      "importance": 88,
-      "category": "??",
       "is_featured": true,
-      "brands": [
-        "????"
-      ],
-      "summary": "????????????????????????????",
       "is_new": false
     },
     {
@@ -270,15 +250,15 @@
       "publish_ts": 1780116287.378073,
       "publish_date": "2026-05-30",
       "takeaway": "全球纯电竞争格局出现阶段变化。",
-      "enriched_by": "codex",
-      "importance": 87,
-      "category": "市场",
-      "is_featured": true,
+      "summary": "Counterpoint称2026年一季度全球纯电销量中特斯拉反超比亚迪。",
       "brands": [
         "特斯拉",
         "比亚迪"
       ],
-      "summary": "Counterpoint称2026年一季度全球纯电销量中特斯拉反超比亚迪。",
+      "importance": 87,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -294,12 +274,12 @@
       "publish_ts": 1780130687.377678,
       "publish_date": "2026-05-30",
       "takeaway": "跨境通行便利化带动湾区车流融合。",
-      "enriched_by": "codex",
+      "summary": "港车北上政策延长至2031年，香港车主可预约经港珠澳大桥入粤。",
+      "brands": [],
       "importance": 86,
       "category": "政策",
+      "enriched_by": "codex",
       "is_featured": true,
-      "brands": [],
-      "summary": "港车北上政策延长至2031年，香港车主可预约经港珠澳大桥入粤。",
       "is_new": false
     },
     {
@@ -315,12 +295,12 @@
       "publish_ts": 1780123487.377995,
       "publish_date": "2026-05-30",
       "takeaway": "纯电市场价格战进入高烈度阶段。",
-      "enriched_by": "codex",
+      "summary": "5月超60款纯电车型集中降价，最高降幅达50%。",
+      "brands": [],
       "importance": 86,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": true,
-      "brands": [],
-      "summary": "5月超60款纯电车型集中降价，最高降幅达50%。",
       "is_new": false
     },
     {
@@ -336,14 +316,37 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "头部信号强，需重点跟踪",
-      "enriched_by": "codex",
-      "importance": 85,
-      "category": "政策",
-      "is_featured": true,
+      "summary": "新款车型也中招！特斯拉召回14575辆Model Y：少个认证标签，涉及出行监管或政策规则。",
       "brands": [
         "特斯拉"
       ],
-      "summary": "新款车型也中招！特斯拉召回14575辆Model Y：少个认证标签，涉及出行监管或政策规则。",
+      "importance": 85,
+      "category": "政策",
+      "enriched_by": "codex",
+      "is_featured": true,
+      "is_new": false
+    },
+    {
+      "title": "不起火、不爆炸、不怕冷！宁德时代钠离子电池今年规模量产",
+      "url": "https://www.d1ev.com/news/qiye/301216",
+      "publish_time": "",
+      "snippet": "",
+      "image": "",
+      "source": "d1ev",
+      "source_name": "第一电动",
+      "crawled_at": "2026-05-30T11:44:01.253467+00:00",
+      "item_id": "79fc1ed3b667b660",
+      "publish_ts": 1780106400.0,
+      "publish_date": "2026-05-30",
+      "summary": "宁德时代钠离子电池计划年内规模量产，强调安全与低温性能。",
+      "takeaway": "看点在钠电池从验证走向量产的产业化节奏。",
+      "category": "技术",
+      "brands": [
+        "宁德时代"
+      ],
+      "importance": 85,
+      "is_featured": true,
+      "enriched_by": "codex",
       "is_new": false
     },
     {
@@ -359,17 +362,17 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "头部信号强，需重点跟踪",
-      "enriched_by": "codex",
-      "importance": 85,
-      "category": "技术",
-      "is_featured": true,
+      "summary": "【国际快讯】丰田暂停雷克萨斯下一代纯电轿车研发；丰田全球销量连续三个月下滑；Waymo将部署极氪合作款自动驾驶出租车，涉",
       "brands": [
         "极氪",
         "丰田",
         "雷克萨斯",
         "Waymo"
       ],
-      "summary": "【国际快讯】丰田暂停雷克萨斯下一代纯电轿车研发；丰田全球销量连续三个月下滑；Waymo将部署极氪合作款自动驾驶出租车，涉",
+      "importance": 85,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -384,14 +387,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "头部信号强，需重点跟踪",
-      "enriched_by": "codex",
-      "importance": 85,
-      "category": "技术",
-      "is_featured": true,
+      "summary": "全自研4nm芯片+“驾驶辅助”兜底 比亚迪让谁坐不住了，涉及汽车技术与智能化进展。",
       "brands": [
         "比亚迪"
       ],
-      "summary": "全自研4nm芯片+“驾驶辅助”兜底 比亚迪让谁坐不住了，涉及汽车技术与智能化进展。",
+      "importance": 85,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -406,14 +409,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "头部信号强，需重点跟踪",
-      "enriched_by": "codex",
-      "importance": 85,
-      "category": "市场",
-      "is_featured": true,
+      "summary": "毛利率20.6% 研发投入同比增加46.8% 小鹏集团2026年第一季度财报，反映汽车市场动态。",
       "brands": [
         "小鹏"
       ],
-      "summary": "毛利率20.6% 研发投入同比增加46.8% 小鹏集团2026年第一季度财报，反映汽车市场动态。",
+      "importance": 85,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -428,14 +431,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "头部信号强，需重点跟踪",
-      "enriched_by": "codex",
-      "importance": 85,
-      "category": "市场",
-      "is_featured": true,
+      "summary": "消息称特斯拉电动汽车4月份在加拿大大卖 销量同比增长150%，反映汽车市场动态。",
       "brands": [
         "特斯拉"
       ],
-      "summary": "消息称特斯拉电动汽车4月份在加拿大大卖 销量同比增长150%，反映汽车市场动态。",
+      "importance": 85,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -450,14 +453,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "头部信号强，需重点跟踪",
-      "enriched_by": "codex",
-      "importance": 85,
-      "category": "市场",
-      "is_featured": true,
+      "summary": "小鹏Q1毛利率达20.6%，反映汽车市场动态。",
       "brands": [
         "小鹏"
       ],
-      "summary": "小鹏Q1毛利率达20.6%，反映汽车市场动态。",
+      "importance": 85,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -472,14 +475,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "头部信号强，需重点跟踪",
-      "enriched_by": "codex",
-      "importance": 85,
-      "category": "市场",
-      "is_featured": true,
+      "summary": "全新一代问界M9上市24小时订单突破2万台，反映汽车市场动态。",
       "brands": [
         "问界"
       ],
-      "summary": "全新一代问界M9上市24小时订单突破2万台，反映汽车市场动态。",
+      "importance": 85,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -494,14 +497,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "头部信号强，需重点跟踪",
-      "enriched_by": "codex",
-      "importance": 85,
-      "category": "市场",
-      "is_featured": true,
+      "summary": "问界46个月交付100万辆，反映汽车市场动态。",
       "brands": [
         "问界"
       ],
-      "summary": "问界46个月交付100万辆，反映汽车市场动态。",
+      "importance": 85,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -517,35 +520,14 @@
       "publish_ts": 1780123487.377976,
       "publish_date": "2026-05-30",
       "takeaway": "高阶智驾落地还需监管与信任配合。",
-      "enriched_by": "codex",
-      "importance": 84,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "文章称特斯拉FSD入华技术准备推进，但用户信任仍是门槛。",
       "brands": [
         "特斯拉"
       ],
-      "summary": "文章称特斯拉FSD入华技术准备推进，但用户信任仍是门槛。",
-      "is_new": false
-    },
-    {
-      "title": "三重涨价函突袭汽车供应链，汽车降价时代正在终结",
-      "url": "https://www.d1ev.com/news/shichang/301198",
-      "publish_time": "",
-      "snippet": "",
-      "image": "",
-      "source": "d1ev",
-      "source_name": "第一电动",
-      "crawled_at": "2026-05-30T11:44:01.253467+00:00",
-      "item_id": "d59c6eea0d26c2f8",
-      "publish_ts": 1780106400.0,
-      "publish_date": "2026-05-30",
-      "takeaway": "??????????????",
-      "enriched_by": "codex",
       "importance": 84,
-      "category": "??",
-      "is_featured": true,
-      "brands": [],
-      "summary": "?????????????????????????????",
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -560,14 +542,14 @@
       "item_id": "7ced1bfe9a344af1",
       "publish_ts": 1780137887.377264,
       "publish_date": "2026-05-30",
-      "summary": "监管部门研讨按车重计税改革，涉及电动车养路费分担。",
       "takeaway": "税费规则或转向车重维度",
-      "category": "政策",
+      "summary": "监管部门研讨按车重计税改革，涉及电动车养路费分担。",
       "brands": [],
       "importance": 82,
-      "is_featured": true,
+      "category": "政策",
       "enriched_by": "codex",
-      "is_new": true
+      "is_featured": true,
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645593550508655128",
@@ -582,15 +564,15 @@
       "publish_ts": 1780130687.377583,
       "publish_date": "2026-05-30",
       "takeaway": "智驾责任与芯片自研成为竞争焦点。",
-      "enriched_by": "codex",
-      "importance": 82,
-      "category": "技术",
-      "is_featured": true,
+      "summary": "比亚迪发布自研芯片并将智驾兜底延伸至低价车型。",
       "brands": [
         "比亚迪",
         "华为"
       ],
-      "summary": "比亚迪发布自研芯片并将智驾兜底延伸至低价车型。",
+      "importance": 82,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -606,40 +588,16 @@
       "publish_ts": 1780127087.377776,
       "publish_date": "2026-05-30",
       "takeaway": "L4技术公司商业化路径仍受关注。",
-      "enriched_by": "codex",
-      "importance": 82,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "文章扫描国内L4级智驾企业魔视智能、卓驭科技和佑驾创新。",
       "brands": [
         "魔视智能",
         "卓驭科技",
         "佑驾创新"
       ],
-      "summary": "文章扫描国内L4级智驾企业魔视智能、卓驭科技和佑驾创新。",
-      "is_new": false
-    },
-    {
-      "title": "21.99万起 广汽启境GT7纯电猎装预售5小时订单破万",
-      "url": "https://www.d1ev.com/news/qiye/301199",
-      "publish_time": "",
-      "snippet": "",
-      "image": "",
-      "source": "d1ev",
-      "source_name": "第一电动",
-      "crawled_at": "2026-05-30T11:44:01.253467+00:00",
-      "item_id": "8d887add29df66dc",
-      "publish_ts": 1780106400.0,
-      "publish_date": "2026-05-30",
-      "takeaway": "??????????????",
-      "enriched_by": "codex",
       "importance": 82,
-      "category": "??",
-      "is_featured": true,
-      "brands": [
-        "??",
-        "??"
-      ],
-      "summary": "????GT7???????5??????????21.99????",
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -655,17 +613,17 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 81,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "EV晨报 ： 马斯克1万亿美元薪酬方案获通过；黄仁勋称中国将在AI竞赛中击败美国；中国一汽与大众、奥迪、丰田达成明年购买",
       "brands": [
         "丰田",
         "大众",
         "奥迪",
         "一汽"
       ],
-      "summary": "EV晨报 ： 马斯克1万亿美元薪酬方案获通过；黄仁勋称中国将在AI竞赛中击败美国；中国一汽与大众、奥迪、丰田达成明年购买",
+      "importance": 81,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -680,15 +638,15 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 81,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "理想、中信建投领投！曦诺未来完成数亿元A轮融资，反映汽车市场动态。",
       "brands": [
         "理想",
         "曦诺未来"
       ],
-      "summary": "理想、中信建投领投！曦诺未来完成数亿元A轮融资，反映汽车市场动态。",
+      "importance": 81,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -703,15 +661,15 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "智能化进展值得关注",
-      "enriched_by": "codex",
-      "importance": 81,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "Waymo携手极氪推出专属自动驾驶出租车，涉及汽车技术与智能化进展。",
       "brands": [
         "极氪",
         "Waymo"
       ],
-      "summary": "Waymo携手极氪推出专属自动驾驶出租车，涉及汽车技术与智能化进展。",
+      "importance": 81,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -726,15 +684,15 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "智能化进展值得关注",
-      "enriched_by": "codex",
-      "importance": 81,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "特斯拉在美国得州仅部署了42辆Robotaxi，远落后于Waymo，涉及汽车技术与智能化进展。",
       "brands": [
         "特斯拉",
         "Waymo"
       ],
-      "summary": "特斯拉在美国得州仅部署了42辆Robotaxi，远落后于Waymo，涉及汽车技术与智能化进展。",
+      "importance": 81,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -749,15 +707,15 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "智能化进展值得关注",
-      "enriched_by": "codex",
-      "importance": 81,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "比亚迪天神之眼智能驾驶搭载速腾聚创图像级凤凰芯片重构激光雷达，涉及汽车技术与智能化进展。",
       "brands": [
         "比亚迪",
         "速腾聚创"
       ],
-      "summary": "比亚迪天神之眼智能驾驶搭载速腾聚创图像级凤凰芯片重构激光雷达，涉及汽车技术与智能化进展。",
+      "importance": 81,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -772,15 +730,15 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 81,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "ePro家族上市、ID. ERA 5S信息曝光 上汽大众闪耀2026粤港澳大湾区车展，相关产品信息更新。",
       "brands": [
         "大众",
         "上汽"
       ],
-      "summary": "ePro家族上市、ID. ERA 5S信息曝光 上汽大众闪耀2026粤港澳大湾区车展，相关产品信息更新。",
+      "importance": 81,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -796,14 +754,14 @@
       "publish_ts": 1780127087.377795,
       "publish_date": "2026-05-30",
       "takeaway": "智驾竞争从功能转向责任承诺。",
-      "enriched_by": "codex",
-      "importance": 80,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "文章解析比亚迪智驾兜底背后的高阶辅助驾驶责任竞争。",
       "brands": [
         "比亚迪"
       ],
-      "summary": "文章解析比亚迪智驾兜底背后的高阶辅助驾驶责任竞争。",
+      "importance": 80,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -819,14 +777,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "用户信任与口碑受考验",
-      "enriched_by": "codex",
-      "importance": 80,
-      "category": "舆情",
-      "is_featured": false,
+      "summary": "特斯拉推“静音充电区”应对邻里投诉，引发消费与行业关注。",
       "brands": [
         "特斯拉"
       ],
-      "summary": "特斯拉推“静音充电区”应对邻里投诉，引发消费与行业关注。",
+      "importance": 80,
+      "category": "舆情",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -841,16 +799,16 @@
       "item_id": "bed0e2f8d3b1f798",
       "publish_ts": 1780137887.377223,
       "publish_date": "2026-05-30",
-      "summary": "宁德时代电池市占率近四成，车企自建电池厂面临投入和竞争压力。",
       "takeaway": "动力电池主导权仍向头部集中",
-      "category": "市场",
+      "summary": "宁德时代电池市占率近四成，车企自建电池厂面临投入和竞争压力。",
       "brands": [
         "宁德时代"
       ],
       "importance": 78,
-      "is_featured": true,
+      "category": "市场",
       "enriched_by": "codex",
-      "is_new": true
+      "is_featured": true,
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645606020525818392",
@@ -865,15 +823,15 @@
       "publish_ts": 1780134287.37742,
       "publish_date": "2026-05-30",
       "takeaway": "智驾商业模式从卖车转向持续收费。",
-      "enriched_by": "codex",
-      "importance": 78,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "文章讨论特斯拉与比亚迪推动智驾服务付费化的趋势。",
       "brands": [
         "特斯拉",
         "比亚迪"
       ],
-      "summary": "文章讨论特斯拉与比亚迪推动智驾服务付费化的趋势。",
+      "importance": 78,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -889,59 +847,12 @@
       "publish_ts": 1780134287.377324,
       "publish_date": "2026-05-30",
       "takeaway": "跨境出行政策延续利好粤港流动。",
-      "enriched_by": "codex",
+      "summary": "“港车北上”政策将延长5年，便利跨境车辆通行。",
+      "brands": [],
       "importance": 78,
       "category": "政策",
+      "enriched_by": "codex",
       "is_featured": true,
-      "brands": [],
-      "summary": "“港车北上”政策将延长5年，便利跨境车辆通行。",
-      "is_new": false
-    },
-    {
-      "title": "领克10和领克10+正式上市，限时起售16.99万元/21.99万元",
-      "url": "https://www.d1ev.com/news/qiye/301188",
-      "publish_time": "",
-      "snippet": "",
-      "image": "",
-      "source": "d1ev",
-      "source_name": "第一电动",
-      "crawled_at": "2026-05-30T11:44:01.253467+00:00",
-      "item_id": "bd5dc106dc0af01c",
-      "publish_ts": 1780106400.0,
-      "publish_date": "2026-05-30",
-      "takeaway": "????????????",
-      "enriched_by": "codex",
-      "importance": 78,
-      "category": "??",
-      "is_featured": false,
-      "brands": [
-        "??"
-      ],
-      "summary": "??10???10+?????????????16.99???21.99???",
-      "is_new": false
-    },
-    {
-      "title": "启境GT7开启预售 预售价21.99万元起",
-      "url": "https://auto.gasgoo.com/news/202605/30I70459959C107.shtml",
-      "publish_time": "",
-      "snippet": "",
-      "image": "",
-      "source": "gasgoo",
-      "source_name": "盖世汽车",
-      "crawled_at": "2026-05-30T11:44:01.249631+00:00",
-      "item_id": "595730eeaedc8e1e",
-      "publish_ts": 1780106400.0,
-      "publish_date": "2026-05-30",
-      "takeaway": "?????????????",
-      "enriched_by": "codex",
-      "importance": 78,
-      "category": "??",
-      "is_featured": false,
-      "brands": [
-        "??",
-        "??"
-      ],
-      "summary": "??GT7??????????21.99????",
       "is_new": false
     },
     {
@@ -957,14 +868,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 77,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "雷克萨斯全球首发首款三排座纯电SUV TZ，相关产品信息更新。",
       "brands": [
         "雷克萨斯"
       ],
-      "summary": "雷克萨斯全球首发首款三排座纯电SUV TZ，相关产品信息更新。",
+      "importance": 77,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -979,14 +890,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
-      "importance": 77,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "中国首个”亿级车企“诞生！ 上汽集团正式交付第1亿辆新车，反映汽车市场动态。",
       "brands": [
         "上汽"
       ],
-      "summary": "中国首个”亿级车企“诞生！ 上汽集团正式交付第1亿辆新车，反映汽车市场动态。",
+      "importance": 77,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1001,14 +912,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
-      "importance": 77,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "法拉利CEO：首款纯电车型已收获新老客户订单，反映汽车市场动态。",
       "brands": [
         "法拉利"
       ],
-      "summary": "法拉利CEO：首款纯电车型已收获新老客户订单，反映汽车市场动态。",
+      "importance": 77,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1023,14 +934,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "规则变化影响用车成本",
-      "enriched_by": "codex",
-      "importance": 77,
-      "category": "政策",
-      "is_featured": false,
+      "summary": "超11万辆Rivian车因后悬架问题遭美调查，涉及出行监管或政策规则。",
       "brands": [
         "Rivian"
       ],
-      "summary": "超11万辆Rivian车因后悬架问题遭美调查，涉及出行监管或政策规则。",
+      "importance": 77,
+      "category": "政策",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1046,12 +957,12 @@
       "publish_ts": 1780134287.377457,
       "publish_date": "2026-05-30",
       "takeaway": "自主品牌增长动能继续外溢海外。",
-      "enriched_by": "codex",
+      "summary": "国产新能源品牌销量创新高，海外出口规模同步扩大。",
+      "brands": [],
       "importance": 76,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "国产新能源品牌销量创新高，海外出口规模同步扩大。",
       "is_new": false
     },
     {
@@ -1067,15 +978,15 @@
       "publish_ts": 1780130687.377602,
       "publish_date": "2026-05-30",
       "takeaway": "传统车企继续调整纯电产品节奏。",
-      "enriched_by": "codex",
-      "importance": 76,
-      "category": "产品",
-      "is_featured": true,
+      "summary": "丰田因全球纯电需求放缓暂停雷克萨斯LF-ZC开发。",
       "brands": [
         "丰田",
         "雷克萨斯"
       ],
-      "summary": "丰田因全球纯电需求放缓暂停雷克萨斯LF-ZC开发。",
+      "importance": 76,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -1091,38 +1002,39 @@
       "publish_ts": 1780123487.378034,
       "publish_date": "2026-05-30",
       "takeaway": "新势力格局分化，零跑和蔚来表现突出",
-      "enriched_by": "codex",
-      "importance": 76,
-      "category": "市场",
-      "is_featured": true,
+      "summary": "新势力一季报显示，零跑登顶销量冠军，蔚来增速接近翻倍。",
       "brands": [
         "零跑",
         "蔚来"
       ],
-      "summary": "新势力一季报显示，零跑登顶销量冠军，蔚来增速接近翻倍。",
+      "importance": 76,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": true,
       "is_new": false
     },
     {
-      "title": "21.98万起标配896线激光雷达 尚界Z7、Z7T开启大规模交付",
-      "url": "https://www.d1ev.com/news/qiye/301202",
+      "title": "21.99万起 广汽启境GT7纯电猎装预售5小时订单破万",
+      "url": "https://www.d1ev.com/news/qiye/301199",
       "publish_time": "",
       "snippet": "",
       "image": "",
       "source": "d1ev",
       "source_name": "第一电动",
       "crawled_at": "2026-05-30T11:44:01.253467+00:00",
-      "item_id": "d6e5611497916761",
+      "item_id": "8d887add29df66dc",
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
-      "takeaway": "?????????????",
-      "enriched_by": "codex",
-      "importance": 76,
-      "category": "??",
-      "is_featured": false,
+      "summary": "广汽启境GT7启动预售，纯电猎装车型预售5小时订单超过1万台。",
+      "takeaway": "看点在猎装纯电新品早期订单反馈较快。",
+      "category": "产品",
       "brands": [
-        "??"
+        "广汽",
+        "启境"
       ],
-      "summary": "??Z7?Z7T????????21.98??????896??????",
+      "importance": 76,
+      "is_featured": false,
+      "enriched_by": "codex",
       "is_new": false
     },
     {
@@ -1138,12 +1050,35 @@
       "publish_ts": 1780130687.377524,
       "publish_date": "2026-05-30",
       "takeaway": "智驾普及需要更清晰的责任证据链。",
-      "enriched_by": "codex",
+      "summary": "文章关注智驾事故责任认定和用户举证困难。",
+      "brands": [],
       "importance": 75,
       "category": "舆情",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "文章关注智驾事故责任认定和用户举证困难。",
+      "is_new": false
+    },
+    {
+      "title": "21.98万起标配896线激光雷达 尚界Z7、Z7T开启大规模交付",
+      "url": "https://www.d1ev.com/news/qiye/301202",
+      "publish_time": "",
+      "snippet": "",
+      "image": "",
+      "source": "d1ev",
+      "source_name": "第一电动",
+      "crawled_at": "2026-05-30T11:44:01.253467+00:00",
+      "item_id": "d6e5611497916761",
+      "publish_ts": 1780106400.0,
+      "publish_date": "2026-05-30",
+      "summary": "尚界Z7和Z7T进入规模交付阶段，车型起售价21.98万元并配备激光雷达。",
+      "takeaway": "看点在高阶感知配置下探到二十万元级交付。",
+      "category": "市场",
+      "brands": [
+        "尚界"
+      ],
+      "importance": 75,
+      "is_featured": false,
+      "enriched_by": "codex",
       "is_new": false
     },
     {
@@ -1159,14 +1094,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "奥迪E7X正式上市 限时臻享26.98万元起，相关产品信息更新。",
       "brands": [
         "奥迪"
       ],
-      "summary": "奥迪E7X正式上市 限时臻享26.98万元起，相关产品信息更新。",
+      "importance": 75,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1182,14 +1117,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "智能化进展值得关注",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "Waymo推出新款Ojai自动驾驶出租车，涉及汽车技术与智能化进展。",
       "brands": [
         "Waymo"
       ],
-      "summary": "Waymo推出新款Ojai自动驾驶出租车，涉及汽车技术与智能化进展。",
+      "importance": 75,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1204,14 +1139,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "智能化进展值得关注",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "售47.98万起 新款问界M9正式上市 140多项升级/全系标配6激光雷达，涉及汽车技术与智能化进展。",
       "brands": [
         "问界"
       ],
-      "summary": "售47.98万起 新款问界M9正式上市 140多项升级/全系标配6激光雷达，涉及汽车技术与智能化进展。",
+      "importance": 75,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1226,14 +1161,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "对标小米YU7？启境全新SUV谍照曝光 定名启境GX7 将于秋季上市，相关产品信息更新。",
       "brands": [
         "小米"
       ],
-      "summary": "对标小米YU7？启境全新SUV谍照曝光 定名启境GX7 将于秋季上市，相关产品信息更新。",
+      "importance": 75,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1248,14 +1183,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "延迟一天交付 赠一天免费闪充 比亚迪发布闪充车型新权益，反映汽车市场动态。",
       "brands": [
         "比亚迪"
       ],
-      "summary": "延迟一天交付 赠一天免费闪充 比亚迪发布闪充车型新权益，反映汽车市场动态。",
+      "importance": 75,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1270,14 +1205,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "大众ID. AURA T6龙船特别版发布 插混版迈腾/探岳L将于6月底上市，相关产品信息更新。",
       "brands": [
         "大众"
       ],
-      "summary": "大众ID. AURA T6龙船特别版发布 插混版迈腾/探岳L将于6月底上市，相关产品信息更新。",
+      "importance": 75,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1292,14 +1227,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "智能化进展值得关注",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "奥迪 E7X智驾晚高峰，德系豪华新能源如今智驾不再拖后腿，涉及汽车技术与智能化进展。",
       "brands": [
         "奥迪"
       ],
-      "summary": "奥迪 E7X智驾晚高峰，德系豪华新能源如今智驾不再拖后腿，涉及汽车技术与智能化进展。",
+      "importance": 75,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1314,14 +1249,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "售26.98万起 配备900V高压平台/VGR渐进式转向 奥迪E7X正式上市，相关产品信息更新。",
       "brands": [
         "奥迪"
       ],
-      "summary": "售26.98万起 配备900V高压平台/VGR渐进式转向 奥迪E7X正式上市，相关产品信息更新。",
+      "importance": 75,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1336,14 +1271,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "电池租用方案售39万起/7月31日前锁单有限时权益 蔚来ES9开启交付，反映汽车市场动态。",
       "brands": [
         "蔚来"
       ],
-      "summary": "电池租用方案售39万起/7月31日前锁单有限时权益 蔚来ES9开启交付，反映汽车市场动态。",
+      "importance": 75,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1358,14 +1293,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "智能化进展值得关注",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "智驾免费潮来袭，6.4万特斯拉FSD是真香还是收割，涉及汽车技术与智能化进展。",
       "brands": [
         "特斯拉"
       ],
-      "summary": "智驾免费潮来袭，6.4万特斯拉FSD是真香还是收割，涉及汽车技术与智能化进展。",
+      "importance": 75,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1380,14 +1315,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "智能化进展值得关注",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "售12.99万起 比亚迪宋Ultra DM-i上市 还有璇玑A3芯片等发布，涉及汽车技术与智能化进展。",
       "brands": [
         "比亚迪"
       ],
-      "summary": "售12.99万起 比亚迪宋Ultra DM-i上市 还有璇玑A3芯片等发布，涉及汽车技术与智能化进展。",
+      "importance": 75,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1402,14 +1337,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "盈利质量比规模更关键",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "理想汽车2026年Q1财报：累计交付95142辆/全新理想L8将于6月发布，反映汽车市场动态。",
       "brands": [
         "理想"
       ],
-      "summary": "理想汽车2026年Q1财报：累计交付95142辆/全新理想L8将于6月发布，反映汽车市场动态。",
+      "importance": 75,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1424,14 +1359,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "智能化进展值得关注",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "大众ID.ERA 9X辅助驾驶到底行不行？《智驾晚高峰》给你答案，涉及汽车技术与智能化进展。",
       "brands": [
         "大众"
       ],
-      "summary": "大众ID.ERA 9X辅助驾驶到底行不行？《智驾晚高峰》给你答案，涉及汽车技术与智能化进展。",
+      "importance": 75,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1446,14 +1381,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "丰田汽车4月全球销量84.9万辆 中国市场106479辆 同比下降25.4%，反映汽车市场动态。",
       "brands": [
         "丰田"
       ],
-      "summary": "丰田汽车4月全球销量84.9万辆 中国市场106479辆 同比下降25.4%，反映汽车市场动态。",
+      "importance": 75,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1468,14 +1403,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "最大续航1008km？疑似比亚迪大汉续航泄露 有望于6月上市，相关产品信息更新。",
       "brands": [
         "比亚迪"
       ],
-      "summary": "最大续航1008km？疑似比亚迪大汉续航泄露 有望于6月上市，相关产品信息更新。",
+      "importance": 75,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1490,14 +1425,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "智能化进展值得关注",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "粤港澳大湾区车展展馆图曝光 比亚迪芯片意外剧透，涉及汽车技术与智能化进展。",
       "brands": [
         "比亚迪"
       ],
-      "summary": "粤港澳大湾区车展展馆图曝光 比亚迪芯片意外剧透，涉及汽车技术与智能化进展。",
+      "importance": 75,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1512,14 +1447,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "5年0息 月供低至2460元！特斯拉发布6月购车权益，反映汽车市场动态。",
       "brands": [
         "特斯拉"
       ],
-      "summary": "5年0息 月供低至2460元！特斯拉发布6月购车权益，反映汽车市场动态。",
+      "importance": 75,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1534,14 +1469,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "预售28.98万起 900V高压架构/VGR渐进式转向 一文看懂奥迪E7X，相关产品信息更新。",
       "brands": [
         "奥迪"
       ],
-      "summary": "预售28.98万起 900V高压架构/VGR渐进式转向 一文看懂奥迪E7X，相关产品信息更新。",
+      "importance": 75,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1556,14 +1491,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "智能化进展值得关注",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "新款乐道L60将于5月29日开启预售 引入激光雷达/蔚来ES9同款芯片，涉及汽车技术与智能化进展。",
       "brands": [
         "蔚来"
       ],
-      "summary": "新款乐道L60将于5月29日开启预售 引入激光雷达/蔚来ES9同款芯片，涉及汽车技术与智能化进展。",
+      "importance": 75,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1578,14 +1513,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "蔚来ES9上市 电池租用价39万元起 支持沙漠弹跳脱困/雷达探测涉水，相关产品信息更新。",
       "brands": [
         "蔚来"
       ],
-      "summary": "蔚来ES9上市 电池租用价39万元起 支持沙漠弹跳脱困/雷达探测涉水，相关产品信息更新。",
+      "importance": 75,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1600,14 +1535,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "新款问界M9上市 高低配差在哪？舒适配置才是关键区别，相关产品信息更新。",
       "brands": [
         "问界"
       ],
-      "summary": "新款问界M9上市 高低配差在哪？舒适配置才是关键区别，相关产品信息更新。",
+      "importance": 75,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1622,14 +1557,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "受中东冲突影响，丰田4月全球销量下滑3.7%，反映汽车市场动态。",
       "brands": [
         "丰田"
       ],
-      "summary": "受中东冲突影响，丰田4月全球销量下滑3.7%，反映汽车市场动态。",
+      "importance": 75,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1644,14 +1579,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
-      "importance": 75,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "丰田4月全球销量下滑3.7%，反映汽车市场动态。",
       "brands": [
         "丰田"
       ],
-      "summary": "丰田4月全球销量下滑3.7%，反映汽车市场动态。",
+      "importance": 75,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1667,12 +1602,12 @@
       "publish_ts": 1780130687.377621,
       "publish_date": "2026-05-30",
       "takeaway": "价格竞争已压缩车企盈利空间。",
-      "enriched_by": "codex",
+      "summary": "文章称多位车企负责人谈利润率下滑和经营压力。",
+      "brands": [],
       "importance": 74,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "文章称多位车企负责人谈利润率下滑和经营压力。",
       "is_new": false
     },
     {
@@ -1688,16 +1623,39 @@
       "publish_ts": 1780130687.377544,
       "publish_date": "2026-05-30",
       "takeaway": "吉利集中资源补强智能驾驶体系。",
-      "enriched_by": "codex",
-      "importance": 74,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "吉利将辅助驾驶团队整合至千里浩瀚，强化智驾能力。",
       "brands": [
         "吉利",
         "千里浩瀚",
         "华为"
       ],
-      "summary": "吉利将辅助驾驶团队整合至千里浩瀚，强化智驾能力。",
+      "importance": 74,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
+      "is_new": false
+    },
+    {
+      "title": "领克10和领克10+正式上市，限时起售16.99万元/21.99万元",
+      "url": "https://www.d1ev.com/news/qiye/301188",
+      "publish_time": "",
+      "snippet": "",
+      "image": "",
+      "source": "d1ev",
+      "source_name": "第一电动",
+      "crawled_at": "2026-05-30T11:44:01.253467+00:00",
+      "item_id": "bd5dc106dc0af01c",
+      "publish_ts": 1780106400.0,
+      "publish_date": "2026-05-30",
+      "summary": "领克10和领克10+上市，公布两款车型限时起售价区间。",
+      "takeaway": "看点在领克新品价格带与产品序列扩展。",
+      "category": "产品",
+      "brands": [
+        "领克"
+      ],
+      "importance": 74,
+      "is_featured": false,
+      "enriched_by": "codex",
       "is_new": false
     },
     {
@@ -1713,15 +1671,15 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "智能化进展值得关注",
-      "enriched_by": "codex",
-      "importance": 73,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "与TPK联手，亿咖通科技正式进入激光雷达领域，涉及汽车技术与智能化进展。",
       "brands": [
         "亿咖通",
         "TPK"
       ],
-      "summary": "与TPK联手，亿咖通科技正式进入激光雷达领域，涉及汽车技术与智能化进展。",
+      "importance": 73,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1736,15 +1694,15 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
-      "importance": 73,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "驾驶辅助能力提升 长城汽车推送坦克400首次OTA升级，涉及汽车技术与智能化进展。",
       "brands": [
         "长城",
         "坦克"
       ],
-      "summary": "驾驶辅助能力提升 长城汽车推送坦克400首次OTA升级，涉及汽车技术与智能化进展。",
+      "importance": 73,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1759,15 +1717,15 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 73,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "零一汽车正式赴港递表，智能重卡赛道再迎IPO选手，反映汽车市场动态。",
       "brands": [
         "一汽",
         "零一汽车"
       ],
-      "summary": "零一汽车正式赴港递表，智能重卡赛道再迎IPO选手，反映汽车市场动态。",
+      "importance": 73,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1783,14 +1741,14 @@
       "publish_ts": 1780130687.377477,
       "publish_date": "2026-05-30",
       "takeaway": "贸易与产业政策牵动车企本地布局。",
-      "enriched_by": "codex",
-      "importance": 72,
-      "category": "政策",
-      "is_featured": false,
+      "summary": "美国新法案被指可能影响奔驰在美业务和就业。",
       "brands": [
         "奔驰"
       ],
-      "summary": "美国新法案被指可能影响奔驰在美业务和就业。",
+      "importance": 72,
+      "category": "政策",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1806,14 +1764,59 @@
       "publish_ts": 1780123487.377874,
       "publish_date": "2026-05-30",
       "takeaway": "头部品牌价格与规模优势继续放大。",
-      "enriched_by": "codex",
-      "importance": 72,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "文章称比亚迪强势竞争让部分车企承压。",
       "brands": [
         "比亚迪"
       ],
-      "summary": "文章称比亚迪强势竞争让部分车企承压。",
+      "importance": 72,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
+      "is_new": false
+    },
+    {
+      "title": "三重涨价函突袭汽车供应链，汽车降价时代正在终结",
+      "url": "https://www.d1ev.com/news/shichang/301198",
+      "publish_time": "",
+      "snippet": "",
+      "image": "",
+      "source": "d1ev",
+      "source_name": "第一电动",
+      "crawled_at": "2026-05-30T11:44:01.253467+00:00",
+      "item_id": "d59c6eea0d26c2f8",
+      "publish_ts": 1780106400.0,
+      "publish_date": "2026-05-30",
+      "summary": "文章梳理汽车供应链涨价函现象，讨论成本上行对整车价格的影响。",
+      "takeaway": "看点在供应链成本是否改变车市价格战节奏。",
+      "category": "市场",
+      "brands": [],
+      "importance": 72,
+      "is_featured": false,
+      "enriched_by": "codex",
+      "is_new": false
+    },
+    {
+      "title": "启境GT7开启预售 预售价21.99万元起",
+      "url": "https://auto.gasgoo.com/news/202605/30I70459959C107.shtml",
+      "publish_time": "",
+      "snippet": "",
+      "image": "",
+      "source": "gasgoo",
+      "source_name": "盖世汽车",
+      "crawled_at": "2026-05-30T11:44:01.249631+00:00",
+      "item_id": "595730eeaedc8e1e",
+      "publish_ts": 1780106400.0,
+      "publish_date": "2026-05-30",
+      "summary": "启境GT7正式开启预售，官方公布21.99万元起的预售价。",
+      "takeaway": "看点在广汽启境新品进入预售转化阶段。",
+      "category": "产品",
+      "brands": [
+        "广汽",
+        "启境"
+      ],
+      "importance": 72,
+      "is_featured": false,
+      "enriched_by": "codex",
       "is_new": false
     },
     {
@@ -1828,14 +1831,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 71,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "宝马沈阳生产基地迎第700万辆下线 “新世代”平台即将登场，反映汽车市场动态。",
       "brands": [
         "宝马"
       ],
-      "summary": "宝马沈阳生产基地迎第700万辆下线 “新世代”平台即将登场，反映汽车市场动态。",
+      "importance": 71,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1851,12 +1854,12 @@
       "publish_ts": 1780134287.377382,
       "publish_date": "2026-05-30",
       "takeaway": "欧盟贸易压力牵动中国车企出海。",
-      "enriched_by": "codex",
+      "summary": "文章讨论欧盟对中国电动车的限制及中方应对筹码。",
+      "brands": [],
       "importance": 70,
       "category": "政策",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "文章讨论欧盟对中国电动车的限制及中方应对筹码。",
       "is_new": false
     },
     {
@@ -1871,16 +1874,16 @@
       "item_id": "a387149979a71c74",
       "publish_ts": 1780134287.377284,
       "publish_date": "2026-05-30",
-      "summary": "雷军谈小米造车投入与压力，引发对小米入局汽车行业价值的讨论。",
       "takeaway": "小米造车投入回报继续受关注",
-      "category": "舆情",
+      "summary": "雷军谈小米造车投入与压力，引发对小米入局汽车行业价值的讨论。",
       "brands": [
         "小米"
       ],
       "importance": 70,
-      "is_featured": false,
+      "category": "舆情",
       "enriched_by": "codex",
-      "is_new": true
+      "is_featured": false,
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645591117614301721",
@@ -1895,35 +1898,33 @@
       "publish_ts": 1780130687.377699,
       "publish_date": "2026-05-30",
       "takeaway": "价格战反噬盈利已成行业共识。",
-      "enriched_by": "codex",
+      "summary": "深圳车圈人士呼吁停止价格内卷，关注企业利润承压。",
+      "brands": [],
       "importance": 70,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "深圳车圈人士呼吁停止价格内卷，关注企业利润承压。",
       "is_new": false
     },
     {
-      "title": "10.49万起，中国一汽悦意08全球预售",
-      "url": "https://www.d1ev.com/news/qiye/301191",
+      "title": "中国车市正在经历一场“结构性塌陷”",
+      "url": "https://www.d1ev.com/news/shichang/301210",
       "publish_time": "",
       "snippet": "",
       "image": "",
       "source": "d1ev",
       "source_name": "第一电动",
       "crawled_at": "2026-05-30T11:44:01.253467+00:00",
-      "item_id": "ceb30475c2bf7ccf",
+      "item_id": "6e4db0aca1dbefd3",
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
-      "takeaway": "??????????????",
-      "enriched_by": "codex",
+      "summary": "文章从需求、价格和品牌分化角度讨论中国车市结构变化。",
+      "takeaway": "看点在行业增长逻辑从总量扩张转向分化调整。",
+      "category": "市场",
+      "brands": [],
       "importance": 70,
-      "category": "??",
       "is_featured": false,
-      "brands": [
-        "??"
-      ],
-      "summary": "??????08??????????10.49???",
+      "enriched_by": "codex",
       "is_new": false
     },
     {
@@ -1939,14 +1940,14 @@
       "publish_ts": 1780116287.378053,
       "publish_date": "2026-05-30",
       "takeaway": "爆款车型销量波动需区分事实与传言。",
-      "enriched_by": "codex",
-      "importance": 69,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "文章讨论问界M9销量变化，并称相关退订说法并不成立。",
       "brands": [
         "问界"
       ],
-      "summary": "文章讨论问界M9销量变化，并称相关退订说法并不成立。",
+      "importance": 69,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1961,14 +1962,14 @@
       "publish_ts": 1780137887.375821,
       "publish_date": "2026-05-30",
       "takeaway": "智能化进展值得关注",
-      "enriched_by": "codex",
-      "importance": 68,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "比亚迪发布会不卖车，全场讲芯片，台下瞬间安静3秒，涉及汽车技术与智能化进展。",
       "brands": [
         "比亚迪"
       ],
-      "summary": "比亚迪发布会不卖车，全场讲芯片，台下瞬间安静3秒，涉及汽车技术与智能化进展。",
+      "importance": 68,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1983,14 +1984,14 @@
       "publish_ts": 1780134287.376302,
       "publish_date": "2026-05-30",
       "takeaway": "智能化进展值得关注",
-      "enriched_by": "codex",
-      "importance": 68,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "比亚迪「智驾兜底」背后：高阶辅助驾驶，开始拼责任了，涉及汽车技术与智能化进展。",
       "brands": [
         "比亚迪"
       ],
-      "summary": "比亚迪「智驾兜底」背后：高阶辅助驾驶，开始拼责任了，涉及汽车技术与智能化进展。",
+      "importance": 68,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2005,14 +2006,14 @@
       "publish_ts": 1780134287.376223,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 68,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "特斯拉发布新品，这实在是，反映汽车市场动态。",
       "brands": [
         "特斯拉"
       ],
-      "summary": "特斯拉发布新品，这实在是，反映汽车市场动态。",
+      "importance": 68,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2027,14 +2028,14 @@
       "publish_ts": 1780134287.376204,
       "publish_date": "2026-05-30",
       "takeaway": "智能化进展值得关注",
-      "enriched_by": "codex",
-      "importance": 68,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "张正萍：问界M9搭载6颗激光雷达不输FSD，智驾优劣交给市场评判，涉及汽车技术与智能化进展。",
       "brands": [
         "问界"
       ],
-      "summary": "张正萍：问界M9搭载6颗激光雷达不输FSD，智驾优劣交给市场评判，涉及汽车技术与智能化进展。",
+      "importance": 68,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2049,14 +2050,14 @@
       "publish_ts": 1780134287.376128,
       "publish_date": "2026-05-30",
       "takeaway": "智能化进展值得关注",
-      "enriched_by": "codex",
-      "importance": 68,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "Waymo推出第六代Ojai Robotaxi，传感器减少42%能力反升，涉及汽车技术与智能化进展。",
       "brands": [
         "Waymo"
       ],
-      "summary": "Waymo推出第六代Ojai Robotaxi，传感器减少42%能力反升，涉及汽车技术与智能化进展。",
+      "importance": 68,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2071,14 +2072,14 @@
       "publish_ts": 1780134287.375997,
       "publish_date": "2026-05-30",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
-      "importance": 68,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "雷军与舒淇为小米YU7 GT首批车主交车 交付共6台 车厘子红凭实力出圈，反映汽车市场动态。",
       "brands": [
         "小米"
       ],
-      "summary": "雷军与舒淇为小米YU7 GT首批车主交车 交付共6台 车厘子红凭实力出圈，反映汽车市场动态。",
+      "importance": 68,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2093,14 +2094,14 @@
       "publish_ts": 1780134287.375978,
       "publish_date": "2026-05-30",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
-      "importance": 68,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "特斯拉春季OTA要来了！自动换挡，2026款Model Y车主，车变聪明了，涉及汽车技术与智能化进展。",
       "brands": [
         "特斯拉"
       ],
-      "summary": "特斯拉春季OTA要来了！自动换挡，2026款Model Y车主，车变聪明了，涉及汽车技术与智能化进展。",
+      "importance": 68,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2115,14 +2116,14 @@
       "publish_ts": 1780134287.375959,
       "publish_date": "2026-05-30",
       "takeaway": "智能化进展值得关注",
-      "enriched_by": "codex",
-      "importance": 68,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "比亚迪开了一枪，把智驾事故理赔的皮球踢回给车企了，涉及汽车技术与智能化进展。",
       "brands": [
         "比亚迪"
       ],
-      "summary": "比亚迪开了一枪，把智驾事故理赔的皮球踢回给车企了，涉及汽车技术与智能化进展。",
+      "importance": 68,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2137,14 +2138,14 @@
       "publish_ts": 1780130687.376396,
       "publish_date": "2026-05-30",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
-      "importance": 68,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "全球第一丰田销量三连跌，日系车神话破碎，反映汽车市场动态。",
       "brands": [
         "丰田"
       ],
-      "summary": "全球第一丰田销量三连跌，日系车神话破碎，反映汽车市场动态。",
+      "importance": 68,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2159,14 +2160,14 @@
       "publish_ts": 1780127087.376555,
       "publish_date": "2026-05-30",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
-      "importance": 68,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "2026比亚迪真实处境：无敌的销量，藏着绕不开的短板，反映汽车市场动态。",
       "brands": [
         "比亚迪"
       ],
-      "summary": "2026比亚迪真实处境：无敌的销量，藏着绕不开的短板，反映汽车市场动态。",
+      "importance": 68,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2182,14 +2183,14 @@
       "publish_ts": 1780123487.377854,
       "publish_date": "2026-05-30",
       "takeaway": "资本市场对车企盈利质量更敏感。",
-      "enriched_by": "codex",
-      "importance": 68,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "文章分析比亚迪销量、技术表现与股价低迷之间的反差。",
       "brands": [
         "比亚迪"
       ],
-      "summary": "文章分析比亚迪销量、技术表现与股价低迷之间的反差。",
+      "importance": 68,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2204,35 +2205,38 @@
       "publish_ts": 1780119887.376596,
       "publish_date": "2026-05-30",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
-      "importance": 68,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "丰田4月在华销量大跌，日美市场走势分化，反映汽车市场动态。",
       "brands": [
         "丰田"
       ],
-      "summary": "丰田4月在华销量大跌，日美市场走势分化，反映汽车市场动态。",
+      "importance": 68,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
-      "title": "中国车市正在经历一场“结构性塌陷”",
-      "url": "https://www.d1ev.com/news/shichang/301210",
+      "title": "10.49万起，中国一汽悦意08全球预售",
+      "url": "https://www.d1ev.com/news/qiye/301191",
       "publish_time": "",
       "snippet": "",
       "image": "",
       "source": "d1ev",
       "source_name": "第一电动",
       "crawled_at": "2026-05-30T11:44:01.253467+00:00",
-      "item_id": "6e4db0aca1dbefd3",
+      "item_id": "ceb30475c2bf7ccf",
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
-      "takeaway": "?????????????",
-      "enriched_by": "codex",
+      "summary": "中国一汽悦意08开启全球预售，公布10.49万元起的预售价格。",
+      "takeaway": "看点在一汽以更低价格切入新能源家用市场。",
+      "category": "产品",
+      "brands": [
+        "中国一汽",
+        "悦意"
+      ],
       "importance": 68,
-      "category": "??",
       "is_featured": false,
-      "brands": [],
-      "summary": "??????????????????????????",
+      "enriched_by": "codex",
       "is_new": false
     },
     {
@@ -2247,14 +2251,14 @@
       "publish_ts": 1780080287.376673,
       "publish_date": "2026-05-30",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
-      "importance": 68,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "增程车卖不动了？1-4月销量榜出炉 仅一款累计销量超3万 理想L6第二，反映汽车市场动态。",
       "brands": [
         "理想"
       ],
-      "summary": "增程车卖不动了？1-4月销量榜出炉 仅一款累计销量超3万 理想L6第二，反映汽车市场动态。",
+      "importance": 68,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2269,14 +2273,14 @@
       "publish_ts": 1780073087.376692,
       "publish_date": "2026-05-30",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
-      "importance": 68,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "变天了！4月中大型轿车销量，小米SU7夺冠，铂智7第6，尚界Z7第35，反映汽车市场动态。",
       "brands": [
         "小米"
       ],
-      "summary": "变天了！4月中大型轿车销量，小米SU7夺冠，铂智7第6，尚界Z7第35，反映汽车市场动态。",
+      "importance": 68,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2291,14 +2295,14 @@
       "publish_ts": 1780062287.376767,
       "publish_date": "2026-05-29",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
-      "importance": 68,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "比亚迪在欧洲销量大涨124.5%，销量28,183辆，反映汽车市场动态。",
       "brands": [
         "比亚迪"
       ],
-      "summary": "比亚迪在欧洲销量大涨124.5%，销量28,183辆，反映汽车市场动态。",
+      "importance": 68,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2313,14 +2317,14 @@
       "publish_ts": 1780058687.376865,
       "publish_date": "2026-05-29",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
-      "importance": 68,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "丰田4月全球销量下滑，中国市场跌幅引关注，反映汽车市场动态。",
       "brands": [
         "丰田"
       ],
-      "summary": "丰田4月全球销量下滑，中国市场跌幅引关注，反映汽车市场动态。",
+      "importance": 68,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2336,14 +2340,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
-      "importance": 68,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "特斯拉在欧洲同比大涨46.5%，环比大跌80%，销量10,654辆，反映汽车市场动态。",
       "brands": [
         "特斯拉"
       ],
-      "summary": "特斯拉在欧洲同比大涨46.5%，环比大跌80%，销量10,654辆，反映汽车市场动态。",
+      "importance": 68,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2359,14 +2363,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
-      "importance": 68,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "特斯拉在欧洲同比大涨46.5%，环比大跌80%，销量10,654辆，反映汽车市场动态。",
       "brands": [
         "特斯拉"
       ],
-      "summary": "特斯拉在欧洲同比大涨46.5%，环比大跌80%，销量10,654辆，反映汽车市场动态。",
+      "importance": 68,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2381,14 +2385,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "用户信任与口碑受考验",
-      "enriched_by": "codex",
-      "importance": 68,
-      "category": "舆情",
-      "is_featured": false,
+      "summary": "法拉利首款纯电车型Luce EV遭多方批评，引发消费与行业关注。",
       "brands": [
         "法拉利"
       ],
-      "summary": "法拉利首款纯电车型Luce EV遭多方批评，引发消费与行业关注。",
+      "importance": 68,
+      "category": "舆情",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2404,14 +2408,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "10万级四驱轿车来了，吉利银河星耀7 MAX正式上市，相关产品信息更新。",
       "brands": [
         "吉利"
       ],
-      "summary": "10万级四驱轿车来了，吉利银河星耀7 MAX正式上市，相关产品信息更新。",
+      "importance": 67,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2427,14 +2431,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "布雷博与宁波华翔签署合资协议，反映汽车市场动态。",
       "brands": [
         "布雷博"
       ],
-      "summary": "布雷博与宁波华翔签署合资协议，反映汽车市场动态。",
+      "importance": 67,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2450,14 +2454,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "吉利银河星耀7 MAX全系标配四驱，权益后上市限时指导价9.88万起，相关产品信息更新。",
       "brands": [
         "吉利"
       ],
-      "summary": "吉利银河星耀7 MAX全系标配四驱，权益后上市限时指导价9.88万起，相关产品信息更新。",
+      "importance": 67,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2473,14 +2477,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "Stellantis发布STLA One模块化整车平台，反映汽车市场动态。",
       "brands": [
         "Stellantis"
       ],
-      "summary": "Stellantis发布STLA One模块化整车平台，反映汽车市场动态。",
+      "importance": 67,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2496,15 +2500,15 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "浩思动力荣获奔驰“最佳合作奖”，反映汽车市场动态。",
       "brands": [
         "奔驰",
         "浩思动力"
       ],
-      "summary": "浩思动力荣获奔驰“最佳合作奖”，反映汽车市场动态。",
+      "importance": 67,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2520,14 +2524,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "权益后售价28.29万-36.99万，岚图泰山X8正式上市，相关产品信息更新。",
       "brands": [
         "岚图"
       ],
-      "summary": "权益后售价28.29万-36.99万，岚图泰山X8正式上市，相关产品信息更新。",
+      "importance": 67,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2543,14 +2547,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "盈利质量比规模更关键",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "阿维塔董事长：没有利润的是伪销量 靠价格战换来虚假繁荣，反映汽车市场动态。",
       "brands": [
         "阿维塔"
       ],
-      "summary": "阿维塔董事长：没有利润的是伪销量 靠价格战换来虚假繁荣，反映汽车市场动态。",
+      "importance": 67,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2566,14 +2570,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "广汽高域飞行汽车广州工厂首机下线，反映汽车市场动态。",
       "brands": [
         "广汽"
       ],
-      "summary": "广汽高域飞行汽车广州工厂首机下线，反映汽车市场动态。",
+      "importance": 67,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2589,14 +2593,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "曦诺未来完成数亿元A轮融资，反映汽车市场动态。",
       "brands": [
         "曦诺未来"
       ],
-      "summary": "曦诺未来完成数亿元A轮融资，反映汽车市场动态。",
+      "importance": 67,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2612,14 +2616,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "全新吉利星愿上市6.18万起，相关产品信息更新。",
       "brands": [
         "吉利"
       ],
-      "summary": "全新吉利星愿上市6.18万起，相关产品信息更新。",
+      "importance": 67,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2635,14 +2639,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "广汽高域飞行汽车广州工厂首机下线，反映汽车市场动态。",
       "brands": [
         "广汽"
       ],
-      "summary": "广汽高域飞行汽车广州工厂首机下线，反映汽车市场动态。",
+      "importance": 67,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2658,14 +2662,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "智能化进展值得关注",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "亿咖通科技正式进入激光雷达领域，涉及汽车技术与智能化进展。",
       "brands": [
         "亿咖通"
       ],
-      "summary": "亿咖通科技正式进入激光雷达领域，涉及汽车技术与智能化进展。",
+      "importance": 67,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2681,14 +2685,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "10.49万起，中国一汽悦意08全球预售，相关产品信息更新。",
       "brands": [
         "一汽"
       ],
-      "summary": "10.49万起，中国一汽悦意08全球预售，相关产品信息更新。",
+      "importance": 67,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2703,14 +2707,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "“半价MEGA”来了 零跑D99内饰首发 1000V高压平台 增程+纯电，相关产品信息更新。",
       "brands": [
         "零跑"
       ],
-      "summary": "“半价MEGA”来了 零跑D99内饰首发 1000V高压平台 增程+纯电，相关产品信息更新。",
+      "importance": 67,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2725,14 +2729,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "开启全球化步伐 长安NEVO Q05泰国上市，相关产品信息更新。",
       "brands": [
         "长安"
       ],
-      "summary": "开启全球化步伐 长安NEVO Q05泰国上市，相关产品信息更新。",
+      "importance": 67,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2747,14 +2751,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "2026粤港澳大湾区车展：限时售38.99万起 沃尔沃EX90/ES90上市，相关产品信息更新。",
       "brands": [
         "沃尔沃"
       ],
-      "summary": "2026粤港澳大湾区车展：限时售38.99万起 沃尔沃EX90/ES90上市，相关产品信息更新。",
+      "importance": 67,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2769,14 +2773,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "双电机四驱/三排座椅加热 广汽传祺向往M8 PHEV L实车亮相，相关产品信息更新。",
       "brands": [
         "广汽"
       ],
-      "summary": "双电机四驱/三排座椅加热 广汽传祺向往M8 PHEV L实车亮相，相关产品信息更新。",
+      "importance": 67,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2791,14 +2795,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "限时6.18万起 座舱/驾控五大焕新 超100项升级 新款吉利星愿上市，相关产品信息更新。",
       "brands": [
         "吉利"
       ],
-      "summary": "限时6.18万起 座舱/驾控五大焕新 超100项升级 新款吉利星愿上市，相关产品信息更新。",
+      "importance": 67,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2813,15 +2817,15 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "余承东：问界M9地球最强！ 李斌：蔚来ES9主动悬架领先一代，反映汽车市场动态。",
       "brands": [
         "蔚来",
         "问界"
       ],
-      "summary": "余承东：问界M9地球最强！ 李斌：蔚来ES9主动悬架领先一代，反映汽车市场动态。",
+      "importance": 67,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2836,14 +2840,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "产品变化值得留意",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "越野范儿的小型SUV 搭载14.6英寸中控屏 新款吉利牛仔官图发布，相关产品信息更新。",
       "brands": [
         "吉利"
       ],
-      "summary": "越野范儿的小型SUV 搭载14.6英寸中控屏 新款吉利牛仔官图发布，相关产品信息更新。",
+      "importance": 67,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2858,14 +2862,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "增程/纯电双动力 品牌旗舰轿车 一汽悦意08将于5月29日开启预售，涉及汽车技术与智能化进展。",
       "brands": [
         "一汽"
       ],
-      "summary": "增程/纯电双动力 品牌旗舰轿车 一汽悦意08将于5月29日开启预售，涉及汽车技术与智能化进展。",
+      "importance": 67,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2880,15 +2884,15 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "丰田暂停下一代雷克萨斯LF-ZC纯电概念轿车研发，涉及汽车技术与智能化进展。",
       "brands": [
         "丰田",
         "雷克萨斯"
       ],
-      "summary": "丰田暂停下一代雷克萨斯LF-ZC纯电概念轿车研发，涉及汽车技术与智能化进展。",
+      "importance": 67,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2903,14 +2907,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "江淮塔什干合资工厂开业，反映汽车市场动态。",
       "brands": [
         "江淮"
       ],
-      "summary": "江淮塔什干合资工厂开业，反映汽车市场动态。",
+      "importance": 67,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2925,14 +2929,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "Rivian R2将启动交付，反映汽车市场动态。",
       "brands": [
         "Rivian"
       ],
-      "summary": "Rivian R2将启动交付，反映汽车市场动态。",
+      "importance": 67,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2947,15 +2951,15 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "东风奕派M8搭载华为乾崑技术，反映汽车市场动态。",
       "brands": [
         "东风",
         "华为"
       ],
-      "summary": "东风奕派M8搭载华为乾崑技术，反映汽车市场动态。",
+      "importance": 67,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2970,14 +2974,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
-      "importance": 67,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "零跑D99百变旗舰座舱亮相粤港澳车展，相关产品信息更新。",
       "brands": [
         "零跑"
       ],
-      "summary": "零跑D99百变旗舰座舱亮相粤港澳车展，相关产品信息更新。",
+      "importance": 67,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -2993,14 +2997,37 @@
       "publish_ts": 1780130687.377738,
       "publish_date": "2026-05-30",
       "takeaway": "比亚迪技术发布继续压迫同业节奏。",
-      "enriched_by": "codex",
-      "importance": 66,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "文章评论比亚迪发布会内容及其对竞争对手的影响。",
       "brands": [
         "比亚迪"
       ],
-      "summary": "文章评论比亚迪发布会内容及其对竞争对手的影响。",
+      "importance": 66,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
+      "is_new": false
+    },
+    {
+      "title": "延锋陆传华：智能座舱正从功能驱动转向场景驱动",
+      "url": "https://www.d1ev.com/news/shichang/301213",
+      "publish_time": "",
+      "snippet": "",
+      "image": "",
+      "source": "d1ev",
+      "source_name": "第一电动",
+      "crawled_at": "2026-05-30T11:44:01.253467+00:00",
+      "item_id": "e3839f8503fa0014",
+      "publish_ts": 1780106400.0,
+      "publish_date": "2026-05-30",
+      "summary": "延锋高管讨论智能座舱演进方向，称用户场景将成为产品设计核心。",
+      "takeaway": "看点在座舱供应商对体验竞争的判断变化。",
+      "category": "技术",
+      "brands": [
+        "延锋"
+      ],
+      "importance": 65,
+      "is_featured": false,
+      "enriched_by": "codex",
       "is_new": false
     },
     {
@@ -3016,37 +3043,37 @@
       "publish_ts": 1780123487.377956,
       "publish_date": "2026-05-30",
       "takeaway": "新车营销与设计争议带来舆论热度。",
-      "enriched_by": "codex",
-      "importance": 64,
-      "category": "舆情",
-      "is_featured": false,
+      "summary": "文章围绕华为和余承东相关新车设计争议展开评论。",
       "brands": [
         "华为"
       ],
-      "summary": "文章围绕华为和余承东相关新车设计争议展开评论。",
+      "importance": 64,
+      "category": "舆情",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
-      "title": "延锋陆传华：智能座舱正从功能驱动转向场景驱动",
-      "url": "https://www.d1ev.com/news/shichang/301213",
+      "title": "奇瑞王琅：破局内卷关键在提升竞争层次",
+      "url": "https://www.d1ev.com/news/shichang/301206",
       "publish_time": "",
       "snippet": "",
       "image": "",
       "source": "d1ev",
       "source_name": "第一电动",
       "crawled_at": "2026-05-30T11:44:01.253467+00:00",
-      "item_id": "e3839f8503fa0014",
+      "item_id": "832e892e2abaf5df",
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
-      "takeaway": "????????????",
-      "enriched_by": "codex",
-      "importance": 64,
-      "category": "??",
-      "is_featured": false,
+      "summary": "奇瑞相关负责人谈车企竞争方式，强调从价格竞争转向能力竞争。",
+      "takeaway": "看点在车企应对内卷的经营思路表达。",
+      "category": "市场",
       "brands": [
-        "??"
+        "奇瑞"
       ],
-      "summary": "?????????????????????????",
+      "importance": 64,
+      "is_featured": false,
+      "enriched_by": "codex",
       "is_new": false
     },
     {
@@ -3061,12 +3088,12 @@
       "publish_ts": 1780062287.376748,
       "publish_date": "2026-05-29",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
+      "summary": "中国车企首次突破产销量1亿辆大关，反映汽车市场动态。",
+      "brands": [],
       "importance": 64,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "中国车企首次突破产销量1亿辆大关，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -3082,12 +3109,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
+      "summary": "中国车企首次突破产销量1亿辆大关，反映汽车市场动态。",
+      "brands": [],
       "importance": 64,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "中国车企首次突破产销量1亿辆大关，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -3103,12 +3130,12 @@
       "publish_ts": 1780123487.377897,
       "publish_date": "2026-05-30",
       "takeaway": "涉车税费传闻易引发用户焦虑。",
-      "enriched_by": "codex",
+      "summary": "文章辟谣2026年新能源车将缴纳养路费的传闻。",
+      "brands": [],
       "importance": 63,
       "category": "舆情",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "文章辟谣2026年新能源车将缴纳养路费的传闻。",
       "is_new": false
     },
     {
@@ -3124,14 +3151,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
-      "importance": 63,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "法拉利CEO为首款纯电车型辩护，涉及汽车技术与智能化进展。",
       "brands": [
         "法拉利"
       ],
-      "summary": "法拉利CEO为首款纯电车型辩护，涉及汽车技术与智能化进展。",
+      "importance": 63,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -3146,14 +3173,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
-      "importance": 63,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "奇瑞联合日企推出新品牌EMTA 首款纯电K-Car计划2027年推出，涉及汽车技术与智能化进展。",
       "brands": [
         "奇瑞"
       ],
-      "summary": "奇瑞联合日企推出新品牌EMTA 首款纯电K-Car计划2027年推出，涉及汽车技术与智能化进展。",
+      "importance": 63,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -3168,14 +3195,14 @@
       "item_id": "5605157ed9b91e26",
       "publish_ts": 1780137887.377193,
       "publish_date": "2026-05-30",
-      "summary": "文章介绍双缸循环内燃机方案，称其可突破传统四冲程效率上限。",
       "takeaway": "内燃机效率路线仍有创新空间",
-      "category": "技术",
+      "summary": "文章介绍双缸循环内燃机方案，称其可突破传统四冲程效率上限。",
       "brands": [],
       "importance": 62,
-      "is_featured": false,
+      "category": "技术",
       "enriched_by": "codex",
-      "is_new": true
+      "is_featured": false,
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645607782691193406",
@@ -3190,14 +3217,14 @@
       "publish_ts": 1780134287.377401,
       "publish_date": "2026-05-30",
       "takeaway": "中国智驾供应链继续加速出海。",
-      "enriched_by": "codex",
-      "importance": 62,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "卓驭科技欧洲总部开业，推进海外业务布局。",
       "brands": [
         "卓驭科技"
       ],
-      "summary": "卓驭科技欧洲总部开业，推进海外业务布局。",
+      "importance": 62,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -3213,36 +3240,38 @@
       "publish_ts": 1780130687.377719,
       "publish_date": "2026-05-30",
       "takeaway": "高管激励显示新势力争夺管理人才。",
-      "enriched_by": "codex",
-      "importance": 62,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "文章关注王凤英从长城转入小鹏后的薪酬和股权变化。",
       "brands": [
         "长城",
         "小鹏"
       ],
-      "summary": "文章关注王凤英从长城转入小鹏后的薪酬和股权变化。",
+      "importance": 62,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
-      "title": "拾级而上：在技术深水区重建汽车产业的未来坐标 | 2026未来汽车先行者大会",
-      "url": "https://www.d1ev.com/news/shichang/301180",
+      "title": "八车围攻阿维塔12，胜算几何？",
+      "url": "https://www.d1ev.com/news/qiye/301234",
       "publish_time": "",
       "snippet": "",
       "image": "",
       "source": "d1ev",
       "source_name": "第一电动",
       "crawled_at": "2026-05-30T11:44:01.253467+00:00",
-      "item_id": "fea65c4c89cdc3db",
+      "item_id": "4c69418073ebc9dc",
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
-      "takeaway": "??????????????",
-      "enriched_by": "codex",
+      "summary": "文章分析阿维塔12所在新能源轿车细分市场的多车竞争格局。",
+      "takeaway": "看点在阿维塔12面对密集竞品时的定位压力。",
+      "category": "市场",
+      "brands": [
+        "阿维塔"
+      ],
       "importance": 62,
-      "category": "??",
       "is_featured": false,
-      "brands": [],
-      "summary": "????2026??????????????????????",
+      "enriched_by": "codex",
       "is_new": false
     },
     {
@@ -3258,14 +3287,14 @@
       "publish_ts": 1780123487.377936,
       "publish_date": "2026-05-30",
       "takeaway": "手机车联生态持续迭代分化。",
-      "enriched_by": "codex",
-      "importance": 61,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "OPPO Car+推送14.27.1与16.27.1两个版本，更新差异较大。",
       "brands": [
         "OPPO"
       ],
-      "summary": "OPPO Car+推送14.27.1与16.27.1两个版本，更新差异较大。",
+      "importance": 61,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -3281,12 +3310,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
+      "summary": "缤果Pro正式上市：5.68万元起，超80项全系标配，相关产品信息更新。",
+      "brands": [],
       "importance": 61,
       "category": "产品",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "缤果Pro正式上市：5.68万元起，超80项全系标配，相关产品信息更新。",
       "is_new": false
     },
     {
@@ -3302,12 +3331,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "规则变化影响用车成本",
-      "enriched_by": "codex",
+      "summary": "五大共鸣诠释旗舰标准：极狐问道V9上市19.48万起，涉及出行监管或政策规则。",
+      "brands": [],
       "importance": 61,
       "category": "政策",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "五大共鸣诠释旗舰标准：极狐问道V9上市19.48万起，涉及出行监管或政策规则。",
       "is_new": false
     },
     {
@@ -3323,14 +3352,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 61,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "比亚迪“兜底”城市领航，反映汽车市场动态。",
       "brands": [
         "比亚迪"
       ],
-      "summary": "比亚迪“兜底”城市领航，反映汽车市场动态。",
+      "importance": 61,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -3346,12 +3375,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
+      "summary": "2026年4月燃油车型/新能源车型销量榜：燃油车自主领跑，新能源多元竞速丨盖世汽车研究院，反映汽车市场动态。",
+      "brands": [],
       "importance": 61,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "2026年4月燃油车型/新能源车型销量榜：燃油车自主领跑，新能源多元竞速丨盖世汽车研究院，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -3367,12 +3396,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
+      "summary": "2026年4月乘用车自主品牌销量榜，反映汽车市场动态。",
+      "brands": [],
       "importance": 61,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "2026年4月乘用车自主品牌销量榜，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -3388,14 +3417,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
-      "importance": 61,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "​蔚来放弃增程、插混及MPV车型，涉及汽车技术与智能化进展。",
       "brands": [
         "蔚来"
       ],
-      "summary": "​蔚来放弃增程、插混及MPV车型，涉及汽车技术与智能化进展。",
+      "importance": 61,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -3411,12 +3440,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "Seeds ： 中科第五纪完成数亿元A轮融资，反映汽车市场动态。",
+      "brands": [],
       "importance": 61,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "Seeds ： 中科第五纪完成数亿元A轮融资，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -3432,12 +3461,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "蚂蚁集团领投，光轮智能完成新一轮融资，反映汽车市场动态。",
+      "brands": [],
       "importance": 61,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "蚂蚁集团领投，光轮智能完成新一轮融资，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -3453,12 +3482,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "高瓴、美团领投，天机智能完成10亿融资，反映汽车市场动态。",
+      "brands": [],
       "importance": 61,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "高瓴、美团领投，天机智能完成10亿融资，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -3474,14 +3503,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 61,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "宁德时代“弹药库”扩容，再融50亿，反映汽车市场动态。",
       "brands": [
         "宁德时代"
       ],
-      "summary": "宁德时代“弹药库”扩容，再融50亿，反映汽车市场动态。",
+      "importance": 61,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -3497,14 +3526,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 61,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "蔚来CEO李斌：整车成本已涨了1万元左右，反映汽车市场动态。",
       "brands": [
         "蔚来"
       ],
-      "summary": "蔚来CEO李斌：整车成本已涨了1万元左右，反映汽车市场动态。",
+      "importance": 61,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -3520,12 +3549,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
+      "summary": "【盖世快讯】鸿蒙智行全系交付破139万，反映汽车市场动态。",
+      "brands": [],
       "importance": 61,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "【盖世快讯】鸿蒙智行全系交付破139万，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -3541,12 +3570,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "解读两场最夯9系发布，反映汽车市场动态。",
+      "brands": [],
       "importance": 61,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "解读两场最夯9系发布，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -3562,12 +3591,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "规则变化影响用车成本",
-      "enriched_by": "codex",
+      "summary": "ePro家族上市 “黄金超混”重构新标准，涉及出行监管或政策规则。",
+      "brands": [],
       "importance": 61,
       "category": "政策",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "ePro家族上市 “黄金超混”重构新标准，涉及出行监管或政策规则。",
       "is_new": false
     },
     {
@@ -3583,12 +3612,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
+      "summary": "极狐问道V9上市19.48万起，相关产品信息更新。",
+      "brands": [],
       "importance": 61,
       "category": "产品",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "极狐问道V9上市19.48万起，相关产品信息更新。",
       "is_new": false
     },
     {
@@ -3604,14 +3633,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 61,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "特斯拉获准运营的无人驾驶出租车仅42辆，反映汽车市场动态。",
       "brands": [
         "特斯拉"
       ],
-      "summary": "特斯拉获准运营的无人驾驶出租车仅42辆，反映汽车市场动态。",
+      "importance": 61,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -3627,14 +3656,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 61,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "Meta携手特斯拉推进大型清洁能源项目，反映汽车市场动态。",
       "brands": [
         "特斯拉"
       ],
-      "summary": "Meta携手特斯拉推进大型清洁能源项目，反映汽车市场动态。",
+      "importance": 61,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -3650,12 +3679,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
+      "summary": "GMC发布两款全新电动悍马X概念车，涉及汽车技术与智能化进展。",
+      "brands": [],
       "importance": 61,
       "category": "技术",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "GMC发布两款全新电动悍马X概念车，涉及汽车技术与智能化进展。",
       "is_new": false
     },
     {
@@ -3671,12 +3700,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "通用汽车发布GMC Hummer X概念车，反映汽车市场动态。",
+      "brands": [],
       "importance": 61,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "通用汽车发布GMC Hummer X概念车，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -3691,12 +3720,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
+      "summary": "支持高速/城市NOA 综合续航超2000km！ID.ERA 5S将于三季度上市，涉及汽车技术与智能化进展。",
+      "brands": [],
       "importance": 61,
       "category": "技术",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "支持高速/城市NOA 综合续航超2000km！ID.ERA 5S将于三季度上市，涉及汽车技术与智能化进展。",
       "is_new": false
     },
     {
@@ -3711,12 +3740,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "劳斯莱斯发布库里南全新配色“氤氲蓝” 为中国第四款专属配色，反映汽车市场动态。",
+      "brands": [],
       "importance": 61,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "劳斯莱斯发布库里南全新配色“氤氲蓝” 为中国第四款专属配色，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -3731,12 +3760,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
+      "summary": "2026粤港澳大湾区车展：售16.99万起 帕萨特 ePro/途观L ePro上市，相关产品信息更新。",
+      "brands": [],
       "importance": 61,
       "category": "产品",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "2026粤港澳大湾区车展：售16.99万起 帕萨特 ePro/途观L ePro上市，相关产品信息更新。",
       "is_new": false
     },
     {
@@ -3751,12 +3780,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
+      "summary": "2026粤港澳大湾区车展：firefly萤火虫敞篷概念车首发亮相，相关产品信息更新。",
+      "brands": [],
       "importance": 61,
       "category": "产品",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "2026粤港澳大湾区车展：firefly萤火虫敞篷概念车首发亮相，相关产品信息更新。",
       "is_new": false
     },
     {
@@ -3771,12 +3800,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
+      "summary": "2026粤港澳车展：新款猛士M817预售37万起，大师版同步亮相，相关产品信息更新。",
+      "brands": [],
       "importance": 61,
       "category": "产品",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "2026粤港澳车展：新款猛士M817预售37万起，大师版同步亮相，相关产品信息更新。",
       "is_new": false
     },
     {
@@ -3791,12 +3820,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "智能化进展值得关注",
-      "enriched_by": "codex",
+      "summary": "2026粤港澳车展：新款乐道L60开启预订 引入激光雷达 6月11日上市，涉及汽车技术与智能化进展。",
+      "brands": [],
       "importance": 61,
       "category": "技术",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "2026粤港澳车展：新款乐道L60开启预订 引入激光雷达 6月11日上市，涉及汽车技术与智能化进展。",
       "is_new": false
     },
     {
@@ -3811,12 +3840,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
+      "summary": "2026粤港澳车展：尊界S800 Grand Design预售160万起 6月下旬上市，相关产品信息更新。",
+      "brands": [],
       "importance": 61,
       "category": "产品",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "2026粤港澳车展：尊界S800 Grand Design预售160万起 6月下旬上市，相关产品信息更新。",
       "is_new": false
     },
     {
@@ -3831,12 +3860,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "规则变化影响用车成本",
-      "enriched_by": "codex",
+      "summary": "气囊存破裂喷溅隐患 通用汽车在北美召回 共涉及6910辆，涉及出行监管或政策规则。",
+      "brands": [],
       "importance": 61,
       "category": "政策",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "气囊存破裂喷溅隐患 通用汽车在北美召回 共涉及6910辆，涉及出行监管或政策规则。",
       "is_new": false
     },
     {
@@ -3851,14 +3880,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 61,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "刘展术将出任大众汽车（安徽）数字化销售服务有限公司首席执行官，反映汽车市场动态。",
       "brands": [
         "大众"
       ],
-      "summary": "刘展术将出任大众汽车（安徽）数字化销售服务有限公司首席执行官，反映汽车市场动态。",
+      "importance": 61,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -3873,12 +3902,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
+      "summary": "16.98万元起 内饰/驾驶体验等七大升级 新款尚界H5开启预售，相关产品信息更新。",
+      "brands": [],
       "importance": 61,
       "category": "产品",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "16.98万元起 内饰/驾驶体验等七大升级 新款尚界H5开启预售，相关产品信息更新。",
       "is_new": false
     },
     {
@@ -3893,12 +3922,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
+      "summary": "采用全新配色及金色元素 尊界S800 Grand Design将于5月29日亮相，相关产品信息更新。",
+      "brands": [],
       "importance": 61,
       "category": "产品",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "采用全新配色及金色元素 尊界S800 Grand Design将于5月29日亮相，相关产品信息更新。",
       "is_new": false
     },
     {
@@ -3913,14 +3942,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 61,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "奥迪CEO暧昧表示：评估硬派越野SUV/新R8用“小牛”动力是好主意，反映汽车市场动态。",
       "brands": [
         "奥迪"
       ],
-      "summary": "奥迪CEO暧昧表示：评估硬派越野SUV/新R8用“小牛”动力是好主意，反映汽车市场动态。",
+      "importance": 61,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -3935,14 +3964,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "产品变化值得留意",
-      "enriched_by": "codex",
-      "importance": 61,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "ES8？入门版电池租用价39万元就很顶？蔚来ES9配置差异速览，相关产品信息更新。",
       "brands": [
         "蔚来"
       ],
-      "summary": "ES8？入门版电池租用价39万元就很顶？蔚来ES9配置差异速览，相关产品信息更新。",
+      "importance": 61,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -3957,12 +3986,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "新车节点影响竞争节奏",
-      "enriched_by": "codex",
+      "summary": "限时19.48万起 磁流变底盘/最高综合续航1330km 极狐问道V9上市，相关产品信息更新。",
+      "brands": [],
       "importance": 61,
       "category": "产品",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "限时19.48万起 磁流变底盘/最高综合续航1330km 极狐问道V9上市，相关产品信息更新。",
       "is_new": false
     },
     {
@@ -3977,12 +4006,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "发布会分析丨10大维度解读两场最夯9系发布，反映汽车市场动态。",
+      "brands": [],
       "importance": 61,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "发布会分析丨10大维度解读两场最夯9系发布，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -3997,12 +4026,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "盈利质量比规模更关键",
-      "enriched_by": "codex",
+      "summary": "汽车行业利润率持续探底，钱被谁赚走了，反映汽车市场动态。",
+      "brands": [],
       "importance": 61,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "汽车行业利润率持续探底，钱被谁赚走了，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -4017,14 +4046,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 61,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "华为新定律改变了什么，反映汽车市场动态。",
       "brands": [
         "华为"
       ],
-      "summary": "华为新定律改变了什么，反映汽车市场动态。",
+      "importance": 61,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4039,14 +4068,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 61,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "蔚来公司三品牌同台登陆大湾区车展，反映汽车市场动态。",
       "brands": [
         "蔚来"
       ],
-      "summary": "蔚来公司三品牌同台登陆大湾区车展，反映汽车市场动态。",
+      "importance": 61,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4061,14 +4090,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 61,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "Waymo向特定乘客开放Ojai机器人出租车，反映汽车市场动态。",
       "brands": [
         "Waymo"
       ],
-      "summary": "Waymo向特定乘客开放Ojai机器人出租车，反映汽车市场动态。",
+      "importance": 61,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4083,12 +4112,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "盈利质量比规模更关键",
-      "enriched_by": "codex",
+      "summary": "没有利润的销量就是伪销量，反映汽车市场动态。",
+      "brands": [],
       "importance": 61,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "没有利润的销量就是伪销量，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -4103,14 +4132,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 61,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "比亚迪确认Ti7七座插混SUV将登陆英国，反映汽车市场动态。",
       "brands": [
         "比亚迪"
       ],
-      "summary": "比亚迪确认Ti7七座插混SUV将登陆英国，反映汽车市场动态。",
+      "importance": 61,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4126,16 +4155,16 @@
       "publish_ts": 1780134287.377343,
       "publish_date": "2026-05-30",
       "takeaway": "豪华车渠道整合或影响终端议价。",
-      "enriched_by": "codex",
-      "importance": 60,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "奔驰、宝马、保时捷经销商合作引发终端价格讨论。",
       "brands": [
         "奔驰",
         "宝马",
         "保时捷"
       ],
-      "summary": "奔驰、宝马、保时捷经销商合作引发终端价格讨论。",
+      "importance": 60,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4150,15 +4179,15 @@
       "publish_ts": 1780134287.376166,
       "publish_date": "2026-05-30",
       "takeaway": "价格动作牵动竞争格局",
-      "enriched_by": "codex",
-      "importance": 60,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "车企涨价潮已至，特斯拉比亚迪均失守，这家直接涨3万，反映汽车市场动态。",
       "brands": [
         "比亚迪",
         "特斯拉"
       ],
-      "summary": "车企涨价潮已至，特斯拉比亚迪均失守，这家直接涨3万，反映汽车市场动态。",
+      "importance": 60,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4173,14 +4202,14 @@
       "publish_ts": 1780116287.376635,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 60,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "别克至境背后：合资车企新能源转型，驶入深水区，反映汽车市场动态。",
       "brands": [
         "别克"
       ],
-      "summary": "别克至境背后：合资车企新能源转型，驶入深水区，反映汽车市场动态。",
+      "importance": 60,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4195,15 +4224,15 @@
       "item_id": "349f2803aaa7bec0",
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
-      "takeaway": "?????????????",
-      "enriched_by": "codex",
-      "importance": 60,
-      "category": "??",
-      "is_featured": false,
+      "summary": "法拉利CEO回应外界对品牌纯电车型的质疑，维护其电动化规划。",
+      "takeaway": "看点在超跑品牌纯电转型仍面临用户认知分歧。",
+      "category": "舆情",
       "brands": [
-        "???"
+        "法拉利"
       ],
-      "summary": "???CEO?????????????????????????",
+      "importance": 60,
+      "is_featured": false,
+      "enriched_by": "codex",
       "is_new": false
     },
     {
@@ -4219,14 +4248,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
-      "importance": 60,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "小型SUV！1-4月销量：两款月销破万，零跑A10第4，XR-V第15，反映汽车市场动态。",
       "brands": [
         "零跑"
       ],
-      "summary": "小型SUV！1-4月销量：两款月销破万，零跑A10第4，XR-V第15，反映汽车市场动态。",
+      "importance": 60,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4241,15 +4270,15 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 59,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "地瓜机器人与自变量合作，反映汽车市场动态。",
       "brands": [
         "地瓜机器人",
         "自变量"
       ],
-      "summary": "地瓜机器人与自变量合作，反映汽车市场动态。",
+      "importance": 59,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4264,15 +4293,15 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 59,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "优必选与沐曦股份设新公司，反映汽车市场动态。",
       "brands": [
         "优必选",
         "沐曦"
       ],
-      "summary": "优必选与沐曦股份设新公司，反映汽车市场动态。",
+      "importance": 59,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4287,15 +4316,15 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 59,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "伟世通与Smart Eye合作，反映汽车市场动态。",
       "brands": [
         "伟世通",
         "Smart Eye"
       ],
-      "summary": "伟世通与Smart Eye合作，反映汽车市场动态。",
+      "importance": 59,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4311,12 +4340,12 @@
       "publish_ts": 1780134287.377305,
       "publish_date": "2026-05-30",
       "takeaway": "价格和销量分化反映市场压力。",
-      "enriched_by": "codex",
+      "summary": "车市出现涨价、销量下滑与新车集中上市等现象。",
+      "brands": [],
       "importance": 58,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "车市出现涨价、销量下滑与新车集中上市等现象。",
       "is_new": false
     },
     {
@@ -4332,35 +4361,12 @@
       "publish_ts": 1780130687.377564,
       "publish_date": "2026-05-30",
       "takeaway": "油车阵营仍在寻找转型反击机会。",
-      "enriched_by": "codex",
+      "summary": "文章讨论传统燃油车企加大投入应对新能源车竞争。",
+      "brands": [],
       "importance": 58,
       "category": "市场",
-      "is_featured": false,
-      "brands": [],
-      "summary": "文章讨论传统燃油车企加大投入应对新能源车竞争。",
-      "is_new": false
-    },
-    {
-      "title": "奇瑞王琅：破局内卷关键在提升竞争层次",
-      "url": "https://www.d1ev.com/news/shichang/301206",
-      "publish_time": "",
-      "snippet": "",
-      "image": "",
-      "source": "d1ev",
-      "source_name": "第一电动",
-      "crawled_at": "2026-05-30T11:44:01.253467+00:00",
-      "item_id": "832e892e2abaf5df",
-      "publish_ts": 1780106400.0,
-      "publish_date": "2026-05-30",
-      "takeaway": "?????????????",
       "enriched_by": "codex",
-      "importance": 58,
-      "category": "??",
       "is_featured": false,
-      "brands": [
-        "??"
-      ],
-      "summary": "??????????????????????",
       "is_new": false
     },
     {
@@ -4375,14 +4381,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "用户信任与口碑受考验",
-      "enriched_by": "codex",
-      "importance": 58,
-      "category": "舆情",
-      "is_featured": false,
+      "summary": "法拉利Luce面世，在质疑声中坚定电动化创新，引发消费与行业关注。",
       "brands": [
         "法拉利"
       ],
-      "summary": "法拉利Luce面世，在质疑声中坚定电动化创新，引发消费与行业关注。",
+      "importance": 58,
+      "category": "舆情",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4398,14 +4404,14 @@
       "publish_ts": 1780130687.377498,
       "publish_date": "2026-05-30",
       "takeaway": "中国品牌高端性能叙事受到关注。",
-      "enriched_by": "codex",
-      "importance": 57,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "文章讨论法拉利变化后中国车企在超跑领域的机会。",
       "brands": [
         "法拉利"
       ],
-      "summary": "文章讨论法拉利变化后中国车企在超跑领域的机会。",
+      "importance": 57,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4421,12 +4427,12 @@
       "publish_ts": 1780134287.377439,
       "publish_date": "2026-05-30",
       "takeaway": "用车成本仍是电动车渗透的重要变量。",
-      "enriched_by": "codex",
+      "summary": "文章分析油价上涨与电动车普及之间的关系。",
+      "brands": [],
       "importance": 56,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "文章分析油价上涨与电动车普及之间的关系。",
       "is_new": false
     },
     {
@@ -4441,14 +4447,14 @@
       "publish_ts": 1780130687.37649,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 56,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "中国汽车工业首个“亿辆俱乐部”成员：上汽累计产销突破1亿辆，反映汽车市场动态。",
       "brands": [
         "上汽"
       ],
-      "summary": "中国汽车工业首个“亿辆俱乐部”成员：上汽累计产销突破1亿辆，反映汽车市场动态。",
+      "importance": 56,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4463,14 +4469,14 @@
       "publish_ts": 1780130687.376471,
       "publish_date": "2026-05-30",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
-      "importance": 56,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "157亿美元打水漂！本田汽车放弃纯电专属平台，涉及汽车技术与智能化进展。",
       "brands": [
         "本田"
       ],
-      "summary": "157亿美元打水漂！本田汽车放弃纯电专属平台，涉及汽车技术与智能化进展。",
+      "importance": 56,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4485,16 +4491,37 @@
       "item_id": "783664a2e3e43a8b",
       "publish_ts": 1780137887.377244,
       "publish_date": "2026-05-30",
-      "summary": "法拉利首款电动车外观引发车主不满，部分声音建议撤下跃马标识。",
       "takeaway": "超跑电动化遭遇审美争议",
-      "category": "舆情",
+      "summary": "法拉利首款电动车外观引发车主不满，部分声音建议撤下跃马标识。",
       "brands": [
         "法拉利"
       ],
       "importance": 55,
+      "category": "舆情",
+      "enriched_by": "codex",
+      "is_featured": false,
+      "is_new": false
+    },
+    {
+      "title": "拾级而上：在技术深水区重建汽车产业的未来坐标 | 2026未来汽车先行者大会",
+      "url": "https://www.d1ev.com/news/shichang/301180",
+      "publish_time": "",
+      "snippet": "",
+      "image": "",
+      "source": "d1ev",
+      "source_name": "第一电动",
+      "crawled_at": "2026-05-30T11:44:01.253467+00:00",
+      "item_id": "fea65c4c89cdc3db",
+      "publish_ts": 1780106400.0,
+      "publish_date": "2026-05-30",
+      "summary": "2026未来汽车先行者大会聚焦汽车技术演进与产业未来议题。",
+      "takeaway": "看点在会议议题折射产业技术竞争方向。",
+      "category": "技术",
+      "brands": [],
+      "importance": 55,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645204321738654233",
@@ -4508,14 +4535,14 @@
       "publish_ts": 1780137887.37584,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 54,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "比亚迪“迪迪虾”！以后车不是车，是成你家“大管家”了，反映汽车市场动态。",
       "brands": [
         "比亚迪"
       ],
-      "summary": "比亚迪“迪迪虾”！以后车不是车，是成你家“大管家”了，反映汽车市场动态。",
+      "importance": 54,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4531,12 +4558,12 @@
       "publish_ts": 1780134287.377363,
       "publish_date": "2026-05-30",
       "takeaway": "电动车增重推高轮胎技术门槛。",
-      "enriched_by": "codex",
+      "summary": "文章关注重型电动车对轮胎承载和性能的要求。",
+      "brands": [],
       "importance": 54,
       "category": "技术",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "文章关注重型电动车对轮胎承载和性能的要求。",
       "is_new": false
     },
     {
@@ -4551,14 +4578,14 @@
       "publish_ts": 1780134287.376185,
       "publish_date": "2026-05-30",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
-      "importance": 54,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "理想公布国际化战略：分阶段拓展海外市场，Q3推L系列增程车型，涉及汽车技术与智能化进展。",
       "brands": [
         "理想"
       ],
-      "summary": "理想公布国际化战略：分阶段拓展海外市场，Q3推L系列增程车型，涉及汽车技术与智能化进展。",
+      "importance": 54,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4573,12 +4600,12 @@
       "publish_ts": 1780134287.376072,
       "publish_date": "2026-05-30",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
+      "summary": "电动车续航翻倍、充电3分钟！中科院这波固态电池什么来头，涉及汽车技术与智能化进展。",
+      "brands": [],
       "importance": 54,
       "category": "技术",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "电动车续航翻倍、充电3分钟！中科院这波固态电池什么来头，涉及汽车技术与智能化进展。",
       "is_new": false
     },
     {
@@ -4593,14 +4620,14 @@
       "publish_ts": 1780134287.376016,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 54,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "小米YU7月销跌破万辆，雷军想完成55万辆年目标仍需努力，反映汽车市场动态。",
       "brands": [
         "小米"
       ],
-      "summary": "小米YU7月销跌破万辆，雷军想完成55万辆年目标仍需努力，反映汽车市场动态。",
+      "importance": 54,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4615,14 +4642,14 @@
       "publish_ts": 1780134287.375917,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 54,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "日系车集体崩了，日本人怨中美？看丰田章男就知道他们是咎由自取，反映汽车市场动态。",
       "brands": [
         "丰田"
       ],
-      "summary": "日系车集体崩了，日本人怨中美？看丰田章男就知道他们是咎由自取，反映汽车市场动态。",
+      "importance": 54,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4637,14 +4664,14 @@
       "publish_ts": 1780134287.375897,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 54,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "大船装满近5000辆车，比亚迪在澳大利亚卖爆了，反映汽车市场动态。",
       "brands": [
         "比亚迪"
       ],
-      "summary": "大船装满近5000辆车，比亚迪在澳大利亚卖爆了，反映汽车市场动态。",
+      "importance": 54,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4659,12 +4686,12 @@
       "publish_ts": 1780105487.376653,
       "publish_date": "2026-05-30",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
+      "summary": "百花齐放！4月插电混动SUV销量榜：钛7夺冠，银河M9第8，豹8第47，反映汽车市场动态。",
+      "brands": [],
       "importance": 54,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "百花齐放！4月插电混动SUV销量榜：钛7夺冠，银河M9第8，豹8第47，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -4680,12 +4707,12 @@
       "publish_ts": 1780101887.378094,
       "publish_date": "2026-05-30",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
+      "summary": "全国新车销量-前50品牌-2026年1-4月，反映汽车市场动态。",
+      "brands": [],
       "importance": 54,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "全国新车销量-前50品牌-2026年1-4月，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -4701,12 +4728,12 @@
       "publish_ts": 1780094687.378114,
       "publish_date": "2026-05-30",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
+      "summary": "中国汽车在欧洲同比大涨，主要二十国销量数据详情出炉，反映汽车市场动态。",
+      "brands": [],
       "importance": 54,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "中国汽车在欧洲同比大涨，主要二十国销量数据详情出炉，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -4722,12 +4749,12 @@
       "publish_ts": 1780073087.378134,
       "publish_date": "2026-05-30",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
+      "summary": "SUV车型卖火了！1-4月销量榜出炉 19款累计销量超4万辆 博越第二，反映汽车市场动态。",
+      "brands": [],
       "importance": 54,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "SUV车型卖火了！1-4月销量榜出炉 19款累计销量超4万辆 博越第二，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -4742,12 +4769,12 @@
       "publish_ts": 1780065887.376729,
       "publish_date": "2026-05-30",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
+      "summary": "ACEA公布4月欧洲各国汽车销量数据，反映汽车市场动态。",
+      "brands": [],
       "importance": 54,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "ACEA公布4月欧洲各国汽车销量数据，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -4762,12 +4789,12 @@
       "publish_ts": 1780065887.37671,
       "publish_date": "2026-05-30",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
+      "summary": "ACEA公布4月欧洲各国汽车销量数据，反映汽车市场动态。",
+      "brands": [],
       "importance": 54,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "ACEA公布4月欧洲各国汽车销量数据，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -4782,12 +4809,12 @@
       "publish_ts": 1780058687.376846,
       "publish_date": "2026-05-29",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
+      "summary": "真的牛！1-4月微小型车销量排名：新能源大胜，海鸥第4，飞度第16，反映汽车市场动态。",
+      "brands": [],
       "importance": 54,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "真的牛！1-4月微小型车销量排名：新能源大胜，海鸥第4，飞度第16，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -4803,14 +4830,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 54,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "消息称小鹏GX全国锁单量达6-8万台 热度不输MONA，反映汽车市场动态。",
       "brands": [
         "小鹏"
       ],
-      "summary": "消息称小鹏GX全国锁单量达6-8万台 热度不输MONA，反映汽车市场动态。",
+      "importance": 54,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4826,14 +4853,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "Diodes推出高灵敏度霍尔效应锁存器 提升位置传感性能，反映汽车市场动态。",
       "brands": [
         "Diodes"
       ],
-      "summary": "Diodes推出高灵敏度霍尔效应锁存器 提升位置传感性能，反映汽车市场动态。",
+      "importance": 53,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4849,14 +4876,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "米其林推出面向软件定义汽车的通用轮胎数字孪生，反映汽车市场动态。",
       "brands": [
         "米其林"
       ],
-      "summary": "米其林推出面向软件定义汽车的通用轮胎数字孪生，反映汽车市场动态。",
+      "importance": 53,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4872,14 +4899,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "TDK推出双输出3D霍尔效应开关系列 用于精确感应电机速度和方向，涉及汽车技术与智能化进展。",
       "brands": [
         "TDK"
       ],
-      "summary": "TDK推出双输出3D霍尔效应开关系列 用于精确感应电机速度和方向，涉及汽车技术与智能化进展。",
+      "importance": 53,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4895,14 +4922,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "宇树具身智能体验馆亚洲首店上海开业，反映汽车市场动态。",
       "brands": [
         "宇树"
       ],
-      "summary": "宇树具身智能体验馆亚洲首店上海开业，反映汽车市场动态。",
+      "importance": 53,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4918,14 +4945,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "江淮汽车：产业变革下的价值重构实践，反映汽车市场动态。",
       "brands": [
         "江淮"
       ],
-      "summary": "江淮汽车：产业变革下的价值重构实践，反映汽车市场动态。",
+      "importance": 53,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4941,14 +4968,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "C Talk ： 浩思动力首席执行官Matias Giannini：实现碳中和，纯电并非唯一路径，多元动力才是答案，涉及",
       "brands": [
         "浩思动力"
       ],
-      "summary": "C Talk ： 浩思动力首席执行官Matias Giannini：实现碳中和，纯电并非唯一路径，多元动力才是答案，涉及",
+      "importance": 53,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4964,14 +4991,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "LG推出单SoC AAOS多屏驾驶舱，反映汽车市场动态。",
       "brands": [
         "LG"
       ],
-      "summary": "LG推出单SoC AAOS多屏驾驶舱，反映汽车市场动态。",
+      "importance": 53,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -4987,14 +5014,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "项兴初：江淮人“不辜负这个时代”，反映汽车市场动态。",
       "brands": [
         "江淮"
       ],
-      "summary": "项兴初：江淮人“不辜负这个时代”，反映汽车市场动态。",
+      "importance": 53,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -5010,14 +5037,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "宇树具身智能体验馆亚洲首店上海开业，反映汽车市场动态。",
       "brands": [
         "宇树"
       ],
-      "summary": "宇树具身智能体验馆亚洲首店上海开业，反映汽车市场动态。",
+      "importance": 53,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -5033,14 +5060,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "奇瑞王琅：破局内卷关键在提升竞争层次，反映汽车市场动态。",
       "brands": [
         "奇瑞"
       ],
-      "summary": "奇瑞王琅：破局内卷关键在提升竞争层次，反映汽车市场动态。",
+      "importance": 53,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -5056,14 +5083,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "TDK推出双输出3D霍尔效应开关系列 用于精确感应电机速度和方向，涉及汽车技术与智能化进展。",
       "brands": [
         "TDK"
       ],
-      "summary": "TDK推出双输出3D霍尔效应开关系列 用于精确感应电机速度和方向，涉及汽车技术与智能化进展。",
+      "importance": 53,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -5079,14 +5106,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "江淮汽车：产业变革下的价值重构实践，反映汽车市场动态。",
       "brands": [
         "江淮"
       ],
-      "summary": "江淮汽车：产业变革下的价值重构实践，反映汽车市场动态。",
+      "importance": 53,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -5102,14 +5129,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "兰博基尼终止Lanzador电动车型计划，法拉利Luce市场遇冷成关键考量，涉及汽车技术与智能化进展。",
       "brands": [
         "法拉利"
       ],
-      "summary": "兰博基尼终止Lanzador电动车型计划，法拉利Luce市场遇冷成关键考量，涉及汽车技术与智能化进展。",
+      "importance": 53,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -5125,14 +5152,14 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "产品变化值得留意",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "沃尔沃EX30车型全系更名并调整配置，相关产品信息更新。",
       "brands": [
         "沃尔沃"
       ],
-      "summary": "沃尔沃EX30车型全系更名并调整配置，相关产品信息更新。",
+      "importance": 53,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -5147,14 +5174,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "售36.5万 极氪001五周年纪念版限量加售 配备KW绞牙避震，反映汽车市场动态。",
       "brands": [
         "极氪"
       ],
-      "summary": "售36.5万 极氪001五周年纪念版限量加售 配备KW绞牙避震，反映汽车市场动态。",
+      "importance": 53,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -5169,14 +5196,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "产品变化值得留意",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "现款本田Ridgeline即将停产 全新换代车型预计2028年回归，相关产品信息更新。",
       "brands": [
         "本田"
       ],
-      "summary": "现款本田Ridgeline即将停产 全新换代车型预计2028年回归，相关产品信息更新。",
+      "importance": 53,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -5191,14 +5218,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "吉利银河赞助总台2026世界杯转播，助力亿万观众畅享足坛盛宴，反映汽车市场动态。",
       "brands": [
         "吉利"
       ],
-      "summary": "吉利银河赞助总台2026世界杯转播，助力亿万观众畅享足坛盛宴，反映汽车市场动态。",
+      "importance": 53,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -5213,14 +5240,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "产品变化值得留意",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "产品",
-      "is_featured": false,
+      "summary": "这诱惑谁禁得起？法拉利申请10余个全新车型名商标 “GTO”再启用，相关产品信息更新。",
       "brands": [
         "法拉利"
       ],
-      "summary": "这诱惑谁禁得起？法拉利申请10余个全新车型名商标 “GTO”再启用，相关产品信息更新。",
+      "importance": 53,
+      "category": "产品",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -5235,14 +5262,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "技术",
-      "is_featured": false,
+      "summary": "前法拉利CEO狠批纯电Luce：标志拿掉吧，它可能会毁掉法拉利，涉及汽车技术与智能化进展。",
       "brands": [
         "法拉利"
       ],
-      "summary": "前法拉利CEO狠批纯电Luce：标志拿掉吧，它可能会毁掉法拉利，涉及汽车技术与智能化进展。",
+      "importance": 53,
+      "category": "技术",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -5257,14 +5284,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "221km/h爆胎 魏牌V9X为一个瞬间做了多少准备，反映汽车市场动态。",
       "brands": [
         "魏牌"
       ],
-      "summary": "221km/h爆胎 魏牌V9X为一个瞬间做了多少准备，反映汽车市场动态。",
+      "importance": 53,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -5279,14 +5306,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "配KW绞牙避震 极氪001五周年纪念版将于5月29日限量加售，反映汽车市场动态。",
       "brands": [
         "极氪"
       ],
-      "summary": "配KW绞牙避震 极氪001五周年纪念版将于5月29日限量加售，反映汽车市场动态。",
+      "importance": 53,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -5301,14 +5328,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "吉利汽车集团副总裁李传海：不认为行业同质化特别严重，反映汽车市场动态。",
       "brands": [
         "吉利"
       ],
-      "summary": "吉利汽车集团副总裁李传海：不认为行业同质化特别严重，反映汽车市场动态。",
+      "importance": 53,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -5323,14 +5350,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "沃兰特航空VE25-100完成有人驾驶转换飞行，反映汽车市场动态。",
       "brands": [
         "沃兰特航空"
       ],
-      "summary": "沃兰特航空VE25-100完成有人驾驶转换飞行，反映汽车市场动态。",
+      "importance": 53,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -5345,14 +5372,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "价格动作牵动竞争格局",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "现代印度公司宣布涨价，反映汽车市场动态。",
       "brands": [
         "现代"
       ],
-      "summary": "现代印度公司宣布涨价，反映汽车市场动态。",
+      "importance": 53,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -5367,37 +5394,14 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 53,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "Jeep将于2028年推出双门皮卡Scrambler，反映汽车市场动态。",
       "brands": [
         "Jeep"
       ],
-      "summary": "Jeep将于2028年推出双门皮卡Scrambler，反映汽车市场动态。",
-      "is_new": false
-    },
-    {
-      "title": "八车围攻阿维塔12，胜算几何？",
-      "url": "https://www.d1ev.com/news/qiye/301234",
-      "publish_time": "",
-      "snippet": "",
-      "image": "",
-      "source": "d1ev",
-      "source_name": "第一电动",
-      "crawled_at": "2026-05-30T11:44:01.253467+00:00",
-      "item_id": "4c69418073ebc9dc",
-      "publish_ts": 1780106400.0,
-      "publish_date": "2026-05-30",
-      "takeaway": "?????????????",
+      "importance": 53,
+      "category": "市场",
       "enriched_by": "codex",
-      "importance": 52,
-      "category": "??",
       "is_featured": false,
-      "brands": [
-        "???"
-      ],
-      "summary": "?????????????12?????????",
       "is_new": false
     },
     {
@@ -5412,12 +5416,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "用户信任与口碑受考验",
-      "enriched_by": "codex",
+      "summary": "全新帕杰罗将于秋季回归 未来成立帕杰罗序列 三菱新产品计划曝光，引发消费与行业关注。",
+      "brands": [],
       "importance": 52,
       "category": "舆情",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "全新帕杰罗将于秋季回归 未来成立帕杰罗序列 三菱新产品计划曝光，引发消费与行业关注。",
       "is_new": false
     },
     {
@@ -5433,14 +5437,14 @@
       "publish_ts": 1780130687.377659,
       "publish_date": "2026-05-30",
       "takeaway": "产业叙事凸显中国车企追赶路径。",
-      "enriched_by": "codex",
-      "importance": 48,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "文章从奔驰早期车型谈到中国汽车产业弯道发展。",
       "brands": [
         "奔驰"
       ],
-      "summary": "文章从奔驰早期车型谈到中国汽车产业弯道发展。",
+      "importance": 48,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -5456,12 +5460,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "中国汽车：越卖越多，越赚越薄，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "中国汽车：越卖越多，越赚越薄，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -5477,12 +5481,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "卓驭欧洲总部正式开业，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "卓驭欧洲总部正式开业，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -5498,12 +5502,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "A0级小车，越来越卷，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "A0级小车，越来越卷，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -5519,12 +5523,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "Helm.ai推出基础模型，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "Helm.ai推出基础模型，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -5540,12 +5544,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "汽车行业进入决赛最残酷的竞争阶段，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "汽车行业进入决赛最残酷的竞争阶段，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -5561,12 +5565,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "沂普光电战略收购苏州龙马璞芯，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "沂普光电战略收购苏州龙马璞芯，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -5582,12 +5586,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "2026高通汽车技术与合作峰会，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "2026高通汽车技术与合作峰会，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -5603,12 +5607,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "C Talk ： TomTom正在进入Al汽车深水区，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "C Talk ： TomTom正在进入Al汽车深水区，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -5624,12 +5628,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "C Talk ： 曼胡默尔集团总裁兼首席执行官 吴柯巍：在中国速度与全球变革中，重新定义过滤技术的价值，反映汽车市场动态",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "C Talk ： 曼胡默尔集团总裁兼首席执行官 吴柯巍：在中国速度与全球变革中，重新定义过滤技术的价值，反映汽车市场动态",
       "is_new": false
     },
     {
@@ -5645,12 +5649,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "燃油车市场份额正以每年10-15%收窄，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "燃油车市场份额正以每年10-15%收窄，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -5666,12 +5670,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "李传海：不认为行业同质化特别严重，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "李传海：不认为行业同质化特别严重，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -5687,12 +5691,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "搞营销的又开始焦虑了，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "搞营销的又开始焦虑了，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -5708,12 +5712,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "10多万大型SUV老外造不出，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "10多万大型SUV老外造不出，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -5729,12 +5733,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "价格动作牵动竞争格局",
-      "enriched_by": "codex",
+      "summary": "汽车降价时代正在终结，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "汽车降价时代正在终结，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -5750,12 +5754,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "汽车经销商的卖车困局，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "汽车经销商的卖车困局，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -5771,12 +5775,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "中国车市正在经历一场“结构性塌陷”，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "中国车市正在经历一场“结构性塌陷”，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -5792,12 +5796,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
+      "summary": "德国公共充电桩破20万，涉及汽车技术与智能化进展。",
+      "brands": [],
       "importance": 47,
       "category": "技术",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "德国公共充电桩破20万，涉及汽车技术与智能化进展。",
       "is_new": false
     },
     {
@@ -5813,12 +5817,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
+      "summary": "延锋陆传华：智能座舱正从功能驱动转向场景驱动，涉及汽车技术与智能化进展。",
+      "brands": [],
       "importance": 47,
       "category": "技术",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "延锋陆传华：智能座舱正从功能驱动转向场景驱动，涉及汽车技术与智能化进展。",
       "is_new": false
     },
     {
@@ -5834,12 +5838,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "在技术深水区重建汽车产业的未来坐标，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "在技术深水区重建汽车产业的未来坐标，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -5855,12 +5859,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
+      "summary": "印尼政府推迟实施电动汽车激励计划，涉及汽车技术与智能化进展。",
+      "brands": [],
       "importance": 47,
       "category": "技术",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "印尼政府推迟实施电动汽车激励计划，涉及汽车技术与智能化进展。",
       "is_new": false
     },
     {
@@ -5876,12 +5880,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "产品变化值得留意",
-      "enriched_by": "codex",
+      "summary": "AITO M9完成中期改款，相关产品信息更新。",
+      "brands": [],
       "importance": 47,
       "category": "产品",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "AITO M9完成中期改款，相关产品信息更新。",
       "is_new": false
     },
     {
@@ -5897,12 +5901,12 @@
       "publish_ts": 1780106400.0,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "中国汽车：越卖越多，越赚越薄，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "中国汽车：越卖越多，越赚越薄，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -5917,12 +5921,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
+      "summary": "一台新能源车，是如何验证可靠性的，涉及汽车技术与智能化进展。",
+      "brands": [],
       "importance": 47,
       "category": "技术",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "一台新能源车，是如何验证可靠性的，涉及汽车技术与智能化进展。",
       "is_new": false
     },
     {
@@ -5937,12 +5941,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "2026中国汽车经销商大会：经销商的核心主体地位不可替代，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "2026中国汽车经销商大会：经销商的核心主体地位不可替代，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -5957,12 +5961,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
+      "summary": "AMG GT四门跑车纯电版欧洲开订 15.5万欧元起 满配价直逼V12超跑，涉及汽车技术与智能化进展。",
+      "brands": [],
       "importance": 47,
       "category": "技术",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "AMG GT四门跑车纯电版欧洲开订 15.5万欧元起 满配价直逼V12超跑，涉及汽车技术与智能化进展。",
       "is_new": false
     },
     {
@@ -5977,12 +5981,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "产品变化值得留意",
-      "enriched_by": "codex",
+      "summary": "外观细节优化 中期改款斯柯达柯迪亚克谍照曝光，相关产品信息更新。",
+      "brands": [],
       "importance": 47,
       "category": "产品",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "外观细节优化 中期改款斯柯达柯迪亚克谍照曝光，相关产品信息更新。",
       "is_new": false
     },
     {
@@ -5997,12 +6001,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "产品变化值得留意",
-      "enriched_by": "codex",
+      "summary": "售价1.1万元 风云T9L推出猎鹰700智享选装包 还有外观内饰的升级，相关产品信息更新。",
+      "brands": [],
       "importance": 47,
       "category": "产品",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "售价1.1万元 风云T9L推出猎鹰700智享选装包 还有外观内饰的升级，相关产品信息更新。",
       "is_new": false
     },
     {
@@ -6017,12 +6021,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "2026高通汽车技术与合作峰会，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "2026高通汽车技术与合作峰会，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6037,12 +6041,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "江汽集团党委书记项兴初：燃油车市场份额正以每年10-15%收窄，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "江汽集团党委书记项兴初：燃油车市场份额正以每年10-15%收窄，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6057,12 +6061,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "销量变化映射份额竞争",
-      "enriched_by": "codex",
+      "summary": "【国际快讯】4月中国电动汽车出口量同比增长40%；美墨启动正式贸易谈判，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "【国际快讯】4月中国电动汽车出口量同比增长40%；美墨启动正式贸易谈判，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6077,12 +6081,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "李斌和余承东，谁更懂50万级用户，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "李斌和余承东，谁更懂50万级用户，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6097,12 +6101,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "姚明、周杰伦为汽车代言，搞营销的又开始焦虑了，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "姚明、周杰伦为汽车代言，搞营销的又开始焦虑了，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6117,12 +6121,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "10多万的大型SUV，为什么老外造不出，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "10多万的大型SUV，为什么老外造不出，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6137,12 +6141,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "放在车顶的小蓝灯，逃不过的面子工程，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "放在车顶的小蓝灯，逃不过的面子工程，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6157,12 +6161,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "欧洲车市4月持续增长 中国品牌份额扩大，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "欧洲车市4月持续增长 中国品牌份额扩大，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6177,12 +6181,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "当座舱交互开始做减法，谁来定义下一个十年，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "当座舱交互开始做减法，谁来定义下一个十年，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6197,12 +6201,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "规则变化影响用车成本",
-      "enriched_by": "codex",
+      "summary": "把“锁电”选择权还给消费者，涉及出行监管或政策规则。",
+      "brands": [],
       "importance": 47,
       "category": "政策",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "把“锁电”选择权还给消费者，涉及出行监管或政策规则。",
       "is_new": false
     },
     {
@@ -6217,12 +6221,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "中保研C-IASI最新测评结果出路，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "中保研C-IASI最新测评结果出路，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6237,12 +6241,12 @@
       "publish_ts": 1780020000.0,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "李斌和余承东，谁更懂50万级用户，反映汽车市场动态。",
+      "brands": [],
       "importance": 47,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "李斌和余承东，谁更懂50万级用户，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6257,14 +6261,14 @@
       "publish_ts": 1780130687.376321,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
-      "importance": 46,
-      "category": "市场",
-      "is_featured": false,
+      "summary": "韩企向广汽集团供应车载背光单元 合同规模235亿韩元，反映汽车市场动态。",
       "brands": [
         "广汽"
       ],
-      "summary": "韩企向广汽集团供应车载背光单元 合同规模235亿韩元，反映汽车市场动态。",
+      "importance": 46,
+      "category": "市场",
+      "enriched_by": "codex",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -6280,12 +6284,12 @@
       "publish_ts": 1780123487.377917,
       "publish_date": "2026-05-30",
       "takeaway": "后市场服务规范化仍有短板。",
-      "enriched_by": "codex",
+      "summary": "文章关注广州番禺汽车贴膜行业技师持证率偏低问题。",
+      "brands": [],
       "importance": 43,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "文章关注广州番禺汽车贴膜行业技师持证率偏低问题。",
       "is_new": false
     },
     {
@@ -6300,12 +6304,12 @@
       "publish_ts": 1780137887.375859,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "如果你最近半年一直在观望买车，可能已经发现不对劲了，反映汽车市场动态。",
+      "brands": [],
       "importance": 40,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "如果你最近半年一直在观望买车，可能已经发现不对劲了，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6320,12 +6324,12 @@
       "publish_ts": 1780137887.375783,
       "publish_date": "2026-05-30",
       "takeaway": "规则变化影响用车成本",
-      "enriched_by": "codex",
+      "summary": "4397万辆新能源车免交养路费，车还更重，这事到底公平吗，涉及出行监管或政策规则。",
+      "brands": [],
       "importance": 40,
       "category": "政策",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "4397万辆新能源车免交养路费，车还更重，这事到底公平吗，涉及出行监管或政策规则。",
       "is_new": false
     },
     {
@@ -6340,12 +6344,12 @@
       "publish_ts": 1780137887.375763,
       "publish_date": "2026-05-30",
       "takeaway": "规则变化影响用车成本",
-      "enriched_by": "codex",
+      "summary": "注意绕行！汉学家大会期间这些路段实施交通管控分流，涉及出行监管或政策规则。",
+      "brands": [],
       "importance": 40,
       "category": "政策",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "注意绕行！汉学家大会期间这些路段实施交通管控分流，涉及出行监管或政策规则。",
       "is_new": false
     },
     {
@@ -6360,12 +6364,12 @@
       "publish_ts": 1780137887.375742,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "3.6万亿不见，日系车崩了，反映汽车市场动态。",
+      "brands": [],
       "importance": 40,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "3.6万亿不见，日系车崩了，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6380,12 +6384,12 @@
       "publish_ts": 1780137887.375719,
       "publish_date": "2026-05-30",
       "takeaway": "产品变化值得留意",
-      "enriched_by": "codex",
+      "summary": "新车换了赛道，老汽修人该何去何从，相关产品信息更新。",
+      "brands": [],
       "importance": 40,
       "category": "产品",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "新车换了赛道，老汽修人该何去何从，相关产品信息更新。",
       "is_new": false
     },
     {
@@ -6400,12 +6404,12 @@
       "publish_ts": 1780137887.375691,
       "publish_date": "2026-05-30",
       "takeaway": "规则变化影响用车成本",
-      "enriched_by": "codex",
+      "summary": "每天限驾8小时涉及网约车、出租车吗？最新回应，涉及出行监管或政策规则。",
+      "brands": [],
       "importance": 40,
       "category": "政策",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "每天限驾8小时涉及网约车、出租车吗？最新回应，涉及出行监管或政策规则。",
       "is_new": false
     },
     {
@@ -6420,12 +6424,12 @@
       "publish_ts": 1780134287.376283,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "🚗年欠费破200亿！全国停车逃单，车主与运营方正面，反映汽车市场动态。",
+      "brands": [],
       "importance": 40,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "🚗年欠费破200亿！全国停车逃单，车主与运营方正面，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6440,12 +6444,12 @@
       "publish_ts": 1780134287.376263,
       "publish_date": "2026-05-30",
       "takeaway": "规则变化影响用车成本",
-      "enriched_by": "codex",
+      "summary": "2026年前4个月车市深度调整：从“政策狂欢”到“结构分化”，涉及出行监管或政策规则。",
+      "brands": [],
       "importance": 40,
       "category": "政策",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "2026年前4个月车市深度调整：从“政策狂欢”到“结构分化”，涉及出行监管或政策规则。",
       "is_new": false
     },
     {
@@ -6460,12 +6464,12 @@
       "publish_ts": 1780134287.376147,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "87亿买个“打工”身份？轮胎大王扭头就走，反映汽车市场动态。",
+      "brands": [],
       "importance": 40,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "87亿买个“打工”身份？轮胎大王扭头就走，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6480,12 +6484,12 @@
       "publish_ts": 1780134287.37611,
       "publish_date": "2026-05-30",
       "takeaway": "规则变化影响用车成本",
-      "enriched_by": "codex",
+      "summary": "养路费真要来了？4000万电车车主“免费午餐”或终结，涉及出行监管或政策规则。",
+      "brands": [],
       "importance": 40,
       "category": "政策",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "养路费真要来了？4000万电车车主“免费午餐”或终结，涉及出行监管或政策规则。",
       "is_new": false
     },
     {
@@ -6500,12 +6504,12 @@
       "publish_ts": 1780134287.376091,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "日系车集体崩盘登上热搜，市占率腰斩，日系雪崩比想象更，反映汽车市场动态。",
+      "brands": [],
       "importance": 40,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "日系车集体崩盘登上热搜，市占率腰斩，日系雪崩比想象更，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6520,12 +6524,12 @@
       "publish_ts": 1780134287.376054,
       "publish_date": "2026-05-30",
       "takeaway": "规则变化影响用车成本",
-      "enriched_by": "codex",
+      "summary": "再过3天，全国所有在路上开车的人，都要面对一条全新的交通规则，涉及出行监管或政策规则。",
+      "brands": [],
       "importance": 40,
       "category": "政策",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "再过3天，全国所有在路上开车的人，都要面对一条全新的交通规则，涉及出行监管或政策规则。",
       "is_new": false
     },
     {
@@ -6540,12 +6544,12 @@
       "publish_ts": 1780134287.376035,
       "publish_date": "2026-05-30",
       "takeaway": "产品变化值得留意",
-      "enriched_by": "codex",
+      "summary": "中国电车席卷欧洲：价格、配置、认知三重变局，相关产品信息更新。",
+      "brands": [],
       "importance": 40,
       "category": "产品",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "中国电车席卷欧洲：价格、配置、认知三重变局，相关产品信息更新。",
       "is_new": false
     },
     {
@@ -6560,12 +6564,12 @@
       "publish_ts": 1780134287.375938,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "多地开始追缴停车费欠款，年累计逃费总额超200亿元，反映汽车市场动态。",
+      "brands": [],
       "importance": 40,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "多地开始追缴停车费欠款，年累计逃费总额超200亿元，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6580,12 +6584,12 @@
       "publish_ts": 1780134287.375878,
       "publish_date": "2026-05-30",
       "takeaway": "产品变化值得留意",
-      "enriched_by": "codex",
+      "summary": "89 元卡扣搞垮 25 万准新车！新能源车修车难，为何坑惨车主，相关产品信息更新。",
+      "brands": [],
       "importance": 40,
       "category": "产品",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "89 元卡扣搞垮 25 万准新车！新能源车修车难，为何坑惨车主，相关产品信息更新。",
       "is_new": false
     },
     {
@@ -6600,12 +6604,12 @@
       "publish_ts": 1780130687.376535,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "装满5000辆车的中国船到了澳洲，日系车28年统治结束了，反映汽车市场动态。",
+      "brands": [],
       "importance": 40,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "装满5000辆车的中国船到了澳洲，日系车28年统治结束了，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6620,12 +6624,12 @@
       "publish_ts": 1780130687.376452,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "刷了这么多瓜，索性来给大家捋捋启境和黄景瑜还有GT7的实锤信息，反映汽车市场动态。",
+      "brands": [],
       "importance": 40,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "刷了这么多瓜，索性来给大家捋捋启境和黄景瑜还有GT7的实锤信息，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6640,12 +6644,12 @@
       "publish_ts": 1780130687.376434,
       "publish_date": "2026-05-30",
       "takeaway": "规则变化影响用车成本",
-      "enriched_by": "codex",
+      "summary": "电车“免费午餐”进入倒计时？养路费这层窗户纸，该捅破了，涉及出行监管或政策规则。",
+      "brands": [],
       "importance": 40,
       "category": "政策",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "电车“免费午餐”进入倒计时？养路费这层窗户纸，该捅破了，涉及出行监管或政策规则。",
       "is_new": false
     },
     {
@@ -6660,12 +6664,12 @@
       "publish_ts": 1780130687.376415,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "信任赤字：2026汽车托运行业用户信任机制为何脆弱，反映汽车市场动态。",
+      "brands": [],
       "importance": 40,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "信任赤字：2026汽车托运行业用户信任机制为何脆弱，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6680,12 +6684,12 @@
       "publish_ts": 1780130687.376377,
       "publish_date": "2026-05-30",
       "takeaway": "价格动作牵动竞争格局",
-      "enriched_by": "codex",
+      "summary": "5月全钢胎出货遇冷 二轮涨价承压或难落地，反映汽车市场动态。",
+      "brands": [],
       "importance": 40,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "5月全钢胎出货遇冷 二轮涨价承压或难落地，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6700,12 +6704,12 @@
       "publish_ts": 1780130687.37634,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "别再执念“开报废”！现实早已说明，普通人根本做不到，反映汽车市场动态。",
+      "brands": [],
       "importance": 40,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "别再执念“开报废”！现实早已说明，普通人根本做不到，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6720,12 +6724,12 @@
       "publish_ts": 1780123487.376574,
       "publish_date": "2026-05-30",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
+      "summary": "乘联会：5月1-24日乘用车零售98.9万辆 新能源渗透率62.5%，涉及汽车技术与智能化进展。",
+      "brands": [],
       "importance": 40,
       "category": "技术",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "乘联会：5月1-24日乘用车零售98.9万辆 新能源渗透率62.5%，涉及汽车技术与智能化进展。",
       "is_new": false
     },
     {
@@ -6740,12 +6744,12 @@
       "publish_ts": 1780116287.376615,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "告别普涨时代，增长船票得靠TA，反映汽车市场动态。",
+      "brands": [],
       "importance": 40,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "告别普涨时代，增长船票得靠TA，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6761,12 +6765,12 @@
       "publish_ts": 1780062287.378154,
       "publish_date": "2026-05-29",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "前十榜单仅剩一款油车！燃油车市场加速结构性退潮，反映汽车市场动态。",
+      "brands": [],
       "importance": 40,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "前十榜单仅剩一款油车！燃油车市场加速结构性退潮，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6781,12 +6785,12 @@
       "publish_ts": 1780058687.376786,
       "publish_date": "2026-05-29",
       "takeaway": "技术路线出现新信号",
-      "enriched_by": "codex",
+      "summary": "新能源品牌竞争加剧，最终谁会上桌，涉及汽车技术与智能化进展。",
+      "brands": [],
       "importance": 40,
       "category": "技术",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "新能源品牌竞争加剧，最终谁会上桌，涉及汽车技术与智能化进展。",
       "is_new": false
     },
     {
@@ -6801,12 +6805,12 @@
       "publish_ts": 1780134287.376243,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "车标定制工厂：2026 小批量柔性定制优选，反映汽车市场动态。",
+      "brands": [],
       "importance": 30,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "车标定制工厂：2026 小批量柔性定制优选，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6822,12 +6826,12 @@
       "publish_ts": 1780127087.377815,
       "publish_date": "2026-05-30",
       "takeaway": "改装服务信息价值偏本地消费参考。",
-      "enriched_by": "codex",
+      "summary": "文章介绍上海商务车改装工厂选择和可靠性问题。",
+      "brands": [],
       "importance": 30,
       "category": "产品",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "文章介绍上海商务车改装工厂选择和可靠性问题。",
       "is_new": false
     },
     {
@@ -6843,12 +6847,12 @@
       "publish_ts": 1780123487.377833,
       "publish_date": "2026-05-30",
       "takeaway": "本地维修服务信息行业价值有限。",
-      "enriched_by": "codex",
+      "summary": "文章介绍贵阳地区汽修厂处理烧机油问题的选择。",
+      "brands": [],
       "importance": 30,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "文章介绍贵阳地区汽修厂处理烧机油问题的选择。",
       "is_new": false
     },
     {
@@ -6863,14 +6867,14 @@
       "item_id": "a2a37822d8d902b7",
       "publish_ts": 1780130687.377757,
       "publish_date": "2026-05-30",
-      "summary": "文章盘点温州四家汽车贴膜门店的服务模式与本地消费选择。",
       "takeaway": "本地后市场服务信息参考价值有限",
-      "category": "市场",
+      "summary": "文章盘点温州四家汽车贴膜门店的服务模式与本地消费选择。",
       "brands": [],
       "importance": 28,
-      "is_featured": false,
+      "category": "市场",
       "enriched_by": "codex",
-      "is_new": true
+      "is_featured": false,
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645216650664837657",
@@ -6884,12 +6888,12 @@
       "publish_ts": 1780137887.375522,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "早年学车都选手动挡，现在却没人爱开，真实原因讲给大家听，反映汽车市场动态。",
+      "brands": [],
       "importance": 16,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "早年学车都选手动挡，现在却没人爱开，真实原因讲给大家听，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6904,12 +6908,12 @@
       "publish_ts": 1780130687.376515,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "私营加油站便宜还洗车？内部员工透露：这3个“”，车主要懂，反映汽车市场动态。",
+      "brands": [],
       "importance": 16,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "私营加油站便宜还洗车？内部员工透露：这3个“”，车主要懂，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6924,12 +6928,12 @@
       "publish_ts": 1780137887.375802,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "金坛四轮定位靠谱的店，反映汽车市场动态。",
+      "brands": [],
       "importance": 1,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "金坛四轮定位靠谱的店，反映汽车市场动态。",
       "is_new": false
     },
     {
@@ -6944,12 +6948,12 @@
       "publish_ts": 1780130687.376359,
       "publish_date": "2026-05-30",
       "takeaway": "观察行业供需与竞争",
-      "enriched_by": "codex",
+      "summary": "2026年河北省张家口市汽车贴膜，哪些店能贴轿车车型呢，反映汽车市场动态。",
+      "brands": [],
       "importance": 1,
       "category": "市场",
+      "enriched_by": "codex",
       "is_featured": false,
-      "brands": [],
-      "summary": "2026年河北省张家口市汽车贴膜，哪些店能贴轿车车型呢，反映汽车市场动态。",
       "is_new": false
     }
   ]

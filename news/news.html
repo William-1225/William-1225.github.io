@@ -87,7 +87,7 @@
   .head-right{flex-shrink:0;display:flex;align-items:center;gap:8px}
   .feat{display:inline-flex;align-items:center;gap:4px;background:#fff7ed;color:#c2410c;border:1px solid #fed7aa;border-radius:999px;padding:3px 10px;font-size:12px;font-weight:600;line-height:1}
   .feat svg{width:11px;height:11px}
-  .score{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:#eff6ff;border:1px solid #bfdbfe;color:var(--acc);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;line-height:1}
+  .score{flex-shrink:0;min-width:38px;height:24px;border-radius:999px;background:#eff6ff;border:1px solid #bfdbfe;color:var(--acc);display:inline-flex;align-items:center;justify-content:center;padding:0 10px;font-weight:700;font-size:13px;line-height:1}
   .card a.t{color:var(--fg);text-decoration:none;font-size:16px;font-weight:600;line-height:1.5;display:block}
   .card a.t:hover{color:var(--acc)}
   .card-body{display:flex;gap:14px;align-items:flex-start}
@@ -97,8 +97,8 @@
   .card .sum{color:#475467;font-size:13px;line-height:1.7;margin-top:8px}
   .card .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px;align-items:center}
   .card .reason{margin-top:13px;padding-top:13px;border-top:1px solid #eef1f5;font-size:13px;line-height:1.65}
-  .card .reason .rbox{background:#eaf2ff;border:1px solid #bfdbfe;border-radius:8px;padding:9px 12px;color:#1d4ed8;font-weight:600}
-  .card .reason .rbox b{color:#1e40af;font-weight:700;margin-right:2px}
+  .card .reason .rbox{background:#eaf2ff;border:0;border-radius:8px;padding:9px 12px;color:#1d4ed8;font-weight:500}
+  .card .reason .rbox b{color:inherit;font-size:inherit;font-weight:500;margin-right:2px}
   /* 卡片内标签统一中性灰，对齐 aihot（分类彩色仅保留在顶部筛选药丸） */
   .pill{display:inline-block;padding:3px 9px;border-radius:6px;font-size:12px;font-weight:500;background:#f1f5f9;color:#64748b;white-space:nowrap}
   .empty{color:var(--mute);text-align:center;padding:60px 0}
