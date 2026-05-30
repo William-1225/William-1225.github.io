@@ -54,17 +54,18 @@
   .dd .dd-pop .opt.sel > .check::after{content:'';position:absolute;left:3.5px;top:0;width:5px;height:9px;border:solid #fff;border-width:0 1.5px 1.5px 0;transform:rotate(45deg)}
   .dd .dd-pop .opt .nm{flex:1}
   .dd .dd-pop .opt .cnt{color:var(--mute);font-size:12px;margin-left:auto;padding-left:8px}
-  /* KPI */
-  .kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding:10px 28px 14px;background:var(--bg)}
-  .kpi{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 16px}
-  .kpi .label{font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.5px;font-weight:500;margin-bottom:6px}
-  .kpi .value{font-size:24px;font-weight:600;line-height:1.2}
-  /* chips */
-  .chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 28px 12px;background:var(--bg)}
-  .chip{background:var(--card);border:1px solid var(--line);padding:6px 12px;border-radius:14px;cursor:pointer;font-size:13px;display:inline-flex;align-items:center;gap:6px;transition:all .12s;user-select:none}
-  .chip:hover{border-color:var(--acc)}
-  .chip.active{border-color:var(--acc);background:var(--acc-soft);color:var(--acc)}
-  .chip .n{font-weight:600}
+  /* aihot 风格筛选栏 */
+  .filterbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#eef3f7;border:1px solid #e2eaf1;border-radius:14px;padding:8px 10px;margin:0 28px 14px}
+  .seg{display:inline-flex;align-items:center;gap:4px;flex-wrap:wrap}
+  .pill-tab{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:10px;cursor:pointer;font-size:13px;color:var(--mute);background:transparent;border:1px solid transparent;transition:all .12s;user-select:none;white-space:nowrap}
+  .pill-tab:hover{color:var(--fg)}
+  .pill-tab.active{background:var(--card);color:var(--fg);border-color:#cbd5e1;font-weight:600;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+  .pill-tab .n{font-size:12px;color:var(--mute);font-weight:600}
+  .pill-tab.active .n{color:var(--acc)}
+  .fb-right{display:flex;align-items:center;gap:8px;margin-left:auto;flex-wrap:wrap}
+  .feedhead{padding:2px 0 14px}
+  .feedhead h1{margin:0;font-size:24px;font-weight:700;color:var(--fg)}
+  .feedhead .sub{color:var(--mute);font-size:13px;margin-top:5px}
   /* 主体 */
   .body{padding:14px 28px 40px;flex:1;overflow-y:auto;min-height:0}
   .sec-title{font-size:13px;font-weight:600;color:var(--fg);margin:18px 2px 12px;display:flex;align-items:center;gap:8px}
@@ -77,24 +78,30 @@
   .tl-gutter{width:48px;flex-shrink:0;text-align:right;padding-top:17px;color:var(--mute);font-size:12px;font-weight:600;font-variant-numeric:tabular-nums}
   .tl-gutter .dot{position:absolute;left:50px;top:19px;width:11px;height:11px;border-radius:50%;background:var(--pos);box-shadow:0 0 0 3px var(--bg)}
   .tl-row.top .tl-gutter .dot{background:var(--warn)}
-  .card{flex:1;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 18px;transition:border-color .15s,transform .1s}
-  .card:hover{border-color:#cbd5e1}
+  .card{flex:1;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;transition:border-color .15s,box-shadow .15s}
+  .card:hover{border-color:#cbd5e1;box-shadow:0 2px 10px rgba(15,23,42,.05)}
   .card.top{border-left:3px solid var(--warn)}
-  .card-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:7px}
-  .card .src{font-size:12px;color:var(--mute);flex:1;min-width:0;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .card-head{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+  .card .src{font-size:12.5px;color:var(--mute);flex:1;min-width:0;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
   .card .src .dt{color:#94a3b8}
-  .score{flex-shrink:0;min-width:38px;height:38px;border-radius:10px;background:var(--acc-soft);color:var(--acc);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:700;font-size:15px;line-height:1;padding:0 8px}
-  .score .lab{font-size:9px;font-weight:500;color:var(--mute);margin-top:2px}
-  .card a.t{color:var(--fg);text-decoration:none;font-size:15.5px;font-weight:600;line-height:1.5;display:block}
+  .head-right{flex-shrink:0;display:flex;align-items:center;gap:8px}
+  .feat{display:inline-flex;align-items:center;gap:4px;background:#fff7ed;color:#c2410c;border:1px solid #fed7aa;border-radius:999px;padding:3px 10px;font-size:12px;font-weight:600;line-height:1}
+  .feat svg{width:11px;height:11px}
+  .score{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:#eff6ff;border:1px solid #bfdbfe;color:var(--acc);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;line-height:1}
+  .card a.t{color:var(--fg);text-decoration:none;font-size:16px;font-weight:600;line-height:1.5;display:block}
   .card a.t:hover{color:var(--acc)}
-  .card .sum{color:#475467;font-size:13px;line-height:1.6;margin-top:7px}
+  .card .sum{color:#475467;font-size:13px;line-height:1.7;margin-top:8px}
   .card .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px;align-items:center}
+  .card .reason{margin-top:13px;padding-top:13px;border-top:1px solid #eef1f5;font-size:13px;line-height:1.65}
+  .card .reason .rbox{background:#f0fdf4;border:1px solid #dcfce7;border-radius:8px;padding:9px 12px;color:#15803d}
+  .card .reason .rbox b{color:#166534;font-weight:600;margin-right:4px}
   .pill{display:inline-block;padding:3px 9px;border-radius:6px;font-size:12px;font-weight:500;background:#f1f5f9;color:var(--mute);white-space:nowrap}
   .pill.brand{background:#ecfdf5;color:#065f46}
-  .pill.cat-行业大事{background:#eaf2ff;color:#1d4ed8}
-  .pill.cat-分品牌{background:#f1f5f9;color:#475467}
-  .pill.cat-新能源·智驾{background:#ecfdf5;color:#047857}
-  .pill.cat-舆情·热点{background:#fef2f2;color:#b91c1c}
+  .pill.cat-政策{background:#eef2ff;color:#4338ca}
+  .pill.cat-市场{background:#eaf2ff;color:#1d4ed8}
+  .pill.cat-产品{background:#fff7ed;color:#c2410c}
+  .pill.cat-技术{background:#ecfdf5;color:#047857}
+  .pill.cat-舆情{background:#fef2f2;color:#b91c1c}
   .badge-new{color:#fff;background:var(--pos);padding:2px 8px;border-radius:6px;font-size:11px;font-weight:600}
   .empty{color:var(--mute);text-align:center;padding:60px 0}
   /* 口径说明 */
@@ -115,7 +122,8 @@
 <nav class="sidebar">
   <div class="sidebar-logo">汽车资讯<div class="sub">每日行业新闻</div></div>
   <div class="nav-group">
-    <div class="nav-item active" data-page="feed"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V4a2 2 0 0 1 2-2h10l4 4v16"/><path d="M16 2v4h4"/><path d="M8 10h8M8 14h8M8 18h5"/></svg>资讯看板</div>
+    <div class="nav-item active" data-page="feed" data-view="featured"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.9 6.3 6.6.6-5 4.4 1.5 6.6L12 16.9 5.9 20.5 7.4 13.9l-5-4.4 6.6-.6z"/></svg>精选</div>
+    <div class="nav-item" data-page="feed" data-view="all"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V4a2 2 0 0 1 2-2h10l4 4v16"/><path d="M16 2v4h4"/><path d="M8 10h8M8 14h8M8 18h5"/></svg>全部动态</div>
     <div class="nav-item" data-page="doc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>口径说明</div>
   </div>
   <div class="side-foot">数据来自公开汽车媒体资讯<br>仅供学习研究</div>
@@ -124,11 +132,15 @@
 <!-- 资讯看板 -->
 <div id="page-feed" class="page">
 <header>
-  <div class="titlebar">
-    <h1>汽车行业新闻看板</h1>
-    <div class="meta" id="meta">加载中…</div>
+  <div class="feedhead">
+    <h1 id="feedTitle">精选</h1>
+    <div class="sub" id="feedSub">每日自动挑选的高价值汽车资讯</div>
   </div>
-  <div class="filter-row">
+</header>
+
+<div class="filterbar" id="filterbar">
+  <div class="seg" id="catSeg"></div>
+  <div class="fb-right">
     <div class="dd" data-dd="date">
       <span class="dd-lbl">日期</span><span class="dd-val" id="ddDate">-</span><span class="dd-arrow">▾</span>
       <div class="dd-pop"><div class="dd-pop-inner" id="datePop"></div></div>
@@ -142,16 +154,11 @@
       <div class="dd-pop"><div class="dd-pop-inner" id="sourcePop"></div></div>
     </div>
     <input class="search" id="q" placeholder="搜索标题 / 摘要…">
-    <button id="reset" style="margin-left:auto">重置</button>
+    <button id="reset">重置</button>
   </div>
-</header>
-
-<div class="kpi-row" id="kpiRow"></div>
-<div class="chips" id="catChips"></div>
+</div>
 
 <div class="body">
-  <div id="topSection"></div>
-  <div class="sec-title" id="listTitle">全部新闻</div>
   <div class="timeline" id="list"></div>
 </div>
 </div>
@@ -162,8 +169,8 @@
   <div class="doc-sub">汽车行业新闻每日聚合看板 · 数据流与处理口径</div>
   <div class="doc-rules">
     <div class="doc-rule"><h3>数据源</h3>盖世汽车、汽车之家、第一电动、懂车帝等主流汽车媒体的公开资讯列表。多数源走 Playwright 抓取，反爬较硬的站（如懂车帝）走 curl 抓 SSR 页面；每日运行，礼貌延时，遵守站点 robots。</div>
-    <div class="doc-rule"><h3>四维分类</h3><ul><li><b>行业大事</b>：政策 / 销量 / 产销 / 财报 / 产业链 / 价格</li><li><b>分品牌</b>：以某车企或品牌动态为主</li><li><b>新能源·智驾</b>：电动化 / 电池 / 智驾 / 智能座舱</li><li><b>舆情·热点</b>：争议 / 维权 / 事故 / 口碑</li></ul></div>
-    <div class="doc-rule"><h3>智能处理</h3>带 LLM 时由大模型（默认 Gemini 2.0 Flash，可回退 OpenAI）输出一句话摘要、分类、品牌标签与重要度；无 key 时走关键词规则兜底。重要度综合来源权重、信号词与品牌命中。</div>
+    <div class="doc-rule"><h3>五维主题分类</h3><ul><li><b>政策</b>：政策 / 补贴 / 法规 / 标准 / 召回 / 监管</li><li><b>市场</b>：销量 / 交付 / 财报 / 价格 / 产业链 / 并购融资</li><li><b>产品</b>：新车发布 / 上市 / 亮相 / 改款 / 试驾实拍</li><li><b>技术</b>：电动化 / 电池 / 智驾 / 智能座舱</li><li><b>舆情</b>：争议 / 维权 / 事故 / 口碑</li></ul><div style="margin-top:8px;color:var(--mute)">品牌为独立标签（可在「品牌」下拉筛选），不单独成类。</div></div>
+    <div class="doc-rule"><h3>智能处理</h3>由本机 Codex（无需 API key）输出摘要、看点、分类、品牌标签与重要度；无 Codex 时走关键词规则兜底。重要度综合来源权重、信号词与品牌命中。</div>
     <div class="doc-rule"><h3>去重与排序</h3>URL 归一指纹去重，<code>seen_ids</code> 跨天去重并标记「新」。列表按重要度降序、时间次之；「今日要点」取重要度 Top 8。</div>
   </div>
 </div>
@@ -171,8 +178,8 @@
 </div>
 
 <script>
-const PILL_CAT=["行业大事","分品牌","新能源·智驾","舆情·热点"];
-const state={feed:null,cat:"",brands:new Set(),sources:new Set(),q:""};
+const PILL_CAT=["政策","市场","产品","技术","舆情"];
+const state={feed:null,view:"featured",cat:"",brands:new Set(),sources:new Set(),q:""};
 
 function fmtDate(s){return `${s.slice(0,4)}-${s.slice(4,6)}-${s.slice(6,8)}`;}
 function esc(s){return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
@@ -184,7 +191,21 @@ document.querySelectorAll('.nav-item').forEach(n=>n.onclick=()=>{
   const p=n.dataset.page;
   document.getElementById('page-feed').style.display = p==='feed'?'flex':'none';
   document.getElementById('page-doc').style.display  = p==='doc'?'block':'none';
+  if(p==='feed'){ state.view=n.dataset.view||'featured'; applyView(); }
 });
+
+function applyView(){
+  const feat=state.view==='featured';
+  document.getElementById('feedTitle').textContent=feat?'精选':'全部动态';
+  document.getElementById('feedSub').textContent=feat?'每日自动挑选的高价值汽车资讯':'当日全部汽车行业资讯';
+  // 精选页隐藏分类药丸与品牌/来源下拉（跨类目策划流）
+  document.getElementById('catSeg').style.display=feat?'none':'';
+  document.querySelector('[data-dd="brand"]').style.display=feat?'none':'';
+  document.querySelector('[data-dd="source"]').style.display=feat?'none':'';
+  // 进入精选时清掉脏筛选态
+  if(feat){state.cat="";state.brands.clear();state.sources.clear();updateDDLabels();}
+  render();
+}
 
 // ── .dd 开合 ──
 function closeAllDD(){document.querySelectorAll('.dd.open').forEach(d=>d.classList.remove('open'));}
@@ -209,24 +230,15 @@ async function loadFeed(stamp){
   state.cat="";state.brands.clear();state.sources.clear();state.q="";
   document.getElementById("q").value="";
   document.getElementById("ddDate").textContent=fmtDate(stamp);
-  const f=state.feed;
-  document.getElementById("meta").innerHTML=
-    `${fmtDate(f.stamp)} · 共 <b>${f.total}</b> 条 · 生成于 ${f.generated_at.replace("T"," ")}`;
-  buildKpi();buildCatChips();buildBrandDD();buildSourceDD();updateDDLabels();render();
+  buildCatSeg();buildBrandDD();buildSourceDD();updateDDLabels();applyView();
 }
 
-function buildKpi(){
-  const f=state.feed,srcN=new Set(f.items.map(i=>i.source_name)).size;
-  const cards=[["今日总数",f.total],...PILL_CAT.map(c=>[c,f.category_counts[c]||0])];
-  document.getElementById("kpiRow").innerHTML=cards.map(([l,v])=>
-    `<div class="kpi"><div class="label">${l}</div><div class="value">${v}</div></div>`).join("");
-}
-function buildCatChips(){
+function buildCatSeg(){
   const f=state.feed;
-  let html=`<div class="chip ${state.cat===""?"active":""}" data-c="">全部 <span class="n">${f.total}</span></div>`;
-  PILL_CAT.forEach(c=>{html+=`<div class="chip ${state.cat===c?"active":""}" data-c="${c}">${c} <span class="n">${f.category_counts[c]||0}</span></div>`;});
-  const box=document.getElementById("catChips");box.innerHTML=html;
-  box.querySelectorAll(".chip").forEach(el=>el.onclick=()=>{state.cat=el.dataset.c;buildCatChips();render();});
+  let html=`<div class="pill-tab ${state.cat===""?"active":""}" data-c="">全部 <span class="n">${f.total}</span></div>`;
+  PILL_CAT.forEach(c=>{html+=`<div class="pill-tab ${state.cat===c?"active":""}" data-c="${c}">${c} <span class="n">${f.category_counts[c]||0}</span></div>`;});
+  const box=document.getElementById("catSeg");box.innerHTML=html;
+  box.querySelectorAll(".pill-tab").forEach(el=>el.onclick=()=>{state.cat=el.dataset.c;buildCatSeg();render();});
 }
 function buildMulti(popId,counts,set,labelId,label){
   const pop=document.getElementById(popId);
@@ -252,7 +264,7 @@ document.getElementById("q").oninput=e=>{state.q=e.target.value.trim();render();
 document.getElementById("reset").onclick=()=>{
   state.cat="";state.brands.clear();state.sources.clear();state.q="";
   document.getElementById("q").value="";
-  buildCatChips();buildBrandDD();buildSourceDD();updateDDLabels();render();
+  buildCatSeg();buildBrandDD();buildSourceDD();updateDDLabels();render();
 };
 
 function match(it){
@@ -262,43 +274,49 @@ function match(it){
   if(state.q){const t=(it.title+" "+(it.summary||"")).toLowerCase();if(!t.includes(state.q.toLowerCase()))return false;}
   return true;
 }
-function itemHtml(it,top){
+const STAR_SVG='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.6.6-5 4.4 1.5 6.6L12 16.9 5.9 20.5 7.4 13.9l-5-4.4 6.6-.6z"/></svg>';
+function itemHtml(it,feat){
   const brands=(it.brands||[]).map(b=>`<span class="pill brand">${esc(b)}</span>`).join("");
   const gut=it.publish_time||(it.publish_date?it.publish_date.slice(5):"");
-  return `<div class="tl-row ${top?"top":""}">
+  const hasSum=it.summary&&it.summary!==it.title;
+  const hasTake=!!(it.takeaway&&it.takeaway.trim());
+  return `<div class="tl-row">
     <div class="tl-gutter">${esc(gut)}<span class="dot"></span></div>
-    <div class="card ${top?"top":""}">
+    <div class="card">
       <div class="card-head">
         <div class="src">
           <span>${esc(it.source_name||"")}</span>
           ${it.publish_date?`<span class="dt">${it.publish_date}</span>`:""}
           ${it.is_new?'<span class="badge-new">新</span>':""}
         </div>
-        <div class="score">${it.importance||0}<span class="lab">热度</span></div>
+        <div class="head-right">
+          ${it.is_featured?`<span class="feat">${STAR_SVG}精选</span>`:""}
+          <span class="score" title="热度">${it.importance||0}</span>
+        </div>
       </div>
       <a class="t" href="${it.url}" target="_blank" rel="noopener">${esc(it.title)}</a>
-      ${it.summary&&it.summary!==it.title?`<div class="sum">${esc(it.summary)}</div>`:""}
+      ${hasSum?`<div class="sum">${esc(it.summary)}</div>`:""}
       <div class="tags">
         ${it.category?`<span class="pill cat-${it.category}">${it.category}</span>`:""}
         ${brands}
       </div>
+      ${hasTake?`<div class="reason"><div class="rbox"><b>看点</b>${esc(it.takeaway)}</div></div>`:""}
     </div></div>`;
 }
 function render(){
-  const f=state.feed;
-  const noFilter=state.cat===""&&!state.brands.size&&!state.sources.size&&state.q==="";
-  const ts=document.getElementById("topSection");
-  if(noFilter){
-    const topIds=new Set(f.top||[]);
-    const topItems=f.items.filter(i=>topIds.has(i.item_id));
-    ts.innerHTML=`<div class="sec-title">今日要点</div><div class="timeline">${topItems.map(i=>itemHtml(i,true)).join("")}</div>`;
-    document.getElementById("listTitle").textContent="全部新闻";
-  }else{ts.innerHTML="";document.getElementById("listTitle").textContent="筛选结果";}
-  const list=f.items.filter(match);
-  document.getElementById("list").innerHTML=list.length?list.map(i=>itemHtml(i,false)).join(""):
-    '<div class="empty">没有符合条件的新闻</div>';
+  const f=state.feed;if(!f)return;
+  const feat=state.view==='featured';
+  let list;
+  if(feat){
+    list=f.items.filter(it=>it.is_featured);
+    if(state.q){const q=state.q.toLowerCase();list=list.filter(it=>(it.title+" "+(it.summary||"")).toLowerCase().includes(q));}
+  }else{
+    list=f.items.filter(match);
+  }
+  document.getElementById("list").innerHTML=list.length?list.map(i=>itemHtml(i,feat)).join(""):
+    '<div class="empty">没有符合条件的内容</div>';
 }
-loadIndex().catch(e=>{document.getElementById("meta").textContent="加载失败："+e;});
+loadIndex().catch(e=>{document.getElementById("feedSub").textContent="加载失败："+e;});
 </script>
 </body>
 </html>
