@@ -1,7 +1,7 @@
 {
   "stamp": "20260530",
-  "generated_at": "2026-05-30T19:36:37",
-  "total": 332,
+  "generated_at": "2026-05-30T19:45:53",
+  "total": 333,
   "categories": [
     "政策",
     "市场",
@@ -11,7 +11,7 @@
   ],
   "category_counts": {
     "政策": 17,
-    "市场": 170,
+    "市场": 171,
     "产品": 43,
     "技术": 58,
     "舆情": 9
@@ -21,9 +21,9 @@
     "比亚迪": 24,
     "特斯拉": 17,
     "丰田": 10,
+    "蔚来": 9,
     "问界": 8,
     "法拉利": 8,
-    "蔚来": 8,
     "吉利": 7,
     "小鹏": 6,
     "Waymo": 6,
@@ -35,6 +35,7 @@
     "一汽": 4,
     "理想": 4,
     "华为": 4,
+    "零跑": 4,
     "小米": 4,
     "广汽": 4,
     "江淮": 4,
@@ -42,7 +43,6 @@
     "雷克萨斯": 3,
     "上汽": 3,
     "奔驰": 3,
-    "零跑": 3,
     "赛力斯": 2,
     "阿维塔": 2,
     "曦诺未来": 2,
@@ -213,7 +213,7 @@
       "importance": 90,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645595106350793240",
@@ -235,7 +235,7 @@
       "importance": 88,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645557931031200280",
@@ -255,7 +255,7 @@
       "importance": 88,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "不起火、不爆炸、不怕冷！宁德时代钠离子电池今年规模量产",
@@ -277,7 +277,7 @@
       "importance": 88,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645525532914156056",
@@ -300,7 +300,7 @@
       "importance": 87,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645593560208998974",
@@ -320,7 +320,7 @@
       "importance": 86,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645558905287836185",
@@ -340,7 +340,7 @@
       "importance": 86,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "新款车型也中招！特斯拉召回14575辆Model Y：少个认证标签",
@@ -541,7 +541,7 @@
       "importance": 84,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "三重涨价函突袭汽车供应链，汽车降价时代正在终结",
@@ -561,7 +561,7 @@
       "importance": 84,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645574928225845822",
@@ -585,7 +585,7 @@
       "importance": 82,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "预售21.99万起/搭华为乾崑全栈智能技术 启境GT7正式开启预售",
@@ -609,7 +609,7 @@
       "importance": 82,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "21.99万起 广汽启境GT7纯电猎装预售5小时订单破万",
@@ -632,7 +632,7 @@
       "importance": 82,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "EV晨报 | 马斯克1万亿美元薪酬方案获通过；黄仁勋称中国将在AI竞赛中击败美国；中国一汽与大众、奥迪、丰田达成明年购买合作意向",
@@ -794,7 +794,7 @@
       "importance": 80,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Banyan、Cedar等系统车型可享 蔚来世界模型即将迎来新一轮更新",
@@ -816,7 +816,7 @@
       "importance": 80,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "特斯拉推“静音充电区”应对邻里投诉",
@@ -861,7 +861,7 @@
       "importance": 79,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645606020525818392",
@@ -884,7 +884,7 @@
       "importance": 78,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645550293626896958",
@@ -906,7 +906,7 @@
       "importance": 78,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645532833880064537",
@@ -928,7 +928,7 @@
       "importance": 78,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "领克10与领克10+上市 限时售16.99万元起 最大续航816km 最高900V",
@@ -950,7 +950,7 @@
       "importance": 78,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "领克10和领克10+正式上市，限时起售16.99万元/21.99万元",
@@ -972,7 +972,7 @@
       "importance": 78,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "启境GT7开启预售 预售价21.99万元起",
@@ -995,7 +995,7 @@
       "importance": 78,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645527736064639550",
@@ -1017,7 +1017,7 @@
       "importance": 77,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "雷克萨斯全球首发首款三排座纯电SUV TZ",
@@ -1125,6 +1125,29 @@
       "importance": 76,
       "is_featured": false,
       "enriched_by": "codex",
+      "is_new": false
+    },
+    {
+      "url": "https://www.dongchedi.com/article/7645557042257855000",
+      "title": "新势力一季报\"放榜\"，零跑登顶销量冠军蔚来增速近翻倍",
+      "publish_time": "3小时前",
+      "snippet": "",
+      "source": "dongchedi",
+      "source_name": "懂车帝",
+      "crawled_at": "2026-05-30T09:44:01.336559+00:00",
+      "item_id": "fb0cb0118956e283",
+      "publish_ts": 1780123458.365905,
+      "publish_date": "2026-05-30",
+      "summary": "新势力一季报显示，零跑登顶销量冠军，蔚来增速接近翻倍。",
+      "takeaway": "新势力格局分化，零跑和蔚来表现突出",
+      "category": "市场",
+      "brands": [
+        "零跑",
+        "蔚来"
+      ],
+      "importance": 76,
+      "is_featured": true,
+      "enriched_by": "codex",
       "is_new": true
     },
     {
@@ -1145,7 +1168,7 @@
       "importance": 76,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "售21.98万起/CLTC最大续航905km 尚界Z7/尚界Z7T开启全国批量交付",
@@ -1167,7 +1190,7 @@
       "importance": 76,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "因转向柱控制模块电气连接不良 奔驰召回部分C级/EQE/GLC等车型",
@@ -1189,7 +1212,7 @@
       "importance": 76,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "21.98万起标配896线激光雷达 尚界Z7、Z7T开启大规模交付",
@@ -1211,7 +1234,7 @@
       "importance": 76,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645597837920977433",
@@ -1231,7 +1254,7 @@
       "importance": 75,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "售38.99万起/综合功率达1003马力 小米YU7 GT正式开启交付",
@@ -1253,7 +1276,7 @@
       "importance": 75,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "奥迪E7X正式上市 限时臻享26.98万元起",
@@ -1779,7 +1802,7 @@
       "importance": 74,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645547020278579774",
@@ -1801,7 +1824,7 @@
       "importance": 74,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645532101458510398",
@@ -1823,7 +1846,7 @@
       "importance": 74,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "与TPK联手，亿咖通科技正式进入激光雷达领域",
@@ -1914,7 +1937,7 @@
       "importance": 72,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645563387727921726",
@@ -1936,7 +1959,7 @@
       "importance": 72,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "10.49万起 一汽悦意08开启预售 增程/纯电双动力 还有高阶智驾",
@@ -1958,7 +1981,7 @@
       "importance": 72,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "宝马沈阳生产基地迎第700万辆下线 “新世代”平台即将登场",
@@ -2000,7 +2023,7 @@
       "importance": 70,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645544982803268121",
@@ -2022,7 +2045,7 @@
       "importance": 70,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "事故兜底+自研芯片 比亚迪驾驶辅助这么强了吗？",
@@ -2044,7 +2067,7 @@
       "importance": 70,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "同步推出限时权益/售26.98万起 腾势Z9GT累计交付量突破10000台",
@@ -2066,7 +2089,7 @@
       "importance": 70,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "10.49万起，中国一汽悦意08全球预售",
@@ -2088,7 +2111,7 @@
       "importance": 70,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645529163998904857",
@@ -2110,7 +2133,7 @@
       "importance": 69,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645204731383759385",
@@ -2152,7 +2175,7 @@
       "importance": 68,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645186455295509054",
@@ -2370,7 +2393,7 @@
       "importance": 68,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7644963664898474558",
@@ -2568,7 +2591,7 @@
       "importance": 67,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "10万级四驱轿车来了，吉利银河星耀7 MAX正式上市",
@@ -3168,7 +3191,7 @@
       "importance": 66,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "售16.08万元/纯电续航550公里 iCAR超级V23新版本车型上市",
@@ -3191,7 +3214,7 @@
       "importance": 65,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645559833793692185",
@@ -3213,7 +3236,7 @@
       "importance": 64,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645540519510344217",
@@ -3235,7 +3258,7 @@
       "importance": 64,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "延锋陆传华：智能座舱正从功能驱动转向场景驱动",
@@ -3257,7 +3280,7 @@
       "importance": 64,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7644893536407732798",
@@ -3317,7 +3340,7 @@
       "importance": 63,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "法拉利CEO为首款纯电车型辩护",
@@ -3384,7 +3407,7 @@
       "importance": 62,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "将于年内上市/AI全地形硬核SUV 吉利银河战舰700实车谍照曝光",
@@ -3407,7 +3430,7 @@
       "importance": 62,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "现代召回部分帕里斯帝车型 存安全隐患 共计200余辆",
@@ -3429,7 +3452,7 @@
       "importance": 62,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "拾级而上：在技术深水区重建汽车产业的未来坐标 | 2026未来汽车先行者大会",
@@ -3449,7 +3472,7 @@
       "importance": 62,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645559735563174424",
@@ -3471,7 +3494,7 @@
       "importance": 61,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "2026未来汽车先行者大会开幕：在技术深水区重建汽车产业未来坐标",
@@ -3491,7 +3514,7 @@
       "importance": 61,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "缤果Pro正式上市：5.68万元起，超80项全系标配",
@@ -4337,7 +4360,7 @@
       "importance": 60,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645195282019648024",
@@ -4384,7 +4407,7 @@
       "importance": 60,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "法拉利CEO为自家纯电辩护：无法理解外界的质疑",
@@ -4406,7 +4429,7 @@
       "importance": 60,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645113266431902270",
@@ -4472,7 +4495,7 @@
       "importance": 59,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "地瓜机器人与自变量合作",
@@ -4561,7 +4584,7 @@
       "importance": 58,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "日产N系列可享/购车权益升级 东风日产推出“三无忧”服务政策",
@@ -4584,7 +4607,7 @@
       "importance": 58,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "奇瑞王琅：破局内卷关键在提升竞争层次",
@@ -4606,7 +4629,7 @@
       "importance": 58,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "法拉利Luce面世，在质疑声中坚定电动化创新",
@@ -4648,7 +4671,7 @@
       "importance": 56,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645177598959469081",
@@ -4712,7 +4735,7 @@
       "importance": 55,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645532553809920537",
@@ -4732,7 +4755,7 @@
       "importance": 55,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645204321738654233",
@@ -5596,7 +5619,7 @@
       "importance": 52,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "全新帕杰罗将于秋季回归 未来成立帕杰罗序列 三菱新产品计划曝光",
@@ -5636,7 +5659,7 @@
       "importance": 50,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "从看月亮“神器”到头顶“花瓶” 激光雷达魔幻史（上）",
@@ -5656,7 +5679,7 @@
       "importance": 49,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645593851859894808",
@@ -5678,7 +5701,7 @@
       "importance": 48,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "中国汽车：越卖越多，越赚越薄",
@@ -6500,7 +6523,7 @@
       "importance": 43,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645528360122139160",
@@ -6522,7 +6545,7 @@
       "importance": 42,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645203967592825406",
@@ -7042,7 +7065,7 @@
       "importance": 36,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645531665250861592",
@@ -7062,7 +7085,7 @@
       "importance": 32,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645569328490807870",
@@ -7082,7 +7105,7 @@
       "importance": 30,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645189990472892990",
