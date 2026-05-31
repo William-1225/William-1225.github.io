@@ -1,7 +1,7 @@
 {
   "stamp": "20260528",
-  "generated_at": "2026-05-31T18:13:39",
-  "total": 37,
+  "generated_at": "2026-05-31T21:16:34",
+  "total": 33,
   "categories": [
     "政策",
     "市场",
@@ -10,24 +10,22 @@
     "舆情"
   ],
   "category_counts": {
-    "政策": 1,
-    "市场": 21,
+    "政策": 0,
+    "市场": 19,
     "产品": 9,
     "技术": 4,
-    "舆情": 2
+    "舆情": 1
   },
   "brand_counts": {
     "比亚迪": 4,
     "上汽": 3,
-    "蔚来": 3,
     "大众": 3,
     "吉利银河": 2,
     "宝马": 2,
     "小鹏": 2,
     "理想": 2,
     "吉利": 2,
-    "法拉利": 1,
-    "Stellantis": 1,
+    "蔚来": 2,
     "雷克萨斯": 1,
     "江淮": 1,
     "长城": 1,
@@ -42,12 +40,12 @@
   "top": [
     "766e6686e9dd4032",
     "8771b3ff24a682b2",
-    "e90f658d801e0dc8",
     "824ae94e4502fc2f",
     "4b673c4568785d23",
     "76c36f3114d7f275",
-    "cafe1913b3bc079e",
-    "668c7880aba323c5"
+    "668c7880aba323c5",
+    "78b7600e6a26ee40",
+    "1abaa1cd69ae5806"
   ],
   "items": [
     {
@@ -91,29 +89,6 @@
       "enriched_by": "codex",
       "brands": [],
       "summary": "卓驭宣布欧洲总部正式开业，进一步完善海外业务布局。新总部将承担区域市场拓展、客户协同及本地化运营等职能，为欧洲业务提供落地支撑。",
-      "is_featured": false,
-      "is_new": false
-    },
-    {
-      "title": "国产电车抄不来法拉利 Luce，也千万别抄",
-      "url": "https://36kr.com/p/3828817150530184",
-      "publish_time": "2026-05-28 21:27:32",
-      "snippet": "400 万的法拉利 Luce 没人买，400 万的苹果 iCar 呢？",
-      "image": "https://img.36krcdn.com/hsossms/20260528/v2_07367a7a4f9d49a289a0405b53bac7bc@6100851_oswg1118637oswg1053oswg495_img_png?x-oss-process=image/resize,m_mfit,w_600,h_400,limit_0/crop,w_600,h_400,g_center",
-      "source": "36kr",
-      "source_name": "36氪",
-      "crawled_at": "2026-05-31T06:06:03.634651+00:00",
-      "item_id": "e90f658d801e0dc8",
-      "publish_ts": 1779974852.0,
-      "publish_date": "2026-05-28",
-      "category": "舆情",
-      "takeaway": "高端电动车竞争不仅取决于配置堆叠，品牌叙事和原创设计正成为更难复制的门槛。",
-      "importance": 54,
-      "enriched_by": "codex",
-      "brands": [
-        "法拉利"
-      ],
-      "summary": "文章以法拉利Luce等高端电动车为切入点，讨论国产电动车在设计表达、品牌故事和高端定价上不宜简单模仿，认为产品差异需要建立在自身定位上。",
       "is_featured": false,
       "is_new": false
     },
@@ -184,29 +159,6 @@
       ],
       "summary": "比亚迪发布宋Ultra DM-i并公布12.99万元起售价，同时推出璇玑A3智能驾驶芯片等技术成果。活动将新车型上市与核心技术发布集中呈现。",
       "is_featured": true,
-      "is_new": false
-    },
-    {
-      "title": "六次在华合资五次倒闭，Stellantis这回终于想明白了",
-      "url": "https://36kr.com/p/3828899265909383",
-      "publish_time": "2026-05-28 21:18:48",
-      "snippet": "和中国车企深入合作，但目标不是中国市场。",
-      "image": "https://img.36krcdn.com/hsossms/20260528/v2_009218fb5b4b4c04a2f48e6e48d6dcca@46958@ai_oswg1081015oswg1053oswg495_img_png~tplv-1marlgjv7f-ai-v3:600:400:600:400:q70.jpg",
-      "source": "36kr",
-      "source_name": "36氪",
-      "crawled_at": "2026-05-31T06:06:03.634651+00:00",
-      "item_id": "cafe1913b3bc079e",
-      "publish_ts": 1779974328.0,
-      "publish_date": "2026-05-28",
-      "category": "市场",
-      "takeaway": "跨国车企与中国伙伴的合作目标转向全球市场，合资模式正在从本地生产走向能力输出。",
-      "importance": 64,
-      "enriched_by": "codex",
-      "brands": [
-        "Stellantis"
-      ],
-      "summary": "文章回顾Stellantis在华合资项目多次调整的经历，并分析其新的合作思路：继续与中国车企开展更深入合作，但重点服务海外市场而非单一中国市场。",
-      "is_featured": false,
       "is_new": false
     },
     {
@@ -300,27 +252,6 @@
       ],
       "summary": "长城汽车向坦克400推送首次OTA升级，重点提升驾驶辅助能力，并对车辆软件功能进行优化。此次更新体现车型交付后的持续迭代安排。",
       "is_featured": false,
-      "is_new": false
-    },
-    {
-      "title": "安全底线再收紧，工信部启动2026年新能源汽车安全隐患排查",
-      "url": "https://36kr.com/p/3828692408393737",
-      "publish_time": "2026-05-28 18:30:40",
-      "snippet": "技术升级与合规整改",
-      "image": "https://img.36krcdn.com/hsossms/20260528/v2_078c970604ad4ca6a641f14bcab79364@46958@ai_oswg1078455oswg1053oswg495_img_png~tplv-1marlgjv7f-ai-v3:600:400:600:400:q70.jpg",
-      "source": "36kr",
-      "source_name": "36氪",
-      "crawled_at": "2026-05-31T06:06:03.634651+00:00",
-      "item_id": "ba3724c2d4223045",
-      "publish_ts": 1779964240.0,
-      "publish_date": "2026-05-28",
-      "category": "政策",
-      "takeaway": "监管集中排查将直接推动企业补齐安全管理短板，并可能影响后续合规与质量要求。",
-      "importance": 88,
-      "enriched_by": "codex",
-      "brands": [],
-      "summary": "工业和信息化部启动2026年新能源汽车安全隐患排查，聚焦车辆安全风险、技术管理和企业整改。相关行动将推动新能源车企进一步落实安全主体责任。",
-      "is_featured": true,
       "is_new": false
     },
     {
@@ -642,7 +573,7 @@
         "蔚来"
       ],
       "summary": "蔚来ES9开启全国首批交付，采用电池租用方式时起售价为39.0万元。新车进入实际交付阶段，进一步补充蔚来在高端纯电市场的产品布局。",
-      "is_featured": false,
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -824,29 +755,6 @@
         "上汽"
       ],
       "summary": "文章以上汽累计产量达到一亿辆为切入点，回顾中国汽车工业从规模扩张到结构转型的发展历程，并梳理本土制造体系在不同阶段的演进。",
-      "is_featured": false,
-      "is_new": false
-    },
-    {
-      "title": "李斌抠得越狠，蔚来走得越稳",
-      "url": "https://36kr.com/p/3828292081832837",
-      "publish_time": "2026-05-28 10:14:15",
-      "snippet": "一季度又抠出了“仨瓜俩枣”",
-      "image": "https://img.36krcdn.com/hsossms/20260528/v2_5dff07c4298d4ed19f69e9197e1157fc@5091053@ai_oswg975659oswg1053oswg495_img_png~tplv-1marlgjv7f-ai-v3:600:400:600:400:q70.jpg",
-      "source": "36kr",
-      "source_name": "36氪",
-      "crawled_at": "2026-05-31T06:06:03.634651+00:00",
-      "item_id": "588066398220e8e2",
-      "publish_ts": 1779934455.0,
-      "publish_date": "2026-05-28",
-      "category": "市场",
-      "takeaway": "成本控制正在成为蔚来改善经营质量的重要抓手，但仍需兼顾产品投入与用户体验。",
-      "importance": 66,
-      "enriched_by": "codex",
-      "brands": [
-        "蔚来"
-      ],
-      "summary": "文章结合蔚来一季度经营表现，讨论李斌推动成本控制和经营效率改善的举措，并观察公司在投入节奏、产品竞争与财务压力之间的取舍。",
       "is_featured": false,
       "is_new": false
     },
