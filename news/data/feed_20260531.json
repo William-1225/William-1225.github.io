@@ -1,6 +1,6 @@
 {
   "stamp": "20260531",
-  "generated_at": "2026-05-31T18:08:36",
+  "generated_at": "2026-05-31T18:13:39",
   "total": 48,
   "categories": [
     "政策",
@@ -65,14 +65,14 @@
       "item_id": "66cbbd2d72e30fa9",
       "publish_ts": 1780212070.0,
       "publish_date": "2026-05-31",
-      "importance": 56,
       "category": "市场",
-      "summary": "文章聚焦郑州汽车终端市场，称当地部分日系车型由过去加价排队转为优惠两三万元仍客流有限，呈现需求、竞争格局及合资品牌承压状态。",
-      "brands": [],
-      "enriched_by": "codex",
-      "is_featured": false,
       "takeaway": "终端优惠未能明显带动客流，反映日系车在本地市场面临持续加大的竞争压力。",
-      "is_new": true
+      "importance": 56,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章聚焦郑州汽车终端市场，称当地部分日系车型由过去加价排队转为优惠两三万元仍客流有限，呈现需求、竞争格局及合资品牌承压状态。",
+      "is_featured": false,
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645950973416391193",
@@ -86,14 +86,14 @@
       "item_id": "412d654789dc6501",
       "publish_ts": 1780212070.0,
       "publish_date": "2026-05-31",
-      "importance": 48,
       "category": "技术",
-      "summary": "文章回顾汽车产业从机械性能主导向智能化、移动化方向演进的过程，讨论车辆功能边界、用户需求、产业分工变化及竞争重点转移趋势。",
-      "brands": [],
-      "enriched_by": "codex",
-      "is_featured": false,
       "takeaway": "汽车价值重心正向智能体验迁移，传统机械能力、软件服务和产品策略需要同步重构。",
-      "is_new": true
+      "importance": 48,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章回顾汽车产业从机械性能主导向智能化、移动化方向演进的过程，讨论车辆功能边界、用户需求、产业分工变化及竞争重点转移趋势。",
+      "is_featured": false,
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645948507291501118",
@@ -107,14 +107,14 @@
       "item_id": "45c4c32be3b1f076",
       "publish_ts": 1780212070.0,
       "publish_date": "2026-05-31",
-      "importance": 24,
       "category": "舆情",
-      "summary": "文章以个人用车体验为线索，描述作者驾驶新车一周后重新选择十五年车龄旧车的经历，并围绕实际使用感受及具体取舍原因展开讨论。",
-      "brands": [],
-      "enriched_by": "codex",
-      "is_featured": false,
       "takeaway": "个体体验显示，新车配置升级并不必然转化为更符合用户习惯的日常驾驶感受。",
-      "is_new": true
+      "importance": 24,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章以个人用车体验为线索，描述作者驾驶新车一周后重新选择十五年车龄旧车的经历，并围绕实际使用感受及具体取舍原因展开讨论。",
+      "is_featured": false,
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645942524284568088",
@@ -128,14 +128,14 @@
       "item_id": "3af0d971271ba16d",
       "publish_ts": 1780211745.0,
       "publish_date": "2026-05-31",
-      "importance": 68,
       "category": "舆情",
-      "summary": "文章讨论一起涉及辅助驾驶的交通事故，称事发过程持续约四十秒并造成三人死亡，同时关注驾驶员行为、车企宣传边界与安全责任划分问题。",
-      "brands": [],
-      "enriched_by": "codex",
-      "is_featured": true,
       "takeaway": "事故再次触及驾驶员责任与功能宣传边界，辅助驾驶安全教育落地仍需更加明确。",
-      "is_new": true
+      "importance": 68,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章讨论一起涉及辅助驾驶的交通事故，称事发过程持续约四十秒并造成三人死亡，同时关注驾驶员行为、车企宣传边界与安全责任划分问题。",
+      "is_featured": true,
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645937764835279422",
@@ -149,14 +149,14 @@
       "item_id": "d92c105e7ce8511f",
       "publish_ts": 1780211181.0,
       "publish_date": "2026-05-31",
-      "importance": 42,
       "category": "市场",
-      "summary": "文章围绕经销商专属分会成立展开讨论，关注渠道端经营压力及行业组织提供支持的作用，并指出长期改善仍取决于商业环境变化趋势。",
-      "brands": [],
-      "enriched_by": "codex",
-      "is_featured": false,
       "takeaway": "组织化协调可缓解部分渠道矛盾，但经销商经营修复仍依赖更稳定的盈利机制。",
-      "is_new": true
+      "importance": 42,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章围绕经销商专属分会成立展开讨论，关注渠道端经营压力及行业组织提供支持的作用，并指出长期改善仍取决于商业环境变化趋势。",
+      "is_featured": false,
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645937023023530521",
@@ -170,14 +170,14 @@
       "item_id": "a6d524f34258c2bd",
       "publish_ts": 1780211181.0,
       "publish_date": "2026-05-31",
-      "importance": 23,
       "category": "产品",
-      "summary": "文章通过遮挡新能源车型标识的方式观察车辆辨识度，讨论当前产品在外观设计、品牌特征和造型语言方面的差异化表现及同质化现象。",
-      "brands": [],
-      "enriched_by": "codex",
-      "is_featured": false,
       "takeaway": "车标之外的设计辨识度正成为新能源车型建立品牌记忆和产品差异的重要因素。",
-      "is_new": true
+      "importance": 23,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章通过遮挡新能源车型标识的方式观察车辆辨识度，讨论当前产品在外观设计、品牌特征和造型语言方面的差异化表现及同质化现象。",
+      "is_featured": false,
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645921634394030617",
@@ -191,14 +191,14 @@
       "item_id": "bed83a6d1d6f74e0",
       "publish_ts": 1780207532.0,
       "publish_date": "2026-05-31",
-      "importance": 38,
       "category": "市场",
-      "summary": "文章讨论新能源汽车使用成本与消费支出的关系，指出能源费用下降并不等同于整体花费降低，部分用户会将节省转向配置升级的变化。",
-      "brands": [],
-      "enriched_by": "codex",
-      "is_featured": false,
       "takeaway": "低能耗成本可能释放新的配置消费空间，购车决策正在从省钱转向体验升级变化。",
-      "is_new": true
+      "importance": 38,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章讨论新能源汽车使用成本与消费支出的关系，指出能源费用下降并不等同于整体花费降低，部分用户会将节省转向配置升级的变化。",
+      "is_featured": false,
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645918689631765016",
@@ -212,15 +212,15 @@
       "item_id": "4961770f08885f0f",
       "publish_ts": 1780206459.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
-      "enriched_by": "codex",
+      "category": "市场",
       "takeaway": "汽车金融连接购车转化和经销商资金周转，业务退出反映车企渠道支持体系正在调整。",
+      "importance": 61,
+      "enriched_by": "codex",
       "brands": [
         "沃尔沃"
       ],
-      "category": "市场",
       "summary": "相关报道关注沃尔沃汽车金融业务主体结束运营的情况，并将其置于汽车消费金融模式变化及外资车企在华业务调整变化的背景下讨论。",
-      "importance": 61,
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -235,15 +235,15 @@
       "item_id": "68574fb9a8d2ec2b",
       "publish_ts": 1780206342.0,
       "publish_date": "2026-05-31",
-      "is_featured": true,
-      "enriched_by": "codex",
+      "category": "技术",
       "takeaway": "平台化能力直接影响研发效率和车型扩展速度，值得观察其对集团产品节奏的带动作用。",
+      "importance": 72,
+      "enriched_by": "codex",
       "brands": [
         "Stellantis"
       ],
-      "category": "技术",
       "summary": "Stellantis推出面向整车开发的新型模块化架构，旨在统一关键系统和开发接口，为不同车型及动力形式提供更灵活的工程基础。",
-      "importance": 72,
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -258,13 +258,13 @@
       "item_id": "1cb2855dc35a514e",
       "publish_ts": 1780206334.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
-      "enriched_by": "codex",
-      "takeaway": "位置传感器属于车辆电子化的基础器件，小型性能升级可改善控制精度和系统稳定性。",
-      "brands": [],
       "category": "技术",
-      "summary": "Diodes新增一款用于位置检测的霍尔效应锁存器，通过提高感应灵敏度改善信号识别表现，可面向汽车及其他电子设备应用场景。",
+      "takeaway": "位置传感器属于车辆电子化的基础器件，小型性能升级可改善控制精度和系统稳定性。",
       "importance": 55,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "Diodes新增一款用于位置检测的霍尔效应锁存器，通过提高感应灵敏度改善信号识别表现，可面向汽车及其他电子设备应用场景。",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -279,15 +279,15 @@
       "item_id": "750006418f02704a",
       "publish_ts": 1780206323.0,
       "publish_date": "2026-05-31",
-      "is_featured": true,
+      "category": "产品",
+      "takeaway": "十万元级轿车新增四驱选项，价格与配置组合对同级车型形成直接压力，同级产品或需调整策略。",
+      "importance": 69,
       "enriched_by": "codex",
-      "takeaway": "十万元级轿车新增四驱选项，价格与配置组合对同级车型形成直接压力。同级产品或需调整策略",
       "brands": [
         "吉利银河"
       ],
-      "category": "产品",
       "summary": "吉利银河星耀7 MAX完成上市，产品以十万元级新能源轿车市场为目标，并把四驱配置作为主要卖点，上市阶段给出限时价格与配套购车权益。",
-      "importance": 69,
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -302,15 +302,15 @@
       "item_id": "8a32b21ab8a21854",
       "publish_ts": 1780205565.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
-      "enriched_by": "codex",
+      "category": "政策",
       "takeaway": "跨境资本关系正被纳入汽车贸易审查，奔驰案例可观察监管边界是否继续扩大。",
+      "importance": 63,
+      "enriched_by": "codex",
       "brands": [
         "奔驰"
       ],
-      "category": "政策",
       "summary": "报道讨论美国市场针对汽车供应链和资本关联的限制措施，并分析中国股东持有奔驰股份是否可能影响该品牌在当地销售与具体合规安排。",
-      "importance": 63,
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -325,16 +325,16 @@
       "item_id": "a553fd309512779d",
       "publish_ts": 1780204308.0,
       "publish_date": "2026-05-31",
-      "importance": 44,
       "category": "产品",
-      "summary": "文章以天门山道路场景介绍领克10+的弯道表现，重点讨论纯电性能车型除直线加速之外，在操控、底盘调校和实际验证方面的能力。",
+      "takeaway": "纯电性能竞争开始从加速参数转向操控表现，底盘能力将成为产品区分点之一。",
+      "importance": 44,
+      "enriched_by": "codex",
       "brands": [
         "领克"
       ],
-      "enriched_by": "codex",
+      "summary": "文章以天门山道路场景介绍领克10+的弯道表现，重点讨论纯电性能车型除直线加速之外，在操控、底盘调校和实际验证方面的能力。",
       "is_featured": false,
-      "takeaway": "纯电性能竞争开始从加速参数转向操控表现，底盘能力将成为产品区分点之一。",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645910228302905918",
@@ -348,13 +348,13 @@
       "item_id": "a70eb9985690c2f4",
       "publish_ts": 1780203760.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
-      "enriched_by": "codex",
-      "takeaway": "行业竞争开始检验盈利质量，谁能从价格战转向产品和服务增量将影响下一轮分化。",
-      "brands": [],
       "category": "市场",
-      "summary": "文章梳理新能源汽车市场竞争从单纯价格比拼转向盈利和差异化能力建设，讨论车企在利润压力下寻找新增长空间的可行路径和现实条件。",
+      "takeaway": "行业竞争开始检验盈利质量，谁能从价格战转向产品和服务增量将影响下一轮分化。",
       "importance": 58,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章梳理新能源汽车市场竞争从单纯价格比拼转向盈利和差异化能力建设，讨论车企在利润压力下寻找新增长空间的可行路径和现实条件。",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -369,13 +369,13 @@
       "item_id": "408d22450755132a",
       "publish_ts": 1780203189.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
-      "enriched_by": "codex",
-      "takeaway": "辅助驾驶进入责任兑现阶段，能力边界说明、事故责任和用户教育将共同影响市场信任。",
-      "brands": [],
       "category": "技术",
-      "summary": "文章讨论辅助驾驶功能快速普及后面临的安全责任、用户认知和实际能力边界问题，关注车企宣传承诺与落地表现之间的实际能力差距。",
+      "takeaway": "辅助驾驶进入责任兑现阶段，能力边界说明、事故责任和用户教育将共同影响市场信任。",
       "importance": 65,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章讨论辅助驾驶功能快速普及后面临的安全责任、用户认知和实际能力边界问题，关注车企宣传承诺与落地表现之间的实际能力差距。",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -390,16 +390,16 @@
       "item_id": "d998bd53052ec040",
       "publish_ts": 1780202906.0,
       "publish_date": "2026-05-31",
-      "is_featured": true,
-      "enriched_by": "codex",
+      "category": "技术",
       "takeaway": "两种智驾路线的竞争将更直接，感知硬件取舍与实际体验差异成为核心比较项。",
+      "importance": 78,
+      "enriched_by": "codex",
       "brands": [
         "特斯拉",
         "华为"
       ],
-      "category": "技术",
       "summary": "报道围绕特斯拉驾驶辅助系统在国内市场的推进预期，介绍华为对感知路线的回应，强调激光雷达在探测距离方面的实际能力表现与优势。",
-      "importance": 78,
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -414,16 +414,16 @@
       "item_id": "857a4c9aa467b1fd",
       "publish_ts": 1780202277.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
-      "enriched_by": "codex",
+      "category": "市场",
       "takeaway": "供应商从幕后走向高端品牌化，可能改变华为汽车生态中的分工方式和利润分配。",
+      "importance": 64,
+      "enriched_by": "codex",
       "brands": [
         "尊界",
         "华为"
       ],
-      "category": "市场",
       "summary": "市场消息称，在尊界S800取得进展后，华为正协助国内供应商建设面向高端市场的子品牌，推动供应链企业拓展品牌化业务新布局。",
-      "importance": 64,
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -438,18 +438,18 @@
       "item_id": "50cbf2015aff3598",
       "publish_ts": 1780201860.0,
       "publish_date": "2026-05-31",
-      "importance": 62,
       "category": "政策",
-      "summary": "文章围绕美国方面针对奔驰的相关动向展开讨论，并将北汽、吉利持股关系作为背景，分析跨境股权结构、监管因素的关联及其潜在影响和变化趋势。",
+      "takeaway": "跨境股权与监管议题相互交织，车企全球化布局将面对更加复杂的外部政策变量。",
+      "importance": 62,
+      "enriched_by": "codex",
       "brands": [
         "北汽",
         "吉利",
         "奔驰"
       ],
-      "enriched_by": "codex",
+      "summary": "文章围绕美国方面针对奔驰的相关动向展开讨论，并将北汽、吉利持股关系作为背景，分析跨境股权结构、监管因素的关联及其潜在影响和变化趋势。",
       "is_featured": false,
-      "takeaway": "跨境股权与监管议题相互交织，车企全球化布局将面对更加复杂的外部政策变量。",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645903300961255960",
@@ -463,18 +463,18 @@
       "item_id": "7a11fee6ed189535",
       "publish_ts": 1780201613.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
-      "enriched_by": "codex",
+      "category": "市场",
       "takeaway": "销量与估值出现背离，折射资本市场对增长持续性和盈利兑现能力的重新定价。",
+      "importance": 57,
+      "enriched_by": "codex",
       "brands": [
         "赛力斯",
         "奔驰",
         "宝马",
         "奥迪"
       ],
-      "category": "市场",
       "summary": "文章比较赛力斯销量表现与资本市场走势，讨论销量增长未能同步支撑股价的原因，并分析市场预期、估值和经营质量之间的具体关系。",
-      "importance": 57,
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -489,13 +489,13 @@
       "item_id": "54db5cbd2fac6f94",
       "publish_ts": 1780201269.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
-      "enriched_by": "codex",
-      "takeaway": "当补能时间进一步缩短，燃油车的便利性优势会被削弱，竞争焦点转向基础设施覆盖。",
-      "brands": [],
       "category": "技术",
-      "summary": "文章分析电动车续航和补能体验的变化，认为更大容量电池与高功率充电组合正在缩小使用差异，并增强纯电车型对燃油车的替代能力。",
+      "takeaway": "当补能时间进一步缩短，燃油车的便利性优势会被削弱，竞争焦点转向基础设施覆盖。",
       "importance": 62,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章分析电动车续航和补能体验的变化，认为更大容量电池与高功率充电组合正在缩小使用差异，并增强纯电车型对燃油车的替代能力。",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -510,13 +510,13 @@
       "item_id": "dadd123d3d8ab8d3",
       "publish_ts": 1780200780.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
-      "enriched_by": "codex",
-      "takeaway": "在电动化趋势下保留大排量与手动挡，这款小众跑车体现传统性能车需求。也检验收藏市场接受度",
-      "brands": [],
       "category": "产品",
-      "summary": "AC Cobra GT Coupe硬顶跑车对外发布，新车搭载5.0升V8发动机并提供手动变速箱，以品牌周年节点为背景延续经典跑车的机械配置路线。",
+      "takeaway": "在电动化趋势下保留大排量与手动挡，这款小众跑车体现传统性能车需求，也检验收藏市场接受度。",
       "importance": 54,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "AC Cobra GT Coupe硬顶跑车对外发布，新车搭载5.0升V8发动机并提供手动变速箱，以品牌周年节点为背景延续经典跑车的机械配置路线。",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -531,15 +531,15 @@
       "item_id": "c311b4c41c72ba53",
       "publish_ts": 1780200764.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
+      "category": "舆情",
+      "takeaway": "国产轮胎进入高端车型后仍面临认知偏差，争议折射供应链品牌化难题，供应商品牌建设仍需加强。",
+      "importance": 52,
       "enriched_by": "codex",
-      "takeaway": "国产轮胎进入高端车型后仍面临认知偏差，争议折射供应链品牌化难题。供应商品牌建设仍需加强",
       "brands": [
         "尊界"
       ],
-      "category": "舆情",
       "summary": "文章围绕尊界S800高定典藏版使用国产轮胎引发的讨论展开，关注高端车型配置选择与消费者认知之间的差异，以及相关争议的传播情况。",
-      "importance": 52,
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -554,13 +554,13 @@
       "item_id": "cfa1a9d265f19d49",
       "publish_ts": 1780200444.0,
       "publish_date": "2026-05-31",
-      "is_featured": true,
-      "enriched_by": "codex",
-      "takeaway": "新能源渗透率提升未同步改善利润，价格竞争正在检验车企经营质量。规模扩张模式面临考验",
-      "brands": [],
       "category": "市场",
-      "summary": "文章讨论五月汽车市场的结构变化，指出新能源车型销量继续增长，但车企盈利承压，销量扩张与利润表现之间出现分化，行业竞争仍较激烈。",
+      "takeaway": "新能源渗透率提升未同步改善利润，价格竞争正在检验车企经营质量，规模扩张模式面临考验。",
       "importance": 67,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章讨论五月汽车市场的结构变化，指出新能源车型销量继续增长，但车企盈利承压，销量扩张与利润表现之间出现分化，行业竞争仍较激烈。",
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -575,17 +575,17 @@
       "item_id": "7e451e4fa2da91c4",
       "publish_ts": 1780200444.0,
       "publish_date": "2026-05-31",
-      "importance": 63,
       "category": "市场",
-      "summary": "文章关注吉利是否调整纯燃油车业务的市场讨论，并提及官方回应以及与比亚迪路线的差异，涉及车企动力结构和后续布局方向的选择。",
+      "takeaway": "燃油车去留关系到产品组合和渠道节奏，不同车企的转型路径仍存在明显差异。",
+      "importance": 63,
+      "enriched_by": "codex",
       "brands": [
         "吉利",
         "比亚迪"
       ],
-      "enriched_by": "codex",
+      "summary": "文章关注吉利是否调整纯燃油车业务的市场讨论，并提及官方回应以及与比亚迪路线的差异，涉及车企动力结构和后续布局方向的选择。",
       "is_featured": false,
-      "takeaway": "燃油车去留关系到产品组合和渠道节奏，不同车企的转型路径仍存在明显差异。",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645895782553420312",
@@ -599,16 +599,16 @@
       "item_id": "8ff3c188df97d4c8",
       "publish_ts": 1780199536.0,
       "publish_date": "2026-05-31",
-      "importance": 64,
       "category": "舆情",
-      "summary": "文章援引前员工说法讨论特斯拉FSD的安全表现，并以相关负面体验为切入点，关注辅助驾驶功能的可靠性、用户信任及后续影响变化。",
+      "takeaway": "前员工质疑会放大公众对辅助驾驶的信任压力，功能能力与宣传口径需更清晰。",
+      "importance": 64,
+      "enriched_by": "codex",
       "brands": [
         "特斯拉"
       ],
-      "enriched_by": "codex",
+      "summary": "文章援引前员工说法讨论特斯拉FSD的安全表现，并以相关负面体验为切入点，关注辅助驾驶功能的可靠性、用户信任及后续影响变化。",
       "is_featured": false,
-      "takeaway": "前员工质疑会放大公众对辅助驾驶的信任压力，功能能力与宣传口径需更清晰。",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645896155796341273",
@@ -622,13 +622,13 @@
       "item_id": "41dfe22098e8791d",
       "publish_ts": 1780199536.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
-      "enriched_by": "codex",
-      "takeaway": "油价波动影响燃油车使用成本，也会改变消费者比较不同动力路线的方式。购车决策对成本更敏感",
-      "brands": [],
       "category": "市场",
-      "summary": "文章分析成品油价格波动对日常用车成本的影响，并从车主使用场景出发讨论油价上涨与下调交替出现时的应对方式，内容偏消费提示。",
+      "takeaway": "油价波动影响燃油车使用成本，也会改变消费者比较不同动力路线的方式，购车决策对成本更敏感。",
       "importance": 39,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章分析成品油价格波动对日常用车成本的影响，并从车主使用场景出发讨论油价上涨与下调交替出现时的应对方式，内容偏消费提示。",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -643,13 +643,13 @@
       "item_id": "5a28aec26a5ed67c",
       "publish_ts": 1780199329.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
-      "enriched_by": "codex",
-      "takeaway": "电池容量与充电速度同步提升，新能源车长途使用短板正在继续收窄。补能网络匹配度同样关键",
-      "brands": [],
       "category": "技术",
-      "summary": "文章讨论新能源汽车补能体验的变化，重点关注更大容量动力电池与高功率充电技术的应用，以及这些配置对长途行驶和途中补能时间的影响。",
+      "takeaway": "电池容量与充电速度同步提升，新能源车长途使用短板正在继续收窄，补能网络匹配度同样关键。",
       "importance": 61,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章讨论新能源汽车补能体验的变化，重点关注更大容量动力电池与高功率充电技术的应用，以及这些配置对长途行驶和途中补能时间的影响。",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -664,13 +664,13 @@
       "item_id": "400098af370feabc",
       "publish_ts": 1780198500.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
-      "enriched_by": "codex",
-      "takeaway": "混动技术并未失去价值，但纯电与插混扩张正在重新划分其市场空间。产品组合需要重新定位",
-      "brands": [],
       "category": "市场",
-      "summary": "文章回顾油电混合动力车型的市场处境，认为该路线曾凭借油耗和使用便利性取得竞争优势，但在新能源渗透率上升后面临新的产品定位压力。",
+      "takeaway": "混动技术并未失去价值，但纯电与插混扩张正在重新划分其市场空间，产品组合需要重新定位。",
       "importance": 51,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章回顾油电混合动力车型的市场处境，认为该路线曾凭借油耗和使用便利性取得竞争优势，但在新能源渗透率上升后面临新的产品定位压力。",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -685,13 +685,13 @@
       "item_id": "91d4933f5a01f7a1",
       "publish_ts": 1780198234.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
-      "enriched_by": "codex",
-      "takeaway": "内容聚焦汽车后市场服务选择，主要价值在于提示托运报价和履约环节的常见风险。",
-      "brands": [],
       "category": "市场",
-      "summary": "文章整理北京地区轿车托运服务信息，围绕报价、运输保障和服务体验等常见问题介绍多家相关企业，并提供消费者实际选择参考依据。",
+      "takeaway": "内容聚焦汽车后市场服务选择，主要价值在于提示托运报价和履约环节的常见风险。",
       "importance": 20,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章整理北京地区轿车托运服务信息，围绕报价、运输保障和服务体验等常见问题介绍多家相关企业，并提供消费者实际选择参考依据。",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -706,13 +706,13 @@
       "item_id": "3fe4c0ee6e891936",
       "publish_ts": 1780197765.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
-      "enriched_by": "codex",
-      "takeaway": "动力电池退役量增加将考验回收体系，也为材料循环利用带来增量业务。行业规范和溯源能力更重要",
-      "brands": [],
       "category": "市场",
-      "summary": "文章关注新能源汽车动力电池逐步进入集中退役阶段，讨论废旧电池回收、梯次利用与材料再生需求增长后，相关产业链可能出现的市场机会。",
+      "takeaway": "动力电池退役量增加将考验回收体系，也为材料循环利用带来增量业务，行业规范和溯源能力更重要。",
       "importance": 66,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章关注新能源汽车动力电池逐步进入集中退役阶段，讨论废旧电池回收、梯次利用与材料再生需求增长后，相关产业链可能出现的市场机会。",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -727,16 +727,16 @@
       "item_id": "55c0e94639af65db",
       "publish_ts": 1780197747.0,
       "publish_date": "2026-05-31",
-      "importance": 61,
       "category": "舆情",
-      "summary": "文章将小鹏盈利表现与产品质量争议并置讨论，关注经营改善过程中出现的品控问题，以及相关舆情对品牌形象和后续销量表现的影响。",
+      "takeaway": "盈利改善仍需产品质量支撑，品控争议可能削弱用户对品牌经营修复和恢复的信心。",
+      "importance": 61,
+      "enriched_by": "codex",
       "brands": [
         "小鹏"
       ],
-      "enriched_by": "codex",
+      "summary": "文章将小鹏盈利表现与产品质量争议并置讨论，关注经营改善过程中出现的品控问题，以及相关舆情对品牌形象和后续销量表现的影响。",
       "is_featured": false,
-      "takeaway": "盈利改善仍需产品质量支撑，品控争议可能削弱用户对品牌经营修复和恢复的信心。",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645884883134874174",
@@ -750,16 +750,16 @@
       "item_id": "d5a778b5984b0b0c",
       "publish_ts": 1780197338.0,
       "publish_date": "2026-05-31",
-      "is_featured": true,
+      "category": "市场",
+      "takeaway": "新势力竞争从销量扩展到盈利能力，成本控制与产品节奏的重要性上升，单季波动背后是体系竞争。",
+      "importance": 73,
       "enriched_by": "codex",
-      "takeaway": "新势力竞争从销量扩展到盈利能力，成本控制与产品节奏的重要性上升。单季波动背后是体系竞争",
       "brands": [
         "蔚来",
         "理想"
       ],
-      "category": "市场",
       "summary": "文章对比蔚来与理想的阶段性经营表现，提及蔚来盈利变化以及理想出现亏损的情况，并将其置于新势力车企竞争和盈利分化背景下讨论。",
-      "importance": 73,
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -774,16 +774,16 @@
       "item_id": "c04ed38acbd2f960",
       "publish_ts": 1780196620.0,
       "publish_date": "2026-05-31",
-      "is_featured": true,
+      "category": "市场",
+      "takeaway": "跨阵营合作进入落地阶段，技术协同能否转化为产品效率是核心变量，产品兑现速度将影响合作评价。",
+      "importance": 67,
       "enriched_by": "codex",
-      "takeaway": "跨阵营合作进入落地阶段，技术协同能否转化为产品效率是核心变量。产品兑现速度将影响合作评价",
       "brands": [
         "大众",
         "小鹏"
       ],
-      "category": "市场",
       "summary": "文章分析大众与小鹏合作关系的发展，讨论传统车企与智能电动车企业在技术、平台和市场资源上的互补，同时关注合作中的利益分配与长期博弈。",
-      "importance": 67,
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -798,16 +798,16 @@
       "item_id": "7c244af0249e8d7e",
       "publish_ts": 1780196620.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
+      "category": "技术",
+      "takeaway": "不同智驾路线并行竞争，有助于观察数据闭环与本地适配能力的差异，量产体验将决定用户取舍。",
+      "importance": 60,
       "enriched_by": "codex",
-      "takeaway": "不同智驾路线并行竞争，有助于观察数据闭环与本地适配能力的差异。量产体验将决定用户取舍",
       "brands": [
         "华为",
         "特斯拉"
       ],
-      "category": "技术",
       "summary": "文章比较华为智能驾驶方案与特斯拉FSD的技术路线，认为两者采用不同发展路径，并讨论多种方案并行演进对汽车智能驾驶行业竞争的影响。",
-      "importance": 60,
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -822,16 +822,16 @@
       "item_id": "9d1305a9c2e59977",
       "publish_ts": 1780196400.0,
       "publish_date": "2026-05-31",
-      "is_featured": true,
+      "category": "市场",
+      "takeaway": "豪华纯电项目调整显示车企正在重新评估高端电动车需求与投入回报，产品规划灵活性受到检验。",
+      "importance": 69,
       "enriched_by": "codex",
-      "takeaway": "豪华纯电项目调整显示车企正在重新评估高端电动车需求与投入回报。产品规划灵活性受到检验",
       "brands": [
         "丰田",
         "雷克萨斯"
       ],
-      "category": "市场",
-      "summary": "文章称丰田确认雷克萨斯将停止下一代高端纯电轿车项目，并围绕这一调整讨论豪华品牌纯电产品规划、市场需求变化和投入节奏。并评估项目取舍原因",
-      "importance": 69,
+      "summary": "文章称丰田确认雷克萨斯将停止下一代高端纯电轿车项目，并围绕这一调整讨论豪华品牌纯电产品规划、市场需求变化和投入节奏。并评估项目取舍原因。",
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -846,13 +846,13 @@
       "item_id": "0a02e6940b15b592",
       "publish_ts": 1780196177.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
-      "enriched_by": "codex",
-      "takeaway": "新能源车进入规模化后，盈利、渠道和品牌分层将比单纯销量更关键。行业洗牌可能进一步加速",
-      "brands": [],
       "category": "市场",
-      "summary": "文章从产业周期角度讨论新能源汽车市场，认为随着竞争加剧和产品普及，行业可能出现与燃油车发展阶段相似的价格、渠道和品牌分化问题。",
+      "takeaway": "新能源车进入规模化后，盈利、渠道和品牌分层将比单纯销量更关键，行业洗牌可能进一步加速。",
       "importance": 49,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章从产业周期角度讨论新能源汽车市场，认为随着竞争加剧和产品普及，行业可能出现与燃油车发展阶段相似的价格、渠道和品牌分化问题。",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -867,13 +867,13 @@
       "item_id": "451129ae7140a8df",
       "publish_ts": 1780196140.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
-      "enriched_by": "codex",
-      "takeaway": "车展传播方式的差异，反映传统车企与新势力对品牌叙事的不同取向。也会影响车展资源投入",
-      "brands": [],
       "category": "市场",
-      "summary": "文章围绕北京车展上的品牌表现展开评论，对传统汽车企业与新兴车企的展示方式、产品阵容和传播策略进行对比，呈现不同阵营的竞争姿态。",
+      "takeaway": "车展传播方式的差异，反映传统车企与新势力对品牌叙事的不同取向，也会影响车展资源投入。",
       "importance": 46,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章围绕北京车展上的品牌表现展开评论，对传统汽车企业与新兴车企的展示方式、产品阵容和传播策略进行对比，呈现不同阵营的竞争姿态。",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -888,15 +888,15 @@
       "item_id": "3b8bfecab095c908",
       "publish_ts": 1780195020.0,
       "publish_date": "2026-05-31",
-      "is_featured": true,
-      "enriched_by": "codex",
+      "category": "市场",
       "takeaway": "豪华品牌重新审视纯电轿车投入，研发资源和车型投放节奏可能进一步受到影响。",
+      "importance": 80,
+      "enriched_by": "codex",
       "brands": [
         "雷克萨斯"
       ],
-      "category": "市场",
       "summary": "雷克萨斯决定停止推进下一代纯电轿车项目，产品规划将随市场环境调整。此次变化涉及品牌后续电动车型布局，也反映其对纯电细分市场节奏的重新评估。",
-      "importance": 80,
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -904,24 +904,24 @@
       "title": "丰田踩下“刹车”：这款千公里续航的雷克萨斯电车不造了",
       "publish_time": "2026-05-31 10:25:00",
       "snippet": "",
-      "image": "https://p3-dcd-sign.byteimg.com/tos-cn-i-6w9my0ksvp/77f787dd3cea4665b465a4be2dc5d4f6~tplv-f042mdwyw7-original:640:0.image?rk3s=87dec8b9&x-expires=1780817552&x-signature=9oT2MtZqLGY2R%2FYBuWHVW7MGJxs%3D&psm=motor.pc_content.api",
+      "image": "https://p3-dcd-sign.byteimg.com/tos-cn-i-6w9my0ksvp/77f787dd3cea4665b465a4be2dc5d4f6~tplv-f042mdwyw7-original:640:0.image?rk3s=87dec8b9&x-expires=1780817552&x-signature=9oT2MtZqLGy2R%2FYBuWHVW7MGJxs%3D&psm=motor.pc_content.api",
       "source": "dongchedi",
       "source_name": "懂车帝",
       "crawled_at": "2026-05-31T08:01:59.854644+00:00",
       "item_id": "250f383f0c8f9888",
       "publish_ts": 1780194300.0,
       "publish_date": "2026-05-31",
-      "importance": 67,
       "category": "产品",
-      "summary": "文章称丰田停止推进一款雷克萨斯纯电车型，该车原计划突出千公里续航能力，相关调整体现集团对电动车项目节奏及方向的重新评估。",
+      "takeaway": "高续航项目取消反映丰田重新衡量纯电投入节奏，对豪华电动车规划具有参考意义。",
+      "importance": 67,
+      "enriched_by": "codex",
       "brands": [
         "丰田",
         "雷克萨斯"
       ],
-      "enriched_by": "codex",
+      "summary": "文章称丰田停止推进一款雷克萨斯纯电车型，该车原计划突出千公里续航能力，相关调整体现集团对电动车项目节奏及方向的重新评估。",
       "is_featured": true,
-      "takeaway": "高续航项目取消反映丰田重新衡量纯电投入节奏，对豪华电动车规划具有参考意义。",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645870622438244888",
@@ -935,15 +935,15 @@
       "item_id": "4b9d46d1a13d1aae",
       "publish_ts": 1780193996.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
+      "category": "舆情",
+      "takeaway": "车辆失联案例暴露租赁撮合平台在身份核验与事后追踪方面的短板，仍需持续观察。",
+      "importance": 48,
       "enriched_by": "codex",
-      "takeaway": "车辆失联案例暴露租赁撮合平台在身份核验与事后追踪方面的短板。仍需持续观察。",
       "brands": [
         "大众"
       ],
-      "category": "舆情",
       "summary": "一名车主反映帕萨特交由租客使用后车辆在武汉失联，相关平台称无法查询到当事人，事件涉及租赁风控和车辆追踪问题。后续影响仍需结合市场数据与实际进展观察。",
-      "importance": 48,
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -958,13 +958,13 @@
       "item_id": "2f124e6c4afb7d64",
       "publish_ts": 1780193532.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
-      "enriched_by": "codex",
-      "takeaway": "新型电池成果值得跟踪，但量产时间、成本和工程验证仍是关键约束。后续值得关注。",
-      "brands": [],
       "category": "技术",
-      "summary": "文章讨论固态电池研发进展，并结合中科院相关成果分析新型电池路线的变化，关注实验突破距离规模化应用仍有多远。其实际影响仍需根据后续数据与落地情况判断。",
+      "takeaway": "新型电池成果值得跟踪，但量产时间、成本和工程验证仍是关键约束，后续值得关注。",
       "importance": 63,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章讨论固态电池研发进展，并结合中科院相关成果分析新型电池路线的变化，关注实验突破距离规模化应用仍有多远。其实际影响仍需根据后续数据与落地情况判断。",
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -979,15 +979,15 @@
       "item_id": "508926339671fe4b",
       "publish_ts": 1780193215.0,
       "publish_date": "2026-05-31",
-      "is_featured": false,
+      "category": "市场",
+      "takeaway": "季度排名可观察头部车企位置变化，但仍需结合销量与利润口径判断，后续仍可跟踪。",
+      "importance": 51,
       "enriched_by": "codex",
-      "takeaway": "季度排名可观察头部车企位置变化，但仍需结合销量与利润口径判断。后续仍可跟踪。",
       "brands": [
         "比亚迪"
       ],
-      "category": "市场",
       "summary": "文章盘点国产车企一季度经营表现，对比不同企业的成绩排名，并指出比亚迪未进入前两位，试图呈现车企竞争格局变化。相关影响仍有待后续数据与实际进展验证。",
-      "importance": 51,
+      "is_featured": false,
       "is_new": false
     },
     {
@@ -1002,14 +1002,14 @@
       "item_id": "70157d63224df2ce",
       "publish_ts": 1780193018.0,
       "publish_date": "2026-05-31",
-      "importance": 28,
       "category": "政策",
-      "summary": "文章以豆包生成内容为切入点讨论燃油车与新能源车的使用权益问题，涉及不同动力车型在政策和消费环境中的待遇差异以及相关讨论。",
-      "brands": [],
-      "enriched_by": "codex",
-      "is_featured": false,
       "takeaway": "油车与新能源车的权益平衡仍有讨论空间，但生成式内容不能替代政策依据来源。",
-      "is_new": true
+      "importance": 28,
+      "enriched_by": "codex",
+      "brands": [],
+      "summary": "文章以豆包生成内容为切入点讨论燃油车与新能源车的使用权益问题，涉及不同动力车型在政策和消费环境中的待遇差异以及相关讨论。",
+      "is_featured": false,
+      "is_new": false
     },
     {
       "title": "86800元标配激光雷达，零跑A10智驾实测：能打但不省心？",
@@ -1023,15 +1023,15 @@
       "item_id": "75e4254f50ef0752",
       "publish_ts": 1780189200.0,
       "publish_date": "2026-05-31",
-      "is_featured": true,
+      "category": "产品",
+      "takeaway": "激光雷达下探至入门价位，实测结果可判断低价智驾的能力边界，后续仍可跟踪。",
+      "importance": 72,
       "enriched_by": "codex",
-      "takeaway": "激光雷达下探至入门价位，实测结果可判断低价智驾的能力边界。后续仍可跟踪。",
       "brands": [
         "零跑"
       ],
-      "category": "产品",
       "summary": "汽车之家对零跑A10智能驾驶能力进行实测，车辆起售价为八万余元并标配激光雷达，测试关注功能表现和使用稳定性。相关影响仍有待后续数据与实际进展验证。",
-      "importance": 72,
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -1046,15 +1046,15 @@
       "item_id": "5b1d8e16d0c4b424",
       "publish_ts": 1780186380.0,
       "publish_date": "2026-05-31",
-      "is_featured": true,
-      "enriched_by": "codex",
+      "category": "市场",
       "takeaway": "埃安继续以紧凑型电动车拓展海外市场，新西兰成为其国际化重要新增落点之一。",
+      "importance": 67,
+      "enriched_by": "codex",
       "brands": [
         "埃安"
       ],
-      "category": "市场",
       "summary": "广汽埃安旗下AION UT进入新西兰市场，品牌海外销售版图继续扩展。该车型的落地为埃安拓展当地新能源乘用车市场增加了新的产品支点。",
-      "importance": 67,
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -1069,15 +1069,15 @@
       "item_id": "94f44995a8232d34",
       "publish_ts": 1780183800.0,
       "publish_date": "2026-05-31",
-      "is_featured": true,
+      "category": "产品",
+      "takeaway": "改款旗舰车型的配置变化，可观察问界在高端市场的产品迭代重点，仍需持续观察。",
+      "importance": 67,
       "enriched_by": "codex",
-      "takeaway": "改款旗舰车型的配置变化，可观察问界在高端市场的产品迭代重点。仍需持续观察。",
       "brands": [
         "问界"
       ],
-      "category": "产品",
       "summary": "汽车之家以图解形式梳理二零二六款问界M9的技术亮点，内容覆盖车型核心配置、智能化能力和产品升级方向。后续影响仍需结合市场数据与实际进展观察。",
-      "importance": 67,
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -1092,16 +1092,16 @@
       "item_id": "b7e388b5d0267c14",
       "publish_ts": 1780182332.0,
       "publish_date": "2026-05-31",
-      "is_featured": true,
+      "category": "市场",
+      "takeaway": "技术叙事与整车成本上升同时出现，可用于判断行业近期经营压力与方向，供应链议题权重正在增加。",
+      "importance": 72,
       "enriched_by": "codex",
-      "takeaway": "技术叙事与整车成本上升同时出现，可用于判断行业近期经营压力与方向。供应链议题权重正在增加",
       "brands": [
         "华为",
         "蔚来"
       ],
-      "category": "市场",
       "summary": "盖世汽车周报汇总近期行业动态，其中包括华为提出“韬定律”以及李斌透露整车成本已上涨一万元等信息，内容覆盖技术观点与成本变化。",
-      "importance": 72,
+      "is_featured": true,
       "is_new": false
     },
     {
@@ -1119,16 +1119,16 @@
       "extra_sources": [
         "懂车帝"
       ],
-      "is_featured": true,
-      "enriched_by": "codex",
+      "category": "市场",
       "takeaway": "蔚来的盈利目标进一步落到两款新车，销量与毛利改善均需要同步兑现。",
+      "importance": 77,
+      "enriched_by": "codex",
       "brands": [
         "蔚来",
         "乐道"
       ],
-      "category": "市场",
       "summary": "报道围绕蔚来全年盈利目标展开，称公司将蔚来ES9与乐道L80作为后续产品重点。两款车型承担扩大销量、改善产品结构和推动经营表现修复的任务。",
-      "importance": 77,
+      "is_featured": true,
       "is_new": false
     }
   ]
