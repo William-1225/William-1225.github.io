@@ -778,9 +778,9 @@ body.dark-theme .stat { border-color: #3a3a3e; }
         <hr class="entry-divider"/>
         <div class="entry-label" id="p-label-news">主要工作</div>
         <ul class="entry-bullets">
-          <li id="news1"><strong>多源采集</strong> — <span class="dim">基于 Python + Playwright 每日抓取盖世汽车、汽车之家、第一电动等主流媒体资讯</span></li>
-          <li id="news2"><strong>智能处理</strong> — <span class="dim">LLM 自动摘要、四维分类（行业大事/分品牌/新能源·智驾/舆情·热点）与品牌标签，跨天去重</span></li>
-          <li id="news3"><strong>看板呈现</strong> — <span class="dim">分类筛选、品牌与来源下钻、全文搜索、要点置顶，每日自动发布</span></li>
+          <li id="news1"><strong>多源采集</strong> — <span class="dim">基于 Python（Playwright + curl_cffi）每 4 小时抓取盖世、汽车之家、第一电动、易车、懂车帝、汽车公社等主流媒体资讯</span></li>
+          <li id="news2"><strong>智能处理</strong> — <span class="dim">LLM 自动摘要与看点、五维主题分类与品牌标签，跨源去重</span></li>
+          <li id="news3"><strong>看板呈现</strong> — <span class="dim">按发布日切换、分类筛选、品牌与来源下钻、全文搜索、AI 精选置顶，每 4 小时自动发布</span></li>
         </ul>
         <div class="entry-tags">
           <span class="tag" id="t-news-1">资讯聚合</span>
@@ -984,9 +984,9 @@ var T = {
     proj_heading:'Projects',
     news_co:'汽车行业新闻聚合看板', news_role:'个人项目 · 每日自动更新', news_date:'2026.05-至今',
     label_work_news:'主要工作',
-    news1:'<strong>多源采集</strong> — <span class="dim">基于 Python + Playwright 每日抓取盖世汽车、汽车之家、第一电动等主流媒体资讯</span>',
-    news2:'<strong>智能处理</strong> — <span class="dim">LLM 自动摘要、四维分类与品牌标签，跨天去重</span>',
-    news3:'<strong>看板呈现</strong> — <span class="dim">分类筛选、品牌与来源下钻、全文搜索、要点置顶，每日自动发布</span>',
+    news1:'<strong>多源采集</strong> — <span class="dim">基于 Python（Playwright + curl_cffi）每 4 小时抓取盖世、汽车之家、第一电动、易车、懂车帝、汽车公社等主流媒体资讯</span>',
+    news2:'<strong>智能处理</strong> — <span class="dim">LLM 自动摘要与看点、五维主题分类与品牌标签，跨源去重</span>',
+    news3:'<strong>看板呈现</strong> — <span class="dim">按发布日切换、分类筛选、品牌与来源下钻、全文搜索、AI 精选置顶，每 4 小时自动发布</span>',
     tnews1:'资讯聚合', tnews2:'LLM 摘要', tnews3:'数据可视化',
     news_link:'查看新闻看板',
     xhs_co:'小红书 SUV 用户口碑监测', xhs_role:'个人项目 · 社媒 UGC 洞察', xhs_date:'2026.04 – 2026.05',
@@ -1036,9 +1036,9 @@ var T = {
     proj_heading:'Projects',
     news_co:'Auto Industry News Dashboard', news_role:'Personal Project · Daily Auto-Update', news_date:'May 2026 - Present',
     label_work_news:'Key Work',
-    news1:'<strong>Multi-Source Crawl</strong> — <span class="dim">Daily Python + Playwright crawl of mainstream auto media (Gasgoo, Autohome, D1EV)</span>',
-    news2:'<strong>Smart Processing</strong> — <span class="dim">LLM summarization, 4-way categorization, brand tagging, and cross-day dedup</span>',
-    news3:'<strong>Dashboard</strong> — <span class="dim">Category filters, brand/source drill-down, full-text search, top-news highlights, auto-published daily</span>',
+    news1:'<strong>Multi-Source Crawl</strong> — <span class="dim">Python (Playwright + curl_cffi) crawl of mainstream auto media (Gasgoo, Autohome, D1EV, Yiche, Dongchedi, iAutoDaily) every 4h</span>',
+    news2:'<strong>Smart Processing</strong> — <span class="dim">LLM summaries & takeaways, 5-way topic classification, brand tags, and cross-source dedup</span>',
+    news3:'<strong>Dashboard</strong> — <span class="dim">Date switching, category filters, brand/source drill-down, full-text search, AI-featured highlights, auto-published every 4h</span>',
     tnews1:'News Aggregation', tnews2:'LLM Summary', tnews3:'Data Visualization',
     news_link:'View News Dashboard',
     xhs_co:'Xiaohongshu SUV User Sentiment Monitor', xhs_role:'Personal Project · Social UGC Insights', xhs_date:'Apr 2026 – May 2026',
