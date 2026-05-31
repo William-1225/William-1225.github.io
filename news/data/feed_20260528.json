@@ -1,6 +1,6 @@
 {
   "stamp": "20260528",
-  "generated_at": "2026-05-31T16:40:39",
+  "generated_at": "2026-05-31T18:08:36",
   "total": 37,
   "categories": [
     "政策",
@@ -60,18 +60,18 @@
       "source_name": "盖世汽车",
       "crawled_at": "2026-05-31T05:44:01.117900+00:00",
       "item_id": "766e6686e9dd4032",
-      "publish_ts": 1779981151,
+      "publish_ts": 1779981151.0,
       "publish_date": "2026-05-28",
-      "summary": "比亚迪将驾驶辅助能力进一步覆盖到城市领航场景，强调通过自研技术和规模化装车降低智能驾驶使用门槛，并扩大功能在主流车型中的可获得性。",
+      "is_featured": true,
+      "enriched_by": "codex",
       "takeaway": "城市领航向更广价格带下放，将迫使同级车型重新评估智能驾驶配置和定价空间。",
-      "category": "技术",
       "brands": [
         "比亚迪"
       ],
+      "category": "技术",
+      "summary": "比亚迪将驾驶辅助能力进一步覆盖到城市领航场景，强调通过自研技术和规模化装车降低智能驾驶使用门槛，并扩大功能在主流车型中的可获得性。",
       "importance": 75,
-      "is_featured": true,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "卓驭欧洲总部正式开业",
@@ -83,16 +83,16 @@
       "source_name": "盖世汽车",
       "crawled_at": "2026-05-31T05:44:01.117900+00:00",
       "item_id": "8771b3ff24a682b2",
-      "publish_ts": 1779978422,
+      "publish_ts": 1779978422.0,
       "publish_date": "2026-05-28",
-      "summary": "卓驭宣布欧洲总部正式开业，进一步完善海外业务布局。新总部将承担区域市场拓展、客户协同及本地化运营等职能，为欧洲业务提供落地支撑。",
-      "takeaway": "智能驾驶供应商加快欧洲本地化布局，意味着国内方案商出海进入客户服务深水区。",
-      "category": "市场",
-      "brands": [],
-      "importance": 59,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "takeaway": "智能驾驶供应商加快欧洲本地化布局，意味着国内方案商出海进入客户服务深水区。",
+      "brands": [],
+      "category": "市场",
+      "summary": "卓驭宣布欧洲总部正式开业，进一步完善海外业务布局。新总部将承担区域市场拓展、客户协同及本地化运营等职能，为欧洲业务提供落地支撑。",
+      "importance": 59,
+      "is_new": false
     },
     {
       "title": "国产电车抄不来法拉利 Luce，也千万别抄",
@@ -104,18 +104,18 @@
       "source_name": "36氪",
       "crawled_at": "2026-05-31T06:06:03.634651+00:00",
       "item_id": "e90f658d801e0dc8",
-      "publish_ts": 1779974852,
+      "publish_ts": 1779974852.0,
       "publish_date": "2026-05-28",
-      "summary": "文章以法拉利Luce等高端电动车为切入点，讨论国产电动车在设计表达、品牌故事和高端定价上不宜简单模仿，认为产品差异需要建立在自身定位上。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "高端电动车竞争不仅取决于配置堆叠，品牌叙事和原创设计正成为更难复制的门槛。",
-      "category": "舆情",
       "brands": [
         "法拉利"
       ],
+      "category": "舆情",
+      "summary": "文章以法拉利Luce等高端电动车为切入点，讨论国产电动车在设计表达、品牌故事和高端定价上不宜简单模仿，认为产品差异需要建立在自身定位上。",
       "importance": 54,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "比亚迪发布中国首款4nm智驾芯片璇玑A3 支持L3/L4自动驾驶",
@@ -127,18 +127,18 @@
       "source_name": "易车",
       "crawled_at": "2026-05-31T05:47:33.259367+00:00",
       "item_id": "824ae94e4502fc2f",
-      "publish_ts": 1779974700,
+      "publish_ts": 1779974700.0,
       "publish_date": "2026-05-28",
-      "summary": "比亚迪发布自研璇玑A3智能驾驶芯片，采用4纳米工艺并面向L3、L4级自动驾驶能力开发。芯片发布标志着其智能驾驶核心硬件进入自主化阶段。",
+      "is_featured": true,
+      "enriched_by": "codex",
       "takeaway": "整车厂掌握智能驾驶核心芯片后，可更紧密协同算法、车型平台和量产成本节奏。",
-      "category": "技术",
       "brands": [
         "比亚迪"
       ],
+      "category": "技术",
+      "summary": "比亚迪发布自研璇玑A3智能驾驶芯片，采用4纳米工艺并面向L3、L4级自动驾驶能力开发。芯片发布标志着其智能驾驶核心硬件进入自主化阶段。",
       "importance": 91,
-      "is_featured": true,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "比亚迪宋Ultra DM-i正式上市 售12.99万元起",
@@ -150,18 +150,18 @@
       "source_name": "易车",
       "crawled_at": "2026-05-31T05:47:33.259367+00:00",
       "item_id": "4b673c4568785d23",
-      "publish_ts": 1779974460,
+      "publish_ts": 1779974460.0,
       "publish_date": "2026-05-28",
-      "summary": "比亚迪宋Ultra DM-i正式上市，起售价为12.99万元。新车采用插电式混合动力路线，进入主流家用新能源市场，并进一步补充宋家族产品阵容。",
+      "is_featured": true,
+      "enriched_by": "codex",
       "takeaway": "宋家族继续加密主流价位产品，12.99万元起售价将影响同级插混车型竞争。",
-      "category": "产品",
       "brands": [
         "比亚迪"
       ],
+      "category": "产品",
+      "summary": "比亚迪宋Ultra DM-i正式上市，起售价为12.99万元。新车采用插电式混合动力路线，进入主流家用新能源市场，并进一步补充宋家族产品阵容。",
       "importance": 72,
-      "is_featured": true,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "售12.99万起 比亚迪宋Ultra DM-i上市 还有璇玑A3芯片等发布！",
@@ -173,18 +173,18 @@
       "source_name": "汽车之家",
       "crawled_at": "2026-05-31T05:44:01.127853+00:00",
       "item_id": "76c36f3114d7f275",
-      "publish_ts": 1779974400,
+      "publish_ts": 1779974400.0,
       "publish_date": "2026-05-28",
-      "summary": "比亚迪发布宋Ultra DM-i并公布12.99万元起售价，同时推出璇玑A3智能驾驶芯片等技术成果。活动将新车型上市与核心技术发布集中呈现。",
+      "is_featured": true,
+      "enriched_by": "codex",
       "takeaway": "车型定价与自研芯片同场发布，显示比亚迪正把智能驾驶能力加速下放至主流产品。",
-      "category": "产品",
       "brands": [
         "比亚迪"
       ],
+      "category": "产品",
+      "summary": "比亚迪发布宋Ultra DM-i并公布12.99万元起售价，同时推出璇玑A3智能驾驶芯片等技术成果。活动将新车型上市与核心技术发布集中呈现。",
       "importance": 77,
-      "is_featured": true,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "六次在华合资五次倒闭，Stellantis这回终于想明白了",
@@ -196,18 +196,18 @@
       "source_name": "36氪",
       "crawled_at": "2026-05-31T06:06:03.634651+00:00",
       "item_id": "cafe1913b3bc079e",
-      "publish_ts": 1779974328,
+      "publish_ts": 1779974328.0,
       "publish_date": "2026-05-28",
-      "summary": "文章回顾Stellantis在华合资项目多次调整的经历，并分析其新的合作思路：继续与中国车企开展更深入合作，但重点服务海外市场而非单一中国市场。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "跨国车企与中国伙伴的合作目标转向全球市场，合资模式正在从本地生产走向能力输出。",
-      "category": "市场",
       "brands": [
         "Stellantis"
       ],
+      "category": "市场",
+      "summary": "文章回顾Stellantis在华合资项目多次调整的经历，并分析其新的合作思路：继续与中国车企开展更深入合作，但重点服务海外市场而非单一中国市场。",
       "importance": 64,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.iautodaily.com/news/review/leikesasidouyouyalishuomingjinkouchezhenbuxinglegunyijuhua/",
@@ -219,18 +219,18 @@
       "source_name": "汽车公社",
       "crawled_at": "2026-05-31T05:44:04.323534+00:00",
       "item_id": "668c7880aba323c5",
-      "publish_ts": 1779973260,
+      "publish_ts": 1779973260.0,
       "publish_date": "2026-05-28",
-      "summary": "评论文章以雷克萨斯承压为例，分析进口车市场需求变化。内容指出国产品牌升级、新能源转型和价格竞争正在挤压进口车型的传统优势空间。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "进口车溢价持续收窄，雷克萨斯等品牌需要重新回答新能源产品和本地化定价问题。",
-      "category": "舆情",
       "brands": [
         "雷克萨斯"
       ],
+      "category": "舆情",
+      "summary": "评论文章以雷克萨斯承压为例，分析进口车市场需求变化。内容指出国产品牌升级、新能源转型和价格竞争正在挤压进口车型的传统优势空间。",
       "importance": 52,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "江淮汽车塔什干合资工厂正式开业 国际化布局新阶段",
@@ -242,18 +242,18 @@
       "source_name": "易车",
       "crawled_at": "2026-05-31T05:47:33.259367+00:00",
       "item_id": "78b7600e6a26ee40",
-      "publish_ts": 1779967800,
+      "publish_ts": 1779967800.0,
       "publish_date": "2026-05-28",
-      "summary": "江淮汽车在乌兹别克斯坦塔什干的合资工厂正式开业。项目将支持当地生产和区域市场拓展，标志着江淮国际化布局进入新的运营阶段。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "海外合资工厂落地有助于降低区域交付成本，也检验中国车企本地化经营能力。",
-      "category": "市场",
       "brands": [
         "江淮"
       ],
+      "category": "市场",
+      "summary": "江淮汽车在乌兹别克斯坦塔什干的合资工厂正式开业。项目将支持当地生产和区域市场拓展，标志着江淮国际化布局进入新的运营阶段。",
       "importance": 66,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "吉利银河赞助总台2026世界杯转播，助力亿万观众畅享足坛盛宴",
@@ -265,18 +265,18 @@
       "source_name": "汽车之家",
       "crawled_at": "2026-05-31T05:44:01.127853+00:00",
       "item_id": "1abaa1cd69ae5806",
-      "publish_ts": 1779965760,
+      "publish_ts": 1779965760.0,
       "publish_date": "2026-05-28",
-      "summary": "吉利银河宣布赞助中央广播电视总台2026年世界杯转播，借助国际体育赛事扩大品牌曝光。合作面向大规模观众传播，强化新能源品牌认知。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "体育赛事营销覆盖面广，吉利银河正通过大众传播提升新能源品牌的主流认知度。",
-      "category": "市场",
       "brands": [
         "吉利银河"
       ],
+      "category": "市场",
+      "summary": "吉利银河宣布赞助中央广播电视总台2026年世界杯转播，借助国际体育赛事扩大品牌曝光。合作面向大规模观众传播，强化新能源品牌认知。",
       "importance": 55,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "驾驶辅助能力提升 长城汽车推送坦克400首次OTA升级",
@@ -288,19 +288,19 @@
       "source_name": "汽车之家",
       "crawled_at": "2026-05-31T05:44:01.127853+00:00",
       "item_id": "3edf13f6b45e0cbb",
-      "publish_ts": 1779964740,
+      "publish_ts": 1779964740.0,
       "publish_date": "2026-05-28",
-      "summary": "长城汽车向坦克400推送首次OTA升级，重点提升驾驶辅助能力，并对车辆软件功能进行优化。此次更新体现车型交付后的持续迭代安排。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "硬派车型也在补齐软件体验，首次OTA的效果将影响用户对长期更新能力的评价。",
-      "category": "技术",
       "brands": [
         "长城",
         "坦克"
       ],
+      "category": "技术",
+      "summary": "长城汽车向坦克400推送首次OTA升级，重点提升驾驶辅助能力，并对车辆软件功能进行优化。此次更新体现车型交付后的持续迭代安排。",
       "importance": 58,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "安全底线再收紧，工信部启动2026年新能源汽车安全隐患排查",
@@ -312,16 +312,16 @@
       "source_name": "36氪",
       "crawled_at": "2026-05-31T06:06:03.634651+00:00",
       "item_id": "ba3724c2d4223045",
-      "publish_ts": 1779964240,
+      "publish_ts": 1779964240.0,
       "publish_date": "2026-05-28",
-      "summary": "工业和信息化部启动2026年新能源汽车安全隐患排查，聚焦车辆安全风险、技术管理和企业整改。相关行动将推动新能源车企进一步落实安全主体责任。",
-      "takeaway": "监管集中排查将直接推动企业补齐安全管理短板，并可能影响后续合规与质量要求。",
-      "category": "政策",
-      "brands": [],
-      "importance": 88,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "takeaway": "监管集中排查将直接推动企业补齐安全管理短板，并可能影响后续合规与质量要求。",
+      "brands": [],
+      "category": "政策",
+      "summary": "工业和信息化部启动2026年新能源汽车安全隐患排查，聚焦车辆安全风险、技术管理和企业整改。相关行动将推动新能源车企进一步落实安全主体责任。",
+      "importance": 88,
+      "is_new": false
     },
     {
       "title": "AMG GT四门跑车纯电版欧洲开订 15.5万欧元起 满配价直逼V12超跑",
@@ -333,18 +333,18 @@
       "source_name": "汽车之家",
       "crawled_at": "2026-05-31T05:44:01.127853+00:00",
       "item_id": "05701716514387ea",
-      "publish_ts": 1779964200,
+      "publish_ts": 1779964200.0,
       "publish_date": "2026-05-28",
-      "summary": "梅赛德斯-AMG GT四门跑车纯电版在欧洲开启预订，起售价为15.5万欧元，高配版本价格接近传统V12超跑。新车定位高性能豪华纯电市场。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "高性能纯电车价格继续上探，市场将检验用户是否接受电动化后的AMG价值体系。",
-      "category": "产品",
       "brands": [
         "梅赛德斯-AMG"
       ],
+      "category": "产品",
+      "summary": "梅赛德斯-AMG GT四门跑车纯电版在欧洲开启预订，起售价为15.5万欧元，高配版本价格接近传统V12超跑。新车定位高性能豪华纯电市场。",
       "importance": 62,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "宝马沈阳生产基地迎第700万辆下线 “新世代”平台即将登场",
@@ -356,18 +356,18 @@
       "source_name": "汽车之家",
       "crawled_at": "2026-05-31T05:44:01.127853+00:00",
       "item_id": "ea600a2591d0302f",
-      "publish_ts": 1779963420,
+      "publish_ts": 1779963420.0,
       "publish_date": "2026-05-28",
-      "summary": "宝马沈阳生产基地迎来第700万辆整车下线。随着产量里程碑达成，面向下一阶段电动化产品的新世代平台也将逐步导入本地生产体系。",
+      "is_featured": true,
+      "enriched_by": "codex",
       "takeaway": "700万辆体现宝马在华制造规模，新世代平台导入将决定其下一轮电动化竞争节奏。",
-      "category": "市场",
       "brands": [
         "宝马"
       ],
+      "category": "市场",
+      "summary": "宝马沈阳生产基地迎来第700万辆整车下线。随着产量里程碑达成，面向下一阶段电动化产品的新世代平台也将逐步导入本地生产体系。",
       "importance": 73,
-      "is_featured": true,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "毛利率20.6% 研发投入同比增加46.8% 小鹏集团2026年第一季度财报",
@@ -379,18 +379,18 @@
       "source_name": "汽车之家",
       "crawled_at": "2026-05-31T05:44:01.127853+00:00",
       "item_id": "c3386a1c19f13ead",
-      "publish_ts": 1779963180,
+      "publish_ts": 1779963180.0,
       "publish_date": "2026-05-28",
-      "summary": "小鹏集团发布2026年第一季度财报，毛利率达到20.6%，研发投入同比增加46.8%。数据反映公司在改善经营质量的同时继续加大技术投入。",
+      "is_featured": true,
+      "enriched_by": "codex",
       "takeaway": "毛利率改善与研发投入扩张同时出现，关键在于技术投入能否持续转化为产品销量。",
-      "category": "市场",
       "brands": [
         "小鹏"
       ],
+      "category": "市场",
+      "summary": "小鹏集团发布2026年第一季度财报，毛利率达到20.6%，研发投入同比增加46.8%。数据反映公司在改善经营质量的同时继续加大技术投入。",
       "importance": 81,
-      "is_featured": true,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "理想汽车2026年Q1财报：累计交付95142辆/全新理想L8将于6月发布",
@@ -402,18 +402,18 @@
       "source_name": "汽车之家",
       "crawled_at": "2026-05-31T05:44:01.127853+00:00",
       "item_id": "97cd5a05d3d8e1d4",
-      "publish_ts": 1779963000,
+      "publish_ts": 1779963000.0,
       "publish_date": "2026-05-28",
-      "summary": "理想汽车披露2026年第一季度经营情况，累计交付95142辆，并宣布全新理想L8将在6月发布。财报信息与新一轮产品换代计划同步公开。",
+      "is_featured": true,
+      "enriched_by": "codex",
       "takeaway": "交付规模和换代节奏同时承压，全新L8将成为观察理想后续增长的重要车型。",
-      "category": "市场",
       "brands": [
         "理想"
       ],
+      "category": "市场",
+      "summary": "理想汽车披露2026年第一季度经营情况，累计交付95142辆，并宣布全新理想L8将在6月发布。财报信息与新一轮产品换代计划同步公开。",
       "importance": 82,
-      "is_featured": true,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "中国首个”亿级车企“诞生！ 上汽集团正式交付第1亿辆新车",
@@ -425,18 +425,18 @@
       "source_name": "汽车之家",
       "crawled_at": "2026-05-31T05:44:01.127853+00:00",
       "item_id": "f03c3efe4608b321",
-      "publish_ts": 1779962880,
+      "publish_ts": 1779962880.0,
       "publish_date": "2026-05-28",
-      "summary": "上汽集团正式交付第1亿辆新车，成为中国汽车行业首家累计产销达到亿级规模的车企。该里程碑覆盖其长期积累的整车制造与用户交付。",
+      "is_featured": true,
+      "enriched_by": "codex",
       "takeaway": "亿级交付体现上汽长期制造规模，也为中国汽车产业发展提供具有代表性的节点。",
-      "category": "市场",
       "brands": [
         "上汽"
       ],
+      "category": "市场",
+      "summary": "上汽集团正式交付第1亿辆新车，成为中国汽车行业首家累计产销达到亿级规模的车企。该里程碑覆盖其长期积累的整车制造与用户交付。",
       "importance": 78,
-      "is_featured": true,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "全新吉利星愿上市6.18万起",
@@ -448,18 +448,18 @@
       "source_name": "盖世汽车",
       "crawled_at": "2026-05-31T05:44:01.117900+00:00",
       "item_id": "64bd9e65103f5cdd",
-      "publish_ts": 1779962545,
+      "publish_ts": 1779962545.0,
       "publish_date": "2026-05-28",
-      "summary": "全新吉利星愿上市，起售价为6.18万元。新车面向入门级新能源市场，通过价格和配置组合进一步扩充吉利在小型纯电车型领域的产品覆盖。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "6万元级纯电市场竞争进一步加剧，价格之外的配置与用车体验将决定转化效率。",
-      "category": "产品",
       "brands": [
         "吉利"
       ],
+      "category": "产品",
+      "summary": "全新吉利星愿上市，起售价为6.18万元。新车面向入门级新能源市场，通过价格和配置组合进一步扩充吉利在小型纯电车型领域的产品覆盖。",
       "importance": 66,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.iautodaily.com/news/review/lixiangqicheyijiduyouyingzhuankuimaolilyudafuxiahua/",
@@ -471,18 +471,18 @@
       "source_name": "汽车公社",
       "crawled_at": "2026-05-31T05:44:04.323534+00:00",
       "item_id": "c0124bb4691fc625",
-      "publish_ts": 1779961866,
+      "publish_ts": 1779961866.0,
       "publish_date": "2026-05-28",
-      "summary": "评论文章分析理想汽车2026年第一季度业绩变化，指出公司由盈利转为亏损，毛利率也出现明显下滑。内容关注销量、成本与新品周期之间的关系。",
+      "is_featured": true,
+      "enriched_by": "codex",
       "takeaway": "由盈转亏和毛利率下滑叠加出现，理想需要依靠换代产品改善收入与成本结构。",
-      "category": "市场",
       "brands": [
         "理想"
       ],
+      "category": "市场",
+      "summary": "评论文章分析理想汽车2026年第一季度业绩变化，指出公司由盈利转为亏损，毛利率也出现明显下滑。内容关注销量、成本与新品周期之间的关系。",
       "importance": 72,
-      "is_featured": true,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "长安启源全新Q05泰国正式上市 优惠后售价59.99万泰铢起",
@@ -494,18 +494,18 @@
       "source_name": "易车",
       "crawled_at": "2026-05-31T05:47:33.259367+00:00",
       "item_id": "4ea8660b4d9c290b",
-      "publish_ts": 1779961440,
+      "publish_ts": 1779961440.0,
       "publish_date": "2026-05-28",
-      "summary": "长安启源全新Q05在泰国正式上市，优惠后起售价为59.99万泰铢。新车进入当地新能源市场，承担品牌在东南亚区域扩充产品覆盖的任务。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "泰国新能源市场竞争升温，Q05上市将检验长安启源的本地定价和渠道能力。",
-      "category": "产品",
       "brands": [
         "长安启源"
       ],
+      "category": "产品",
+      "summary": "长安启源全新Q05在泰国正式上市，优惠后起售价为59.99万泰铢。新车进入当地新能源市场，承担品牌在东南亚区域扩充产品覆盖的任务。",
       "importance": 61,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "宝马沈阳生产基地第700万辆整车下线 里程碑时刻",
@@ -517,18 +517,18 @@
       "source_name": "易车",
       "crawled_at": "2026-05-31T05:47:33.259367+00:00",
       "item_id": "5b42f2e122df201a",
-      "publish_ts": 1779961080,
+      "publish_ts": 1779961080.0,
       "publish_date": "2026-05-28",
-      "summary": "宝马沈阳生产基地完成第700万辆整车下线，达到新的本地制造里程碑。该基地持续承担宝马在华生产任务，并将衔接后续新平台车型导入。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "本地制造规模持续扩大，下一阶段看宝马新平台能否顺利转化为有竞争力的产品。",
-      "category": "市场",
       "brands": [
         "宝马"
       ],
+      "category": "市场",
+      "summary": "宝马沈阳生产基地完成第700万辆整车下线，达到新的本地制造里程碑。该基地持续承担宝马在华生产任务，并将衔接后续新平台车型导入。",
       "importance": 69,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "吉利银河率先赞助中央广播电视总台2026世界杯转播",
@@ -540,18 +540,18 @@
       "source_name": "易车",
       "crawled_at": "2026-05-31T05:47:33.259367+00:00",
       "item_id": "525b321cc467e3c1",
-      "publish_ts": 1779960480,
+      "publish_ts": 1779960480.0,
       "publish_date": "2026-05-28",
-      "summary": "吉利银河率先赞助中央广播电视总台2026年世界杯转播，借助赛事传播资源提升品牌曝光。合作覆盖广泛观众群体，服务新能源品牌推广。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "世界杯转播合作有助于吉利银河扩大大众触达，也反映品牌营销投入继续上升。",
-      "category": "市场",
       "brands": [
         "吉利银河"
       ],
+      "category": "市场",
+      "summary": "吉利银河率先赞助中央广播电视总台2026年世界杯转播，借助赛事传播资源提升品牌曝光。合作覆盖广泛观众群体，服务新能源品牌推广。",
       "importance": 56,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "小鹏集团2026年第一季度财报 总营收130.3亿元/毛利率20.6%",
@@ -563,18 +563,18 @@
       "source_name": "易车",
       "crawled_at": "2026-05-31T05:47:33.259367+00:00",
       "item_id": "d4d290012228f625",
-      "publish_ts": 1779960240,
+      "publish_ts": 1779960240.0,
       "publish_date": "2026-05-28",
-      "summary": "小鹏集团发布2026年第一季度财报，实现总营收130.3亿元，毛利率为20.6%。经营数据体现收入规模和盈利质量较此前继续改善。",
+      "is_featured": true,
+      "enriched_by": "codex",
       "takeaway": "营收和毛利率提供了经营改善信号，后续仍要观察研发投入与销量增长的匹配度。",
-      "category": "市场",
       "brands": [
         "小鹏"
       ],
+      "category": "市场",
+      "summary": "小鹏集团发布2026年第一季度财报，实现总营收130.3亿元，毛利率为20.6%。经营数据体现收入规模和盈利质量较此前继续改善。",
       "importance": 79,
-      "is_featured": true,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "双电机四驱/三排座椅加热 广汽传祺向往M8 PHEV L实车亮相",
@@ -586,18 +586,18 @@
       "source_name": "汽车之家",
       "crawled_at": "2026-05-31T05:44:01.127853+00:00",
       "item_id": "8606874dc723fd1f",
-      "publish_ts": 1779959460,
+      "publish_ts": 1779959460.0,
       "publish_date": "2026-05-28",
-      "summary": "广汽传祺向往M8 PHEV L实车亮相，新车配备双电机四驱系统，并为三排座椅提供加热功能。产品继续面向新能源高端MPV使用场景。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "高端插混MPV继续加码舒适与四驱配置，细分市场竞争从空间转向综合体验。",
-      "category": "产品",
       "brands": [
         "广汽传祺"
       ],
+      "category": "产品",
+      "summary": "广汽传祺向往M8 PHEV L实车亮相，新车配备双电机四驱系统，并为三排座椅提供加热功能。产品继续面向新能源高端MPV使用场景。",
       "importance": 60,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "上汽集团迎来全球第一亿位用户 中国汽车行业首家亿级车企",
@@ -609,18 +609,18 @@
       "source_name": "易车",
       "crawled_at": "2026-05-31T05:47:33.259367+00:00",
       "item_id": "de421a985913d2e1",
-      "publish_ts": 1779959040,
+      "publish_ts": 1779959040.0,
       "publish_date": "2026-05-28",
-      "summary": "上汽集团迎来全球第1亿位用户，成为中国汽车行业首家进入亿级用户规模的车企。事件体现其长期整车生产、销售和品牌矩阵积累成果。",
+      "is_featured": true,
+      "enriched_by": "codex",
       "takeaway": "用户规模跨越亿级是产业里程碑，也体现中国大型车企长期制造与渠道基础实力。",
-      "category": "市场",
       "brands": [
         "上汽"
       ],
+      "category": "市场",
+      "summary": "上汽集团迎来全球第1亿位用户，成为中国汽车行业首家进入亿级用户规模的车企。事件体现其长期整车生产、销售和品牌矩阵积累成果。",
       "importance": 76,
-      "is_featured": true,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "蔚来ES9开启全国首批交付 电池租用方式售39.0万元起",
@@ -632,18 +632,18 @@
       "source_name": "易车",
       "crawled_at": "2026-05-31T05:47:33.259367+00:00",
       "item_id": "e0dff1a8a97d7f5b",
-      "publish_ts": 1779958800,
+      "publish_ts": 1779958800.0,
       "publish_date": "2026-05-28",
-      "summary": "蔚来ES9开启全国首批交付，采用电池租用方式时起售价为39.0万元。新车进入实际交付阶段，进一步补充蔚来在高端纯电市场的产品布局。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "首批交付标志着ES9进入用户验证阶段，电池租用价格也将影响高端市场转化。",
-      "category": "市场",
       "brands": [
         "蔚来"
       ],
+      "category": "市场",
+      "summary": "蔚来ES9开启全国首批交付，采用电池租用方式时起售价为39.0万元。新车进入实际交付阶段，进一步补充蔚来在高端纯电市场的产品布局。",
       "importance": 70,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "大众ID.ERA 9X辅助驾驶到底行不行？《智驾晚高峰》给你答案！",
@@ -655,18 +655,18 @@
       "source_name": "汽车之家",
       "crawled_at": "2026-05-31T05:44:01.127853+00:00",
       "item_id": "319bee19495030f7",
-      "publish_ts": 1779958800,
+      "publish_ts": 1779958800.0,
       "publish_date": "2026-05-28",
-      "summary": "文章对大众ID.ERA 9X的驾驶辅助能力进行体验，围绕晚高峰道路场景观察系统表现，重点评估复杂交通环境下的跟车、变道和通行效率。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "晚高峰实测比功能清单更接近日常使用，可观察大众本土智能驾驶方案的成熟度。",
-      "category": "技术",
       "brands": [
         "大众"
       ],
+      "category": "技术",
+      "summary": "文章对大众ID.ERA 9X的驾驶辅助能力进行体验，围绕晚高峰道路场景观察系统表现，重点评估复杂交通环境下的跟车、变道和通行效率。",
       "importance": 57,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "限时6.18万起 座舱/驾控五大焕新 超100项升级 新款吉利星愿上市",
@@ -678,18 +678,18 @@
       "source_name": "汽车之家",
       "crawled_at": "2026-05-31T05:44:01.127853+00:00",
       "item_id": "9813505e038cc861",
-      "publish_ts": 1779956280,
+      "publish_ts": 1779956280.0,
       "publish_date": "2026-05-28",
-      "summary": "新款吉利星愿上市，限时起售价为6.18万元。车辆围绕座舱和驾控进行五大焕新，升级项目超过100项，继续面向入门级纯电市场。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "大量配置升级叠加限时价格，说明入门级纯电车型正在加速争夺性价比用户空间。",
-      "category": "产品",
       "brands": [
         "吉利"
       ],
+      "category": "产品",
+      "summary": "新款吉利星愿上市，限时起售价为6.18万元。车辆围绕座舱和驾控进行五大焕新，升级项目超过100项，继续面向入门级纯电市场。",
       "importance": 67,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "刘展术将出任大众汽车（安徽）数字化销售服务有限公司首席执行官",
@@ -701,18 +701,18 @@
       "source_name": "汽车之家",
       "crawled_at": "2026-05-31T05:44:01.127853+00:00",
       "item_id": "9b05e2f2d7025878",
-      "publish_ts": 1779956100,
+      "publish_ts": 1779956100.0,
       "publish_date": "2026-05-28",
-      "summary": "刘展术将出任大众汽车安徽数字化销售服务有限公司首席执行官，负责相关业务管理。此次人事调整涉及大众安徽面向中国市场的数字化销售与服务体系。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "中国管理者掌舵数字化销售服务公司，有助于大众安徽提升本地市场响应效率。",
-      "category": "市场",
       "brands": [
         "大众"
       ],
+      "category": "市场",
+      "summary": "刘展术将出任大众汽车安徽数字化销售服务有限公司首席执行官，负责相关业务管理。此次人事调整涉及大众安徽面向中国市场的数字化销售与服务体系。",
       "importance": 60,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "外观细节优化 中期改款斯柯达柯迪亚克谍照曝光",
@@ -724,18 +724,18 @@
       "source_name": "汽车之家",
       "crawled_at": "2026-05-31T05:44:01.127853+00:00",
       "item_id": "9bd21cf561f1b6e4",
-      "publish_ts": 1779952860,
+      "publish_ts": 1779952860.0,
       "publish_date": "2026-05-28",
-      "summary": "中期改款斯柯达柯迪亚克谍照曝光，车辆针对外观细节进行调整。此次改款预计延续现有车型定位，并通过设计更新维持产品新鲜度表现。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "中期改款以外观优化为主，后续动力和配置变化将决定产品竞争力提升空间大小。",
-      "category": "产品",
       "brands": [
         "斯柯达"
       ],
+      "category": "产品",
+      "summary": "中期改款斯柯达柯迪亚克谍照曝光，车辆针对外观细节进行调整。此次改款预计延续现有车型定位，并通过设计更新维持产品新鲜度表现。",
       "importance": 45,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.iautodaily.com/news/review/liuzhanshurenceodazhonganhuijiangyouzhongguoguanlizhezhangdu/",
@@ -747,18 +747,18 @@
       "source_name": "汽车公社",
       "crawled_at": "2026-05-31T05:44:04.323534+00:00",
       "item_id": "6a1a405f12480b3b",
-      "publish_ts": 1779950351,
+      "publish_ts": 1779950351.0,
       "publish_date": "2026-05-28",
-      "summary": "评论文章关注刘展术出任大众安徽相关公司首席执行官的人事变化，认为由中国管理者负责业务将强化本地决策，并提升对市场需求的响应速度。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "本地管理权进一步加强，反映大众安徽希望缩短决策链条并加快销售体系适配。",
-      "category": "市场",
       "brands": [
         "大众"
       ],
+      "category": "市场",
+      "summary": "评论文章关注刘展术出任大众安徽相关公司首席执行官的人事变化，认为由中国管理者负责业务将强化本地决策，并提升对市场需求的响应速度。",
       "importance": 56,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "宁德时代“弹药库”扩容，再融50亿",
@@ -770,16 +770,16 @@
       "source_name": "盖世汽车",
       "crawled_at": "2026-05-31T05:44:01.117900+00:00",
       "item_id": "5bc5aabd3cf147e3",
-      "publish_ts": 1779948610,
+      "publish_ts": 1779948610.0,
       "publish_date": "2026-05-28",
-      "summary": "宁德时代拟发行50亿元绿色科技创新债券，进一步扩充融资工具。募集安排将为绿色技术研发和相关产业项目提供资金支持，增强后续投入能力。",
-      "takeaway": "新增绿色科创债为宁德时代持续扩张提供资金，也体现电池产业资本开支持续走高。",
-      "category": "市场",
-      "brands": [],
-      "importance": 71,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "takeaway": "新增绿色科创债为宁德时代持续扩张提供资金，也体现电池产业资本开支持续走高。",
+      "brands": [],
+      "category": "市场",
+      "summary": "宁德时代拟发行50亿元绿色科技创新债券，进一步扩充融资工具。募集安排将为绿色技术研发和相关产业项目提供资金支持，增强后续投入能力。",
+      "importance": 71,
+      "is_new": false
     },
     {
       "title": "蔚来CEO李斌：整车成本已涨了1万元左右",
@@ -791,18 +791,18 @@
       "source_name": "盖世汽车",
       "crawled_at": "2026-05-31T05:44:01.117900+00:00",
       "item_id": "5e66804b1ba90a75",
-      "publish_ts": 1779941967,
+      "publish_ts": 1779941967.0,
       "publish_date": "2026-05-28",
-      "summary": "蔚来CEO李斌表示，近期整车成本较此前增加约1万元。成本端变化将影响企业定价、毛利管理及后续产品经营策略，车企需要在价格与竞争力之间平衡。",
+      "is_featured": true,
+      "enriched_by": "codex",
       "takeaway": "单车成本上升约万元，考验蔚来毛利修复、产品定价与市场竞争力的平衡能力。",
-      "category": "市场",
       "brands": [
         "蔚来"
       ],
+      "category": "市场",
+      "summary": "蔚来CEO李斌表示，近期整车成本较此前增加约1万元。成本端变化将影响企业定价、毛利管理及后续产品经营策略，车企需要在价格与竞争力之间平衡。",
       "importance": 78,
-      "is_featured": true,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.iautodaily.com/news/review/zhongguoqichegongyedefazhanshicangzaishangqideyiyitaicheli/",
@@ -814,18 +814,18 @@
       "source_name": "汽车公社",
       "crawled_at": "2026-05-31T05:44:04.323534+00:00",
       "item_id": "5608f3426c4f80b7",
-      "publish_ts": 1779939975,
+      "publish_ts": 1779939975.0,
       "publish_date": "2026-05-28",
-      "summary": "文章以上汽累计产量达到一亿辆为切入点，回顾中国汽车工业从规模扩张到结构转型的发展历程，并梳理本土制造体系在不同阶段的演进。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "一亿辆产量节点串联产业变迁，也体现中国汽车制造由追赶转向体系化竞争阶段。",
-      "category": "市场",
       "brands": [
         "上汽"
       ],
+      "category": "市场",
+      "summary": "文章以上汽累计产量达到一亿辆为切入点，回顾中国汽车工业从规模扩张到结构转型的发展历程，并梳理本土制造体系在不同阶段的演进。",
       "importance": 52,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "李斌抠得越狠，蔚来走得越稳",
@@ -837,18 +837,18 @@
       "source_name": "36氪",
       "crawled_at": "2026-05-31T06:06:03.634651+00:00",
       "item_id": "588066398220e8e2",
-      "publish_ts": 1779934455,
+      "publish_ts": 1779934455.0,
       "publish_date": "2026-05-28",
-      "summary": "文章结合蔚来一季度经营表现，讨论李斌推动成本控制和经营效率改善的举措，并观察公司在投入节奏、产品竞争与财务压力之间的取舍。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "成本控制正在成为蔚来改善经营质量的重要抓手，但仍需兼顾产品投入与用户体验。",
-      "category": "市场",
       "brands": [
         "蔚来"
       ],
+      "category": "市场",
+      "summary": "文章结合蔚来一季度经营表现，讨论李斌推动成本控制和经营效率改善的举措，并观察公司在投入节奏、产品竞争与财务压力之间的取舍。",
       "importance": 66,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.iautodaily.com/news/jihuwendaov9sharugaoduanqijianmpvfudi/",
@@ -860,18 +860,18 @@
       "source_name": "汽车公社",
       "crawled_at": "2026-05-31T05:44:04.323534+00:00",
       "item_id": "3dd5dc56fd774472",
-      "publish_ts": 1779926400,
+      "publish_ts": 1779926400.0,
       "publish_date": "2026-05-28",
-      "summary": "极狐问道V9进入高端旗舰MPV市场，文章围绕车型定位、空间体验、配置布局和目标用户展开介绍，并将其置于竞争较密集的新能源MPV市场中观察。",
+      "is_featured": false,
+      "enriched_by": "codex",
       "takeaway": "极狐向高端MPV扩展产品线，能否在成熟竞品间形成清晰差异化定位是关键。",
-      "category": "产品",
       "brands": [
         "极狐"
       ],
+      "category": "产品",
+      "summary": "极狐问道V9进入高端旗舰MPV市场，文章围绕车型定位、空间体验、配置布局和目标用户展开介绍，并将其置于竞争较密集的新能源MPV市场中观察。",
       "importance": 64,
-      "is_featured": false,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "【盖世快讯】鸿蒙智行全系交付破139万",
@@ -883,18 +883,18 @@
       "source_name": "盖世汽车",
       "crawled_at": "2026-05-31T05:44:01.117900+00:00",
       "item_id": "0404e986fec6115b",
-      "publish_ts": 1779922842,
+      "publish_ts": 1779922842.0,
       "publish_date": "2026-05-28",
-      "summary": "鸿蒙智行公布全系车型累计交付已突破139万辆。该数据覆盖其产品矩阵的整体交付表现，反映合作模式下品牌组合在新能源汽车市场的规模积累。",
+      "is_featured": true,
+      "enriched_by": "codex",
       "takeaway": "累计交付突破139万辆，显示鸿蒙智行合作体系已形成较明显的规模效应与交付能力。",
-      "category": "市场",
       "brands": [
         "鸿蒙智行"
       ],
+      "category": "市场",
+      "summary": "鸿蒙智行公布全系车型累计交付已突破139万辆。该数据覆盖其产品矩阵的整体交付表现，反映合作模式下品牌组合在新能源汽车市场的规模积累。",
       "importance": 76,
-      "is_featured": true,
-      "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     }
   ]
 }
