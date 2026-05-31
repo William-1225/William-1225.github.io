@@ -1,6 +1,6 @@
 {
   "stamp": "20260531",
-  "generated_at": "2026-05-31T21:52:28",
+  "generated_at": "2026-05-31T22:17:44",
   "total": 52,
   "categories": [
     "政策",
@@ -83,7 +83,7 @@
       "title": "缤果Pro正式上市：5.68万元起，超80项全系标配",
       "url": "https://www.d1ev.com/news/shichang/300200",
       "publish_time": "2026-05-31 19:45:23",
-      "snippet": "The server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later. Sorry for the inconvenience. Please report this message and include the following information to us. Thank you very much!",
+      "snippet": "",
       "image": "",
       "source": "d1ev",
       "source_name": "第一电动",
@@ -100,13 +100,13 @@
       "importance": 68,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "广汽高域飞行汽车广州工厂首机下线",
       "url": "https://www.d1ev.com/news/shichang/301137",
       "publish_time": "2026-05-31 19:45:11",
-      "snippet": "The server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later. Sorry for the inconvenience. Please report this message and include the following information to us. Thank you very much!",
+      "snippet": "",
       "image": "",
       "source": "d1ev",
       "source_name": "第一电动",
@@ -129,7 +129,7 @@
       "title": "中国汽车：越卖越多，越赚越薄",
       "url": "https://www.d1ev.com/news/shichang/301157",
       "publish_time": "2026-05-31 19:45:00",
-      "snippet": "The server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later. Sorry for the inconvenience. Please report this message and include the following information to us. Thank you very much!",
+      "snippet": "",
       "image": "",
       "source": "d1ev",
       "source_name": "第一电动",
@@ -150,7 +150,7 @@
       "title": "领克10和领克10+正式上市，限时起售16.99万元/21.99万元",
       "url": "https://www.d1ev.com/news/qiye/301188",
       "publish_time": "2026-05-31 19:44:43",
-      "snippet": "The server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later. Sorry for the inconvenience. Please report this message and include the following information to us. Thank you very much!",
+      "snippet": "",
       "image": "",
       "source": "d1ev",
       "source_name": "第一电动",
@@ -199,7 +199,7 @@
       "importance": 82,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7646006704488301080",
@@ -225,7 +225,7 @@
       "importance": 66,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7646005030369395224",
@@ -256,7 +256,7 @@
       "importance": 64,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7646000903388381720",
@@ -279,7 +279,7 @@
       "importance": 61,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645995688706212376",
@@ -307,7 +307,7 @@
       "importance": 48,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645989889829536281",
@@ -330,7 +330,7 @@
       "importance": 73,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.iautodaily.com/news/brand/2142gonglig318jixianzhangcefangchengbaoquanjiazuyongyingshil/",
@@ -406,7 +406,7 @@
       "importance": 62,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645623083601232446",
@@ -450,7 +450,7 @@
       "importance": 63,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.iautodaily.com/news/brand/kejixrenwenxshenghuo2026yuegangaodawanquchezhanqimu/",
@@ -524,7 +524,7 @@
       "importance": 66,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645985350409667134",
@@ -553,7 +553,7 @@
       "importance": 59,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645982319647785496",
@@ -627,7 +627,7 @@
       "importance": 65,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645981559010673177",
@@ -705,7 +705,7 @@
       "importance": 67,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645972306149884441",
@@ -770,7 +770,7 @@
       "importance": 22,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645962257356292632",
@@ -1197,7 +1197,7 @@
       "importance": 52,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645925349683331609",

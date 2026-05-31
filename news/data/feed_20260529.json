@@ -1,6 +1,6 @@
 {
   "stamp": "20260529",
-  "generated_at": "2026-05-31T21:52:28",
+  "generated_at": "2026-05-31T22:17:44",
   "total": 7,
   "categories": [
     "政策",
@@ -149,7 +149,7 @@
       "importance": 72,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "TDK推出双输出3D霍尔效应开关系列 用于精确感应电机速度和方向",
