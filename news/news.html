@@ -103,13 +103,14 @@
   .pill{display:inline-block;padding:3px 9px;border-radius:6px;font-size:12px;font-weight:500;background:#f1f5f9;color:#64748b;white-space:nowrap}
   .empty{color:var(--mute);text-align:center;padding:60px 0}
   /* 口径说明 */
-  .doc-page{overflow-y:auto;background:var(--bg);padding:24px 28px 40px}
-  .doc-title{font-size:20px;font-weight:700;margin:0 0 4px}
-  .doc-sub{color:var(--mute);font-size:13px;margin-bottom:16px}
-  .doc-rules{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;max-width:900px}
-  .doc-rule{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 16px;font-size:13px;line-height:1.7;color:#344054}
-  .doc-rule h3{font-size:13px;margin:0 0 8px;color:var(--fg);font-weight:650}
-  .doc-rule ul{margin:6px 0 0;padding-left:18px}
+  .doc-page{overflow-y:auto;background:var(--bg);padding:28px 36px 44px}
+  .doc-title{font-size:24px;font-weight:700;margin:0 0 6px}
+  .doc-sub{color:var(--mute);font-size:15px;margin-bottom:20px}
+  .doc-rules{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;max-width:1180px}
+  .doc-rule{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px 22px;font-size:15px;line-height:1.85;color:#344054}
+  .doc-rule h3{font-size:16px;margin:0 0 10px;color:var(--fg);font-weight:700}
+  .doc-rule ul{margin:8px 0 0;padding-left:22px}
+  .doc-rule .note{margin-top:10px;color:var(--mute)}
   ::-webkit-scrollbar{width:10px;height:10px}
   ::-webkit-scrollbar-thumb{background:#8f8f8f;border-radius:8px;border:2px solid transparent;background-clip:content-box}
 </style>
@@ -164,10 +165,10 @@
 <!-- 口径说明 -->
 <div id="page-doc" class="page doc-page" style="display:none">
   <div class="doc-title">口径说明</div>
-  <div class="doc-sub">汽车行业新闻每日聚合看板 · 数据流与处理口径</div>
+  <div class="doc-sub">汽车行业新闻每日聚合看板 · 数据源与主题分类口径</div>
   <div class="doc-rules">
-    <div class="doc-rule"><h3>数据源</h3>盖世汽车、汽车之家、第一电动、懂车帝等主流汽车媒体的公开资讯列表。多数源走 Playwright 抓取，反爬较硬的站（如懂车帝）走 curl 抓 SSR 页面；每日运行，礼貌延时，遵守站点 robots。</div>
-    <div class="doc-rule"><h3>五维主题分类</h3><ul><li><b>政策</b>：政策 / 补贴 / 法规 / 标准 / 召回 / 监管</li><li><b>市场</b>：销量 / 交付 / 财报 / 价格 / 产业链 / 并购融资</li><li><b>产品</b>：新车发布 / 上市 / 亮相 / 改款 / 试驾实拍</li><li><b>技术</b>：电动化 / 电池 / 智驾 / 智能座舱</li><li><b>舆情</b>：争议 / 维权 / 事故 / 口碑</li></ul><div style="margin-top:8px;color:var(--mute)">品牌为独立标签（可在「品牌」下拉筛选），不单独成类。</div></div>
+    <div class="doc-rule"><h3>数据源</h3>盖世汽车、汽车之家、第一电动、懂车帝等主流汽车媒体的公开资讯列表。</div>
+    <div class="doc-rule"><h3>五维主题分类</h3><ul><li><b>政策</b>：涉及政策发布、法规标准、补贴、监管处罚、召回公告。</li><li><b>市场</b>：涉及销量、交付、财报、价格战、供应链、并购融资。</li><li><b>产品</b>：涉及新车上市、发布、亮相、改款、试驾、实拍。</li><li><b>技术</b>：涉及电池、电驱、充换电、智能驾驶、座舱、软件 OTA。</li><li><b>舆情</b>：涉及事故、争议、维权、投诉、口碑发酵。</li></ul><div class="note">主题按新闻的主要事件判断：优先看标题与摘要中的核心动作，再结合来源栏目和正文线索；一条新闻只归入最主要的一个主题，品牌另作为独立标签。</div></div>
   </div>
 </div>
 
@@ -181,9 +182,11 @@ function fmtDate(s){return `${s.slice(0,4)}-${s.slice(4,6)}-${s.slice(6,8)}`;}
 function esc(s){return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
 // 时间线左栏：有真实时刻显示「时:分」，否则显示发布日期，避免留空。
 function hhmm(it){
+  const raw=it.publish_time||"";
+  let m=raw.match(/(?:^|\s)(\d{1,2}):(\d{2})(?::\d{2})?/);
+  if(m) return `${m[1].padStart(2,'0')}:${m[2]}`;
   if(it.publish_ts){const d=new Date(it.publish_ts*1000);
     if(!isNaN(d)&&it.publish_time) return String(d.getHours()).padStart(2,'0')+":"+String(d.getMinutes()).padStart(2,'0');}
-  if(/^\d{1,2}:\d{2}/.test(it.publish_time||"")) return it.publish_time;
   return it.publish_date ? it.publish_date.slice(5) : "—";
 }
 
