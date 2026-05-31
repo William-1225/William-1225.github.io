@@ -75,7 +75,7 @@
   .timeline{position:relative;display:flex;flex-direction:column;gap:14px}
   .timeline::before{content:"";position:absolute;left:83px;top:6px;bottom:6px;width:2px;background:var(--line)}
   .tl-row{display:flex;gap:18px;align-items:flex-start;position:relative}
-  .tl-gutter{width:76px;flex-shrink:0;text-align:right;padding-top:15px;color:#475467;font-size:15px;font-weight:700;font-variant-numeric:tabular-nums}
+  .tl-gutter{width:76px;flex-shrink:0;text-align:right;padding-top:15px;color:#475467;font-size:19px;font-weight:700;font-variant-numeric:tabular-nums}
   .tl-gutter .dot{position:absolute;left:78px;top:19px;width:11px;height:11px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 3px var(--bg)}
   .tl-row.top .tl-gutter .dot{background:var(--warn)}
   .card{flex:1;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;transition:border-color .15s,box-shadow .15s}
@@ -287,7 +287,8 @@ function itemHtml(it,feat){
   const brands=(it.brands||[]).map(b=>`<span class="pill brand">${esc(b)}</span>`).join("");
   const gut=hhmm(it);
   const hasSum=it.summary&&it.summary!==it.title;
-  const hasTake=!!(it.takeaway&&it.takeaway.trim());
+  const takeText=(it.takeaway||"").trim().replace(/^看点\s*[:：]\s*/,"");  // 去掉 Codex 可能自带的「看点：」前缀，避免与模板标签重复
+  const hasTake=!!takeText;
   return `<div class="tl-row">
     <div class="tl-gutter">${esc(gut)}<span class="dot"></span></div>
     <div class="card">
@@ -310,7 +311,7 @@ function itemHtml(it,feat){
         ${it.category?`<span class="pill cat-${it.category}">${it.category}</span>`:""}
         ${brands}
       </div>
-      ${hasTake?`<div class="reason"><div class="rbox"><b>看点：</b>${esc(it.takeaway)}</div></div>`:""}
+      ${hasTake?`<div class="reason"><div class="rbox"><b>看点：</b>${esc(takeText)}</div></div>`:""}
        </div>
       </div>
     </div></div>`;
