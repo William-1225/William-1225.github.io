@@ -1,6 +1,6 @@
 {
   "stamp": "20260529",
-  "generated_at": "2026-05-31T19:52:07",
+  "generated_at": "2026-05-31T19:56:55",
   "total": 20,
   "categories": [
     "政策",
@@ -58,15 +58,15 @@
       "item_id": "bd5dc106dc0af01c",
       "publish_ts": 1780068000.0,
       "publish_date": "2026-05-29",
-      "takeaway": "两款车型同步入市并拉开价格梯度，领克正在细化主流消费市场布局， 后续实际表现仍需持续观察。",
+      "category": "产品",
       "summary": "领克品牌推出两款新车，分别设置16.99万元与21.99万元的限时起售价，形成不同价位配置组合，进一步扩充品牌现有产品阵容。",
+      "is_featured": true,
+      "importance": 78,
       "brands": [
         "领克"
       ],
       "enriched_by": "codex",
-      "category": "产品",
-      "importance": 78,
-      "is_featured": true,
+      "takeaway": "两款车型同步入市并拉开价格梯度，领克正在细化主流消费市场布局， 后续实际表现仍需持续观察。",
       "is_new": false
     },
     {
@@ -81,15 +81,15 @@
       "item_id": "349f2803aaa7bec0",
       "publish_ts": 1780067580.0,
       "publish_date": "2026-05-29",
-      "takeaway": "超豪华跑车的纯电转型仍有争议，品牌定位与用户接受度需要持续平衡。",
+      "category": "舆情",
       "summary": "法拉利首席执行官回应外界对品牌纯电车型的质疑，并为其电动化方向辩护。相关讨论聚焦超豪华跑车如何在传统性能定位与新能源趋势之间平衡。",
+      "is_featured": true,
+      "importance": 66,
       "brands": [
         "法拉利"
       ],
       "enriched_by": "codex",
-      "category": "舆情",
-      "importance": 66,
-      "is_featured": true,
+      "takeaway": "超豪华跑车的纯电转型仍有争议，品牌定位与用户接受度需要持续平衡。",
       "is_new": false
     },
     {
@@ -102,19 +102,19 @@
       "source_name": "第一电动",
       "crawled_at": "2026-05-31T09:44:01.198894+00:00",
       "item_id": "fea65c4c89cdc3db",
-      "publish_ts": 1780064640,
+      "publish_ts": 1780064640.0,
       "publish_date": "2026-05-29",
       "extra_sources": [
         "盖世汽车"
       ],
-      "summary": "未来汽车先行者大会围绕智能化、产业协同和品牌价值展开讨论。会议提及新能源渗透率上升、行业利润率持续偏低及具体技术落地要求。",
-      "takeaway": "产业讨论从规模扩张转向技术兑现和盈利质量，智能化投入需要形成可验证回报。",
       "category": "技术",
-      "brands": [],
-      "importance": 65,
+      "summary": "未来汽车先行者大会围绕智能化、产业协同和品牌价值展开讨论。会议提及新能源渗透率上升、行业利润率持续偏低及具体技术落地要求。",
       "is_featured": true,
+      "importance": 65,
+      "brands": [],
       "enriched_by": "codex",
-      "is_new": true
+      "takeaway": "产业讨论从规模扩张转向技术兑现和盈利质量，智能化投入需要形成可验证回报。",
+      "is_new": false
     },
     {
       "title": "面向科技与未来 一汽丰田精彩亮相粤港澳大湾区车展",
@@ -128,15 +128,15 @@
       "item_id": "a5b4c2f0bfa8868e",
       "publish_ts": 1780061940.0,
       "publish_date": "2026-05-29",
-      "takeaway": "一汽丰田借区域车展集中展示转型方向，实际产品落地节奏尤其值得继续观察。",
+      "category": "产品",
       "summary": "一汽丰田参加粤港澳大湾区车展，围绕科技和未来出行方向展示品牌及产品布局。此次参展以综合展示为主，覆盖品牌在区域市场的传播动作。",
+      "is_featured": false,
+      "importance": 45,
       "brands": [
         "一汽丰田"
       ],
       "enriched_by": "codex",
-      "category": "产品",
-      "importance": 45,
-      "is_featured": false,
+      "takeaway": "一汽丰田借区域车展集中展示转型方向，实际产品落地节奏尤其值得继续观察。",
       "is_new": false
     },
     {
@@ -151,15 +151,15 @@
       "item_id": "110105f041eb3192",
       "publish_ts": 1780061447.0,
       "publish_date": "2026-05-29",
-      "takeaway": "同比增长与环比回落同时出现，特斯拉欧洲销售走势仍需结合周期观察。",
+      "category": "市场",
       "summary": "特斯拉欧洲市场销量达到10654辆，同比提升46.5%，但环比下降80%，不同统计周期呈现明显反差，区域需求表现仍有波动。",
+      "is_featured": true,
+      "importance": 66,
       "brands": [
         "特斯拉"
       ],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 66,
-      "is_featured": true,
+      "takeaway": "同比增长与环比回落同时出现，特斯拉欧洲销售走势仍需结合周期观察。",
       "is_new": false
     },
     {
@@ -174,15 +174,15 @@
       "item_id": "27a17b3658c07b24",
       "publish_ts": 1780061447.0,
       "publish_date": "2026-05-29",
-      "takeaway": "同比增长与环比回落同时出现，特斯拉欧洲销售走势仍需结合周期观察。",
+      "category": "市场",
       "summary": "特斯拉欧洲市场销量达到10654辆，同比提升46.5%，但环比下降80%，不同统计周期呈现明显反差，区域需求表现仍有波动。",
+      "is_featured": false,
+      "importance": 55,
       "brands": [
         "特斯拉"
       ],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 55,
-      "is_featured": false,
+      "takeaway": "同比增长与环比回落同时出现，特斯拉欧洲销售走势仍需结合周期观察。",
       "is_new": false
     },
     {
@@ -197,15 +197,15 @@
       "item_id": "5a3808cec31e3aff",
       "publish_ts": 1780061340.0,
       "publish_date": "2026-05-29",
-      "takeaway": "区域上市活动强调传播声量，泰山X8后续订单与交付表现数据更具参考价值。",
+      "category": "产品",
       "summary": "岚图泰山X8在大湾区举行上市活动，并通过现场嘉宾助阵扩大传播。该车型正式进入销售阶段，活动重点围绕区域市场曝光和上市氛围营造。",
+      "is_featured": false,
+      "importance": 56,
       "brands": [
         "岚图"
       ],
       "enriched_by": "codex",
-      "category": "产品",
-      "importance": 56,
-      "is_featured": false,
+      "takeaway": "区域上市活动强调传播声量，泰山X8后续订单与交付表现数据更具参考价值。",
       "is_new": false
     },
     {
@@ -220,15 +220,15 @@
       "item_id": "d08c17b90d235919",
       "publish_ts": 1780060980.0,
       "publish_date": "2026-05-29",
-      "takeaway": "猛士继续向高端新能源越野市场持续加码，预售价将检验细分市场实际承接能力。",
+      "category": "产品",
       "summary": "全新猛士M817开启预售，预售价为37万元起。新车面向高端新能源越野市场，品牌通过新增车型完善产品矩阵，并进入上市前订单收集阶段。",
+      "is_featured": true,
+      "importance": 68,
       "brands": [
         "猛士"
       ],
       "enriched_by": "codex",
-      "category": "产品",
-      "importance": 68,
-      "is_featured": true,
+      "takeaway": "猛士继续向高端新能源越野市场持续加码，预售价将检验细分市场实际承接能力。",
       "is_new": false
     },
     {
@@ -243,16 +243,16 @@
       "item_id": "fa1b7bd64cf41266",
       "publish_ts": 1780060320.0,
       "publish_date": "2026-05-29",
-      "takeaway": "链主企业认定有利于氢能产业协同，现代汽车在华氢能布局获得新的本地化落点。",
+      "category": "技术",
       "summary": "现代汽车旗下氢燃料电池系统品牌HTWO在广州获评链主企业。该认定涉及新能源产业链协同，体现现代汽车在氢能领域的本地化布局推进。",
+      "is_featured": true,
+      "importance": 72,
       "brands": [
         "现代汽车",
         "HTWO"
       ],
       "enriched_by": "codex",
-      "category": "技术",
-      "importance": 72,
-      "is_featured": true,
+      "takeaway": "链主企业认定有利于氢能产业协同，现代汽车在华氢能布局获得新的本地化落点。",
       "is_new": false
     },
     {
@@ -267,15 +267,15 @@
       "item_id": "122a128822099df0",
       "publish_ts": 1780057560.0,
       "publish_date": "2026-05-29",
-      "takeaway": "领克以双车型和限时价格切入主流区间，后续配置差异与实际终端订单值得比较。",
+      "category": "产品",
       "summary": "领克10和领克10+正式上市，限时售价从16.99万元起。两款车型通过不同配置进入市场，进一步扩充领克在主流价格区间的产品供给。",
+      "is_featured": true,
+      "importance": 66,
       "brands": [
         "领克"
       ],
       "enriched_by": "codex",
-      "category": "产品",
-      "importance": 66,
-      "is_featured": true,
+      "takeaway": "领克以双车型和限时价格切入主流区间，后续配置差异与实际终端订单值得比较。",
       "is_new": false
     },
     {
@@ -293,15 +293,15 @@
       "extra_sources": [
         "盖世汽车"
       ],
-      "takeaway": "旗舰车型正式交付市场检验，定价与产品定位将影响极狐后续表现， 后续实际表现仍需持续观察。",
+      "category": "产品",
       "summary": "极狐问道V9正式投入市场销售，起售价为19.48万元。品牌围绕旗舰车型标准展开产品表达，并借新车补充现有产品序列。 后续市场反馈与产品推进情况仍待持续观察。",
+      "is_featured": true,
+      "importance": 63,
       "brands": [
         "极狐"
       ],
       "enriched_by": "codex",
-      "category": "产品",
-      "importance": 63,
-      "is_featured": true,
+      "takeaway": "旗舰车型正式交付市场检验，定价与产品定位将影响极狐后续表现， 后续实际表现仍需持续观察。",
       "is_new": false
     },
     {
@@ -316,15 +316,15 @@
       "item_id": "43c73e3a8ef6e706",
       "publish_ts": 1780057500.0,
       "publish_date": "2026-05-29",
-      "takeaway": "猛龙PLUS开始区域交付，交付速度和用户反馈将影响新车上市后的热度延续。",
+      "category": "市场",
       "summary": "长城旗下猛龙PLUS在粤港澳大湾区开启交付，车型由上市销售阶段进入用户交付环节。品牌借区域活动推进新车落地，并强化当地市场曝光。",
+      "is_featured": true,
+      "importance": 59,
       "brands": [
         "长城汽车"
       ],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 59,
-      "is_featured": true,
+      "takeaway": "猛龙PLUS开始区域交付，交付速度和用户反馈将影响新车上市后的热度延续。",
       "is_new": false
     },
     {
@@ -339,15 +339,15 @@
       "item_id": "c06eac4589795e54",
       "publish_ts": 1780057200.0,
       "publish_date": "2026-05-29",
-      "takeaway": "十万元级预售价指向主流家用市场，后续上市后的配置组合和成交价格是关键。",
+      "category": "产品",
       "summary": "一汽悦意08启动预售，预售价为10.49万元起。新车进入上市前的订单积累期，价格覆盖主流家用车消费区间，并将接受市场反馈检验。",
+      "is_featured": true,
+      "importance": 62,
       "brands": [
         "一汽悦意"
       ],
       "enriched_by": "codex",
-      "category": "产品",
-      "importance": 62,
-      "is_featured": true,
+      "takeaway": "十万元级预售价指向主流家用市场，后续上市后的配置组合和成交价格是关键。",
       "is_new": false
     },
     {
@@ -360,18 +360,18 @@
       "source_name": "盖世汽车",
       "crawled_at": "2026-05-31T09:44:02.754374+00:00",
       "item_id": "a417524642dd05ac",
-      "publish_ts": 1780057094,
+      "publish_ts": 1780057094.0,
       "publish_date": "2026-05-29",
       "extra_sources": [
         "第一电动"
       ],
-      "summary": "TDK推出Micronas HAL 13xy系列可编程3D霍尔效应开关传感器，用于检测汽车和工业电机速度与方向，计划于2026年10月量产。",
-      "takeaway": "双输出传感器可提高电机位置感知灵活性，适配车窗、座椅和转向等执行机构。",
       "category": "技术",
-      "brands": [],
-      "importance": 58,
+      "summary": "TDK推出Micronas HAL 13xy系列可编程3D霍尔效应开关传感器，用于检测汽车和工业电机速度与方向，计划于2026年10月量产。",
       "is_featured": true,
+      "importance": 58,
+      "brands": [],
       "enriched_by": "codex",
+      "takeaway": "双输出传感器可提高电机位置感知灵活性，适配车窗、座椅和转向等执行机构。",
       "is_new": false
     },
     {
@@ -389,15 +389,15 @@
       "extra_sources": [
         "盖世汽车"
       ],
-      "takeaway": "具身智能从技术展示走向线下体验，商业化触点正逐步增加， 后续实际表现仍需持续观察。",
+      "category": "产品",
       "summary": "宇树在上海开设具身智能体验馆亚洲首店，通过线下门店展示相关产品与应用体验，推动具身智能技术面向公众场景落地。 后续市场反馈与产品推进情况仍待持续观察。",
+      "is_featured": false,
+      "importance": 50,
       "brands": [
         "宇树"
       ],
       "enriched_by": "codex",
-      "category": "产品",
-      "importance": 50,
-      "is_featured": false,
+      "takeaway": "具身智能从技术展示走向线下体验，商业化触点正逐步增加， 后续实际表现仍需持续观察。",
       "is_new": false
     },
     {
@@ -412,15 +412,15 @@
       "item_id": "9f26af80436d3fef",
       "publish_ts": 1780055880.0,
       "publish_date": "2026-05-29",
-      "takeaway": "一汽-大众补充混动技术路线，后续首批实际搭载车型和量产节点更具观察价值。",
+      "category": "技术",
       "summary": "一汽-大众发布黄金超混技术，面向混动车型市场完善技术路线。该技术动作显示品牌正在加强混动产品能力，以覆盖更多新能源消费需求。",
+      "is_featured": true,
+      "importance": 76,
       "brands": [
         "一汽-大众"
       ],
       "enriched_by": "codex",
-      "category": "技术",
-      "importance": 76,
-      "is_featured": true,
+      "takeaway": "一汽-大众补充混动技术路线，后续首批实际搭载车型和量产节点更具观察价值。",
       "is_new": false
     },
     {
@@ -438,13 +438,13 @@
       "extra_sources": [
         "盖世汽车"
       ],
-      "takeaway": "销量规模不再等同于利润增长，企业长期成本控制和产品差异化更为关键。",
+      "category": "市场",
       "summary": "文章讨论中国汽车产业销量增长与利润收窄并存的现象，关注价格竞争、成本压力和产品同质化对企业经营的影响。规模扩张并未同步带来盈利改善。",
+      "is_featured": true,
+      "importance": 73,
       "brands": [],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 73,
-      "is_featured": true,
+      "takeaway": "销量规模不再等同于利润增长，企业长期成本控制和产品差异化更为关键。",
       "is_new": false
     },
     {
@@ -459,15 +459,15 @@
       "item_id": "e24aaa61ec7b7a01",
       "publish_ts": 1780052820.0,
       "publish_date": "2026-05-29",
-      "takeaway": "行业开始更直接讨论无利润增长，价格战边界与经营质量成为重要焦点。",
+      "category": "市场",
       "summary": "阿维塔董事长公开讨论行业价格战，认为缺乏利润支撑的销量并不代表健康增长。相关表态指向汽车市场竞争中规模、定价与可持续经营之间的矛盾。",
+      "is_featured": true,
+      "importance": 79,
       "brands": [
         "阿维塔"
       ],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 79,
-      "is_featured": true,
+      "takeaway": "行业开始更直接讨论无利润增长，价格战边界与经营质量成为重要焦点。",
       "is_new": false
     },
     {
@@ -485,15 +485,15 @@
       "extra_sources": [
         "盖世汽车"
       ],
-      "takeaway": "传统车企如何重组能力与定位，是产业转型阶段的重要观察样本， 后续实际表现仍需持续观察。",
+      "category": "市场",
       "summary": "江淮汽车围绕产业变革背景下的价值重构分享实践路径，内容聚焦企业在新竞争环境中的业务调整、能力建设与发展思路。 后续市场变化与经营表现仍待持续观察。",
+      "is_featured": false,
+      "importance": 48,
       "brands": [
         "江淮汽车"
       ],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 48,
-      "is_featured": false,
+      "takeaway": "传统车企如何重组能力与定位，是产业转型阶段的重要观察样本， 后续实际表现仍需持续观察。",
       "is_new": false
     },
     {
@@ -511,16 +511,16 @@
       "extra_sources": [
         "盖世汽车"
       ],
-      "takeaway": "联合布局激光雷达，亿咖通正在拓宽智能驾驶硬件能力范围， 后续实际表现仍需持续观察。",
+      "category": "技术",
       "summary": "亿咖通科技与TPK合作进入激光雷达领域，扩展汽车智能化业务版图。双方联手将业务延伸至智能驾驶感知硬件环节。 相关技术的后续应用与落地进展仍待持续观察。",
+      "is_featured": true,
+      "importance": 63,
       "brands": [
         "亿咖通科技",
         "TPK"
       ],
       "enriched_by": "codex",
-      "category": "技术",
-      "importance": 63,
-      "is_featured": true,
+      "takeaway": "联合布局激光雷达，亿咖通正在拓宽智能驾驶硬件能力范围， 后续实际表现仍需持续观察。",
       "is_new": false
     }
   ]

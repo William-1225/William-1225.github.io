@@ -1,6 +1,6 @@
 {
   "stamp": "20260531",
-  "generated_at": "2026-05-31T19:52:07",
+  "generated_at": "2026-05-31T19:56:55",
   "total": 52,
   "categories": [
     "政策",
@@ -70,18 +70,18 @@
       "source_name": "第一电动",
       "crawled_at": "2026-05-31T09:44:01.198894+00:00",
       "item_id": "8ea3d867064215d9",
-      "publish_ts": 1780220757,
+      "publish_ts": 1780220757.0,
       "publish_date": "2026-05-31",
-      "summary": "特斯拉宣布召回部分Model Y车型，涉及14575辆。相关车辆因缺少规定的认证标签，需要按召回安排补充标识并完成合规整改。",
-      "takeaway": "召回数量较大但问题集中于认证标签，影响更偏合规整改而非车辆性能相关缺陷。",
       "category": "政策",
+      "summary": "特斯拉宣布召回部分Model Y车型，涉及14575辆。相关车辆因缺少规定的认证标签，需要按召回安排补充标识并完成合规整改。",
+      "is_featured": true,
+      "importance": 70,
       "brands": [
         "特斯拉"
       ],
-      "importance": 70,
-      "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "takeaway": "召回数量较大但问题集中于认证标签，影响更偏合规整改而非车辆性能相关缺陷。",
+      "is_new": false
     },
     {
       "title": "布雷博与宁波华翔签署合资协议",
@@ -93,16 +93,16 @@
       "source_name": "第一电动",
       "crawled_at": "2026-05-31T09:44:01.198894+00:00",
       "item_id": "830a9b079290532a",
-      "publish_ts": 1780220743,
+      "publish_ts": 1780220743.0,
       "publish_date": "2026-05-31",
-      "summary": "布雷博与宁波华翔签署合资协议，双方计划通过合资方式推进汽车零部件相关业务合作，具体投资规模和业务安排有待后续进一步披露。",
-      "takeaway": "制动系统供应商与本土零部件企业深化合作，后续产能布局和客户拓展值得留意。",
       "category": "市场",
-      "brands": [],
-      "importance": 62,
+      "summary": "布雷博与宁波华翔签署合资协议，双方计划通过合资方式推进汽车零部件相关业务合作，具体投资规模和业务安排有待后续进一步披露。",
       "is_featured": false,
+      "importance": 62,
+      "brands": [],
       "enriched_by": "codex",
-      "is_new": true
+      "takeaway": "制动系统供应商与本土零部件企业深化合作，后续产能布局和客户拓展值得留意。",
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645980167151796798",
@@ -114,19 +114,19 @@
       "source_name": "懂车帝",
       "crawled_at": "2026-05-31T09:44:01.198962+00:00",
       "item_id": "c5f627e520dbed7e",
-      "publish_ts": 1780219163,
+      "publish_ts": 1780219163.0,
       "publish_date": "2026-05-31",
-      "summary": "文章对比正规保险框架下的智驾险与车企事故兜底承诺，提及比亚迪针对天神之眼版新车城市领航事故的赔付安排，以及免责条款差异。",
-      "takeaway": "智驾责任保障正成为购车卖点，保险条款与车企承诺的法律边界需要明确区分。",
       "category": "技术",
+      "summary": "文章对比正规保险框架下的智驾险与车企事故兜底承诺，提及比亚迪针对天神之眼版新车城市领航事故的赔付安排，以及免责条款差异。",
+      "is_featured": false,
+      "importance": 58,
       "brands": [
         "比亚迪",
         "华为"
       ],
-      "importance": 58,
-      "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "takeaway": "智驾责任保障正成为购车卖点，保险条款与车企承诺的法律边界需要明确区分。",
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645982319647785496",
@@ -138,11 +138,12 @@
       "source_name": "懂车帝",
       "crawled_at": "2026-05-31T09:44:01.198962+00:00",
       "item_id": "18e8ba6e1820948a",
-      "publish_ts": 1780219163,
+      "publish_ts": 1780219163.0,
       "publish_date": "2026-05-31",
-      "summary": "文章讨论新能源车增重对老旧车库、道路和碰撞安全的影响，并结合电动车能耗限值标准及按重量分级征税建议，分析车企轻量化压力。",
-      "takeaway": "大电池与大车身带来的增重成本开始进入标准和税收讨论，轻量化或成新竞争点。",
       "category": "政策",
+      "summary": "文章讨论新能源车增重对老旧车库、道路和碰撞安全的影响，并结合电动车能耗限值标准及按重量分级征税建议，分析车企轻量化压力。",
+      "is_featured": false,
+      "importance": 55,
       "brands": [
         "蔚来",
         "理想",
@@ -150,10 +151,9 @@
         "尊界",
         "长安汽车"
       ],
-      "importance": 55,
-      "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "takeaway": "大电池与大车身带来的增重成本开始进入标准和税收讨论，轻量化或成新竞争点。",
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645981559010673177",
@@ -165,18 +165,18 @@
       "source_name": "懂车帝",
       "crawled_at": "2026-05-31T09:44:01.198962+00:00",
       "item_id": "ddfa150b0e808a9c",
-      "publish_ts": 1780219163,
+      "publish_ts": 1780219163.0,
       "publish_date": "2026-05-31",
-      "summary": "文章以国际油价波动为背景，对比燃油车和电动车日常使用成本，认为中国新能源汽车产业链与充电基础设施可能增强海外市场吸引力。",
-      "takeaway": "油价上涨会放大电动车使用成本优势，但海外转化仍取决于充电设施和本地供给。",
       "category": "市场",
+      "summary": "文章以国际油价波动为背景，对比燃油车和电动车日常使用成本，认为中国新能源汽车产业链与充电基础设施可能增强海外市场吸引力。",
+      "is_featured": false,
+      "importance": 42,
       "brands": [
         "特斯拉"
       ],
-      "importance": 42,
-      "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "takeaway": "油价上涨会放大电动车使用成本优势，但海外转化仍取决于充电设施和本地供给。",
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645972869801198104",
@@ -188,16 +188,16 @@
       "source_name": "懂车帝",
       "crawled_at": "2026-05-31T09:44:01.198962+00:00",
       "item_id": "864ea0e355ab9df5",
-      "publish_ts": 1780218834,
+      "publish_ts": 1780218834.0,
       "publish_date": "2026-05-31",
-      "summary": "文章称疲劳驾驶管理规则将于6月1日调整，并描述卡口数据识别、昼夜分级管理和不同车辆行驶时长限制，但未列出作为依据的具体法规名称。",
-      "takeaway": "涉及驾驶人处罚与出行安排的信息应以交管部门正式文件为准，避免被模糊表述误导。",
       "category": "政策",
-      "brands": [],
-      "importance": 35,
+      "summary": "文章称疲劳驾驶管理规则将于6月1日调整，并描述卡口数据识别、昼夜分级管理和不同车辆行驶时长限制，但未列出作为依据的具体法规名称。",
       "is_featured": false,
+      "importance": 35,
+      "brands": [],
       "enriched_by": "codex",
-      "is_new": true
+      "takeaway": "涉及驾驶人处罚与出行安排的信息应以交管部门正式文件为准，避免被模糊表述误导。",
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645972306149884441",
@@ -209,18 +209,18 @@
       "source_name": "懂车帝",
       "crawled_at": "2026-05-31T09:44:01.198962+00:00",
       "item_id": "956e4d04f3238d08",
-      "publish_ts": 1780218498,
+      "publish_ts": 1780218498.0,
       "publish_date": "2026-05-31",
-      "summary": "文章介绍事故车维修门店在车身校正、无痕修复和电气诊断方面的服务能力，并以泽国吉利汽修为例强调设备、流程管理和配件透明度。",
-      "takeaway": "内容偏门店服务推广，选择事故车维修机构时应核验资质、配件来源和报价明细。",
       "category": "市场",
+      "summary": "文章介绍事故车维修门店在车身校正、无痕修复和电气诊断方面的服务能力，并以泽国吉利汽修为例强调设备、流程管理和配件透明度。",
+      "is_featured": false,
+      "importance": 18,
       "brands": [
         "吉利"
       ],
-      "importance": 18,
-      "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "takeaway": "内容偏门店服务推广，选择事故车维修机构时应核验资质、配件来源和报价明细。",
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645970220103844377",
@@ -232,16 +232,16 @@
       "source_name": "懂车帝",
       "crawled_at": "2026-05-31T09:44:01.198962+00:00",
       "item_id": "8fa3c6e4084fe86e",
-      "publish_ts": 1780216924,
+      "publish_ts": 1780216924.0,
       "publish_date": "2026-05-31",
-      "summary": "文章预计国内成品油价格将在6月4日24时迎来下调，称当前计价周期原油变化率下降，汽柴油零售价或每升降低约四角，具体幅度仍待窗口确认。",
-      "takeaway": "调价窗口临近且降幅预期较大，用油成本可能回落，最终幅度仍以官方通知为准。",
       "category": "市场",
-      "brands": [],
-      "importance": 50,
+      "summary": "文章预计国内成品油价格将在6月4日24时迎来下调，称当前计价周期原油变化率下降，汽柴油零售价或每升降低约四角，具体幅度仍待窗口确认。",
       "is_featured": false,
+      "importance": 50,
+      "brands": [],
       "enriched_by": "codex",
-      "is_new": true
+      "takeaway": "调价窗口临近且降幅预期较大，用油成本可能回落，最终幅度仍以官方通知为准。",
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645962257356292632",
@@ -255,13 +255,13 @@
       "item_id": "e65aac3f87ee76a3",
       "publish_ts": 1780216787.0,
       "publish_date": "2026-05-31",
-      "takeaway": "疲劳驾驶判定从时长扩展至驾驶状态，车主合规边界需要重新确认并影响日常用车习惯。",
+      "category": "政策",
       "summary": "自6月1日起，疲劳驾驶认定规则出现调整，判断不再仅依据连续驾驶时长，睡眠不足、服用药物等影响驾驶状态的情形也可能纳入处罚范围。",
+      "is_featured": true,
+      "importance": 83,
       "brands": [],
       "enriched_by": "codex",
-      "category": "政策",
-      "importance": 83,
-      "is_featured": true,
+      "takeaway": "疲劳驾驶判定从时长扩展至驾驶状态，车主合规边界需要重新确认并影响日常用车习惯。",
       "is_new": false
     },
     {
@@ -276,15 +276,15 @@
       "item_id": "a1a2ed8738c3921b",
       "publish_ts": 1780216080.0,
       "publish_date": "2026-05-31",
-      "takeaway": "新车从上市转入首批交付，限时起售价将直接影响早期订单转化以及后续交付节奏。",
+      "category": "产品",
       "summary": "领克10已启动首批用户车辆交付，新车上市阶段提供限时价格方案，起售价为16.99万元。交付开启意味着该车型正式进入市场兑现阶段。",
+      "is_featured": false,
+      "importance": 66,
       "brands": [
         "领克"
       ],
       "enriched_by": "codex",
-      "category": "产品",
-      "importance": 66,
-      "is_featured": false,
+      "takeaway": "新车从上市转入首批交付，限时起售价将直接影响早期订单转化以及后续交付节奏。",
       "is_new": false
     },
     {
@@ -299,15 +299,15 @@
       "item_id": "a5e99afc6303d215",
       "publish_ts": 1780215000.0,
       "publish_date": "2026-05-31",
-      "takeaway": "全优安全认证为问界M8补充硬指标，有助于强化高端车型安全卖点并影响用户购车判断。",
+      "category": "技术",
       "summary": "问界M8在中保研C-IASI测评中获得超5G全优安全认证，报道将其作为车辆安全表现的重要背书。认证结果覆盖的具体项目以测评信息为准。",
+      "is_featured": true,
+      "importance": 68,
       "brands": [
         "问界"
       ],
       "enriched_by": "codex",
-      "category": "技术",
-      "importance": 68,
-      "is_featured": true,
+      "takeaway": "全优安全认证为问界M8补充硬指标，有助于强化高端车型安全卖点并影响用户购车判断。",
       "is_new": false
     },
     {
@@ -322,15 +322,15 @@
       "item_id": "ec1ba23033a509e2",
       "publish_ts": 1780214421.0,
       "publish_date": "2026-05-31",
-      "takeaway": "若持股比例触发销售限制，奔驰在美业务将面临新的政策不确定性及全球经营调整。",
+      "category": "政策",
       "summary": "报道讨论美国市场针对奔驰的潜在销售限制，原因与中国资本持股比例超过15%有关。相关限制是否落地、适用范围及执行时间仍需以正式规则为准。",
+      "is_featured": true,
+      "importance": 78,
       "brands": [
         "奔驰"
       ],
       "enriched_by": "codex",
-      "category": "政策",
-      "importance": 78,
-      "is_featured": true,
+      "takeaway": "若持股比例触发销售限制，奔驰在美业务将面临新的政策不确定性及全球经营调整。",
       "is_new": false
     },
     {
@@ -345,15 +345,15 @@
       "item_id": "20e36b0e2a508158",
       "publish_ts": 1780213320.0,
       "publish_date": "2026-05-31",
-      "takeaway": "毛利率突破20%后，销量能否同步放量将决定经营改善的持续性及全年盈利空间。",
+      "category": "市场",
       "summary": "小鹏汽车一季度毛利率超过20%，何小鹏表示对销量环比大幅增长有信心。毛利改善与销量预期共同构成公司经营表现的重要观察指标。",
+      "is_featured": true,
+      "importance": 82,
       "brands": [
         "小鹏"
       ],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 82,
-      "is_featured": true,
+      "takeaway": "毛利率突破20%后，销量能否同步放量将决定经营改善的持续性及全年盈利空间。",
       "is_new": false
     },
     {
@@ -368,13 +368,13 @@
       "item_id": "a925957af3c41547",
       "publish_ts": 1780213320.0,
       "publish_date": "2026-05-31",
-      "takeaway": "政策延期稳定跨境用车预期，珠三角周末出行便利度将继续维持并促进区域车流往来。",
+      "category": "政策",
       "summary": "“港车北上”政策宣布延长5年，符合条件的香港车主可继续使用相关安排进入珠三角地区。延期有助于维持跨境出行政策的稳定预期。",
+      "is_featured": true,
+      "importance": 76,
       "brands": [],
       "enriched_by": "codex",
-      "category": "政策",
-      "importance": 76,
-      "is_featured": true,
+      "takeaway": "政策延期稳定跨境用车预期，珠三角周末出行便利度将继续维持并促进区域车流往来。",
       "is_new": false
     },
     {
@@ -389,15 +389,15 @@
       "item_id": "a229c82226be7faa",
       "publish_ts": 1780213260.0,
       "publish_date": "2026-05-31",
-      "takeaway": "MONA产品线继续扩充，新车定价将影响小鹏在主流市场的覆盖范围及销量增量潜力。",
+      "category": "产品",
       "summary": "小鹏MONA L03实车信息曝光，该车型计划在年内正式发布。现阶段报道披露了实车动向，具体配置、定价及上市交付时间仍待官方公布。",
+      "is_featured": false,
+      "importance": 65,
       "brands": [
         "小鹏"
       ],
       "enriched_by": "codex",
-      "category": "产品",
-      "importance": 65,
-      "is_featured": false,
+      "takeaway": "MONA产品线继续扩充，新车定价将影响小鹏在主流市场的覆盖范围及销量增量潜力。",
       "is_new": false
     },
     {
@@ -412,13 +412,13 @@
       "item_id": "66cbbd2d72e30fa9",
       "publish_ts": 1780213227.0,
       "publish_date": "2026-05-31",
-      "takeaway": "终端优惠未能明显带动客流，反映日系车在本地市场面临持续加大的竞争压力。",
+      "category": "市场",
       "summary": "文章聚焦郑州汽车终端市场，称当地部分日系车型由过去加价排队转为优惠两三万元仍客流有限，呈现需求、竞争格局及合资品牌承压状态。",
+      "is_featured": false,
+      "importance": 56,
       "brands": [],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 56,
-      "is_featured": false,
+      "takeaway": "终端优惠未能明显带动客流，反映日系车在本地市场面临持续加大的竞争压力。",
       "is_new": false
     },
     {
@@ -433,17 +433,17 @@
       "item_id": "f818b64f21cced76",
       "publish_ts": 1780213175.0,
       "publish_date": "2026-05-31",
-      "takeaway": "豪华品牌经销商建立协作平台，渠道经营压力与厂商关系成为焦点以及协商重点。",
+      "category": "市场",
       "summary": "中国汽车流通协会成立奔驰、宝马、保时捷经销商分会，为相关品牌渠道商建立专门协作平台。分会将聚焦经销体系当前面临的共性议题。",
+      "is_featured": true,
+      "importance": 74,
       "brands": [
         "奔驰",
         "宝马",
         "保时捷"
       ],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 74,
-      "is_featured": true,
+      "takeaway": "豪华品牌经销商建立协作平台，渠道经营压力与厂商关系成为焦点以及协商重点。",
       "is_new": false
     },
     {
@@ -458,13 +458,13 @@
       "item_id": "412d654789dc6501",
       "publish_ts": 1780212993.0,
       "publish_date": "2026-05-31",
-      "takeaway": "汽车价值重心正向智能体验迁移，传统机械能力、软件服务和产品策略需要同步重构。",
+      "category": "技术",
       "summary": "文章回顾汽车产业从机械性能主导向智能化、移动化方向演进的过程，讨论车辆功能边界、用户需求、产业分工变化及竞争重点转移趋势。",
+      "is_featured": false,
+      "importance": 48,
       "brands": [],
       "enriched_by": "codex",
-      "category": "技术",
-      "importance": 48,
-      "is_featured": false,
+      "takeaway": "汽车价值重心正向智能体验迁移，传统机械能力、软件服务和产品策略需要同步重构。",
       "is_new": false
     },
     {
@@ -479,15 +479,15 @@
       "item_id": "f010a3770af52805",
       "publish_ts": 1780212070.0,
       "publish_date": "2026-05-31",
-      "takeaway": "资本背景被带入购车讨论，汽车消费舆论正在叠加更多身份议题并影响品牌讨论方式。",
+      "category": "舆情",
       "summary": "文章围绕购买奔驰与支持国产之间的关系展开讨论，借品牌历史和资本背景引出消费选择争议。内容属于观点表达，不代表监管或企业正式结论。",
+      "is_featured": false,
+      "importance": 40,
       "brands": [
         "奔驰"
       ],
       "enriched_by": "codex",
-      "category": "舆情",
-      "importance": 40,
-      "is_featured": false,
+      "takeaway": "资本背景被带入购车讨论，汽车消费舆论正在叠加更多身份议题并影响品牌讨论方式。",
       "is_new": false
     },
     {
@@ -502,15 +502,15 @@
       "item_id": "0d4f0ef44af4d23d",
       "publish_ts": 1780212060.0,
       "publish_date": "2026-05-31",
-      "takeaway": "方程豹扩充GT车型布局，三季度上市将检验品牌产品线延展能力及用户接受度。",
+      "category": "产品",
       "summary": "方程豹发布方程S GT官方图片，并公布新车计划于第三季度上市。当前信息以外观展示和上市窗口为主，动力、配置及价格仍待后续披露。",
+      "is_featured": false,
+      "importance": 64,
       "brands": [
         "方程豹"
       ],
       "enriched_by": "codex",
-      "category": "产品",
-      "importance": 64,
-      "is_featured": false,
+      "takeaway": "方程豹扩充GT车型布局，三季度上市将检验品牌产品线延展能力及用户接受度。",
       "is_new": false
     },
     {
@@ -525,16 +525,16 @@
       "item_id": "2c92962f70d17154",
       "publish_ts": 1780211759.0,
       "publish_date": "2026-05-31",
-      "takeaway": "量产项目因需求变化终止，丰田正在重新评估纯电产品投入节奏以及资源投放方向。",
+      "category": "市场",
       "summary": "丰田确认终止雷克萨斯LF-ZC量产开发，调整原因与市场需求变化有关。该决定意味着原定电动轿车项目不再按照原先既有规划继续推进。",
+      "is_featured": true,
+      "importance": 79,
       "brands": [
         "丰田",
         "雷克萨斯"
       ],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 79,
-      "is_featured": true,
+      "takeaway": "量产项目因需求变化终止，丰田正在重新评估纯电产品投入节奏以及资源投放方向。",
       "is_new": false
     },
     {
@@ -549,15 +549,15 @@
       "item_id": "6ee19fee6dec1941",
       "publish_ts": 1780211745.0,
       "publish_date": "2026-05-31",
-      "takeaway": "集中答疑补充YU7功能细节，小米持续用高频沟通降低购车决策疑虑并强化发布节奏。",
+      "category": "产品",
       "summary": "小米汽车针对YU7的柔感自然风空调、天际屏歌词功能以及GT版本车身材质进行说明。答疑围绕用户关注的体验功能与硬件信息展开。",
+      "is_featured": false,
+      "importance": 62,
       "brands": [
         "小米汽车"
       ],
       "enriched_by": "codex",
-      "category": "产品",
-      "importance": 62,
-      "is_featured": false,
+      "takeaway": "集中答疑补充YU7功能细节，小米持续用高频沟通降低购车决策疑虑并强化发布节奏。",
       "is_new": false
     },
     {
@@ -572,13 +572,13 @@
       "item_id": "45c4c32be3b1f076",
       "publish_ts": 1780211697.0,
       "publish_date": "2026-05-31",
-      "takeaway": "个体体验显示，新车配置升级并不必然转化为更符合用户习惯的日常驾驶感受。",
+      "category": "舆情",
       "summary": "文章以个人用车体验为线索，描述作者驾驶新车一周后重新选择十五年车龄旧车的经历，并围绕实际使用感受及具体取舍原因展开讨论。",
+      "is_featured": false,
+      "importance": 24,
       "brands": [],
       "enriched_by": "codex",
-      "category": "舆情",
-      "importance": 24,
-      "is_featured": false,
+      "takeaway": "个体体验显示，新车配置升级并不必然转化为更符合用户习惯的日常驾驶感受。",
       "is_new": false
     },
     {
@@ -593,15 +593,15 @@
       "item_id": "d7de74c47e2a6579",
       "publish_ts": 1780211588.0,
       "publish_date": "2026-05-31",
-      "takeaway": "比亚迪竞争策略引发行业讨论，市场关注其后续产品与价格动作及行业竞争节奏。",
+      "category": "舆情",
       "summary": "文章围绕王传福提出的“上强度”展开观察，并将比亚迪相关动作放在行业竞争背景下讨论。内容侧重评论分析，未披露新的官方经营数据。",
+      "is_featured": false,
+      "importance": 51,
       "brands": [
         "比亚迪"
       ],
       "enriched_by": "codex",
-      "category": "舆情",
-      "importance": 51,
-      "is_featured": false,
+      "takeaway": "比亚迪竞争策略引发行业讨论，市场关注其后续产品与价格动作及行业竞争节奏。",
       "is_new": false
     },
     {
@@ -616,13 +616,13 @@
       "item_id": "3af0d971271ba16d",
       "publish_ts": 1780211465.0,
       "publish_date": "2026-05-31",
-      "takeaway": "事故再次触及驾驶员责任与功能宣传边界，辅助驾驶安全教育落地仍需更加明确。",
+      "category": "舆情",
       "summary": "文章讨论一起涉及辅助驾驶的交通事故，称事发过程持续约四十秒并造成三人死亡，同时关注驾驶员行为、车企宣传边界与安全责任划分问题。",
+      "is_featured": true,
+      "importance": 68,
       "brands": [],
       "enriched_by": "codex",
-      "category": "舆情",
-      "importance": 68,
-      "is_featured": true,
+      "takeaway": "事故再次触及驾驶员责任与功能宣传边界，辅助驾驶安全教育落地仍需更加明确。",
       "is_new": false
     },
     {
@@ -635,18 +635,18 @@
       "source_name": "懂车帝",
       "crawled_at": "2026-05-31T09:44:01.198962+00:00",
       "item_id": "38e6fdebff06841c",
-      "publish_ts": 1780211181,
+      "publish_ts": 1780211181.0,
       "publish_date": "2026-05-31",
-      "summary": "特斯拉车主使用FSD V14.3.3完成加拿大跨境长途测试，文章称全程约6051公里未出现人工接管，同时注明系统仍属于需监督的L2辅助驾驶。",
-      "takeaway": "民间长途零接管测试展示了系统进展，但不能替代官方安全验证或改变责任边界。",
       "category": "技术",
+      "summary": "特斯拉车主使用FSD V14.3.3完成加拿大跨境长途测试，文章称全程约6051公里未出现人工接管，同时注明系统仍属于需监督的L2辅助驾驶。",
+      "is_featured": false,
+      "importance": 62,
       "brands": [
         "特斯拉"
       ],
-      "importance": 62,
-      "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "takeaway": "民间长途零接管测试展示了系统进展，但不能替代官方安全验证或改变责任边界。",
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645940651922145816",
@@ -658,18 +658,18 @@
       "source_name": "懂车帝",
       "crawled_at": "2026-05-31T09:44:01.198962+00:00",
       "item_id": "b51f78057bee750f",
-      "publish_ts": 1780211046,
+      "publish_ts": 1780211046.0,
       "publish_date": "2026-05-31",
-      "summary": "特斯拉中国为2025年2月及之后生产的Model Y推出手动伸缩遮阳帘，售价1499元，采用卷轴式结构并支持两段独立调节。",
-      "takeaway": "官方配件回应全景天幕夏季隔热需求，适配范围和定价是车主决策时的主要考量。",
       "category": "产品",
+      "summary": "特斯拉中国为2025年2月及之后生产的Model Y推出手动伸缩遮阳帘，售价1499元，采用卷轴式结构并支持两段独立调节。",
+      "is_featured": false,
+      "importance": 45,
       "brands": [
         "特斯拉"
       ],
-      "importance": 45,
-      "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "takeaway": "官方配件回应全景天幕夏季隔热需求，适配范围和定价是车主决策时的主要考量。",
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645937023023530521",
@@ -683,13 +683,13 @@
       "item_id": "a6d524f34258c2bd",
       "publish_ts": 1780209663.0,
       "publish_date": "2026-05-31",
-      "takeaway": "车标之外的设计辨识度正成为新能源车型建立品牌记忆和产品差异的重要因素。",
+      "category": "产品",
       "summary": "文章通过遮挡新能源车型标识的方式观察车辆辨识度，讨论当前产品在外观设计、品牌特征和造型语言方面的差异化表现及同质化现象。",
+      "is_featured": false,
+      "importance": 23,
       "brands": [],
       "enriched_by": "codex",
-      "category": "产品",
-      "importance": 23,
-      "is_featured": false,
+      "takeaway": "车标之外的设计辨识度正成为新能源车型建立品牌记忆和产品差异的重要因素。",
       "is_new": false
     },
     {
@@ -704,13 +704,13 @@
       "item_id": "d92c105e7ce8511f",
       "publish_ts": 1780209452.0,
       "publish_date": "2026-05-31",
-      "takeaway": "组织化协调可缓解部分渠道矛盾，但经销商经营修复仍依赖更稳定的盈利机制。",
+      "category": "市场",
       "summary": "文章围绕经销商专属分会成立展开讨论，关注渠道端经营压力及行业组织提供支持的作用，并指出长期改善仍取决于商业环境变化趋势。",
+      "is_featured": false,
+      "importance": 42,
       "brands": [],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 42,
-      "is_featured": false,
+      "takeaway": "组织化协调可缓解部分渠道矛盾，但经销商经营修复仍依赖更稳定的盈利机制。",
       "is_new": false
     },
     {
@@ -725,13 +725,13 @@
       "item_id": "52c9b1453160bef9",
       "publish_ts": 1780209146.0,
       "publish_date": "2026-05-31",
-      "takeaway": "新能源体验优势已形成用户认知，但补能与场景适配仍影响最终购车决策和使用取舍。",
+      "category": "舆情",
       "summary": "文章讨论新能源车用户是否普遍不愿回归燃油车，并从使用体验角度审视电动车的优势与不足。内容属于消费观点分析，不涉及新车型发布。",
+      "is_featured": false,
+      "importance": 39,
       "brands": [],
       "enriched_by": "codex",
-      "category": "舆情",
-      "importance": 39,
-      "is_featured": false,
+      "takeaway": "新能源体验优势已形成用户认知，但补能与场景适配仍影响最终购车决策和使用取舍。",
       "is_new": false
     },
     {
@@ -746,13 +746,13 @@
       "item_id": "ed750a75ba722ba5",
       "publish_ts": 1780207894.0,
       "publish_date": "2026-05-31",
-      "takeaway": "本地维修保养指南信息较窄，价值主要在车主服务商筛选参考及比价效率改善。",
+      "category": "市场",
       "summary": "文章面向洛阳地区车主提供汽车维修和大保养服务商选择建议，重点讨论门店筛选与服务比较。内容属于本地日常用车服务指南类信息。",
+      "is_featured": false,
+      "importance": 20,
       "brands": [],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 20,
-      "is_featured": false,
+      "takeaway": "本地维修保养指南信息较窄，价值主要在车主服务商筛选参考及比价效率改善。",
       "is_new": false
     },
     {
@@ -767,15 +767,15 @@
       "item_id": "b4e6e66ef854ee59",
       "publish_ts": 1780207532.0,
       "publish_date": "2026-05-31",
-      "takeaway": "首批车主反馈有助于观察YU7 GT真实体验，但样本规模仍有限，需结合后续口碑变化。",
+      "category": "舆情",
       "summary": "文章汇总首批小米YU7 GT车主反馈，并结合网友评论讨论实际使用感受。内容以用户体验盘点为主，相关评价仍需结合更多样本观察。",
+      "is_featured": false,
+      "importance": 53,
       "brands": [
         "小米汽车"
       ],
       "enriched_by": "codex",
-      "category": "舆情",
-      "importance": 53,
-      "is_featured": false,
+      "takeaway": "首批车主反馈有助于观察YU7 GT真实体验，但样本规模仍有限，需结合后续口碑变化。",
       "is_new": false
     },
     {
@@ -790,13 +790,13 @@
       "item_id": "bed83a6d1d6f74e0",
       "publish_ts": 1780205642.0,
       "publish_date": "2026-05-31",
-      "takeaway": "低能耗成本可能释放新的配置消费空间，购车决策正在从省钱转向体验升级变化。",
+      "category": "市场",
       "summary": "文章讨论新能源汽车使用成本与消费支出的关系，指出能源费用下降并不等同于整体花费降低，部分用户会将节省转向配置升级的变化。",
+      "is_featured": false,
+      "importance": 38,
       "brands": [],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 38,
-      "is_featured": false,
+      "takeaway": "低能耗成本可能释放新的配置消费空间，购车决策正在从省钱转向体验升级变化。",
       "is_new": false
     },
     {
@@ -811,15 +811,15 @@
       "item_id": "8a32b21ab8a21854",
       "publish_ts": 1780205565.0,
       "publish_date": "2026-05-31",
-      "takeaway": "跨境资本关系正被纳入汽车贸易审查，奔驰案例可观察监管边界是否继续扩大。",
+      "category": "政策",
       "summary": "报道讨论美国市场针对汽车供应链和资本关联的限制措施，并分析中国股东持有奔驰股份是否可能影响该品牌在当地销售与具体合规安排。",
+      "is_featured": false,
+      "importance": 63,
       "brands": [
         "奔驰"
       ],
       "enriched_by": "codex",
-      "category": "政策",
-      "importance": 63,
-      "is_featured": false,
+      "takeaway": "跨境资本关系正被纳入汽车贸易审查，奔驰案例可观察监管边界是否继续扩大。",
       "is_new": false
     },
     {
@@ -834,15 +834,15 @@
       "item_id": "4961770f08885f0f",
       "publish_ts": 1780205565.0,
       "publish_date": "2026-05-31",
-      "takeaway": "汽车金融连接购车转化和经销商资金周转，业务退出反映车企渠道支持体系正在调整。",
+      "category": "市场",
       "summary": "相关报道关注沃尔沃汽车金融业务主体结束运营的情况，并将其置于汽车消费金融模式变化及外资车企在华业务调整变化的背景下讨论。",
+      "is_featured": false,
+      "importance": 61,
       "brands": [
         "沃尔沃"
       ],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 61,
-      "is_featured": false,
+      "takeaway": "汽车金融连接购车转化和经销商资金周转，业务退出反映车企渠道支持体系正在调整。",
       "is_new": false
     },
     {
@@ -855,21 +855,21 @@
       "source_name": "懂车帝",
       "crawled_at": "2026-05-31T09:44:01.198962+00:00",
       "item_id": "4ad8a45976c36073",
-      "publish_ts": 1780204989,
+      "publish_ts": 1780204989.0,
       "publish_date": "2026-05-31",
-      "summary": "文章分析蔚来实现全年盈利的路径，提及ES9承担提升毛利率任务，乐道L80负责扩大销量，并关注交付量、整车毛利率和利润目标。",
-      "takeaway": "高端车型保毛利与大众车型冲销量能否同时落地，将直接影响蔚来盈利整体进度。",
       "category": "市场",
+      "summary": "文章分析蔚来实现全年盈利的路径，提及ES9承担提升毛利率任务，乐道L80负责扩大销量，并关注交付量、整车毛利率和利润目标。",
+      "is_featured": false,
+      "importance": 58,
       "brands": [
         "蔚来",
         "乐道",
         "萤火虫",
         "比亚迪"
       ],
-      "importance": 58,
-      "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "takeaway": "高端车型保毛利与大众车型冲销量能否同时落地，将直接影响蔚来盈利整体进度。",
+      "is_new": false
     },
     {
       "url": "https://www.dongchedi.com/article/7645910440178205209",
@@ -883,15 +883,15 @@
       "item_id": "a553fd309512779d",
       "publish_ts": 1780204055.0,
       "publish_date": "2026-05-31",
-      "takeaway": "纯电性能竞争开始从加速参数转向操控表现，底盘能力将成为产品区分点之一。",
+      "category": "产品",
       "summary": "文章以天门山道路场景介绍领克10+的弯道表现，重点讨论纯电性能车型除直线加速之外，在操控、底盘调校和实际验证方面的能力。",
+      "is_featured": false,
+      "importance": 44,
       "brands": [
         "领克"
       ],
       "enriched_by": "codex",
-      "category": "产品",
-      "importance": 44,
-      "is_featured": false,
+      "takeaway": "纯电性能竞争开始从加速参数转向操控表现，底盘能力将成为产品区分点之一。",
       "is_new": false
     },
     {
@@ -906,8 +906,10 @@
       "item_id": "d5f059aa6a07a89e",
       "publish_ts": 1780203760.0,
       "publish_date": "2026-05-31",
-      "takeaway": "大型六座车型进入英国市场，奇瑞继续测试海外高端化空间与当地定价接受度。",
+      "category": "市场",
       "summary": "奇瑞风云T11以Jaecoo 9名称进入英国市场，车型定位为车长约5.2米的六座产品。报道关注其与路虎等当地车型的竞争关系。",
+      "is_featured": false,
+      "importance": 66,
       "brands": [
         "奇瑞",
         "风云",
@@ -915,9 +917,7 @@
         "路虎"
       ],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 66,
-      "is_featured": false,
+      "takeaway": "大型六座车型进入英国市场，奇瑞继续测试海外高端化空间与当地定价接受度。",
       "is_new": false
     },
     {
@@ -932,13 +932,13 @@
       "item_id": "a70eb9985690c2f4",
       "publish_ts": 1780203189.0,
       "publish_date": "2026-05-31",
-      "takeaway": "行业竞争开始检验盈利质量，谁能从价格战转向产品和服务增量将影响下一轮分化。",
+      "category": "市场",
       "summary": "文章梳理新能源汽车市场竞争从单纯价格比拼转向盈利和差异化能力建设，讨论车企在利润压力下寻找新增长空间的可行路径和现实条件。",
+      "is_featured": false,
+      "importance": 58,
       "brands": [],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 58,
-      "is_featured": false,
+      "takeaway": "行业竞争开始检验盈利质量，谁能从价格战转向产品和服务增量将影响下一轮分化。",
       "is_new": false
     },
     {
@@ -953,13 +953,13 @@
       "item_id": "408d22450755132a",
       "publish_ts": 1780202394.0,
       "publish_date": "2026-05-31",
-      "takeaway": "辅助驾驶进入责任兑现阶段，能力边界说明、事故责任和用户教育将共同影响市场信任。",
+      "category": "技术",
       "summary": "文章讨论辅助驾驶功能快速普及后面临的安全责任、用户认知和实际能力边界问题，关注车企宣传承诺与落地表现之间的实际能力差距。",
+      "is_featured": false,
+      "importance": 65,
       "brands": [],
       "enriched_by": "codex",
-      "category": "技术",
-      "importance": 65,
-      "is_featured": false,
+      "takeaway": "辅助驾驶进入责任兑现阶段，能力边界说明、事故责任和用户教育将共同影响市场信任。",
       "is_new": false
     },
     {
@@ -974,16 +974,16 @@
       "item_id": "d998bd53052ec040",
       "publish_ts": 1780202337.0,
       "publish_date": "2026-05-31",
-      "takeaway": "两种智驾路线的竞争将更直接，感知硬件取舍与实际体验差异成为核心比较项。",
+      "category": "技术",
       "summary": "报道围绕特斯拉驾驶辅助系统在国内市场的推进预期，介绍华为对感知路线的回应，强调激光雷达在探测距离方面的实际能力表现与优势。",
+      "is_featured": true,
+      "importance": 78,
       "brands": [
         "特斯拉",
         "华为"
       ],
       "enriched_by": "codex",
-      "category": "技术",
-      "importance": 78,
-      "is_featured": true,
+      "takeaway": "两种智驾路线的竞争将更直接，感知硬件取舍与实际体验差异成为核心比较项。",
       "is_new": false
     },
     {
@@ -998,16 +998,16 @@
       "item_id": "99cd1d58fcccab14",
       "publish_ts": 1780202337.0,
       "publish_date": "2026-05-31",
-      "takeaway": "电动轿车项目调整再次出现，丰田纯电产品节奏及资源配置方向值得重新评估。",
+      "category": "市场",
       "summary": "文章讨论雷克萨斯电动轿车项目停止推进，并据此分析丰田纯电路线是否发生变化。核心事件是产品开发调整，后续规划仍待官方进一步披露。",
+      "is_featured": true,
+      "importance": 67,
       "brands": [
         "丰田",
         "雷克萨斯"
       ],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 67,
-      "is_featured": true,
+      "takeaway": "电动轿车项目调整再次出现，丰田纯电产品节奏及资源配置方向值得重新评估。",
       "is_new": false
     },
     {
@@ -1022,16 +1022,16 @@
       "item_id": "857a4c9aa467b1fd",
       "publish_ts": 1780202277.0,
       "publish_date": "2026-05-31",
-      "takeaway": "供应商从幕后走向高端品牌化，可能改变华为汽车生态中的分工方式和利润分配。",
+      "category": "市场",
       "summary": "市场消息称，在尊界S800取得进展后，华为正协助国内供应商建设面向高端市场的子品牌，推动供应链企业拓展品牌化业务新布局。",
+      "is_featured": false,
+      "importance": 64,
       "brands": [
         "尊界",
         "华为"
       ],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 64,
-      "is_featured": false,
+      "takeaway": "供应商从幕后走向高端品牌化，可能改变华为汽车生态中的分工方式和利润分配。",
       "is_new": false
     },
     {
@@ -1046,16 +1046,16 @@
       "item_id": "fb0cb0118956e283",
       "publish_ts": 1780201891.0,
       "publish_date": "2026-05-31",
-      "takeaway": "新势力销量排序继续变化，零跑规模优势与蔚来增速值得关注，后续市场表现仍需观察。",
+      "category": "市场",
       "summary": "文章梳理新势力车企一季度销量表现，提到零跑位居销量首位，蔚来增速接近翻倍，并对不同品牌在规模扩张和产品周期上的差异进行比较。",
+      "is_featured": true,
+      "importance": 76,
       "brands": [
         "零跑",
         "蔚来"
       ],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 76,
-      "is_featured": true,
+      "takeaway": "新势力销量排序继续变化，零跑规模优势与蔚来增速值得关注，后续市场表现仍需观察。",
       "is_new": false
     },
     {
@@ -1070,15 +1070,15 @@
       "item_id": "25fba921d020c1ba",
       "publish_ts": 1780201891.0,
       "publish_date": "2026-05-31",
-      "takeaway": "单月销量同比明显下滑，丰田在华产品与渠道应对面临更大压力及后续份额考验。",
+      "category": "市场",
       "summary": "文章关注丰田4月在中国市场销量同比下降25.4%的情况，并讨论导致增速承压的多项因素。销量变化反映合资品牌在华竞争压力。",
+      "is_featured": true,
+      "importance": 71,
       "brands": [
         "丰田"
       ],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 71,
-      "is_featured": true,
+      "takeaway": "单月销量同比明显下滑，丰田在华产品与渠道应对面临更大压力及后续份额考验。",
       "is_new": false
     },
     {
@@ -1093,15 +1093,15 @@
       "item_id": "384e465fb105b0c8",
       "publish_ts": 1780201891.0,
       "publish_date": "2026-05-31",
-      "takeaway": "曾经主流的合资家轿销量收缩，市场结构变化已传导至核心车型，后续市场表现仍需观察。",
+      "category": "市场",
       "summary": "文章以丰田雷凌月销量约三百辆为切入点，讨论合资家轿在自主品牌和新能源车型挤压下面临的处境，反映传统主流车型竞争力变化。相关进展仍待披露。",
+      "is_featured": false,
+      "importance": 52,
       "brands": [
         "丰田"
       ],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 52,
-      "is_featured": false,
+      "takeaway": "曾经主流的合资家轿销量收缩，市场结构变化已传导至核心车型，后续市场表现仍需观察。",
       "is_new": false
     },
     {
@@ -1116,15 +1116,15 @@
       "item_id": "9f42d1b24085ed03",
       "publish_ts": 1780201860.0,
       "publish_date": "2026-05-31",
-      "takeaway": "FSD安全质疑持续发酵，员工相关说法可能进一步放大信任争议和用户接受压力。",
+      "category": "舆情",
       "summary": "文章对特斯拉FSD的实际安全表现提出质疑，并以内部员工是否愿意乘坐作为讨论切入点。内容属于观点性舆情，相关说法仍需核验。",
+      "is_featured": false,
+      "importance": 58,
       "brands": [
         "特斯拉"
       ],
       "enriched_by": "codex",
-      "category": "舆情",
-      "importance": 58,
-      "is_featured": false,
+      "takeaway": "FSD安全质疑持续发酵，员工相关说法可能进一步放大信任争议和用户接受压力。",
       "is_new": false
     },
     {
@@ -1137,19 +1137,19 @@
       "source_name": "懂车帝",
       "crawled_at": "2026-05-31T09:44:01.198962+00:00",
       "item_id": "50cbf2015aff3598",
-      "publish_ts": 1780201613,
+      "publish_ts": 1780201613.0,
       "publish_date": "2026-05-31",
-      "summary": "文章讨论美国联网汽车安全法案相关传闻，称针对特定外国实体持股比例的限制可能影响奔驰，并结合北汽和吉利持股具体情况展开分析。",
-      "takeaway": "法案影响涉及跨境股权与联网汽车监管，具体门槛和适用范围仍应核对正式文本。",
       "category": "政策",
+      "summary": "文章讨论美国联网汽车安全法案相关传闻，称针对特定外国实体持股比例的限制可能影响奔驰，并结合北汽和吉利持股具体情况展开分析。",
+      "is_featured": false,
+      "importance": 45,
       "brands": [
         "奔驰",
         "北汽",
         "吉利"
       ],
-      "importance": 45,
-      "is_featured": false,
       "enriched_by": "codex",
+      "takeaway": "法案影响涉及跨境股权与联网汽车监管，具体门槛和适用范围仍应核对正式文本。",
       "is_new": false
     },
     {
@@ -1164,8 +1164,10 @@
       "item_id": "7a11fee6ed189535",
       "publish_ts": 1780201374.0,
       "publish_date": "2026-05-31",
-      "takeaway": "销量与估值出现背离，折射资本市场对增长持续性和盈利兑现能力的重新定价。",
+      "category": "市场",
       "summary": "文章比较赛力斯销量表现与资本市场走势，讨论销量增长未能同步支撑股价的原因，并分析市场预期、估值和经营质量之间的具体关系。",
+      "is_featured": false,
+      "importance": 57,
       "brands": [
         "赛力斯",
         "奔驰",
@@ -1173,9 +1175,7 @@
         "奥迪"
       ],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 57,
-      "is_featured": false,
+      "takeaway": "销量与估值出现背离，折射资本市场对增长持续性和盈利兑现能力的重新定价。",
       "is_new": false
     },
     {
@@ -1190,15 +1190,15 @@
       "item_id": "3b8bfecab095c908",
       "publish_ts": 1780195020.0,
       "publish_date": "2026-05-31",
-      "takeaway": "豪华品牌重新审视纯电轿车投入，研发资源和车型投放节奏可能进一步受到影响。",
+      "category": "市场",
       "summary": "雷克萨斯决定停止推进下一代纯电轿车项目，产品规划将随市场环境调整。此次变化涉及品牌后续电动车型布局，也反映其对纯电细分市场节奏的重新评估。",
+      "is_featured": true,
+      "importance": 80,
       "brands": [
         "雷克萨斯"
       ],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 80,
-      "is_featured": true,
+      "takeaway": "豪华品牌重新审视纯电轿车投入，研发资源和车型投放节奏可能进一步受到影响。",
       "is_new": false
     },
     {
@@ -1213,15 +1213,15 @@
       "item_id": "5b1d8e16d0c4b424",
       "publish_ts": 1780186380.0,
       "publish_date": "2026-05-31",
-      "takeaway": "埃安继续以紧凑型电动车拓展海外市场，新西兰成为其国际化重要新增落点之一。",
+      "category": "市场",
       "summary": "广汽埃安旗下AION UT进入新西兰市场，品牌海外销售版图继续扩展。该车型的落地为埃安拓展当地新能源乘用车市场增加了新的产品支点。",
+      "is_featured": false,
+      "importance": 67,
       "brands": [
         "埃安"
       ],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 67,
-      "is_featured": false,
+      "takeaway": "埃安继续以紧凑型电动车拓展海外市场，新西兰成为其国际化重要新增落点之一。",
       "is_new": false
     },
     {
@@ -1236,16 +1236,16 @@
       "item_id": "b7e388b5d0267c14",
       "publish_ts": 1780182332.0,
       "publish_date": "2026-05-31",
-      "takeaway": "技术叙事与整车成本上升同时出现，可用于判断行业近期经营压力与方向，供应链议题权重正在增加。",
+      "category": "市场",
       "summary": "盖世汽车周报汇总近期行业动态，其中包括华为提出“韬定律”以及李斌透露整车成本已上涨一万元等信息，内容覆盖技术观点与成本变化。",
+      "is_featured": true,
+      "importance": 72,
       "brands": [
         "华为",
         "蔚来"
       ],
       "enriched_by": "codex",
-      "category": "市场",
-      "importance": 72,
-      "is_featured": true,
+      "takeaway": "技术叙事与整车成本上升同时出现，可用于判断行业近期经营压力与方向，供应链议题权重正在增加。",
       "is_new": false
     }
   ]
