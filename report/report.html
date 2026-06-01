@@ -220,10 +220,11 @@
   .doc-table th{position:sticky;top:0;background:#f8fafc;z-index:1;color:#475467;font-weight:600;white-space:nowrap}
   .doc-table tbody tr:hover{background:#fbfcfe}
   .doc-table tbody tr:last-child td{border-bottom:0}
-  .doc-table .group-row td{font-weight:650;color:var(--fg);background:#fbfcfe;padding:8px 12px}
+  .doc-table .group-row td{font-weight:650;color:var(--fg);background:#fbfcfe;padding:8px 8px}
   .doc-table .group-row .group-label{display:inline-flex;align-items:center;gap:7px}
   .doc-table .group-row .group-label::before{content:"";display:inline-block;width:4px;height:18px;border-radius:4px;background:var(--group)}
-  .doc-table .brand-col{width:120px;font-weight:600;color:var(--fg);white-space:nowrap;border-left:4px solid var(--group)}
+  .doc-table .brand-col{position:relative;width:120px;padding-left:24px;font-weight:600;color:var(--fg);white-space:nowrap}
+  .doc-table .brand-col::before{content:"";position:absolute;left:8px;top:50%;width:4px;height:18px;border-radius:4px;background:var(--group);transform:translateY(-50%)}
   .doc-table .sales-col{width:270px}
   .doc-table .service-col{width:210px;color:#475467}
   .doc-table .note-col{min-width:320px;color:#344054}
