@@ -121,7 +121,7 @@
   .kpi .delta.pos{color:var(--pos)} .kpi .delta.neg{color:var(--neg)} .kpi .delta.zero{color:var(--mute)}
 
   /* 月度报告 */
-  #page-monthly .kpi-row{padding:10px 0 16px;background:transparent}
+  #page-monthly .kpi-row, #page-report .kpi-row{padding:10px 0 16px;background:transparent}
   .monthly-summary{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:22px}
   .monthly-summary .ms-para{font-size:14px;line-height:1.9;margin:0 0 10px;color:var(--fg)}
   .monthly-summary .ms-bullets{margin:0;padding-left:20px;font-size:13px;line-height:2;color:var(--fg)}
@@ -141,8 +141,8 @@
   .bd-tag::after{content:"："}
   .bd-net::after{content:""}
   .bd-names{color:var(--mute)}
-  .bd-pills{margin-left:10px;display:inline-flex;flex-wrap:wrap;gap:5px;vertical-align:middle}
-  .city-pill{display:inline-block;padding:1px 9px;border-radius:999px;font-size:12px;font-weight:600;line-height:1.7}
+  .bd-pillrow{display:flex;flex-wrap:wrap;gap:6px;margin:5px 0}
+  .city-pill{display:inline-block;padding:3px 12px;border-radius:999px;font-size:13px;font-weight:600;line-height:1.6}
   .city-pill.pos{background:#d1fae5;color:#065f46}
   .city-pill.neg{background:#fee2e2;color:#991b1b}
   /* 下钻弹窗 */
@@ -822,15 +822,17 @@ function renderReportRows(rows){
     </tr>`;
   }).join('');
 }
-function renderReportBrandDetails(rows){
-  return rows.filter(r=>r.diff.added.length || r.diff.removed.length || r.diff.changed.length).map(r=>{
+function renderReportBrandDetails(rows, opts){
+  const showChanged = !opts || opts.showChanged !== false;   // 当期报告传 {showChanged:false} 隐藏名称/地址变更
+  return rows.filter(r=> r.diff.added.length || r.diff.removed.length || (showChanged && r.diff.changed.length)).map(r=>{
     const net = r.cur.length - r.prev.length;
     const lines = [`<div class="bd-line"><span class="bd-tag bd-net">净变化</span><span class="bd-names">${reportDeltaHtml(net, ' 家')}</span></div>`];
     if(r.diff.added.length)   lines.push(`<div class="bd-line"><span class="bd-tag bd-add">新增</span><span class="bd-names">${reportNameList(r.diff.added, 8)}</span></div>`);
     if(r.diff.removed.length) lines.push(`<div class="bd-line"><span class="bd-tag bd-rem">退出</span><span class="bd-names">${reportNameList(r.diff.removed, 8)}</span></div>`);
-    if(r.diff.changed.length) lines.push(`<div class="bd-line"><span class="bd-tag bd-chg">名称/地址变更</span><span class="bd-names">${reportNameList(r.diff.changed, 6)}</span></div>`);
+    if(showChanged && r.diff.changed.length) lines.push(`<div class="bd-line"><span class="bd-tag bd-chg">名称/地址变更</span><span class="bd-names">${reportNameList(r.diff.changed, 6)}</span></div>`);
     return `<div class="brand-block">
-      <h3>${r.g}<span class="bd-pills">${_cityPills(r.diff)}</span></h3>
+      <h3>${r.g}</h3>
+      ${_cityPills(r.diff)}
       ${lines.join('')}
     </div>`;
   }).join('') || '<p style="color:var(--mute)">本期无品牌变化详情</p>';
@@ -864,30 +866,27 @@ async function renderDynamicReport(){
     <div class="sub">数据周期：${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}　｜　覆盖品牌：${new Set(curLocs.map(l=>l.g)).size} 个　｜　报告日期：${reportDateText(pair.newTs)}</div>
   </div>
   <div class="body">
-    <div class="layout">
-      <div class="col-left">
-        <div class="sec-title">销售网点数（家）& 城市覆盖</div>
-        <table>
-          <thead><tr><th style="width:110px">品牌</th><th style="min-width:180px">销售网点数（当期）</th><th>净变化</th><th>覆盖城市</th><th>城市变化</th><th>本期动态</th></tr></thead>
-          <tbody>${renderReportRows(rows)}</tbody>
-        </table>
-        <div class="footnote">
-          <p>说明：本页按所选相邻期动态计算，当前区间为 ${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}。物理网点以品牌组、店名、省份、地址综合去重；同店名称或地址变化会优先识别为变更，不计入新增/退出。</p>
-          <p>鸿蒙智行与奥迪按品牌组统计总网点，子品牌交叉经营会合并到同一物理网点。</p>
-          <p>本期网点总数无变化的品牌（月初＝月末）默认不在表格中列出，仅显示发生净增减的品牌。</p>
-        </div>
-      </div>
-      <div class="col-right">
-        <div class="sec-title">本期概览</div>
-        <div class="kpi-row">
-          <div class="kpi"><div class="k-label">当期总网点</div><div class="k-val">${curLocs.length.toLocaleString()}</div><div class="k-sub">较上期 ${reportDeltaHtml(totalDelta, ' 家')}</div></div>
-          <div class="kpi"><div class="k-label">覆盖品牌</div><div class="k-val">${new Set(curLocs.map(l=>l.g)).size}</div><div class="k-sub">含新能源 / 豪华</div></div>
-          <div class="kpi"><div class="k-label">本期新增</div><div class="k-val">${allDiff.added.length}</div><div class="k-sub">跨 ${new Set(allDiff.added.map(x=>x.g)).size} 个品牌</div></div>
-          <div class="kpi"><div class="k-label">本期退出</div><div class="k-val">${allDiff.removed.length}</div><div class="k-sub">跨 ${new Set(allDiff.removed.map(x=>x.g)).size} 个品牌</div></div>
-        </div>
-        <div class="sec-title">品牌变化详情</div>
-        <div class="brand-detail-body">${renderReportBrandDetails(rows)}</div>
-      </div>
+    <div class="sec-title">本期概览</div>
+    <div class="kpi-row" style="grid-template-columns:repeat(4,1fr)">
+      <div class="kpi"><div class="k-label">当期总网点</div><div class="k-val">${curLocs.length.toLocaleString()}</div><div class="k-sub">较上期 ${reportDeltaHtml(totalDelta, ' 家')}</div></div>
+      <div class="kpi"><div class="k-label">覆盖品牌</div><div class="k-val">${new Set(curLocs.map(l=>l.g)).size}</div><div class="k-sub">含新能源 / 豪华</div></div>
+      <div class="kpi"><div class="k-label">本期新增</div><div class="k-val" style="color:var(--pos)">${allDiff.added.length}</div><div class="k-sub">跨 ${new Set(allDiff.added.map(x=>x.g)).size} 个品牌</div></div>
+      <div class="kpi"><div class="k-label">本期退出</div><div class="k-val" style="color:var(--neg)">${allDiff.removed.length}</div><div class="k-sub">跨 ${new Set(allDiff.removed.map(x=>x.g)).size} 个品牌</div></div>
+    </div>
+
+    <div class="sec-title">销售网点数（家）& 城市覆盖</div>
+    <table>
+      <thead><tr><th style="width:110px">品牌</th><th style="min-width:180px">销售网点数（当期）</th><th>净变化</th><th>覆盖城市</th><th>城市变化</th><th>本期动态</th></tr></thead>
+      <tbody>${renderReportRows(rows)}</tbody>
+    </table>
+
+    <div class="sec-title">品牌变化详情</div>
+    <div class="brand-detail-body">${renderReportBrandDetails(rows, {showChanged:false})}</div>
+
+    <div class="footnote">
+      <p>说明：本页按所选相邻期动态计算，当前区间为 ${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}。物理网点以品牌组、店名、省份、地址综合去重；同店名称或地址变化会优先识别为变更，不计入新增/退出。</p>
+      <p>鸿蒙智行与奥迪按品牌组统计总网点，子品牌交叉经营会合并到同一物理网点。</p>
+      <p>本期网点总数无变化的品牌（月初＝月末）默认不在表格中列出，仅显示发生净增减的品牌。</p>
     </div>
     <footer>竞对经销商网点监测 · 数据截至 ${fmtTs(pair.newTs)}</footer>
   </div>`;
@@ -1032,15 +1031,18 @@ function buildMonthlyTable(rows){
   </table>`;
 }
 
-// ── 月度报告：品牌名旁的城市净变化胶囊 ────────────────────────────────
+// ── 品牌变化详情：城市新增/退出胶囊，新增一行、退出一行 ──────────────
 function _cityPills(diff){
-  const net = {};
-  (diff.added||[]).forEach(x=>{ const c=(x.c||x.p||'其他'); net[c]=(net[c]||0)+1; });
-  (diff.removed||[]).forEach(x=>{ const c=(x.c||x.p||'其他'); net[c]=(net[c]||0)-1; });
-  return Object.entries(net).filter(([,v])=>v!==0)
-    .sort((a,b)=>Math.abs(b[1])-Math.abs(a[1]))
-    .map(([c,v])=>`<span class="city-pill ${v>0?'pos':'neg'}">${String(c).replace(/市$/,'')} ${v>0?'+':''}${v}</span>`)
-    .join('');
+  const short = x => String(x.c||x.p||'其他').replace(/市$/,'');
+  const add={}, rem={};
+  (diff.added||[]).forEach(x=>{ const c=short(x); add[c]=(add[c]||0)+1; });
+  (diff.removed||[]).forEach(x=>{ const c=short(x); rem[c]=(rem[c]||0)+1; });
+  const addRow=Object.entries(add).sort((a,b)=>b[1]-a[1]).map(([c,v])=>`<span class="city-pill pos">${c} +${v}</span>`).join('');
+  const remRow=Object.entries(rem).sort((a,b)=>b[1]-a[1]).map(([c,v])=>`<span class="city-pill neg">${c} -${v}</span>`).join('');
+  let h='';
+  if(addRow) h+=`<div class="bd-pillrow">${addRow}</div>`;
+  if(remRow) h+=`<div class="bd-pillrow">${remRow}</div>`;
+  return h;
 }
 
 // ── 月度报告：点击品牌 → 弹窗看本月新增/退出/变更明细（仿可视化明细表）──
