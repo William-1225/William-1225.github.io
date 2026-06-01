@@ -17,7 +17,7 @@ This repository hosts my personal homepage, built as a lightweight static site a
 
 ### Highlights
 
-- Bilingual interface with English as the default language
+- Bilingual interface with Chinese as the default language
 - Clean hero profile with GitHub and email links
 - Career, Projects, and Education sections presented as lightweight timelines
 - Dark mode and responsive navigation
