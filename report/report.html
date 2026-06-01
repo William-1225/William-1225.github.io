@@ -832,7 +832,6 @@ function renderReportBrandDetails(rows, opts){
     if(showChanged && r.diff.changed.length) lines.push(`<div class="bd-line"><span class="bd-tag bd-chg">名称/地址变更</span><span class="bd-names">${reportNameList(r.diff.changed, 6)}</span></div>`);
     return `<div class="brand-block">
       <h3>${r.g}</h3>
-      ${_cityPills(r.diff)}
       ${lines.join('')}
     </div>`;
   }).join('') || '<p style="color:var(--mute)">本期无品牌变化详情</p>';
