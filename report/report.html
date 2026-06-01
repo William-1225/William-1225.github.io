@@ -120,6 +120,24 @@
   .kpi .delta{font-size:12px;margin-top:3px}
   .kpi .delta.pos{color:var(--pos)} .kpi .delta.neg{color:var(--neg)} .kpi .delta.zero{color:var(--mute)}
 
+  /* 月度报告看板 */
+  #page-monthly .kpi-row{padding:10px 0 16px;background:transparent}
+  .monthly-summary{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:22px}
+  .monthly-summary .ms-para{font-size:14px;line-height:1.9;margin:0 0 10px;color:var(--fg)}
+  .monthly-summary .ms-bullets{margin:0;padding-left:20px;font-size:13px;line-height:2;color:var(--fg)}
+  .monthly-charts{display:grid;grid-template-columns:1.25fr 1fr;gap:18px;margin-bottom:22px}
+  .mc-card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px}
+  .monthly-top{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px}
+  .mt-col{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px}
+  .mt-item{display:grid;grid-template-columns:96px 1fr 52px;align-items:center;column-gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:13px}
+  .mt-item:last-child{border-bottom:none}
+  .mt-name{font-weight:600;color:var(--fg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mt-bar-wrap{height:10px;background:var(--bg);border-radius:5px;overflow:hidden}
+  .mt-bar{display:block;height:100%;border-radius:5px}
+  .mt-val{text-align:right;font-weight:700}
+  .mt-sub{grid-column:1/-1;font-size:11px;color:var(--mute);margin-top:-1px}
+  @media(max-width:1100px){.monthly-charts,.monthly-top{grid-template-columns:1fr}}
+
   /* Tab */
   .tabs{display:flex;border-bottom:1px solid var(--line);padding:0 28px;background:var(--bg)}
   .tab{padding:10px 16px;cursor:pointer;color:var(--mute);font-size:13px;border-bottom:2px solid transparent;margin-bottom:-1px;font-weight:500}
@@ -432,6 +450,7 @@ const CN_GEO = "./cn.json";
 
 let DATA, CUR, PREV, MANIFEST=null, SNAP_CACHE={}, LOC_CACHE={}, REPORT_DATA_CACHE={}, RENDER_SEQ=0, REPORT_PAIR=null, netChart, mapChart, trendChart, provMapChart, jieStoreChart, jieSubChart, mapLoaded=false;
 let MONTHLY_PAIR=null;
+let monthlyCharts=[];   // 月度报告页的独立 ECharts 实例，重渲染时 dispose
 let SEL_BRANDS   = new Set();   // 空集 = 全部品牌
 let SUB_CHECKED  = null;        // 单品牌钻取时使用; SEL_BRANDS.size===1 才生效
 let SEL_REGIONS  = new Set();   // 空集 = 全选
@@ -702,8 +721,12 @@ function reportDeltaHtml(v, suffix=''){
   return `<span class="zero">—</span>`;
 }
 function reportNameList(rows, limit=3){
-  const names = rows.map(x=>x.n).filter(Boolean);
-  if(!names.length) return '';
+  const items = (rows||[]).filter(x=>x && x.n);
+  if(!items.length) return '';
+  // 同名门店（如销售/服务同名）在名称后标注性质以区分
+  const freq = {};
+  items.forEach(x=>{ freq[x.n] = (freq[x.n]||0)+1; });
+  const names = items.map(x=> (freq[x.n]>1 && x.t) ? `${x.n}（${x.t}）` : x.n);
   return names.slice(0, limit).join('、') + (names.length>limit ? '等' : '');
 }
 // 把预计算 view 还原成 renderers 期望的 data 形状
@@ -747,7 +770,16 @@ async function computePairReportData(oldTs, newTs){
   REPORT_DATA_CACHE[key] = data;
   return data;
 }
+// 超豪品牌：网点少、平时基本不动；默认在报告表格/图表中隐藏，仅当本期有变化时才显示
+const SUPER_LUX_BRANDS = new Set(['宾利','劳斯莱斯','法拉利','兰博基尼','阿斯顿·马丁']);
+function _rowHasChange(r){
+  return (r.cur.length !== r.prev.length) || r.diff.added.length || r.diff.removed.length || r.diff.changed.length;
+}
+function visibleReportRows(rows){
+  return rows.filter(r => !SUPER_LUX_BRANDS.has(r.g) || _rowHasChange(r));
+}
 function renderReportRows(rows){
+  rows = visibleReportRows(rows);
   const max = Math.max(1, ...rows.map(r=>r.cur.length));
   return rows.map(r=>{
     const add = reportNameList(r.diff.added);
@@ -817,6 +849,7 @@ async function renderDynamicReport(){
         <div class="footnote">
           <p>说明：本页按所选相邻期动态计算，当前区间为 ${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}。物理网点以品牌组、店名、省份、地址综合去重；同店名称或地址变化会优先识别为变更，不计入新增/退出。</p>
           <p>鸿蒙智行与奥迪按品牌组统计总网点，子品牌交叉经营会合并到同一物理网点。</p>
+          <p>超豪华品牌（兰博基尼 / 劳斯莱斯 / 法拉利 / 宾利 / 阿斯顿·马丁）网点稀少且变动罕见，默认不在表格中列出，仅当本期有增减或变更时才显示。</p>
         </div>
       </div>
       <div class="col-right">
@@ -854,8 +887,15 @@ async function renderMonthlyReport(){
   const el = document.getElementById('monthlyBody');
   const pairs = monthlyPairs();
   if(!pairs.length){ el.innerHTML = '<p style="color:var(--mute);padding:60px;text-align:center">暂无可生成月度报告的数据</p>'; return; }
-  if(!MONTHLY_PAIR) MONTHLY_PAIR = pairs[pairs.length-1];
+  // 默认落在“最近已完成的月”（有下月数据可对比），而不是未完成的当月框架
+  if(!MONTHLY_PAIR){
+    const complete = pairs.filter(p => p.newTs);
+    MONTHLY_PAIR = complete.length ? complete[complete.length-1] : pairs[pairs.length-1];
+  }
   const pair = pairs.find(p=>p.month===MONTHLY_PAIR.month) || pairs[pairs.length-1];
+  // 进入渲染先清理上一次的月度图表实例，避免下拉切换泄漏
+  monthlyCharts.forEach(c=>{ try{c.dispose();}catch(e){} });
+  monthlyCharts = [];
   MONTHLY_PAIR = pair;
   const options = pairs.map(p=>`<option value="${p.month}" ${p.month===pair.month?'selected':''}>${p.label}</option>`).join('');
   if(!pair.newTs){
@@ -912,7 +952,12 @@ async function renderMonthlyReport(){
       el.innerHTML = '<p style="color:var(--mute);padding:60px;text-align:center">月度报告加载中…</p>';
       await new Promise(requestAnimationFrame);
     }
-    const {curLocs, allDiff, rows, totalDelta} = await computePairReportData(pair.oldTs, pair.newTs);
+    const {curLocs, prevLocs, allDiff, rows, totalDelta} = await computePairReportData(pair.oldTs, pair.newTs);
+    const curTotal = curLocs.length, prevTotal = prevLocs.length;
+    const brandCount = new Set(curLocs.map(l=>l.g)).size;
+    const citiesNet = rows.reduce((s,r)=>s+(r.cityDelta||0),0);
+    const pct = prevTotal ? (totalDelta/prevTotal*100) : 0;
+    const summary = buildMonthlySummary(pair, rows, allDiff, curTotal, prevTotal, citiesNet);
     el.innerHTML = `<div class="hero">
       <div class="hero-top">
         <span class="logo">月度渠道研究</span>
@@ -924,31 +969,54 @@ async function renderMonthlyReport(){
           <select id="monthlyPairSel" style="font-size:15px;padding:8px 14px;min-width:300px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--fg)">${options}</select>
         </label>
       </div>
-      <div class="sub">月度周期：${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}　｜　覆盖品牌：${new Set(curLocs.map(l=>l.g)).size} 个　｜　报告日期：${reportDateText(pair.newTs)}</div>
+      <div class="sub">月度周期：${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}　｜　覆盖品牌：${brandCount} 个　｜　报告日期：${reportDateText(pair.newTs)}</div>
     </div>
     <div class="body">
-      <div class="layout">
-        <div class="col-left">
-          <div class="sec-title">销售网点数（家）& 城市覆盖</div>
-          <table>
-            <thead><tr><th style="width:110px">品牌</th><th style="min-width:180px">销售网点数（月末）</th><th>净变化</th><th>覆盖城市</th><th>城市变化</th><th>月度动态</th></tr></thead>
-            <tbody>${renderReportRows(rows)}</tbody>
-          </table>
-          <div class="footnote"><p>月度报告按当月第一次发布至下月第一次发布计算，当前区间为 ${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}。</p></div>
+      <div class="kpi-row" style="grid-template-columns:repeat(5,1fr)">
+        <div class="kpi"><div class="k-label">月末总网点</div><div class="k-val">${curTotal.toLocaleString()}</div><div class="k-sub">月初 ${prevTotal.toLocaleString()} 家</div></div>
+        <div class="kpi"><div class="k-label">净变化</div><div class="k-val">${reportDeltaHtml(totalDelta)}</div><div class="k-sub">${reportDeltaHtml(Number(pct.toFixed(1)), '%')}</div></div>
+        <div class="kpi"><div class="k-label">月度新增</div><div class="k-val" style="color:var(--pos)">${allDiff.added.length}</div><div class="k-sub">跨 ${new Set(allDiff.added.map(x=>x.g)).size} 个品牌</div></div>
+        <div class="kpi"><div class="k-label">月度退出</div><div class="k-val" style="color:var(--neg)">${allDiff.removed.length}</div><div class="k-sub">跨 ${new Set(allDiff.removed.map(x=>x.g)).size} 个品牌</div></div>
+        <div class="kpi"><div class="k-label">覆盖城市变化</div><div class="k-val">${reportDeltaHtml(citiesNet)}</div><div class="k-sub">名称/地址变更 ${allDiff.changed.length} 条</div></div>
+      </div>
+
+      <div class="sec-title">月度总结</div>
+      <div class="monthly-summary">
+        <p class="ms-para">${summary.paragraph}</p>
+        <ul class="ms-bullets">${summary.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+      </div>
+
+      <div class="monthly-charts">
+        <div class="mc-card mc-wide">
+          <div class="sec-title">各品牌月度净变化（家）</div>
+          <div id="mNetChart" style="width:100%;height:${Math.max(280, rows.length*26)}px"></div>
         </div>
-        <div class="col-right">
-          <div class="sec-title">月度概览</div>
-          <div class="kpi-row">
-            <div class="kpi"><div class="k-label">月末总网点</div><div class="k-val">${curLocs.length.toLocaleString()}</div><div class="k-sub">较月初 ${reportDeltaHtml(totalDelta, ' 家')}</div></div>
-            <div class="kpi"><div class="k-label">覆盖品牌</div><div class="k-val">${new Set(curLocs.map(l=>l.g)).size}</div><div class="k-sub">含新能源 / 豪华</div></div>
-            <div class="kpi"><div class="k-label">月度新增</div><div class="k-val">${allDiff.added.length}</div><div class="k-sub">跨 ${new Set(allDiff.added.map(x=>x.g)).size} 个品牌</div></div>
-            <div class="kpi"><div class="k-label">月度退出</div><div class="k-val">${allDiff.removed.length}</div><div class="k-sub">跨 ${new Set(allDiff.removed.map(x=>x.g)).size} 个品牌</div></div>
-          </div>
-          <div class="sec-title">品牌变化详情</div>
-          <div class="brand-detail-body">${renderReportBrandDetails(rows)}</div>
+        <div class="mc-card">
+          <div class="sec-title">月内周度趋势（总网点）</div>
+          <div id="mTrendChart" style="width:100%;height:300px"></div>
         </div>
       </div>
+
+      <div class="monthly-top">
+        <div class="mt-col">
+          <div class="sec-title">扩张 Top 5</div>
+          <div id="mTopUp"></div>
+        </div>
+        <div class="mt-col">
+          <div class="sec-title">收缩 Top 5</div>
+          <div id="mTopDown"></div>
+        </div>
+      </div>
+
+      <div class="sec-title">品牌变化详情</div>
+      <div class="brand-detail-body">${renderReportBrandDetails(rows)}</div>
+      <div class="footnote"><p>月度报告按当月第一次发布至下月第一次发布计算，当前区间为 ${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}；“网点”按物理门店去重（同址多品牌算一处），口径与可视化页一致。</p><p>超豪华品牌（兰博基尼 / 劳斯莱斯 / 法拉利 / 宾利 / 阿斯顿·马丁）网点稀少且变动罕见，默认不在表格与图表中列出，仅当本期有增减或变更时才显示。</p></div>
     </div>`;
+    // 图表与榜单需在 DOM 写入后渲染
+    await new Promise(requestAnimationFrame);
+    _renderMonthlyNetChart(rows);
+    _renderMonthlyTrendChart(pair, rows);
+    _renderMonthlyTopLists(rows);
   }
   const sel = document.getElementById('monthlyPairSel');
   el._rendered = true;
@@ -958,6 +1026,126 @@ async function renderMonthlyReport(){
       renderMonthlyReport();
     };
   }
+}
+
+// ── 月度报告：总结文案 ───────────────────────────────────────────────
+function buildMonthlySummary(pair, rows, allDiff, curTotal, prevTotal, citiesNet){
+  const netOf = r => r.cur.length - r.prev.length;
+  const sorted = [...rows].sort((a,b)=>netOf(b)-netOf(a));
+  const totalNet = curTotal - prevTotal;
+  const pct = prevTotal ? (totalNet/prevTotal*100) : 0;
+  const up = rows.filter(r=>netOf(r)>0), down = rows.filter(r=>netOf(r)<0);
+  const topUp = sorted[0], topDown = sorted[sorted.length-1];
+  const mostAdded = [...rows].sort((a,b)=>b.diff.added.length-a.diff.added.length)[0];
+  const dir = totalNet>0 ? '净增' : totalNet<0 ? '净减' : '持平';
+  const paragraph =
+    `本月（${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}），竞对汽车品牌销售网点由月初 <b>${prevTotal.toLocaleString()}</b> 家变为月末 <b>${curTotal.toLocaleString()}</b> 家，`
+    + `${dir} <b>${Math.abs(totalNet)}</b> 家（${reportDeltaHtml(Number(pct.toFixed(1)),'%')}）。`
+    + `期间 <b>${up.length}</b> 个品牌扩张、<b>${down.length}</b> 个品牌收缩；`
+    + `新进 <b>${allDiff.added.length}</b> 家、退出 <b>${allDiff.removed.length}</b> 家，另有 <b>${allDiff.changed.length}</b> 条名称/地址更新，覆盖城市${citiesNet>=0?'净增':'净减'} <b>${Math.abs(citiesNet)}</b> 个。`;
+  const bullets = [];
+  if(topUp && netOf(topUp)>0)
+    bullets.push(`扩张最快：<b>${topUp.g}</b> ${reportDeltaHtml(netOf(topUp),' 家')}（月末 ${topUp.cur.length} 家）`);
+  if(topDown && netOf(topDown)<0)
+    bullets.push(`收缩最多：<b>${topDown.g}</b> ${reportDeltaHtml(netOf(topDown),' 家')}（月末 ${topDown.cur.length} 家）`);
+  if(mostAdded && mostAdded.diff.added.length)
+    bullets.push(`新开门店最多：<b>${mostAdded.g}</b>，新增 <b>${mostAdded.diff.added.length}</b> 家（${reportNameList(mostAdded.diff.added, 3)}）`);
+  bullets.push(`整体节奏：${up.length>down.length?'扩张品牌多于收缩品牌，渠道仍在铺开':down.length>up.length?'收缩品牌多于扩张品牌，渠道有所收敛':'扩张与收缩品牌数量相当，渠道总体平稳'}。`);
+  return { paragraph, bullets };
+}
+
+// ── 月度报告：各品牌净变化发散柱状 ──────────────────────────────────
+function _renderMonthlyNetChart(rows){
+  const elc = document.getElementById('mNetChart');
+  if(!elc) return;
+  const data = visibleReportRows(rows).map(r=>({g:r.g, net:r.cur.length-r.prev.length}))
+                   .sort((a,b)=>a.net-b.net);  // 升序：最大正值在顶部
+  const names = data.map(d=>d.g);
+  const chart = echarts.init(elc, null, {devicePixelRatio: Math.max(window.devicePixelRatio || 1, 2)});
+  monthlyCharts.push(chart);
+  chart.setOption({
+    backgroundColor:'transparent',
+    grid:{left:90, right:60, top:10, bottom:24},
+    tooltip:{trigger:'axis', axisPointer:{type:'shadow'},
+      formatter:p=>{ const x=Array.isArray(p)?p[0]:p; const v=x.value;
+        return `<b>${x.name}</b><br/>净变化 ${v>0?'+':''}${v} 家`; }},
+    xAxis:{type:'value', axisLine:{show:false}, splitLine:{lineStyle:{color:'#e1e4e8'}}},
+    yAxis:{type:'category', data:names, axisLine:{show:false}, axisTick:{show:false},
+           axisLabel:{color:'#24292f', fontSize:13, fontWeight:600}},
+    series:[{
+      type:'bar', barMaxWidth:'18px',
+      data:data.map(d=>({value:d.net,
+        itemStyle:{color:d.net>0?'#059669':d.net<0?'#dc2626':'#9aa5b1',
+                   borderRadius: d.net>=0?[0,4,4,0]:[4,0,0,4]}})),
+      label:{show:true, position:'right', fontSize:12, fontWeight:600,
+        color:'#24292f',
+        formatter:p=> (p.value>0?'+':'') + p.value,
+        align:'left'},
+    }]
+  }, true);
+}
+
+// ── 月度报告：月内周度趋势折线（总网点 + Top 品牌） ──────────────────
+function _renderMonthlyTrendChart(pair, rows){
+  const elc = document.getElementById('mTrendChart');
+  if(!elc) return;
+  const snaps = (DATA.snapshots||[]).filter(s=>s.ts>=pair.oldTs && s.ts<=pair.newTs)
+                                    .sort((a,b)=>a.ts.localeCompare(b.ts));
+  const xs = snaps.map(s=>fmtTs(s.ts));
+  const totalOf = s => Object.entries(s.trendCounts||{})
+    .filter(([k])=>k.startsWith('g:')).reduce((a,[,v])=>a+v,0);
+  const topBrands = [...rows].sort((a,b)=>b.cur.length-a.cur.length).slice(0,4).map(r=>r.g);
+  const series = [{
+    name:'总网点', type:'line', smooth:true, symbol:'circle', symbolSize:8,
+    lineStyle:{width:3, color:'#174ea6'}, itemStyle:{color:'#174ea6'},
+    areaStyle:{color:'rgba(23,78,166,0.08)'},
+    data: snaps.map(totalOf),
+  }];
+  topBrands.forEach((g,i)=>{
+    series.push({
+      name:g, type:'line', smooth:true, symbol:'circle', symbolSize:6,
+      lineStyle:{width:2, color:TREND_PALETTE[i%TREND_PALETTE.length]},
+      itemStyle:{color:TREND_PALETTE[i%TREND_PALETTE.length]},
+      data: snaps.map(s=>(s.trendCounts||{})['g:'+g] || 0),
+    });
+  });
+  const chart = echarts.init(elc, null, {devicePixelRatio: Math.max(window.devicePixelRatio || 1, 2)});
+  monthlyCharts.push(chart);
+  chart.setOption({
+    backgroundColor:'transparent',
+    grid:{left:56, right:20, top:30, bottom:30},
+    legend:{top:0, fontSize:12, itemWidth:18, itemHeight:10},
+    tooltip:{trigger:'axis', order:'valueDesc'},
+    xAxis:{type:'category', data:xs, axisLabel:{fontSize:12, color:'#24292f'},
+           axisLine:{lineStyle:{color:'#d1d5da'}}},
+    yAxis:{type:'value', axisLabel:{fontSize:12, color:'#24292f'},
+           splitLine:{lineStyle:{color:'#e1e4e8'}},
+           min:v=>Math.max(0, Math.floor((v.min-(v.max-v.min)*0.15)/10)*10)},
+    series
+  }, true);
+}
+
+// ── 月度报告：Top 扩张 / 收缩榜 ─────────────────────────────────────
+function _renderMonthlyTopLists(rows){
+  const netOf = r => r.cur.length - r.prev.length;
+  const sorted = [...rows].sort((a,b)=>netOf(b)-netOf(a));
+  const ups = sorted.filter(r=>netOf(r)>0).slice(0,5);
+  const downs = sorted.filter(r=>netOf(r)<0).slice(-5).reverse();
+  const maxAbs = Math.max(1, ...rows.map(r=>Math.abs(netOf(r))));
+  const row = (r, pos) => {
+    const v = netOf(r);
+    const names = pos ? reportNameList(r.diff.added,3) : reportNameList(r.diff.removed,3);
+    return `<div class="mt-item">
+      <span class="mt-name">${r.g}</span>
+      <span class="mt-bar-wrap"><span class="mt-bar" style="width:${Math.abs(v)/maxAbs*100}%;background:${pos?'#059669':'#dc2626'}"></span></span>
+      <span class="mt-val" style="color:${pos?'var(--pos)':'var(--neg)'}">${v>0?'+':''}${v}</span>
+      ${names?`<span class="mt-sub">${names}</span>`:''}
+    </div>`;
+  };
+  const upEl = document.getElementById('mTopUp');
+  const downEl = document.getElementById('mTopDown');
+  if(upEl) upEl.innerHTML = ups.length ? ups.map(r=>row(r,true)).join('') : '<p style="color:var(--mute)">本月无品牌净扩张</p>';
+  if(downEl) downEl.innerHTML = downs.length ? downs.map(r=>row(r,false)).join('') : '<p style="color:var(--mute)">本月无品牌净收缩</p>';
 }
 
 async function _initDownload(){
