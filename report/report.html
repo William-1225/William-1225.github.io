@@ -122,9 +122,10 @@
 
   /* 月度报告 */
   #page-monthly .kpi-row, #page-report .kpi-row{padding:10px 0 16px;background:transparent}
-  .monthly-summary{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:22px}
-  .monthly-summary .ms-para{font-size:14px;line-height:1.9;margin:0 0 10px;color:var(--fg)}
-  .monthly-summary .ms-bullets{margin:0;padding-left:20px;font-size:13px;line-height:2;color:var(--fg)}
+  /* 注：报告注入 CSS 含 #monthlyBody *{padding:0} reset(特异性1,0,0)，故下列必须带 #page-monthly 前缀才能压过 */
+  #page-monthly .monthly-summary{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:22px}
+  #page-monthly .monthly-summary .ms-para{font-size:14px;line-height:1.9;margin:0 0 10px;color:var(--fg)}
+  #page-monthly .monthly-summary .ms-bullets{margin:0;padding-left:22px;font-size:13px;line-height:2;color:var(--fg);list-style-position:outside}
   /* 月度大表 */
   .monthly-table{width:100%;border-collapse:collapse;margin-bottom:8px;font-size:13px}
   .monthly-table th{text-align:right;font-weight:600;color:var(--mute);font-size:12px;padding:8px 12px;border-bottom:2px solid var(--line);white-space:nowrap}
@@ -957,7 +958,7 @@ async function renderMonthlyReport(){
       ${buildMonthlyTable(rows)}
 
       <div class="sec-title">品牌变化详情</div>
-      <div class="brand-detail-body">${renderReportBrandDetails(rows)}</div>
+      <div class="brand-detail-body">${renderReportBrandDetails(rows, {showChanged:false})}</div>
       <div class="footnote"><p>月度报告按当月第一次发布至下月第一次发布计算，当前区间为 ${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}；“网点”按物理门店去重（同址多品牌算一处），口径与可视化页一致。“销售”指门店性质为销售的网点数。</p><p>仅列出本月有新增或退出的品牌；无增减的品牌（含超豪华品牌）默认不展示。</p></div>
     </div>`;
   // 绑定表格“详情”按钮 → 弹窗下钻
@@ -1022,8 +1023,8 @@ function buildMonthlyTable(rows){
   return `<table class="monthly-table">
     <thead><tr>
       <th style="width:120px">品牌</th>
-      <th class="num">月初总网点</th><th class="num">月初销售</th>
-      <th class="num">月末总网点</th><th class="num">月末销售</th>
+      <th class="num">月初总网点数</th><th class="num">月初销售网点总数</th>
+      <th class="num">月末总网点数</th><th class="num">月末销售网点总数</th>
       <th class="num">净变化 / 变化率</th><th class="num" style="width:72px">详情</th>
     </tr></thead>
     <tbody>${body}</tbody>
