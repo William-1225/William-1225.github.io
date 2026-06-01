@@ -773,7 +773,9 @@ async function computePairReportData(oldTs, newTs){
 // 超豪品牌：网点少、平时基本不动；默认在报告表格/图表中隐藏，仅当本期有变化时才显示
 const SUPER_LUX_BRANDS = new Set(['宾利','劳斯莱斯','法拉利','兰博基尼','阿斯顿·马丁']);
 function _rowHasChange(r){
-  return (r.cur.length !== r.prev.length) || r.diff.added.length || r.diff.removed.length || r.diff.changed.length;
+  // 超豪品牌的显示判断只看真实的开店/关店（新增/退出）；
+  // 仅"名称/地址变更"（多为行政区划码抖动等噪音）不算有变化，避免无意义地放进来
+  return r.diff.added.length > 0 || r.diff.removed.length > 0;
 }
 function visibleReportRows(rows){
   return rows.filter(r => !SUPER_LUX_BRANDS.has(r.g) || _rowHasChange(r));
