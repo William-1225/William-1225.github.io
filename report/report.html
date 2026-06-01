@@ -1233,8 +1233,11 @@ async function _initDownload(){
 
 function getSnap(ts){ return DATA.snapshots.find(s=>s.ts===ts); }
 // 物理网点去重键: 原始名+省+地址（保留括号，避免同省同类型不同商场被误合并）
+// 剥掉地址末尾被流水线追加的邮编/行政区划码（5-6 位），它在不同期间会抖动，
+// 会把同一家店误判成“退出+新增→地址变更”。仅用于跨期比对，不影响总数/去重展示。
+function _stripTailCode(a){ return String(a||'').replace(/\s*\d{5,6}\s*$/,'').trim(); }
 function locKey(x){ return `${x.g}||${x.n}||${stripSuffix(x.p)}||${x.a||''}`; }
-function lkLoc(l){ return `${l.g}||${l.n}||${l.p}||${l.a||''}`; }
+function lkLoc(l){ return `${l.g}||${l.n}||${l.p}||${_stripTailCode(l.a)}`; }
 
 function _addrClean(a){
   return String(a||'').replace(/\s+/g,'').replace(/[，。、（）()【】\[\]·•\-—_]/g,'');
