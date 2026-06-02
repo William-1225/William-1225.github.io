@@ -547,24 +547,6 @@ body.dark-theme .edu-degree { color: #888; }
   transition: color .2s;
 }
 body.dark-theme .about-bio { color: #888; }
-.stats-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .8em;
-}
-.stat {
-  flex: 1;
-  min-width: 120px;
-  border: 1px solid #e8e8e8;
-  border-radius: 4px;
-  padding: 1em;
-  text-align: center;
-  transition: border-color .2s;
-}
-body.dark-theme .stat { border-color: #3a3a3e; }
-.stat:hover { border-color: #2d96bd; }
-.stat-num { font-size: 1.8em; font-weight: 300; color: #2d96bd; display: block; line-height: 1.2; }
-.stat-label { font-size: .78em; color: #aaa; margin-top: .2em; }
 
 /* ─── FOOTER ─── */
 .footer {
@@ -683,13 +665,7 @@ body.dark-theme .stat { border-color: #3a3a3e; }
     <div class="page-view" id="page-about">
       <div class="page-heading" id="about-heading">About</div>
       <br>
-      <p class="about-bio" id="about-bio">悉尼大学计算机硕士在读，拥有会计学本科背景，专注于商业分析与软件工程的交叉地带。曾在捷豹路虎、极氪智能科技等头部车企完成多段实习，擅长用数据驱动决策，并独立打造自动化工具，让市场研究跑得更快、更准。</p>
-      <div class="stats-row">
-        <div class="stat"><span class="stat-num">3</span><div class="stat-label" id="stat-a">段名企实习</div></div>
-        <div class="stat"><span class="stat-num">17</span><div class="stat-label" id="stat-b">覆盖汽车品牌</div></div>
-        <div class="stat"><span class="stat-num">8700+</span><div class="stat-label" id="stat-c">监测经销商网点</div></div>
-        <div class="stat"><span class="stat-num">60%</span><div class="stat-label" id="stat-d">报表效率提升</div></div>
-      </div>
+      <p class="about-bio" id="about-bio">悉尼大学计算机硕士在读，拥有会计学本科背景。曾在捷豹路虎、极氪智能科技等头部车企实习，擅长用数据驱动决策，并独立打造自动化工具，包含数据采集、清洗到可视化看板的全流程方案，有效支持市场研究。</p>
           </div>
 
     <!-- CAREER -->
@@ -964,8 +940,7 @@ var T = {
     hero_name: '陈品润 · William',
     hero_desc: '悉尼大学计算机硕士在读',
     about_heading: 'About',
-    about_bio: '悉尼大学计算机硕士在读，拥有会计学本科背景，专注于商业分析与软件工程的交叉地带。曾在捷豹路虎、极氪智能科技等头部车企完成多段实习，擅长用数据驱动决策，并独立打造自动化工具，让市场研究跑得更快、更准。',
-    stat_a:'段名企实习', stat_b:'覆盖汽车品牌', stat_c:'监测经销商网点', stat_d:'报表效率提升',
+    about_bio: '悉尼大学计算机硕士在读，拥有会计学本科背景。曾在捷豹路虎、极氪智能科技等头部车企实习，擅长用数据驱动决策，并独立打造自动化工具，包含数据采集、清洗到可视化看板的全流程方案，有效支持市场研究。',
     career_heading:'Career',
     jlr_co:'捷豹路虎中国', jlr_role:'市场情报实习生', jlr_loc:'上海', jlr_date:'2025.12 – 2026.03',
     zeekr_co:'极氪智能科技', zeekr_role:'商业分析实习生', zeekr_loc:'上海', zeekr_date:'2025.07 – 2025.10',
@@ -1016,8 +991,7 @@ var T = {
     hero_name: 'Pinrun Chen · William',
     hero_desc: 'Master of Computer Science @ University of Sydney',
     about_heading: 'About',
-    about_bio: 'Master of Computer Science candidate at the University of Sydney with a Bachelor of Accounting background, working at the intersection of business analytics and software engineering. Across internships at leading automakers including Jaguar Land Rover and ZEEKR, I turn data into decisions and build automation tools that make market research faster and sharper.',
-    stat_a:'Internships', stat_b:'Brands Covered', stat_c:'Dealers Monitored', stat_d:'Faster Reporting',
+    about_bio: 'Master of Computer Science candidate at the University of Sydney with a Bachelor of Accounting background, working at the intersection of business analytics and software engineering. Across internships at leading automakers including Jaguar Land Rover and ZEEKR, I turn data into decisions and build automation tools — covering data collection, cleaning, and visual dashboards — to effectively support market research.',
     career_heading:'Career',
     jlr_co:'Jaguar Land Rover China', jlr_role:'Market Intelligence Intern', jlr_loc:'Shanghai', jlr_date:'Dec 2025 – Mar 2026',
     zeekr_co:'ZEEKR Intelligent Technology', zeekr_role:'Business Analysis Intern', zeekr_loc:'Shanghai', zeekr_date:'Jul 2025 – Oct 2025',
@@ -1072,7 +1046,6 @@ function applyLang() {
   setT('hero-desc', t.hero_desc);
   setT('about-bio', t.about_bio);
   setT('about-heading', t.about_heading);
-  setT('stat-a', t.stat_a); setT('stat-b', t.stat_b); setT('stat-c', t.stat_c); setT('stat-d', t.stat_d);
   setT('career-heading', t.career_heading);
   setT('c-jlr-co', t.jlr_co); setT('c-jlr-role', t.jlr_role); setT('c-jlr-loc', t.jlr_loc); setT('c-jlr-date', t.jlr_date);
   setT('c-zeekr-co', t.zeekr_co); setT('c-zeekr-role', t.zeekr_role); setT('c-zeekr-loc', t.zeekr_loc); setT('c-zeekr-date', t.zeekr_date);
