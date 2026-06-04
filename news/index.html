@@ -6,14 +6,13 @@
 <title>汽车行业新闻看板</title>
 <style>
   :root { --bg:#f7fafc; --panel:#ffffff; --line:#e2e8f0; --fg:#1a202c; --mute:#718096;
-          --acc:#2563eb; --acc-soft:#eaf2ff; --pos:#059669; --neg:#dc2626; --warn:#d97706;
-          --card:#ffffff; --side-bg:#111827; --side-line:#243244; --side-hover:#1f2937;
-          --side-fg:#f8fafc; --side-mute:#a7b0bf; --side-active:#1e40af; --side-active-fg:#ffffff; }
+          --acc:#2563eb; --acc-soft:#eaf2ff; --warn:#d97706; --card:#ffffff;
+          --side-bg:#111827; --side-line:#243244; --side-hover:#1f2937; --side-fg:#f8fafc;
+          --side-mute:#a7b0bf; --side-active:#1e40af; --side-active-fg:#ffffff; }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--fg);font:13px/1.55 -apple-system,Segoe UI,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;height:100vh;overflow:hidden}
   .app{display:flex;height:100vh;width:100vw;overflow:hidden}
   .page{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
-  /* 左侧导航 */
   .sidebar{width:200px;min-width:200px;background:var(--side-bg);border-right:1px solid var(--side-line);display:flex;flex-direction:column;flex-shrink:0}
   .sidebar-logo{padding:24px 20px 20px;font-size:20px;font-weight:700;color:var(--side-fg);line-height:1.2;border-bottom:1px solid var(--side-line)}
   .sidebar-logo .sub{font-size:13px;font-weight:400;color:var(--side-mute);margin-top:5px;text-transform:uppercase}
@@ -24,17 +23,22 @@
   .nav-item.active::before{content:"";position:absolute;left:6px;top:9px;bottom:9px;width:3px;border-radius:3px;background:var(--side-active-fg)}
   .nav-item .ico{width:16px;height:16px;flex-shrink:0}
   .side-foot{margin-top:auto;padding:16px 20px;border-top:1px solid var(--side-line);font-size:11px;color:var(--side-mute);line-height:1.6}
-  /* 顶栏 */
   header{padding:22px 28px 14px;background:var(--bg);position:sticky;top:0;z-index:10}
-  .titlebar{display:flex;align-items:center;gap:14px;margin-bottom:16px}
-  .titlebar h1{margin:0;font-size:24px;font-weight:700;color:var(--fg)}
-  .titlebar .meta{color:var(--mute);font-size:12px;margin-left:auto;text-align:right}
-  .filter-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .feedhead{padding:2px 0 14px}
+  .feedhead h1{margin:0;font-size:24px;font-weight:700;color:var(--fg)}
+  .feedhead .sub{color:var(--mute);font-size:13px;margin-top:5px}
+  .filterbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#eef3f7;border:1px solid #e2eaf1;border-radius:14px;padding:8px 10px;margin:0 28px 14px}
+  .seg{display:inline-flex;align-items:center;gap:4px;flex-wrap:wrap}
+  .pill-tab{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:10px;cursor:pointer;font-size:13px;color:var(--mute);background:transparent;border:1px solid transparent;transition:all .12s;user-select:none;white-space:nowrap}
+  .pill-tab:hover{color:var(--fg)}
+  .pill-tab.active{background:var(--card);color:var(--fg);border-color:#cbd5e1;font-weight:600;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+  .pill-tab .n{font-size:12px;color:var(--mute);font-weight:600}
+  .pill-tab.active .n{color:var(--acc)}
+  .fb-right{display:flex;align-items:center;gap:8px;margin-left:auto;flex-wrap:wrap}
   select,button,input{font:inherit}
   button{background:var(--card);color:var(--fg);border:1px solid var(--line);padding:7px 12px;border-radius:6px;cursor:pointer;font-size:13px}
   button:hover{border-color:var(--acc)}
   .search{flex:1;min-width:180px;max-width:340px;padding:7px 12px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--fg)}
-  /* .dd 下拉 */
   .dd{position:relative;display:inline-flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:6px 11px;cursor:pointer;font-size:13px;user-select:none;transition:border-color .12s}
   .dd:hover{border-color:var(--acc)}
   .dd.open{border-color:var(--acc);box-shadow:0 0 0 3px rgba(59,130,246,.08)}
@@ -45,295 +49,133 @@
   .dd .dd-pop{display:none;position:absolute;top:calc(100% + 6px);left:0;min-width:200px;max-width:320px;background:var(--card);border:1px solid var(--line);border-radius:8px;box-shadow:0 10px 28px rgba(15,23,42,.1);z-index:50;cursor:default}
   .dd .dd-pop .dd-pop-inner{padding:6px;max-height:60vh;overflow-y:auto}
   .dd.open .dd-pop{display:block}
-  .dd .dd-pop .opt{padding:7px 10px;border-radius:6px;cursor:pointer;font-size:13px;display:flex;align-items:center;gap:9px;line-height:1.3}
-  .dd .dd-pop .opt:hover{background:#fbfbfb}
-  .dd .dd-pop .opt.sel{color:var(--acc);font-weight:600}
-  .dd .dd-pop .opt .check{width:14px;height:14px;border:1.5px solid #cbd5e1;border-radius:3px;background:#fff;flex-shrink:0;position:relative;transition:all .12s}
-  .dd .dd-pop .opt:hover > .check{border-color:var(--acc)}
-  .dd .dd-pop .opt.sel > .check{background:var(--acc);border-color:var(--acc)}
-  .dd .dd-pop .opt.sel > .check::after{content:'';position:absolute;left:3.5px;top:0;width:5px;height:9px;border:solid #fff;border-width:0 1.5px 1.5px 0;transform:rotate(45deg)}
-  .dd .dd-pop .opt .nm{flex:1}
-  .dd .dd-pop .opt .cnt{color:var(--mute);font-size:12px;margin-left:auto;padding-left:8px}
-  /* aihot 风格筛选栏 */
-  .filterbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#eef3f7;border:1px solid #e2eaf1;border-radius:14px;padding:8px 10px;margin:0 28px 14px}
-  .seg{display:inline-flex;align-items:center;gap:4px;flex-wrap:wrap}
-  .pill-tab{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:10px;cursor:pointer;font-size:13px;color:var(--mute);background:transparent;border:1px solid transparent;transition:all .12s;user-select:none;white-space:nowrap}
-  .pill-tab:hover{color:var(--fg)}
-  .pill-tab.active{background:var(--card);color:var(--fg);border-color:#cbd5e1;font-weight:600;box-shadow:0 1px 2px rgba(15,23,42,.04)}
-  .pill-tab .n{font-size:12px;color:var(--mute);font-weight:600}
-  .pill-tab.active .n{color:var(--acc)}
-  .fb-right{display:flex;align-items:center;gap:8px;margin-left:auto;flex-wrap:wrap}
-  .feedhead{padding:2px 0 14px}
-  .feedhead h1{margin:0;font-size:24px;font-weight:700;color:var(--fg)}
-  .feedhead .sub{color:var(--mute);font-size:13px;margin-top:5px}
-  /* 主体 */
+  .dd .opt{padding:7px 10px;border-radius:6px;cursor:pointer;font-size:13px;display:flex;align-items:center;gap:9px;line-height:1.3}
+  .dd .opt:hover{background:#fbfbfb}
+  .dd .opt.sel{color:var(--acc);font-weight:600}
+  .dd .opt .check{width:14px;height:14px;border:1.5px solid #cbd5e1;border-radius:3px;background:#fff;flex-shrink:0;position:relative;transition:all .12s}
+  .dd .opt.sel>.check{background:var(--acc);border-color:var(--acc)}
+  .dd .opt.sel>.check::after{content:'';position:absolute;left:3.5px;top:0;width:5px;height:9px;border:solid #fff;border-width:0 1.5px 1.5px 0;transform:rotate(45deg)}
+  .dd .opt .nm{flex:1}
+  .dd .opt .cnt{color:var(--mute);font-size:12px;margin-left:auto;padding-left:8px}
   .body{padding:14px 28px 40px;flex:1;overflow-y:auto;min-height:0}
-  .sec-title{font-size:13px;font-weight:600;color:var(--fg);margin:18px 2px 12px;display:flex;align-items:center;gap:8px}
-  .sec-title:first-child{margin-top:4px}
-  .sec-title::before{content:"";width:4px;height:15px;border-radius:4px;background:var(--acc)}
-  /* 卡片时间线 */
   .timeline{position:relative;display:flex;flex-direction:column;gap:14px}
   .timeline::before{content:"";position:absolute;left:83px;top:6px;bottom:6px;width:2px;background:var(--line)}
   .tl-row{display:flex;gap:18px;align-items:flex-start;position:relative}
   .tl-gutter{width:76px;flex-shrink:0;text-align:right;padding-top:15px;color:#475467;font-size:19px;font-weight:700;font-variant-numeric:tabular-nums}
   .tl-gutter .dot{position:absolute;left:78px;top:19px;width:11px;height:11px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 3px var(--bg)}
-  .tl-row.top .tl-gutter .dot{background:var(--warn)}
   .card{flex:1;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;transition:border-color .15s,box-shadow .15s}
   .card:hover{border-color:#cbd5e1;box-shadow:0 2px 10px rgba(15,23,42,.05)}
-  .card.top{border-left:3px solid var(--warn)}
   .card-head{display:flex;align-items:center;gap:10px;margin-bottom:9px}
   .card .src{font-size:12.5px;color:var(--mute);flex:1;min-width:0;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
   .card .src .dt{color:#94a3b8}
   .card .src .also{color:#94a3b8;font-size:11.5px;background:#f1f5f9;border-radius:5px;padding:1px 7px}
   .head-right{flex-shrink:0;display:flex;align-items:center;gap:8px}
   .feat{display:inline-flex;align-items:center;gap:4px;background:#fff7ed;color:#c2410c;border:1px solid #fed7aa;border-radius:999px;padding:3px 10px;font-size:12px;font-weight:600;line-height:1}
-  .feat svg{width:11px;height:11px}
   .score{flex-shrink:0;min-width:38px;height:24px;border-radius:999px;background:#eff6ff;border:1px solid #bfdbfe;color:var(--acc);display:inline-flex;align-items:center;justify-content:center;padding:0 10px;font-weight:700;font-size:13px;line-height:1}
   .card a.t{color:var(--fg);text-decoration:none;font-size:16px;font-weight:600;line-height:1.5;display:block}
   .card a.t:hover{color:var(--acc)}
-  .card-body{display:block}
-  .card-main{flex:1;min-width:0}
   .card .thumb{display:block;width:min(300px,100%);aspect-ratio:16/9;border-radius:9px;overflow:hidden;margin-top:10px;background:#f1f5f9}
   .card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
   .card .sum{color:#475467;font-size:13px;line-height:1.7;margin-top:8px}
   .card .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px;align-items:center}
   .card .reason{margin-top:13px;padding-top:13px;border-top:1px solid #eef1f5;font-size:13px;line-height:1.65}
   .card .reason .rbox{background:#eaf2ff;border:0;border-radius:8px;padding:9px 12px;color:#1d4ed8;font-weight:500}
-  .card .reason .rbox b{color:inherit;font-size:inherit;font-weight:500;margin-right:2px}
-  /* 卡片内标签统一中性灰，对齐 aihot（分类彩色仅保留在顶部筛选药丸） */
   .pill{display:inline-block;padding:3px 9px;border-radius:6px;font-size:12px;font-weight:500;background:#f1f5f9;color:#64748b;white-space:nowrap}
   .empty{color:var(--mute);text-align:center;padding:60px 0}
-  /* 口径说明 */
   .doc-page{overflow-y:auto;background:var(--bg);padding:28px 36px 44px}
   .doc-title{font-size:24px;font-weight:700;margin:0 0 6px}
   .doc-sub{color:var(--mute);font-size:15px;margin-bottom:20px}
   .doc-rules{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;max-width:1180px}
   .doc-rule{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px 22px;font-size:15px;line-height:1.85;color:#344054}
   .doc-rule h3{font-size:16px;margin:0 0 10px;color:var(--fg);font-weight:700}
-  .doc-rule ul{margin:8px 0 0;padding-left:22px}
-  .doc-rule .note{margin-top:10px;color:var(--mute)}
+  .insight{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+  .insight-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .insight-card h2{font-size:18px;margin:0 0 8px}
+  .insight-card p{margin:7px 0;color:#475467;line-height:1.75}
+  .evidence{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+  .evidence a{color:var(--acc);text-decoration:none}
   ::-webkit-scrollbar{width:10px;height:10px}
   ::-webkit-scrollbar-thumb{background:#8f8f8f;border-radius:8px;border:2px solid transparent;background-clip:content-box}
 </style>
 </head>
 <body>
 <div class="app">
-
 <nav class="sidebar">
   <div class="sidebar-logo">汽车资讯<div class="sub">每日行业新闻</div></div>
   <div class="nav-group">
-    <div class="nav-item active" data-page="feed" data-view="featured"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.9 6.3 6.6.6-5 4.4 1.5 6.6L12 16.9 5.9 20.5 7.4 13.9l-5-4.4 6.6-.6z"/></svg>精选</div>
-    <div class="nav-item" data-page="feed" data-view="all"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V4a2 2 0 0 1 2-2h10l4 4v16"/><path d="M16 2v4h4"/><path d="M8 10h8M8 14h8M8 18h5"/></svg>全部动态</div>
-    <div class="nav-item" data-page="doc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>口径说明</div>
+    <div class="nav-item active" data-page="feed" data-view="featured">精选</div>
+    <div class="nav-item" data-page="feed" data-view="all">全部动态</div>
+    <div class="nav-item" data-page="weekly">每周精选</div>
+    <div class="nav-item" data-page="insight">本周洞察</div>
+    <div class="nav-item" data-page="doc">口径说明</div>
   </div>
   <div class="side-foot">数据来自公开汽车媒体资讯<br>仅供学习研究</div>
 </nav>
 
-<!-- 资讯看板 -->
 <div id="page-feed" class="page">
-<header>
-  <div class="feedhead">
-    <h1 id="feedTitle">精选</h1>
-    <div class="sub" id="feedSub">每日自动挑选的高价值汽车资讯</div>
+  <header><div class="feedhead"><h1 id="feedTitle">精选</h1><div class="sub" id="feedSub">每日自动挑选的高价值汽车资讯</div></div></header>
+  <div class="filterbar" id="filterbar">
+    <div class="seg" id="catSeg"></div>
+    <div class="fb-right">
+      <div class="dd" data-dd="date"><span class="dd-lbl">日期</span><span class="dd-val" id="ddDate">-</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="datePop"></div></div></div>
+      <div class="dd" data-dd="brand"><span class="dd-lbl">品牌</span><span class="dd-val" id="ddBrand">全部</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="brandPop"></div></div></div>
+      <div class="dd" data-dd="source"><span class="dd-lbl">来源</span><span class="dd-val" id="ddSource">全部</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="sourcePop"></div></div></div>
+      <input class="search" id="q" placeholder="搜索标题 / 摘要">
+      <button id="reset">重置</button>
+    </div>
   </div>
-</header>
-
-<div class="filterbar" id="filterbar">
-  <div class="seg" id="catSeg"></div>
-  <div class="fb-right">
-    <div class="dd" data-dd="date">
-      <span class="dd-lbl">日期</span><span class="dd-val" id="ddDate">-</span><span class="dd-arrow">▾</span>
-      <div class="dd-pop"><div class="dd-pop-inner" id="datePop"></div></div>
-    </div>
-    <div class="dd" data-dd="brand">
-      <span class="dd-lbl">品牌</span><span class="dd-val" id="ddBrand">全部</span><span class="dd-arrow">▾</span>
-      <div class="dd-pop"><div class="dd-pop-inner" id="brandPop"></div></div>
-    </div>
-    <div class="dd" data-dd="source">
-      <span class="dd-lbl">来源</span><span class="dd-val" id="ddSource">全部</span><span class="dd-arrow">▾</span>
-      <div class="dd-pop"><div class="dd-pop-inner" id="sourcePop"></div></div>
-    </div>
-    <input class="search" id="q" placeholder="搜索标题 / 摘要…">
-    <button id="reset">重置</button>
-  </div>
+  <div class="body"><div class="timeline" id="list"></div></div>
 </div>
 
-<div class="body">
-  <div class="timeline" id="list"></div>
-</div>
+<div id="page-weekly" class="page" style="display:none">
+  <header><div class="feedhead"><h1>每周精选</h1><div class="sub" id="weeklySub">一周内二次筛选的 30 条重点资讯</div></div></header>
+  <div class="body"><div class="timeline" id="weeklyList"></div></div>
 </div>
 
-<!-- 口径说明 -->
+<div id="page-insight" class="page" style="display:none">
+  <header><div class="feedhead"><h1>本周洞察</h1><div class="sub" id="insightSub">基于周精选和证据材料形成的专题分析</div></div></header>
+  <div class="body"><div class="insight" id="insightList"></div></div>
+</div>
+
 <div id="page-doc" class="page doc-page" style="display:none">
   <div class="doc-title">口径说明</div>
   <div class="doc-sub">汽车行业新闻每日聚合看板 · 数据源与主题分类口径</div>
   <div class="doc-rules">
-    <div class="doc-rule"><h3>数据源</h3>懂车帝、汽车之家、盖世汽车、易车、汽车公社、第一电动等主流汽车媒体的公开资讯列表。</div>
-    <div class="doc-rule"><h3>更新频率</h3>看板每 4 小时自动更新一次，覆盖北京时间 10:00–22:00（每天约 4 次）；新发布的资讯会在下一次更新时纳入。</div>
-    <div class="doc-rule"><h3>五维主题分类</h3><ul><li><b>政策</b>：涉及政策发布、法规标准、补贴、监管处罚、召回公告。</li><li><b>市场</b>：涉及销量、交付、财报、价格战、供应链、并购融资。</li><li><b>产品</b>：涉及新车上市、发布、亮相、改款、试驾、实拍。</li><li><b>技术</b>：涉及电池、电驱、充换电、智能驾驶、座舱、软件 OTA。</li><li><b>舆情</b>：涉及事故、争议、维权、投诉、口碑发酵。</li></ul><div class="note">主题按新闻的主要事件判断：优先看标题与摘要中的核心动作，再结合来源栏目和正文线索；一条新闻只归入最主要的一个主题，品牌另作为独立标签。</div></div>
+    <div class="doc-rule"><h3>数据源</h3>懂车帝、汽车之家、盖世汽车、易车、汽车公社、第一电动等公开资讯列表。</div>
+    <div class="doc-rule"><h3>更新频率</h3>每天北京时间 10:00 处理昨天 00:00–24:00 发布的新闻；如果错过定时任务，开机后可手动补跑 daily-yesterday。</div>
+    <div class="doc-rule"><h3>主题分类</h3>政策、市场、产品、技术、舆情五类为正交主题维度；品牌作为独立标签。</div>
   </div>
 </div>
-
 </div>
 
 <script>
-const PILL_CAT=["政策","市场","产品","技术","舆情"];
-const state={feed:null,view:"featured",cat:"",brands:new Set(),sources:new Set(),q:""};
-
-function fmtDate(s){return `${s.slice(0,4)}-${s.slice(4,6)}-${s.slice(6,8)}`;}
-function esc(s){return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
-// 时间线左栏：有真实时刻显示「时:分」，否则显示发布日期，避免留空。
-function hhmm(it){
-  const raw=it.publish_time||"";
-  let m=raw.match(/(?:^|\s)(\d{1,2}):(\d{2})(?::\d{2})?/);
-  if(m) return `${m[1].padStart(2,'0')}:${m[2]}`;
-  if(it.publish_ts){const d=new Date(it.publish_ts*1000);
-    if(!isNaN(d)&&it.publish_time) return String(d.getHours()).padStart(2,'0')+":"+String(d.getMinutes()).padStart(2,'0');}
-  return it.publish_date ? it.publish_date.slice(5) : "—";
+const CATS=["政策","市场","产品","技术","舆情"];
+const state={index:null,feed:null,view:"featured",cat:"",brands:new Set(),sources:new Set(),q:""};
+const esc=s=>(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmtDate=s=>s?`${s.slice(0,4)}-${s.slice(4,6)}-${s.slice(6,8)}`:"-";
+function hhmm(it){const raw=it.publish_time||"";let m=raw.match(/(?:^|\s)(\d{1,2}):(\d{2})/);if(m)return `${m[1].padStart(2,'0')}:${m[2]}`;return it.publish_date?it.publish_date.slice(5):"—";}
+function showPage(page){
+  ["feed","weekly","insight","doc"].forEach(p=>document.getElementById(`page-${p}`).style.display=p===page?(p==="doc"?"block":"flex"):"none");
 }
-
-// ── 导航切页 ──
-document.querySelectorAll('.nav-item').forEach(n=>n.onclick=()=>{
-  document.querySelectorAll('.nav-item').forEach(x=>x.classList.remove('active'));
-  n.classList.add('active');
-  const p=n.dataset.page;
-  document.getElementById('page-feed').style.display = p==='feed'?'flex':'none';
-  document.getElementById('page-doc').style.display  = p==='doc'?'block':'none';
-  if(p==='feed'){ state.view=n.dataset.view||'featured'; applyView(); }
-});
-
-function applyView(){
-  const feat=state.view==='featured';
-  document.getElementById('feedTitle').textContent=feat?'精选':'全部动态';
-  document.getElementById('feedSub').textContent=feat?'每日自动挑选的高价值汽车资讯':'当日全部汽车行业资讯';
-  document.getElementById('catSeg').style.display='';
-  document.querySelector('[data-dd="brand"]').style.display=feat?'none':'';
-  document.querySelector('[data-dd="source"]').style.display=feat?'none':'';
-  // 进入精选时仅清掉品牌/来源，保留分类筛选。
-  if(feat){state.brands.clear();state.sources.clear();updateDDLabels();}
-  buildCatSeg();
-  render();
-}
-
-// ── .dd 开合 ──
-function closeAllDD(){document.querySelectorAll('.dd.open').forEach(d=>d.classList.remove('open'));}
-document.querySelectorAll('.dd').forEach(dd=>{
-  dd.addEventListener('click',e=>{
-    if(e.target.closest('.dd-pop'))return;
-    const open=dd.classList.contains('open');closeAllDD();if(!open)dd.classList.add('open');
-  });
-});
-document.addEventListener('click',e=>{if(!e.target.closest('.dd'))closeAllDD();});
-
-async function loadIndex(){
-  const idx=await fetch("./data/index.json").then(r=>r.json());
-  const pop=document.getElementById("datePop");
-  pop.innerHTML=idx.dates.map(d=>`<div class="opt" data-d="${d}"><span class="nm">${fmtDate(d)}</span></div>`).join("");
-  pop.querySelectorAll(".opt").forEach(o=>o.onclick=()=>{closeAllDD();loadFeed(o.dataset.d);});
-  await loadFeed(idx.latest);
-}
-
-async function loadFeed(stamp){
-  state.feed=await fetch(`./data/feed_${stamp}.json`).then(r=>r.json());
-  state.cat="";state.brands.clear();state.sources.clear();state.q="";
-  document.getElementById("q").value="";
-  document.getElementById("ddDate").textContent=fmtDate(stamp);
-  buildCatSeg();buildBrandDD();buildSourceDD();updateDDLabels();applyView();
-}
-
-function buildCatSeg(){
-  const f=state.feed;
-  const base=state.view==='featured'?f.items.filter(it=>it.is_featured):f.items;
-  const counts={};PILL_CAT.forEach(c=>counts[c]=0);base.forEach(it=>{if(counts[it.category]!=null)counts[it.category]++;});
-  let html=`<div class="pill-tab ${state.cat===""?"active":""}" data-c="">全部 <span class="n">${base.length}</span></div>`;
-  PILL_CAT.forEach(c=>{html+=`<div class="pill-tab ${state.cat===c?"active":""}" data-c="${c}">${c} <span class="n">${counts[c]||0}</span></div>`;});
-  const box=document.getElementById("catSeg");box.innerHTML=html;
-  box.querySelectorAll(".pill-tab").forEach(el=>el.onclick=()=>{state.cat=el.dataset.c;buildCatSeg();render();});
-}
-function buildMulti(popId,counts,set,labelId,label){
-  const pop=document.getElementById(popId);
-  pop.innerHTML=Object.entries(counts).map(([k,v])=>
-    `<div class="opt ${set.has(k)?"sel":""}" data-k="${esc(k)}"><span class="check"></span><span class="nm">${esc(k)}</span><span class="cnt">${v}</span></div>`).join("")
-    || '<div class="opt" style="color:var(--mute);cursor:default">无</div>';
-  pop.querySelectorAll(".opt[data-k]").forEach(o=>o.onclick=()=>{
-    const k=o.dataset.k;set.has(k)?set.delete(k):set.add(k);
-    o.classList.toggle("sel");updateDDLabels();render();
-  });
-}
-function buildBrandDD(){buildMulti("brandPop",state.feed.brand_counts,state.brands);}
-function buildSourceDD(){
-  const sc={};state.feed.items.forEach(i=>{sc[i.source_name]=(sc[i.source_name]||0)+1;});
-  buildMulti("sourcePop",sc,state.sources);
-}
-function updateDDLabels(){
-  document.getElementById("ddBrand").textContent=state.brands.size?`${state.brands.size} 个品牌`:"全部";
-  document.getElementById("ddSource").textContent=state.sources.size?`${state.sources.size} 个来源`:"全部";
-}
-
-document.getElementById("q").oninput=e=>{state.q=e.target.value.trim();render();};
-document.getElementById("reset").onclick=()=>{
-  state.cat="";state.brands.clear();state.sources.clear();state.q="";
-  document.getElementById("q").value="";
-  buildCatSeg();buildBrandDD();buildSourceDD();updateDDLabels();render();
-};
-
-function match(it){
-  if(state.cat&&it.category!==state.cat)return false;
-  if(state.brands.size&&!(it.brands||[]).some(b=>state.brands.has(b)))return false;
-  if(state.sources.size&&!state.sources.has(it.source_name))return false;
-  if(state.q){const t=(it.title+" "+(it.summary||"")).toLowerCase();if(!t.includes(state.q.toLowerCase()))return false;}
-  return true;
-}
-const STAR_SVG='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.6.6-5 4.4 1.5 6.6L12 16.9 5.9 20.5 7.4 13.9l-5-4.4 6.6-.6z"/></svg>';
-function itemHtml(it,feat){
-  const brands=(it.brands||[]).map(b=>`<span class="pill brand">${esc(b)}</span>`).join("");
-  const gut=hhmm(it);
-  const hasSum=it.summary&&it.summary!==it.title;
-  const takeText=(it.takeaway||"").trim().replace(/^看点\s*[:：]\s*/,"");  // 去掉 Codex 可能自带的「看点：」前缀，避免与模板标签重复
-  const hasTake=!!takeText;
-  return `<div class="tl-row">
-    <div class="tl-gutter">${esc(gut)}<span class="dot"></span></div>
-    <div class="card">
-      <div class="card-head">
-        <div class="src">
-          <span>${esc(it.source_name||"")}</span>
-          ${it.publish_date?`<span class="dt">${it.publish_date}</span>`:""}
-          ${(it.extra_sources&&it.extra_sources.length)?`<span class="also">也见于 ${esc(it.extra_sources.join("、"))}</span>`:""}
-        </div>
-        <div class="head-right">
-          ${it.is_featured?`<span class="feat">${STAR_SVG}精选</span>`:""}
-          <span class="score" title="热度">${it.importance||0}</span>
-        </div>
-      </div>
-      <div class="card-body">
-       <div class="card-main">
-      <a class="t" href="${it.url}" target="_blank" rel="noopener">${esc(it.title)}</a>
-      ${hasSum?`<div class="sum">${esc(it.summary)}</div>`:""}
-      ${it.image?`<a class="thumb" href="${it.url}" target="_blank" rel="noopener"><img src="${it.image}" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.thumb').remove()"></a>`:""}
-      <div class="tags">
-        ${it.category?`<span class="pill cat-${it.category}">${it.category}</span>`:""}
-        ${brands}
-      </div>
-      ${hasTake?`<div class="reason"><div class="rbox"><b>看点：</b>${esc(takeText)}</div></div>`:""}
-       </div>
-      </div>
-    </div></div>`;
-}
-function render(){
-  const f=state.feed;if(!f)return;
-  const feat=state.view==='featured';
-  let list;
-  if(feat){
-    list=f.items.filter(it=>it.is_featured);
-    if(state.cat)list=list.filter(it=>it.category===state.cat);
-    if(state.q){const q=state.q.toLowerCase();list=list.filter(it=>(it.title+" "+(it.summary||"")).toLowerCase().includes(q));}
-  }else{
-    list=f.items.filter(match);
-  }
-  document.getElementById("list").innerHTML=list.length?list.map(i=>itemHtml(i,feat)).join(""):
-    '<div class="empty">没有符合条件的内容</div>';
-}
-loadIndex().catch(e=>{document.getElementById("feedSub").textContent="加载失败："+e;});
+document.querySelectorAll(".nav-item").forEach(n=>n.onclick=()=>{document.querySelectorAll(".nav-item").forEach(x=>x.classList.remove("active"));n.classList.add("active");const p=n.dataset.page;if(p==="feed"){showPage("feed");state.view=n.dataset.view||"featured";applyView();}else if(p==="weekly"){showPage("weekly");loadWeekly();}else if(p==="insight"){showPage("insight");loadInsight();}else showPage("doc");});
+function closeDD(){document.querySelectorAll(".dd.open").forEach(d=>d.classList.remove("open"))}
+document.querySelectorAll(".dd").forEach(dd=>dd.addEventListener("click",e=>{if(e.target.closest(".dd-pop"))return;const open=dd.classList.contains("open");closeDD();if(!open)dd.classList.add("open")}));
+document.addEventListener("click",e=>{if(!e.target.closest(".dd"))closeDD()});
+async function loadIndex(){state.index=await fetch("./data/index.json").then(r=>r.json());document.getElementById("datePop").innerHTML=(state.index.dates||[]).map(d=>`<div class="opt" data-d="${d}"><span class="nm">${fmtDate(d)}</span></div>`).join("");document.querySelectorAll("#datePop .opt").forEach(o=>o.onclick=()=>{closeDD();loadFeed(o.dataset.d)});await loadFeed(state.index.latest);}
+async function loadFeed(date){state.feed=await fetch(`./data/feed_${date}.json`).then(r=>r.json());state.cat="";state.brands.clear();state.sources.clear();state.q="";document.getElementById("q").value="";document.getElementById("ddDate").textContent=fmtDate(date);buildCatSeg();buildMulti("brandPop",state.feed.brand_counts||{},state.brands);buildMulti("sourcePop",state.feed.source_counts||{},state.sources);updateLabels();applyView();}
+function applyView(){const feat=state.view==="featured";document.getElementById("feedTitle").textContent=feat?"精选":"全部动态";document.getElementById("feedSub").textContent=feat?"每日自动挑选的高价值汽车资讯":"当日全部汽车行业资讯";document.querySelector('[data-dd="brand"]').style.display=feat?"none":"";document.querySelector('[data-dd="source"]').style.display=feat?"none":"";if(feat){state.brands.clear();state.sources.clear();updateLabels()}buildCatSeg();renderFeed();}
+function baseItems(){return state.view==="featured"?state.feed.items.filter(i=>i.is_featured):state.feed.items}
+function buildCatSeg(){if(!state.feed)return;const base=baseItems();const counts={};CATS.forEach(c=>counts[c]=0);base.forEach(i=>{if(counts[i.category]!=null)counts[i.category]++});let html=`<div class="pill-tab ${state.cat===""?"active":""}" data-c="">全部 <span class="n">${base.length}</span></div>`;CATS.forEach(c=>html+=`<div class="pill-tab ${state.cat===c?"active":""}" data-c="${c}">${c} <span class="n">${counts[c]||0}</span></div>`);document.getElementById("catSeg").innerHTML=html;document.querySelectorAll("#catSeg .pill-tab").forEach(el=>el.onclick=()=>{state.cat=el.dataset.c;buildCatSeg();renderFeed()});}
+function buildMulti(popId,counts,set){const pop=document.getElementById(popId);pop.innerHTML=Object.entries(counts).map(([k,v])=>`<div class="opt ${set.has(k)?"sel":""}" data-k="${esc(k)}"><span class="check"></span><span class="nm">${esc(k)}</span><span class="cnt">${v}</span></div>`).join("")||'<div class="opt" style="color:var(--mute);cursor:default">无</div>';pop.querySelectorAll(".opt[data-k]").forEach(o=>o.onclick=()=>{const k=o.dataset.k;set.has(k)?set.delete(k):set.add(k);o.classList.toggle("sel");updateLabels();renderFeed()});}
+function updateLabels(){document.getElementById("ddBrand").textContent=state.brands.size?`${state.brands.size} 个品牌`:"全部";document.getElementById("ddSource").textContent=state.sources.size?`${state.sources.size} 个来源`:"全部";}
+document.getElementById("q").oninput=e=>{state.q=e.target.value.trim();renderFeed()};
+document.getElementById("reset").onclick=()=>{state.cat="";state.brands.clear();state.sources.clear();state.q="";document.getElementById("q").value="";buildCatSeg();updateLabels();renderFeed()};
+function match(it){if(state.cat&&it.category!==state.cat)return false;if(state.brands.size&&!(it.brands||[]).some(b=>state.brands.has(b)))return false;if(state.sources.size&&!state.sources.has(it.source_name))return false;if(state.q&&!(`${it.title} ${it.summary||""}`.toLowerCase().includes(state.q.toLowerCase())))return false;return true}
+function itemHtml(it){const brands=(it.brands||[]).map(b=>`<span class="pill">${esc(b)}</span>`).join("");const take=(it.takeaway||"").replace(/^看点\s*[:：]\s*/,"");const showImg=it.image&&it.image_status==="ok";return `<div class="tl-row"><div class="tl-gutter">${esc(hhmm(it))}<span class="dot"></span></div><div class="card"><div class="card-head"><div class="src"><span>${esc(it.source_name||"")}</span>${it.publish_date?`<span class="dt">${it.publish_date}</span>`:""}${it.extra_sources?.length?`<span class="also">也见于 ${esc(it.extra_sources.join("、"))}</span>`:""}</div><div class="head-right">${it.is_featured?`<span class="feat">精选</span>`:""}<span class="score">${it.importance||0}</span></div></div><a class="t" href="${it.url}" target="_blank" rel="noopener">${esc(it.title)}</a>${it.summary&&it.summary!==it.title?`<div class="sum">${esc(it.summary)}</div>`:""}${showImg?`<a class="thumb" href="${it.url}" target="_blank" rel="noopener"><img src="${it.image}" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.thumb').remove()"></a>`:""}<div class="tags">${it.category?`<span class="pill">${esc(it.category)}</span>`:""}${brands}</div>${take?`<div class="reason"><div class="rbox"><b>看点：</b>${esc(take)}</div></div>`:""}</div></div>`}
+function renderFeed(){if(!state.feed)return;let list=baseItems().filter(match);document.getElementById("list").innerHTML=list.length?list.map(itemHtml).join(""):'<div class="empty">没有符合条件的内容</div>'}
+async function loadWeekly(){const week=state.index?.latest_week;if(!week){document.getElementById("weeklyList").innerHTML='<div class="empty">暂无每周精选</div>';return}const data=await fetch(`./data/weekly_${week}.json`).then(r=>r.json());document.getElementById("weeklySub").textContent=`${week} · 二次筛选 ${data.selected_count||0} 条`;document.getElementById("weeklyList").innerHTML=(data.items||[]).length?data.items.map(itemHtml).join(""):'<div class="empty">暂无每周精选</div>'}
+async function loadInsight(){const week=state.index?.latest_week;if(!week){document.getElementById("insightList").innerHTML='<div class="empty">暂无本周洞察</div>';return}const data=await fetch(`./data/insight_${week}.json`).then(r=>r.json());document.getElementById("insightSub").textContent=`${week} · ${data.topics?.length||0} 个专题`;document.getElementById("insightList").innerHTML=(data.topics||[]).map(t=>`<div class="insight-card"><h2>${esc(t.title)}</h2><p>${esc(t.summary)}</p><p>${esc(t.why_it_matters||"")}</p><div class="evidence">${(t.evidence||[]).map(e=>`<a href="${e.url}" target="_blank" rel="noopener">${esc(e.title||e.url)} · ${esc(e.source||"")}</a>`).join("")}</div></div>`).join("")||'<div class="empty">暂无本周洞察</div>'}
+loadIndex().catch(e=>{document.getElementById("feedSub").textContent="加载失败："+e});
 </script>
 </body>
 </html>
