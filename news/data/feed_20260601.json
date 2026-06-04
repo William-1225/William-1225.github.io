@@ -1,6 +1,6 @@
 {
   "stamp": "20260601",
-  "generated_at": "2026-06-04T15:43:02",
+  "generated_at": "2026-06-04T15:59:41",
   "total": 29,
   "categories": [
     "政策",
@@ -717,7 +717,7 @@
       "importance": 84,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.iautodaily.com/news/review/shangqiqian5yueleixiao165wanliangzizhuzhanbishoupoqicheng/",
@@ -746,7 +746,7 @@
       "importance": 81,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "上汽通用五菱5月全球销量126087辆 华境S上市三周交付3603辆",
@@ -772,7 +772,7 @@
       "importance": 75,
       "is_featured": true,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     },
     {
       "url": "https://www.iautodaily.com/news/brand/yichangqizhuyifuyonghuzhiyuedongfengrichansanwuyoudazao/",
@@ -796,7 +796,7 @@
       "importance": 63,
       "is_featured": false,
       "enriched_by": "codex",
-      "is_new": true
+      "is_new": false
     }
   ]
 }
