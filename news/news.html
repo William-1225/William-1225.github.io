@@ -89,6 +89,10 @@
   .doc-rules{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;max-width:1180px}
   .doc-rule{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px 22px;font-size:15px;line-height:1.85;color:#344054}
   .doc-rule h3{font-size:16px;margin:0 0 10px;color:var(--fg);font-weight:700}
+  .doc-rule ul{margin:6px 0 0;padding-left:20px;list-style:disc}
+  .doc-rule li{margin:6px 0;line-height:1.7}
+  .doc-rule li b{color:var(--fg)}
+  .doc-rule .note{margin-top:14px;padding-top:12px;border-top:1px solid #eef1f5;color:var(--mute);font-size:13.5px;line-height:1.75}
   .insight{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
   .insight-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px}
   .insight-card h2{font-size:18px;margin:0 0 8px}
@@ -143,8 +147,7 @@
   <div class="doc-sub">汽车行业新闻每日聚合看板 · 数据源与主题分类口径</div>
   <div class="doc-rules">
     <div class="doc-rule"><h3>数据源</h3>懂车帝、汽车之家、盖世汽车、易车、汽车公社、第一电动等公开资讯列表。</div>
-    <div class="doc-rule"><h3>更新频率</h3>每天北京时间 10:00 处理昨天 00:00–24:00 发布的新闻；如果错过定时任务，开机后可手动补跑 daily-yesterday。</div>
-    <div class="doc-rule"><h3>主题分类</h3>政策、市场、产品、技术、舆情五类为正交主题维度；品牌作为独立标签。</div>
+    <div class="doc-rule"><h3>五维主题分类</h3><ul><li><b>政策</b>：涉及政策发布、法规标准、补贴、监管处罚、召回公告。</li><li><b>市场</b>：涉及销量、交付、财报、价格战、供应链、并购融资。</li><li><b>产品</b>：涉及新车上市、发布、亮相、改款、试驾、实拍。</li><li><b>技术</b>：涉及电池、电驱、充换电、智能驾驶、座舱、软件 OTA。</li><li><b>舆情</b>：涉及事故、争议、维权、投诉、口碑发酵。</li></ul><div class="note">主题按新闻的主要事件判断：优先看标题与摘要中的核心动作，再结合来源栏目和正文线索；一条新闻只归入最主要的一个主题，品牌另作为独立标签。</div></div>
   </div>
 </div>
 </div>
