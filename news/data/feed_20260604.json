@@ -1,6 +1,6 @@
 {
   "stamp": "20260604",
-  "generated_at": "2026-06-05T09:59:12",
+  "generated_at": "2026-06-05T10:05:26",
   "total": 147,
   "categories": [
     "政策",
@@ -113,7 +113,8 @@
       "summary": "领克5月销量同比下滑，纯电认知仍待打开，品牌称下半年将推出更多纯电产品并避免无序价格竞争。",
       "takeaway": "领克转型的关键不是拒绝价格战，而是尽快补强纯电产品心智。",
       "enriched_by": "codex",
-      "is_featured": true
+      "is_featured": true,
+      "has_time": true
     },
     {
       "title": "4月泰国皮卡销量：丰田也扛不住，皮卡颓势加速恶化",
@@ -141,7 +142,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "重磅利好！今晚油价正式下调，加满一箱油立省20元，车主有福了",
@@ -163,7 +165,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "洛阳夫妻异地购买奔驰车，视频验车发现车膜全被撕",
@@ -187,7 +190,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "2026年汽车国补政策全解读：看懂这几点，换车不踩坑",
@@ -209,7 +213,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "路虎入门车型降价超20万，二线豪华燃油车守价体系已全面瓦解？",
@@ -242,7 +247,8 @@
       "summary": "捷豹路虎在华对多款走量车型实施官方调价，涉及揽胜极光L、发现运动版、星脉和捷豹XFL等。",
       "takeaway": "二线豪华燃油车的品牌溢价被智能化和库存压力同时挤压。",
       "enriched_by": "codex",
-      "is_featured": true
+      "is_featured": true,
+      "has_time": true
     },
     {
       "title": "27万购入奥迪安稳开4年，续保被查出竟是篡改车架假车",
@@ -267,7 +273,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "比亚迪保养价要涨了，油贵了连电车也逃不掉，",
@@ -296,7 +303,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "宁德时代首科官宣全新技术路线！比固态电池还强，能量密度翻10倍",
@@ -318,7 +326,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "福特有意重返轿车市场，高管称前提是成本足够合理",
@@ -342,7 +351,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "启境GX7公布命名，大五座SUV市场又迎新变量",
@@ -371,7 +381,8 @@
       "summary": "广汽与华为合作的启境公布大五座SUV GX7命名，定位家庭用户，并计划借华为体系拓展体验和服务网络。",
       "takeaway": "新品牌进入家庭SUV市场，渠道背书重要但产品和价格才决定转化。",
       "enriched_by": "codex",
-      "is_featured": true
+      "is_featured": true,
+      "has_time": true
     },
     {
       "title": "5月车市两极分化，老牌车企垫底遭新势力零跑赶超",
@@ -397,7 +408,8 @@
       "summary": "5月国产车市分化明显，比亚迪继续保持高销量和出口增长，零跑交付突破8.15万台并反超部分老牌车企。",
       "takeaway": "新能源赛道不再按资历排位，产品更新和成本效率决定淘汰速度。",
       "enriched_by": "codex",
-      "is_featured": true
+      "is_featured": true,
+      "has_time": true
     },
     {
       "title": "价格战打不动了！7位大佬“再达共识”透露出什么信号？",
@@ -419,7 +431,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "魏建军说 “不敢称最好”余承东喊 “1000 万以内最强”！谁更靠谱？",
@@ -444,7 +457,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "国内卖不动，海外抢疯了：中国车企正在被世界“推”着走",
@@ -470,7 +484,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "英伟达汽车业务的天花板，不在Thor芯片，而在L4上",
@@ -498,7 +513,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "紧急提醒！今晚 24 点油价大跌，先别着急加油！",
@@ -520,7 +536,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "插混销量大溃败的背后：买之前可油可电，买之后用一滴油算我输！",
@@ -544,7 +561,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "年底建成2万座闪充站，比亚迪就是在吹大牛？",
@@ -569,7 +587,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "27 万落地奥迪开 4 年，续保被查出是假车！车架号篡改合格证造假",
@@ -593,7 +612,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "找靠谱的洛阳汽车大保养厂家有哪些参考标准？",
@@ -615,7 +635,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "日产与奇瑞国际英国公司签署非约束性合作谅解备忘录",
@@ -641,7 +662,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "长安汽车自研大模型获国家生成式AI备案审批",
@@ -665,7 +687,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "莲花放弃纯电超跑，最贵的车反而最怕充电，它到底想干啥？",
@@ -693,7 +716,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "六大车企海外销量占比均超30% 汽车出海迈入稳盘新阶段",
@@ -723,7 +747,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "旗舰MPV 扎堆现虚火",
@@ -753,7 +778,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "闪充智驾领跑销量，海外又创新高，比亚迪全球化已开始多点开花",
@@ -777,7 +803,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "腾势汽车李慧谈比亚迪与中国石化合作，称以后充电像加油一样方便",
@@ -802,7 +829,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "今晚油价大降！加满一箱少花20.5元",
@@ -824,7 +852,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "中国汽车工程学会：预计2030年新能源车型占乘用车新车销量超七成",
@@ -846,7 +875,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "12年“长胖”近400公斤，央视揭秘乘用车为何越造越重",
@@ -868,7 +898,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "自动启停到底是不是“智商税”？关于启停电池的3个真相",
@@ -890,7 +921,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "现款国产宝马i3将于8月停产 新世代i3国产长轴距版27年上市",
@@ -914,7 +946,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "国产车出手！劳斯莱斯宾利车主置换直减2万",
@@ -942,7 +975,8 @@
       "summary": "尊界S800面向老车主、鸿蒙智行用户及多类豪华车车主推出置换减免和智驾、选配等购车权益。",
       "takeaway": "国产高端品牌开始主动争夺传统豪华车用户，价格之外更考验品牌信任。",
       "enriched_by": "codex",
-      "is_featured": true
+      "is_featured": true,
+      "has_time": true
     },
     {
       "title": "特斯拉FSD登陆国内，消费者或成最大受益者",
@@ -969,7 +1003,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "零跑5月销量直冲8万辆，新势力难破3万瓶颈",
@@ -995,7 +1030,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "关税拦不住渗透率飙升，欧盟深陷产业焦虑",
@@ -1022,7 +1058,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "韩国人很好奇：德国和日本都能行，凭什么韩国车进不了中国市场？",
@@ -1048,7 +1085,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "在韩国，比亚迪销量超过了三家日本车企总和",
@@ -1077,7 +1115,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "比亚迪造车之余猛攻人形机器人！新布局引来全网热议",
@@ -1103,7 +1142,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "日产将在英国为奇瑞代工 4月奇瑞在英国销量破万台 仅次于大众",
@@ -1129,7 +1169,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "上汽大众ID. ERA 5S内饰谍照 拥有城市NOA 搭载1.5L插混系统",
@@ -1154,7 +1195,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "保时捷纯电718？不！这是全新奥迪TT正在做测试 有望2027年发布",
@@ -1179,7 +1221,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "将于11月正式发布 光冈全新车型预告图 难道是大蛇的继任者？",
@@ -1201,7 +1244,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "依旧以动物命名 菲亚特Grizzly官图发布 提供两种车身/多种动力",
@@ -1223,7 +1267,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "定位大型车/最大续航超1000公里 比亚迪全新旗舰轿车谍照曝光",
@@ -1247,7 +1292,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "智界全新SUV采用新一代设计语言 法拉利前首席设计师加盟智界品牌",
@@ -1271,7 +1317,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "性能有望超过燃油版 宝马iX5 M路试谍照曝光",
@@ -1295,7 +1342,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "比亚迪与中国石化签署战略合作 中国石化首座比亚迪闪充站已落成",
@@ -1319,7 +1367,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "轴距达到3115mm 国产长轴距版奔驰GLE无伪装谍照",
@@ -1343,7 +1392,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "6月23日首发 全新旗舰7座纯电SUV 斯柯达Peaq预告图",
@@ -1365,7 +1415,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "北京交管部门八项措施服务保障2026年高考",
@@ -1387,7 +1438,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "6月4日24时国内油价迎来大幅下调 2026年累计第2次油价下调",
@@ -1409,7 +1461,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "12年增重近400kg 乘用车“越造越重”谁之过？",
@@ -1431,7 +1484,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "6月以来国际油价大涨 6月4日国内油价将调整 是涨还是跌？",
@@ -1453,7 +1507,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "搭自适应阻尼减振器/纯电续航710km 创维S710官图发布",
@@ -1475,7 +1530,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "零跑8万月销创新高，五月16大车企交卷",
@@ -1510,7 +1566,8 @@
       "summary": "16家车企发布5月销量，零跑、蔚来、极氪等新势力表现突出，比亚迪、奇瑞、吉利出口继续放量。",
       "takeaway": "新能源排名变化加快，国内规模和海外增量正在共同改写竞争格局。",
       "enriched_by": "codex",
-      "is_featured": true
+      "is_featured": true,
+      "has_time": true
     },
     {
       "title": "重估比亚迪 从智驾开始",
@@ -1534,7 +1591,8 @@
       "summary": "比亚迪在智能化发布会上提出为城市领航安全兜底，试图明确辅助驾驶使用中的责任边界。",
       "takeaway": "智驾竞争从功能炫技进入责任承诺阶段，用户信任可能成为新门槛。",
       "enriched_by": "codex",
-      "is_featured": true
+      "is_featured": true,
+      "has_time": true
     },
     {
       "title": "油车下滑，年初的销冠单月被比亚迪拉开15万辆差距",
@@ -1569,7 +1627,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "国产车企在韩收获佳绩！比亚迪单一品牌超越日本品牌整体销量",
@@ -1593,7 +1652,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "3零跑朱江明等继续增持公司股份 累计增持金额近17亿港币",
@@ -1618,7 +1678,8 @@
       "summary": "零跑公告朱江明及股东傅利泉再次增持股份，并披露5月交付、海外出口和后续车型规划信息。",
       "takeaway": "股东增持配合销量高增，有助于向资本市场传递持续扩张信号。",
       "enriched_by": "codex",
-      "is_featured": true
+      "is_featured": true,
+      "has_time": true
     },
     {
       "title": "4全新一代奥迪Q7官图曝光 全方位升级",
@@ -1642,7 +1703,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "燃油车真的不行了？ 5月新能源汽车零售渗透率飙升至63%",
@@ -1675,7 +1737,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "六成渗透率下的车市：冰与火的临界点",
@@ -1708,7 +1771,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "5月新势力销量剧变，零跑问鼎，蔚来亮眼，理想掉队",
@@ -1738,7 +1802,8 @@
       "summary": "5月新势力销量中零跑交付81569辆居前，蔚来同比增长明显，理想、小鹏和鸿蒙智行处于3万至4万台区间。",
       "takeaway": "大众价位的规模优势正在挑战高端新势力原有增长逻辑。",
       "enriched_by": "codex",
-      "is_featured": true
+      "is_featured": true,
+      "has_time": true
     },
     {
       "title": "特斯拉：上海产Model Y登顶澳大利亚月度销量榜",
@@ -1764,7 +1829,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "5月新势力销量出炉，6家品牌站稳3万+梯队",
@@ -1797,7 +1863,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "智己LS8交付6周突破6000台",
@@ -1821,7 +1888,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "奇瑞王琅：“内卷”不可怕，怕的是长期低层次竞争",
@@ -1845,7 +1913,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "元戎周光：辅助驾驶需技术范式跃迁，大模型能让数据效率涨10倍",
@@ -1867,7 +1936,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "1国内油价将于6月4日24时起调整 加满一箱油将少花20.5元",
@@ -1889,7 +1959,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "9智己LS8交付6周突破6000台 限时权益价24.98万起",
@@ -1913,7 +1984,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "6比亚迪王朝首款D级旗舰轿车征名 6个名字进入决赛圈",
@@ -1937,7 +2009,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "2026 年 4 月车市：六成渗透率下的冰与火之歌",
@@ -1966,7 +2039,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "曾经严防死守的欧洲，如今疯抢中国新能源车",
@@ -1988,7 +2062,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "设计师不敢犯错，中国车就难出头",
@@ -2014,7 +2089,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "我们离“纯电时代”，还差300公里",
@@ -2043,7 +2119,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "比亚迪首款D级轿车全网征名：大汉、汉9、汉天下 你选哪个",
@@ -2069,7 +2146,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "7岚图梦想家公布四周年权益政策 可享价值2.3万元礼遇",
@@ -2093,7 +2171,8 @@
       "summary": "岚图梦想家四周年推出限时权益，2026款提供现金、保险、置换和金融礼遇，冠军版提供升舱包方案。",
       "takeaway": "MPV竞争已从空间舒适延伸到智驾、补能和配置权益的组合战。",
       "enriched_by": "codex",
-      "is_featured": true
+      "is_featured": true,
+      "has_time": true
     },
     {
       "title": "六月开门红：零跑破8万、比亚迪大唐10万订单、奇瑞出口狂飙",
@@ -2128,7 +2207,8 @@
       "summary": "5月多家新能源车企交付增长，零跑、蔚来、极氪和鸿蒙智行表现突出，比亚迪等品牌继续推进6月新车。",
       "takeaway": "交付高增与密集上新叠加，新能源竞争正从单车爆款转向体系作战。",
       "enriched_by": "codex",
-      "is_featured": true
+      "is_featured": true,
+      "has_time": true
     },
     {
       "title": "5月新能源车市场回暖，6大车企环比销量大幅攀升",
@@ -2161,7 +2241,8 @@
       "summary": "5月比亚迪、零跑、长安、上汽通用五菱等新能源销量环比改善，海外销售和细分车型带动增量。",
       "takeaway": "回暖不是普涨，拥有主力车型、出口和渠道效率的车企更容易放大增量。",
       "enriched_by": "codex",
-      "is_featured": true
+      "is_featured": true,
+      "has_time": true
     },
     {
       "title": "调查｜新能源乏力、销量“滑铁卢”，广汽本田经销商还好吗？",
@@ -2186,7 +2267,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "跻身韩国进口车市场前三,比亚迪单一品牌超越日本品牌整体销量",
@@ -2215,7 +2297,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "特斯拉Model Y登顶韩国5月销量榜 比亚迪居进口品牌第七",
@@ -2242,7 +2325,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "韩国车市大变天：中国车跻身前三，比亚迪单车销量碾压日系三强！",
@@ -2271,7 +2355,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "电动虹吸撕裂存量：4月SUV零售迈入格局重构分化周期",
@@ -2293,7 +2378,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "AI大模型正推动汽车从“功能载体”向“超级智能体”加速演进",
@@ -2318,7 +2404,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "5月新能源批发136万辆同比+12% 零跑跻身前五",
@@ -2346,7 +2433,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "以色列2026年5月中国汽车销量排行榜！",
@@ -2378,7 +2466,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "Polestar 2将重启加拿大市场销售",
@@ -2406,7 +2495,8 @@
       "summary": "极星计划9月在加拿大恢复销售中国产Polestar 2，借助当地中国产电动车进口配额重返市场。",
       "takeaway": "关税转为配额后，车企争夺的是有限窗口和本地认证节奏。",
       "enriched_by": "codex",
-      "is_featured": true
+      "is_featured": true,
+      "has_time": false
     },
     {
       "title": "连续4个月销冠，韩国人有多爱特斯拉？",
@@ -2439,7 +2529,8 @@
       "summary": "特斯拉5月在韩国进口车市场继续领先，Model Y贡献主要销量，价格调整和供应能力支撑增长。",
       "takeaway": "特斯拉在韩国的爆发说明，成熟产品叠加价格策略仍能快速扩大份额。",
       "enriched_by": "codex",
-      "is_featured": true
+      "is_featured": true,
+      "has_time": false
     },
     {
       "title": "零跑创始人朱江明等继续增持公司股份",
@@ -2463,7 +2554,8 @@
       "summary": "零跑创始人朱江明及股东傅利泉近期增持公司股份，公告同时提到5月交付创新高和全球化进展。",
       "takeaway": "经营数据和股东动作同频释放信心，但后续仍要看海外落地质量。",
       "enriched_by": "codex",
-      "is_featured": true
+      "is_featured": true,
+      "has_time": false
     },
     {
       "title": "L3是乘用车自动驾驶商业化的必经之路",
@@ -2492,7 +2584,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "沃尔沃的“新剧本”，远不止两款纯电旗舰新车",
@@ -2523,7 +2616,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "两大股东同步减持，这家“有矿”企业开盘重挫",
@@ -2545,7 +2639,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "奇瑞计划在英国投产新车",
@@ -2572,7 +2667,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "【国际快讯】奇瑞计划在日产英国工厂投产新车；塔塔汽车拟引进奇瑞整车平台；美伊冲突致欧盟130万个工作岗位流失",
@@ -2600,7 +2696,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "加拿大5月新车销量下滑，春季车市开局疲软",
@@ -2627,7 +2724,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "启源Q05订单走高 部分车型交付或受影响",
@@ -2651,7 +2749,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "比亚迪、京东参投，传人形机器人公司帕西尼拟赴港IPO",
@@ -2675,7 +2774,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "欧盟准备对华展开“贸易战”",
@@ -2697,7 +2797,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "宁德时代等两大股东，减持湖南裕能",
@@ -2719,7 +2820,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "福特考虑扩展Mustang家族",
@@ -2743,7 +2845,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "指尖智擎完成数千万元Pre-A轮融资",
@@ -2767,7 +2870,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "小鹏G6在印尼启用高阶智能驾驶功能",
@@ -2791,7 +2895,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "魔视智能再获奇瑞出口车型定点",
@@ -2815,7 +2920,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "AI大模型推动汽车向“超级智能体”演进",
@@ -2837,7 +2943,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "手亿科技完成数千万元天使++轮融资",
@@ -2859,7 +2966,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "汇川、中国电信联手，投了一家触觉公司",
@@ -2881,7 +2989,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "印度拟推300亿卢比激励计划强化电动汽车供应链",
@@ -2903,7 +3012,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "智在无界发布隐式世界模型产品Being-H-Flash，完成全球首个端侧芯片实时部署",
@@ -2925,7 +3035,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "伊朗冲突抬升能源价格，欧盟恐损失130万就业岗位",
@@ -2947,7 +3058,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "SAECCE 2026将于10月27-30日在苏州举办",
@@ -2969,7 +3081,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "第五代帕杰罗将秋季首发",
@@ -2993,7 +3106,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "宝马增\"Original\"车型",
@@ -3017,7 +3131,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "福特联合户外品牌Filson推高端车型",
@@ -3041,7 +3156,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "劳斯莱斯Spectre Series II电动轿跑",
@@ -3063,7 +3179,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "弗迪电池与眉山兴眉投资集团签约合作",
@@ -3085,7 +3202,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "大发“Lagga”计划2027年秋季重启",
@@ -3107,7 +3225,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "科络达亮相COMPUTEX",
@@ -3129,7 +3248,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "小鹏GX订单火爆交付已排到明年春节 何小鹏辟谣加价2万可插队提车",
@@ -3153,7 +3273,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "售26.98万起 配备900V高压平台/VGR渐进式转向 奥迪E7X正式上市",
@@ -3177,7 +3298,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "比亚迪与中国石化签署战略合作协议",
@@ -3201,7 +3323,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "特斯拉推无安全员Robotaxi",
@@ -3225,7 +3348,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "采用环抱式布局 传祺越7内饰谍照曝光",
@@ -3249,7 +3373,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "长城汽车与道达尔能源联合实验室揭牌",
@@ -3273,7 +3398,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "Rivian称Apple CarPlay之争过时",
@@ -3297,7 +3423,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "广汽与中石化联合造“能源+汽车”站点",
@@ -3321,7 +3448,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "换装半隐藏式门把手 新理想i8谍照曝光",
@@ -3345,7 +3473,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "现代扩充2026款途胜混动车型阵容",
@@ -3369,7 +3498,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "舍弗勒与千寻智能达成战略合作",
@@ -3391,7 +3521,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "传统超充站为何扛不住持续高功率？",
@@ -3413,7 +3544,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "巴斯夫官宣涂料业务高层变动",
@@ -3435,7 +3567,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "极氪8X底盘拆解：照搬极氪9X架构？40万级混动SUV的诚意之作？",
@@ -3459,7 +3592,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "小鹏一季度亏损18亿，市值上涨156亿港元？",
@@ -3483,7 +3617,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": false
     },
     {
       "title": "乘联会崔东树：汽车正变成耐用电子消费品，豪华车市场或将消失",
@@ -3505,7 +3640,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "科络达亮相COMPUTEX：实体AI平台落地商用，赋能机器人咖啡师永续迭代进化",
@@ -3527,7 +3663,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "5小鹏GX收获海外市场1000笔盲订 将率先在中东亮相并开启预售",
@@ -3551,7 +3688,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "长城汽车，难守 | 汽势笔记",
@@ -3585,7 +3723,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "吉利5月卖了23.76万辆，但真正让人后背一凉的，是这三个数字",
@@ -3614,7 +3753,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "起亚：5月全球销量同比增长2.7%至277,715辆，连续三月同比增长",
@@ -3640,7 +3780,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "比亚迪5月销38.3万辆，这个数字到底该怎么看？",
@@ -3671,7 +3812,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "奥迪TT纯电继任车型曝光 预计2027年量产",
@@ -3696,7 +3838,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "“十五五”汽车科技创新，该怎么干？",
@@ -3723,7 +3866,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "广汽集团携手中国石化 全国首座能源+汽车综合服务站落地湛江",
@@ -3747,7 +3891,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "赵长江：前法拉利设计师/宝马底盘调校团队均已加入智界",
@@ -3772,7 +3917,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     },
     {
       "title": "8鸿蒙智行发布5月车主用车报告 辅助驾驶里程7.8亿公里",
@@ -3794,7 +3940,8 @@
       "summary": "",
       "takeaway": "",
       "enriched_by": "rule",
-      "is_featured": false
+      "is_featured": false,
+      "has_time": true
     }
   ]
 }

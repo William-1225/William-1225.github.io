@@ -154,7 +154,7 @@ const state={index:null,feed:null,view:"featured",cat:"",brands:new Set(),source
 const esc=s=>(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const fmtDate=s=>s?`${s.slice(0,4)}-${s.slice(4,6)}-${s.slice(6,8)}`:"-";
 const trimSent=s=>{s=(s||"").trim();if(!s)return"";let i=-1;for(const ch of "。！？"){i=Math.max(i,s.lastIndexOf(ch));}return i>=0?s.slice(0,i+1):s;};
-function hhmm(it){const raw=it.publish_time||"";let m=raw.match(/(?:^|\s)(\d{1,2}):(\d{2})/);if(m)return `${m[1].padStart(2,'0')}:${m[2]}`;return it.publish_date?it.publish_date.slice(5):"—";}
+function hhmm(it){if(it.has_time&&it.publish_ts){const d=new Date((it.publish_ts+8*3600)*1000);return String(d.getUTCHours()).padStart(2,'0')+':'+String(d.getUTCMinutes()).padStart(2,'0');}return it.publish_date?it.publish_date.slice(5):"—";}
 function showPage(page){
   ["feed","weekly","insight","doc"].forEach(p=>document.getElementById(`page-${p}`).style.display=p===page?(p==="doc"?"block":"flex"):"none");
 }
