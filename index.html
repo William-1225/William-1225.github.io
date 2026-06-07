@@ -536,6 +536,8 @@ body.dark-theme .edu-dot { box-shadow: 0 0 0 4px #1d1f21; }
 body.dark-theme .edu-school { color: #e0e0e0; }
 .edu-degree { font-size: .9em; color: #555; transition: color .2s; margin-top: .15em; }
 body.dark-theme .edu-degree { color: #888; }
+.edu-courses { font-size: .8em; color: #999; transition: color .2s; margin-top: .2em; max-width: 34em; line-height: 1.55; }
+body.dark-theme .edu-courses { color: #777; }
 .edu-date { font-size: .85em; color: #888; white-space: nowrap; }
 
 /* About stats */
@@ -665,7 +667,7 @@ body.dark-theme .about-bio { color: #888; }
     <div class="page-view" id="page-about">
       <div class="page-heading" id="about-heading">About</div>
       <br>
-      <p class="about-bio" id="about-bio">悉尼大学计算机硕士在读，拥有会计学本科背景。曾在捷豹路虎、极氪智能科技等头部车企实习，擅长用数据驱动决策，并独立打造自动化工具，包含数据采集、清洗到可视化看板的全流程方案，有效支持市场研究。</p>
+      <p class="about-bio" id="about-bio">悉尼大学计算机硕士在读，拥有会计学本科背景，专注汽车商业分析与数据自动化。曾在捷豹路虎、极氪智能科技实习，熟悉销售漏斗、竞品研究与用户洞察；擅长用 Vibe Coding 与 AI Agent 搭建从数据采集、清洗到可视化看板的自动化分析闭环，用数据驱动产品与市场决策。</p>
           </div>
 
     <!-- CAREER -->
@@ -680,7 +682,7 @@ body.dark-theme .about-bio { color: #888; }
         <div class="entry-header">
           <div>
             <div class="entry-company" id="c-jlr-co">捷豹路虎中国</div>
-            <div class="entry-role" id="c-jlr-role">市场情报实习生</div>
+            <div class="entry-role" id="c-jlr-role">商业分析实习生</div>
             <div class="entry-loc" id="c-jlr-loc">上海</div>
           </div>
           <div class="entry-date" id="c-jlr-date">2025.12 – 2026.03</div>
@@ -688,10 +690,10 @@ body.dark-theme .about-bio { color: #888; }
         <hr class="entry-divider"/>
         <div class="entry-label" id="c-label1">主要贡献</div>
         <ul class="entry-bullets">
-          <li id="jlr1"><strong>渠道洞察</strong> — <span class="dim">搭建竞对经销商渠道监测平台，覆盖17品牌/8,800+网点，支持区域、城市等级、品牌下钻</span></li>
-          <li id="jlr2"><strong>竞对分析</strong> — <span class="dim">分析 5+ 豪华品牌销量与产品规划，输出 5+ 份竞品分析报告，支持产品定位与市场策略</span></li>
-          <li id="jlr3"><strong>残值研究</strong> — <span class="dim">整合中汽协 5,000+ 条二手车交易数据，构建残值分析底表，支持定价与生命周期管理</span></li>
-          <li id="jlr4"><strong>情报综研</strong> — <span class="dim">持续追踪 20+ 车企月度销量，撰写 3 期月度市场快报及 5+ 专题分析报告</span></li>
+          <li id="jlr1"><strong>数据基建与看板</strong> — <span class="dim">搭建竞对经销商渠道监测看板，覆盖 17 品牌 / 8,800+ 网点 / 290+ 城市，支持区域、城市、品牌多维下钻；通过 Vibe Coding 构建「采集-分析-洞察-看板」AI 自动化链路，渠道调研周期缩短 80%，月度使用率达 90%+</span></li>
+          <li id="jlr2"><strong>竞对策略分析</strong> — <span class="dim">整合豪华品牌销量、财报、产品规划及渠道动态，输出 10+ 份竞品分析报告，拆解销量波动、价格策略与新车投放节奏，支撑产品定位与竞争应对</span></li>
+          <li id="jlr3"><strong>市场研究</strong> — <span class="dim">持续追踪 20+ 车企月度销量、年度目标及达成进度，结合乘联会数据、行业政策与宏观报告输出 3 期市场快报与专题分析</span></li>
+          <li id="jlr4"><strong>AI 驱动分析优化</strong> — <span class="dim">整合中汽协 5,000+ 条保值率数据构建残值分析底表，沉淀结构化 AI 分析框架与输出规则，数据解读效率提升 50%+，支撑生命周期管理与定价</span></li>
         </ul>
       </div>
 
@@ -710,32 +712,13 @@ body.dark-theme .about-bio { color: #888; }
         <hr class="entry-divider"/>
         <div class="entry-label" id="c-label2">主要贡献</div>
         <ul class="entry-bullets">
-          <li id="zeekr1"><strong>数据分析</strong> — <span class="dim">基于销售漏斗模型拆解上海战区全链路数据，覆盖线索流入、试驾转化与订单成交环节</span></li>
-          <li id="zeekr2"><strong>看板搭建</strong> — <span class="dim">Python + Playwright 自动采集并清洗多源数据，将日报产出耗时压缩 60%</span></li>
-          <li id="zeekr3"><strong>运营优化</strong> — <span class="dim">实地调研 5+ 门店，识别一线运营痛点，支持区域销售 SOP 优化</span></li>
-          <li id="zeekr4"><strong>市场研究</strong> — <span class="dim">跟踪 5+ 竞品品牌动态，撰写专题分析报告</span></li>
+          <li id="zeekr1"><strong>销售漏斗分析</strong> — <span class="dim">围绕「线索-到店-试驾-订单」拆解各环节转化，识别转化波动、门店承接差异与流失节点；输出 10+ 份销售分析报告，推动线索跟进、到店邀约与试驾转化优化</span></li>
+          <li id="zeekr2"><strong>数据基建与看板</strong> — <span class="dim">基于 Python + Playwright 整合线索、到店、试驾、订单数据，搭建自动化日报与异常监控看板，日报产出耗时减少 70%</span></li>
+          <li id="zeekr3"><strong>线索承接优化</strong> — <span class="dim">基于后台线索流转数据优化分发规则与跟进口径，线索分发效率提升 70%，促进「线索-到店」环节转化改善</span></li>
+          <li id="zeekr4"><strong>运营优化</strong> — <span class="dim">结合上海门店实地调研与漏斗数据，识别试驾资源错配与门店承接差异，推进试驾资源调配与区域销售 SOP 优化</span></li>
         </ul>
       </div>
 
-      <div class="entry has-logo">
-        <div class="entry-logo">
-          <img src="static/assets/logos/risen.svg" alt="Risen Energy logo" />
-        </div>
-        <div class="entry-header">
-          <div>
-            <div class="entry-company" id="c-risen-co">东方日升新能源</div>
-            <div class="entry-role" id="c-risen-role">海外市场实习生</div>
-            <div class="entry-loc" id="c-risen-loc">宁波</div>
-          </div>
-          <div class="entry-date" id="c-risen-date">2023.06 – 2023.09</div>
-        </div>
-        <hr class="entry-divider"/>
-        <div class="entry-label" id="c-label3">主要贡献</div>
-        <ul class="entry-bullets">
-          <li id="risen1"><strong>获客分析</strong> — <span class="dim">基于询盘频次、历史成交与客户体量评估多渠道线索价值，识别高意向客户与热销产品组合</span></li>
-          <li id="risen2"><strong>竞品研究</strong> — <span class="dim">追踪 Amazon 等海外零售平台竞品动态，建立参数与定价对比底表，为新品开发提供数据支撑</span></li>
-        </ul>
-      </div>
           </div>
 
     <!-- PROJECTS -->
@@ -746,24 +729,23 @@ body.dark-theme .about-bio { color: #888; }
       <div class="entry">
         <div class="entry-header">
           <div>
-            <div class="entry-company" id="p-news-co">汽车行业新闻聚合看板</div>
-            <div class="entry-role" id="p-news-role">个人项目 · 每日自动更新</div>
+            <div class="entry-company" id="p-news-co">汽车行业精选资讯推送</div>
+            <div class="entry-role" id="p-news-role">个人项目 · Python + AI Agent</div>
           </div>
-          <div class="entry-date" id="p-news-date">2026.05-至今</div>
+          <div class="entry-date" id="p-news-date">2026.05 – 2026.06</div>
         </div>
         <hr class="entry-divider"/>
         <div class="entry-label" id="p-label-news">主要工作</div>
         <ul class="entry-bullets">
-          <li id="news1"><strong>多源采集</strong> — <span class="dim">基于 Python（Playwright + curl_cffi）抓取懂车帝、汽车之家、盖世汽车等 6 家主流媒体资讯</span></li>
-          <li id="news2"><strong>智能处理</strong> — <span class="dim">LLM 自动摘要与看点、五维主题分类（政策/市场/产品/技术/舆情）与品牌标签，跨源去重</span></li>
-          <li id="news3"><strong>看板呈现</strong> — <span class="dim">分类筛选、品牌与来源下钻、全文搜索、要点置顶，每日自动发布</span></li>
+          <li id="news1"><strong>多源采集</strong> — <span class="dim">基于 Python + AI Agent 聚合懂车帝、汽车之家等 6 家主流媒体，累计处理 3,000+ 篇文章、日均更新 100+ 篇</span></li>
+          <li id="news2"><strong>智能处理</strong> — <span class="dim">「跨源采集-清洗去重-智能摘要-主题归类-精选推荐」自动化闭环，支持政策 / 市场 / 产品 / 技术 / 舆情多维筛选</span></li>
+          <li id="news3"><strong>飞书推送</strong> — <span class="dim">精选资讯每日自动推送至飞书，提升行业情报获取与竞品追踪效率</span></li>
         </ul>
         <div class="entry-tags">
           <span class="tag" id="t-news-1">资讯聚合</span>
-          <span class="tag" id="t-news-2">LLM 摘要</span>
-          <span class="tag" id="t-news-3">数据可视化</span>
+          <span class="tag" id="t-news-2">AI Agent</span>
+          <span class="tag" id="t-news-3">飞书推送</span>
           <span class="tag">Python</span>
-          <span class="tag">Playwright</span>
         </div>
         <a class="entry-link" href="news/" target="_blank" id="news-link">查看新闻看板</a>
       </div>
@@ -772,73 +754,26 @@ body.dark-theme .about-bio { color: #888; }
         <div class="entry-header">
           <div>
             <div class="entry-company" id="p-xhs-co">小红书 SUV 用户口碑监测</div>
-            <div class="entry-role" id="p-xhs-role">个人项目 · 社媒 UGC 洞察</div>
+            <div class="entry-role" id="p-xhs-role">个人项目 · Python + AI Agent</div>
           </div>
-          <div class="entry-date" id="p-xhs-date">2026.04 – 2026.05</div>
+          <div class="entry-date" id="p-xhs-date">2026.04 – 2026.06</div>
         </div>
         <hr class="entry-divider"/>
         <div class="entry-label" id="p-label-xhs">主要工作</div>
         <ul class="entry-bullets">
-          <li id="xhs1"><strong>UGC 数据采集</strong> — <span class="dim">基于 Python + Playwright 搭建小红书汽车笔记采集与清洗 pipeline，累计覆盖 2w+ 条真实用户内容</span></li>
-          <li id="xhs2"><strong>口碑洞察</strong> — <span class="dim">围绕 14 个品牌、32 款热门 SUV 设计关键词矩阵，识别车型痛点、情感倾向与差异化优势</span></li>
-          <li id="xhs3"><strong>市场周报</strong> — <span class="dim">结合声量、情绪与销量信号输出周期性洞察，支持竞品研判、产品定位与市场策略复盘</span></li>
+          <li id="xhs1"><strong>UGC 数据采集</strong> — <span class="dim">基于 Python + AI Agent 采集小红书汽车笔记，覆盖 14 个品牌、32 款热门 SUV 及 20,000+ 条笔记</span></li>
+          <li id="xhs2"><strong>口碑洞察</strong> — <span class="dim">AI Agent 完成内容清洗、情感识别与口碑归因，围绕动力操控、智能体验、空间舒适、做工质感、品牌认可、价格感知六大维度评分</span></li>
+          <li id="xhs3"><strong>竞品对比</strong> — <span class="dim">识别车型核心痛点、口碑差异与竞品机会，支持购车偏好洞察与竞品研判</span></li>
         </ul>
         <div class="entry-tags">
           <span class="tag" id="t-xhs-1">社媒洞察</span>
           <span class="tag" id="t-xhs-2">用户口碑</span>
           <span class="tag" id="t-xhs-3">情感分析</span>
           <span class="tag">Python</span>
-          <span class="tag">Playwright</span>
+          <span class="tag">AI Agent</span>
         </div>
       </div>
 
-      <div class="entry">
-        <div class="entry-header">
-          <div>
-            <div class="entry-company" id="p-dealer-co">竞对渠道监测</div>
-            <div class="entry-role" id="p-dealer-role">个人项目 · 每周自动更新</div>
-          </div>
-          <div class="entry-date" id="p-dealer-date">2026.01-至今</div>
-        </div>
-        <hr class="entry-divider"/>
-        <div class="entry-label" id="p-label1">主要工作</div>
-        <ul class="entry-bullets">
-          <li id="dealer1"><strong>市场覆盖度洞察</strong> — <span class="dim">横向对比 17 个品牌在全国 31 省、各线城市的渠道渗透差异，识别空白区域</span></li>
-          <li id="dealer2"><strong>渠道动态监测</strong> — <span class="dim">周度追踪 8,700+ 网点新增/退出/迁址事件，捕捉竞品扩张收缩信号</span></li>
-          <li id="dealer3"><strong>数据自动化</strong> — <span class="dim">全自动数据流水线，从原始数据到可视化报告零人工介入，效率压缩至小时级</span></li>
-        </ul>
-        <div class="entry-tags">
-          <span class="tag" id="t1">渠道分析</span>
-          <span class="tag" id="t2">市场研究</span>
-          <span class="tag" id="t3">数据可视化</span>
-          <span class="tag">Python</span>
-        </div>
-        <a class="entry-link" href="report/report.html" target="_blank" id="dealer-link">查看最新报告</a>
-      </div>
-
-      <div class="entry has-logo">
-        <div class="entry-logo logo-sjtu">
-          <img src="static/assets/logos/sjtu.png" alt="Shanghai Jiao Tong University logo" />
-        </div>
-        <div class="entry-header">
-          <div>
-            <div class="entry-company" id="p-sjtu-co">上海交通大学国际暑校</div>
-            <div class="entry-role" id="p-sjtu-role">市场营销课程助教</div>
-          </div>
-          <div class="entry-date" id="p-sjtu-date">2024.06 – 2024.08</div>
-        </div>
-        <hr class="entry-divider"/>
-        <div class="entry-label" id="p-label2">主要贡献</div>
-        <ul class="entry-bullets">
-          <li id="sjtu1"><span class="dim">辅导 30+ 名学生开展市场调研项目，基于 Stata 和 Excel 进行数据建模与回归分析</span></li>
-          <li id="sjtu2"><span class="dim">嵌入 SWOT 与 PESTEL 框架，实现 <strong>100% 结课率</strong>，优秀报告占比环比提升 25%</span></li>
-        </ul>
-        <div class="entry-tags">
-          <span class="tag" id="t4">教学辅导</span>
-          <span class="tag">Stata</span>
-          <span class="tag">Excel</span>
-        </div>
-      </div>
           </div>
 
     <!-- EDUCATION -->
@@ -852,6 +787,7 @@ body.dark-theme .about-bio { color: #888; }
             <div class="edu-left">
               <div class="edu-school" id="e1-school">悉尼大学</div>
               <div class="edu-degree" id="e1-degree">计算机科学硕士</div>
+              <div class="edu-courses" id="e1-courses">相关课程：自然语言处理（NLP）、机器学习（ML）、软件开发、数据库管理、数据分析与建模</div>
             </div>
             <div class="edu-date" id="e1-date">2025.02 – 2027.02</div>
           </div>
@@ -861,7 +797,8 @@ body.dark-theme .about-bio { color: #888; }
           <div class="edu-body">
             <div class="edu-left">
               <div class="edu-school" id="e2-school">温州肯恩大学</div>
-              <div class="edu-degree" id="e2-degree">会计学学士</div>
+              <div class="edu-degree" id="e2-degree">会计学（国际会计方向）学士</div>
+              <div class="edu-courses" id="e2-courses">相关课程：财务报表分析、商业统计及应用、市场营销、管理学</div>
             </div>
             <div class="edu-date" id="e2-date">2020.09 – 2024.07</div>
           </div>
@@ -940,50 +877,35 @@ var T = {
     hero_name: '陈品润 · William',
     hero_desc: '悉尼大学计算机硕士在读',
     about_heading: 'About',
-    about_bio: '悉尼大学计算机硕士在读，拥有会计学本科背景。曾在捷豹路虎、极氪智能科技等头部车企实习，擅长用数据驱动决策，并独立打造自动化工具，包含数据采集、清洗到可视化看板的全流程方案，有效支持市场研究。',
+    about_bio: '悉尼大学计算机硕士在读，拥有会计学本科背景，专注汽车商业分析与数据自动化。曾在捷豹路虎、极氪智能科技实习，熟悉销售漏斗、竞品研究与用户洞察；擅长用 Vibe Coding 与 AI Agent 搭建从数据采集、清洗到可视化看板的自动化分析闭环，用数据驱动产品与市场决策。',
     career_heading:'Career',
-    jlr_co:'捷豹路虎中国', jlr_role:'市场情报实习生', jlr_loc:'上海', jlr_date:'2025.12 – 2026.03',
+    jlr_co:'捷豹路虎中国', jlr_role:'商业分析实习生', jlr_loc:'上海', jlr_date:'2025.12 – 2026.03',
     zeekr_co:'极氪智能科技', zeekr_role:'商业分析实习生', zeekr_loc:'上海', zeekr_date:'2025.07 – 2025.10',
-    risen_co:'东方日升新能源', risen_role:'海外市场实习生', risen_loc:'宁波', risen_date:'2023.06 – 2023.09',
     label_contrib:'主要贡献',
-    jlr1:'<strong>渠道洞察</strong> — <span class="dim">搭建竞对经销商渠道监测平台，覆盖17品牌/8,800+网点，支持区域、城市等级、品牌下钻</span>',
-    jlr2:'<strong>竞对分析</strong> — <span class="dim">分析 5+ 豪华品牌销量与产品规划，输出 5+ 份竞品分析报告</span>',
-    jlr3:'<strong>残值研究</strong> — <span class="dim">整合中汽协 5,000+ 条二手车数据，构建残值分析底表，支持定价与生命周期管理</span>',
-    jlr4:'<strong>情报综研</strong> — <span class="dim">持续追踪 20+ 车企，撰写 3 期月度快报及 5+ 专题报告</span>',
-    zeekr1:'<strong>数据分析</strong> — <span class="dim">基于销售漏斗模型拆解上海战区全链路数据，覆盖线索流入、试驾转化与订单成交环节</span>',
-    zeekr2:'<strong>看板搭建</strong> — <span class="dim">Python + Playwright 自动采集并清洗多源数据，将日报产出耗时压缩 60%</span>',
-    zeekr3:'<strong>运营优化</strong> — <span class="dim">实地调研 5+ 门店，识别一线运营痛点，支持 SOP 优化</span>',
-    zeekr4:'<strong>市场研究</strong> — <span class="dim">跟踪 5+ 竞品品牌动态，撰写专题分析报告</span>',
-    risen1:'<strong>获客分析</strong> — <span class="dim">基于询盘频次、历史成交与客户体量评估多渠道线索价值，识别高意向客户与热销产品组合</span>',
-    risen2:'<strong>竞品研究</strong> — <span class="dim">追踪 Amazon 等海外零售平台竞品动态，建立参数与定价对比底表，为新品开发提供数据支撑</span>',
+    jlr1:'<strong>数据基建与看板</strong> — <span class="dim">搭建竞对经销商渠道监测看板，覆盖 17 品牌 / 8,800+ 网点 / 290+ 城市，支持区域、城市、品牌多维下钻；通过 Vibe Coding 构建「采集-分析-洞察-看板」AI 自动化链路，渠道调研周期缩短 80%，月度使用率达 90%+</span>',
+    jlr2:'<strong>竞对策略分析</strong> — <span class="dim">整合豪华品牌销量、财报、产品规划及渠道动态，输出 10+ 份竞品分析报告，拆解销量波动、价格策略与新车投放节奏，支撑产品定位与竞争应对</span>',
+    jlr3:'<strong>市场研究</strong> — <span class="dim">持续追踪 20+ 车企月度销量、年度目标及达成进度，结合乘联会数据、行业政策与宏观报告输出 3 期市场快报与专题分析</span>',
+    jlr4:'<strong>AI 驱动分析优化</strong> — <span class="dim">整合中汽协 5,000+ 条保值率数据构建残值分析底表，沉淀结构化 AI 分析框架与输出规则，数据解读效率提升 50%+，支撑生命周期管理与定价</span>',
+    zeekr1:'<strong>销售漏斗分析</strong> — <span class="dim">围绕「线索-到店-试驾-订单」拆解各环节转化，识别转化波动、门店承接差异与流失节点；输出 10+ 份销售分析报告，推动线索跟进、到店邀约与试驾转化优化</span>',
+    zeekr2:'<strong>数据基建与看板</strong> — <span class="dim">基于 Python + Playwright 整合线索、到店、试驾、订单数据，搭建自动化日报与异常监控看板，日报产出耗时减少 70%</span>',
+    zeekr3:'<strong>线索承接优化</strong> — <span class="dim">基于后台线索流转数据优化分发规则与跟进口径，线索分发效率提升 70%，促进「线索-到店」环节转化改善</span>',
+    zeekr4:'<strong>运营优化</strong> — <span class="dim">结合上海门店实地调研与漏斗数据，识别试驾资源错配与门店承接差异，推进试驾资源调配与区域销售 SOP 优化</span>',
     proj_heading:'Projects',
-    news_co:'汽车行业新闻聚合看板', news_role:'个人项目 · 每日自动更新', news_date:'2026.05-至今',
+    news_co:'汽车行业精选资讯推送', news_role:'个人项目 · Python + AI Agent', news_date:'2026.05 – 2026.06',
     label_work_news:'主要工作',
-    news1:'<strong>多源采集</strong> — <span class="dim">基于 Python（Playwright + curl_cffi）抓取懂车帝、汽车之家、盖世汽车等 6 家主流媒体资讯</span>',
-    news2:'<strong>智能处理</strong> — <span class="dim">LLM 自动摘要与看点、五维主题分类（政策/市场/产品/技术/舆情）与品牌标签，跨源去重</span>',
-    news3:'<strong>看板呈现</strong> — <span class="dim">分类筛选、品牌与来源下钻、全文搜索、要点置顶，每日自动发布</span>',
-    tnews1:'资讯聚合', tnews2:'LLM 摘要', tnews3:'数据可视化',
+    news1:'<strong>多源采集</strong> — <span class="dim">基于 Python + AI Agent 聚合懂车帝、汽车之家等 6 家主流媒体，累计处理 3,000+ 篇文章、日均更新 100+ 篇</span>',
+    news2:'<strong>智能处理</strong> — <span class="dim">「跨源采集-清洗去重-智能摘要-主题归类-精选推荐」自动化闭环，支持政策 / 市场 / 产品 / 技术 / 舆情多维筛选</span>',
+    news3:'<strong>飞书推送</strong> — <span class="dim">精选资讯每日自动推送至飞书，提升行业情报获取与竞品追踪效率</span>',
+    tnews1:'资讯聚合', tnews2:'AI Agent', tnews3:'飞书推送',
     news_link:'查看新闻看板',
-    xhs_co:'小红书 SUV 用户口碑监测', xhs_role:'个人项目 · 社媒 UGC 洞察', xhs_date:'2026.04 – 2026.05',
-    xhs1:'<strong>UGC 数据采集</strong> — <span class="dim">基于 Python + Playwright 搭建小红书汽车笔记采集与清洗 pipeline，累计覆盖 2w+ 条真实用户内容</span>',
-    xhs2:'<strong>口碑洞察</strong> — <span class="dim">围绕 14 个品牌、32 款热门 SUV 设计关键词矩阵，识别车型痛点、情感倾向与差异化优势</span>',
-    xhs3:'<strong>市场周报</strong> — <span class="dim">结合声量、情绪与销量信号输出周期性洞察，支持竞品研判、产品定位与市场策略复盘</span>',
+    xhs_co:'小红书 SUV 用户口碑监测', xhs_role:'个人项目 · Python + AI Agent', xhs_date:'2026.04 – 2026.06',
+    xhs1:'<strong>UGC 数据采集</strong> — <span class="dim">基于 Python + AI Agent 采集小红书汽车笔记，覆盖 14 个品牌、32 款热门 SUV 及 20,000+ 条笔记</span>',
+    xhs2:'<strong>口碑洞察</strong> — <span class="dim">AI Agent 完成内容清洗、情感识别与口碑归因，围绕动力操控、智能体验、空间舒适、做工质感、品牌认可、价格感知六大维度评分</span>',
+    xhs3:'<strong>竞品对比</strong> — <span class="dim">识别车型核心痛点、口碑差异与竞品机会，支持购车偏好洞察与竞品研判</span>',
     txhs1:'社媒洞察', txhs2:'用户口碑', txhs3:'情感分析',
-    dealer_co:'竞对渠道监测', dealer_role:'个人项目 · 每周自动更新', dealer_date:'2026.01-至今',
-    label_work:'主要工作',
-    dealer1:'<strong>市场覆盖度洞察</strong> — <span class="dim">横向对比 17 个品牌在全国 31 省、各线城市的渠道渗透差异</span>',
-    dealer2:'<strong>渠道动态监测</strong> — <span class="dim">周度追踪 8,700+ 网点新增/退出/迁址事件</span>',
-    dealer3:'<strong>数据自动化</strong> — <span class="dim">全自动数据流水线，从原始数据到可视化报告零人工介入</span>',
-    t1:'渠道分析', t2:'市场研究', t3:'数据可视化',
-    dealer_link:'查看最新报告',
-    sjtu_co:'上海交通大学国际暑校', sjtu_role:'市场营销课程助教', sjtu_date:'2024.06 – 2024.08',
-    label_contrib2:'主要贡献',
-    sjtu1:'<span class="dim">辅导 30+ 名学生开展市场调研项目，基于 Stata 和 Excel 进行数据建模与回归分析</span>',
-    sjtu2:'<span class="dim">嵌入 SWOT 与 PESTEL 框架，实现 <strong>100% 结课率</strong>，优秀报告占比环比提升 25%</span>',
-    t4:'教学辅导',
     edu_heading:'Education',
-    e1_school:'悉尼大学', e1_degree:'计算机科学硕士', e1_date:'2025.02 – 2027.02',
-    e2_school:'温州肯恩大学', e2_degree:'会计学学士', e2_date:'2020.09 – 2024.07',
+    e1_school:'悉尼大学', e1_degree:'计算机科学硕士', e1_courses:'相关课程：自然语言处理（NLP）、机器学习（ML）、软件开发、数据库管理、数据分析与建模', e1_date:'2025.02 – 2027.02',
+    e2_school:'温州肯恩大学', e2_degree:'会计学（国际会计方向）学士', e2_courses:'相关课程：财务报表分析、商业统计及应用、市场营销、管理学', e2_date:'2020.09 – 2024.07',
   },
   en: {
     brand: 'Pinrun Chen',
@@ -991,50 +913,35 @@ var T = {
     hero_name: 'Pinrun Chen · William',
     hero_desc: 'Master of Computer Science @ University of Sydney',
     about_heading: 'About',
-    about_bio: 'Master of Computer Science candidate at the University of Sydney with a Bachelor of Accounting background, working at the intersection of business analytics and software engineering. Across internships at leading automakers including Jaguar Land Rover and ZEEKR, I turn data into decisions and build automation tools — covering data collection, cleaning, and visual dashboards — to effectively support market research.',
+    about_bio: 'Master of Computer Science candidate at the University of Sydney with a Bachelor of Accounting background, focused on automotive business analytics and data automation. Across internships at Jaguar Land Rover and ZEEKR, I work on sales-funnel, competitor, and user-insight analysis, and use Vibe Coding and AI agents to build automated pipelines — from data collection and cleaning to visual dashboards — that turn data into product and market decisions.',
     career_heading:'Career',
-    jlr_co:'Jaguar Land Rover China', jlr_role:'Market Intelligence Intern', jlr_loc:'Shanghai', jlr_date:'Dec 2025 – Mar 2026',
+    jlr_co:'Jaguar Land Rover China', jlr_role:'Business Analysis Intern', jlr_loc:'Shanghai', jlr_date:'Dec 2025 – Mar 2026',
     zeekr_co:'ZEEKR Intelligent Technology', zeekr_role:'Business Analysis Intern', zeekr_loc:'Shanghai', zeekr_date:'Jul 2025 – Oct 2025',
-    risen_co:'Risen Energy Co., Ltd.', risen_role:'Overseas Marketing Intern', risen_loc:'Ningbo', risen_date:'Jun 2023 – Sep 2023',
     label_contrib:'Key Contributions',
-    jlr1:'<strong>Channel Insights</strong> — <span class="dim">Built dealer network monitor covering 17 brands/8,800+ outlets, with region, city-tier, and brand drill-downs</span>',
-    jlr2:'<strong>Competitive Analysis</strong> — <span class="dim">Analyzed 5+ luxury brands\' sales and product strategies, delivered 5+ competitive reports</span>',
-    jlr3:'<strong>Residual Value</strong> — <span class="dim">Built RV analysis model with 5,000+ used-car transactions to support pricing & lifecycle management</span>',
-    jlr4:'<strong>Market Intelligence</strong> — <span class="dim">Tracked 20+ automakers, published 3 monthly bulletins and 5+ industry reports</span>',
-    zeekr1:'<strong>Data Analysis</strong> — <span class="dim">Full-funnel Shanghai sales analysis across lead inflow, test-drive conversion, and order closing</span>',
-    zeekr2:'<strong>Dashboard Build</strong> — <span class="dim">Python + Playwright automation collected and cleaned multi-source data, reducing daily report time by 60%</span>',
-    zeekr3:'<strong>Operations</strong> — <span class="dim">On-site audits across 5+ stores, optimized regional sales SOPs</span>',
-    zeekr4:'<strong>Market Research</strong> — <span class="dim">Tracked 5+ competitors, authored strategy reports</span>',
-    risen1:'<strong>Lead Analysis</strong> — <span class="dim">Evaluated multi-channel leads by inquiry frequency, transaction history, and customer scale to identify high-intent customers and best-selling product combinations</span>',
-    risen2:'<strong>Competitive Research</strong> — <span class="dim">Tracked Amazon and overseas retail competitors, building parameter and pricing comparison tables for new product development</span>',
+    jlr1:'<strong>Channel Infrastructure & Dashboard</strong> — <span class="dim">Built a competitor dealer-network monitor covering 17 brands / 8,800+ outlets / 290+ cities with region, city-tier, and brand drill-down; wired a "collect–analyze–insight–dashboard" AI-automated pipeline via Vibe Coding, cutting the channel-research cycle by 80% with 90%+ monthly adoption</span>',
+    jlr2:'<strong>Competitor Strategy</strong> — <span class="dim">Synthesized luxury brands\' sales, financials, product roadmaps, and channel moves into 10+ competitive reports linking pricing, product, and launch cadence to sales swings</span>',
+    jlr3:'<strong>Market Research</strong> — <span class="dim">Tracked monthly sales, annual targets, and progress for 20+ automakers; synthesized CPCA data, policy, and macro reports into 3 market briefs and topical analyses</span>',
+    jlr4:'<strong>AI-Driven Optimization</strong> — <span class="dim">Integrated 5,000+ CAAM residual-value records into a base table; codified a structured AI analysis framework, lifting data-interpretation efficiency by 50%+ for lifecycle management and pricing</span>',
+    zeekr1:'<strong>Sales Funnel Analysis</strong> — <span class="dim">Decomposed lead–visit–test-drive–order conversion to pinpoint volatility, store gaps, and drop-off points; delivered 10+ sales reports driving lead follow-up, visit invitation, and test-drive optimization</span>',
+    zeekr2:'<strong>Dashboard Build</strong> — <span class="dim">Python + Playwright pipeline over lead, test-drive, and order data feeding an automated daily report and anomaly monitor, cutting daily-report turnaround by 70%</span>',
+    zeekr3:'<strong>Lead Intake Optimization</strong> — <span class="dim">Refined backend lead-distribution rules and follow-up tracking, lifting lead-distribution efficiency by 70% and improving lead-to-visit conversion</span>',
+    zeekr4:'<strong>Operations</strong> — <span class="dim">Combined Shanghai store field research with funnel data to fix test-drive resource misallocation and store-capacity gaps, driving regional sales SOP optimization</span>',
     proj_heading:'Projects',
-    news_co:'Auto Industry News Dashboard', news_role:'Personal Project · Daily Auto-Update', news_date:'May 2026 - Present',
+    news_co:'Automotive Industry Daily News', news_role:'Personal Project · Python + AI Agent', news_date:'May 2026 – Jun 2026',
     label_work_news:'Key Work',
-    news1:'<strong>Multi-Source Crawl</strong> — <span class="dim">Python (Playwright + curl_cffi) crawl of 6 mainstream auto media (Dongchedi, Autohome, Gasgoo, etc.)</span>',
-    news2:'<strong>Intelligent Processing</strong> — <span class="dim">LLM-generated summaries and key takeaways, 5-dimension topic classification (Policy / Market / Product / Tech / Sentiment), brand tagging, and cross-source deduplication</span>',
-    news3:'<strong>Dashboard</strong> — <span class="dim">Category filters, brand/source drill-down, full-text search, top-news highlights, auto-published daily</span>',
-    tnews1:'News Aggregation', tnews2:'LLM Summary', tnews3:'Data Visualization',
+    news1:'<strong>Multi-Source Crawl</strong> — <span class="dim">Python + AI agent aggregating 6 mainstream media (Dongchedi, Autohome, etc.), processing 3,000+ articles with 100+ daily updates</span>',
+    news2:'<strong>Intelligent Processing</strong> — <span class="dim">"crawl–dedupe–summarize–classify–curate" automated pipeline with policy / market / product / technology / sentiment filtering</span>',
+    news3:'<strong>Feishu Delivery</strong> — <span class="dim">Curated news auto-pushed to Feishu daily for intelligence and competitor tracking</span>',
+    tnews1:'News Aggregation', tnews2:'AI Agent', tnews3:'Feishu Push',
     news_link:'View News Dashboard',
-    xhs_co:'Xiaohongshu SUV User Sentiment Monitor', xhs_role:'Personal Project · Social UGC Insights', xhs_date:'Apr 2026 – May 2026',
-    xhs1:'<strong>UGC Pipeline</strong> — <span class="dim">Built a Python + Playwright pipeline for Xiaohongshu automotive posts, collecting and cleaning 20k+ real user notes</span>',
-    xhs2:'<strong>Sentiment Insights</strong> — <span class="dim">Designed keyword matrices across 14 brands and 32 popular SUVs to identify pain points, sentiment shifts, and brand advantages</span>',
-    xhs3:'<strong>Market Briefing</strong> — <span class="dim">Combined buzz volume, sentiment, and sales signals into recurring insight reports for competitor review and product positioning</span>',
-    txhs1:'Social Listening', txhs2:'User Sentiment', txhs3:'Market Insights',
-    dealer_co:'Competitor Dealer Network Monitor', dealer_role:'Personal Project · Weekly Auto-Update', dealer_date:'Jan 2026 - Present',
-    label_work:'Key Work',
-    dealer1:'<strong>Market Coverage</strong> — <span class="dim">Cross-brand penetration analysis across 31 provinces and all city tiers</span>',
-    dealer2:'<strong>Channel Dynamics</strong> — <span class="dim">Weekly tracking of 8,700+ outlets for openings, exits, and relocations</span>',
-    dealer3:'<strong>Pipeline Automation</strong> — <span class="dim">Fully automated weekly pipeline from raw data to visual report</span>',
-    t1:'Channel Analysis', t2:'Market Research', t3:'Data Visualization',
-    dealer_link:'View Latest Report',
-    sjtu_co:'SJTU International Summer School', sjtu_role:'Marketing Teaching Assistant', sjtu_date:'Jun 2024 – Aug 2024',
-    label_contrib2:'Key Contributions',
-    sjtu1:'<span class="dim">Tutored 30+ students in market research using Stata and Excel for data modeling and regression</span>',
-    sjtu2:'<span class="dim">Applied SWOT & PESTEL frameworks, achieved <strong>100% completion rate</strong> with 25% increase in excellent reports</span>',
-    t4:'Teaching',
+    xhs_co:'Xiaohongshu SUV User Voice Monitoring', xhs_role:'Personal Project · Python + AI Agent', xhs_date:'Apr 2026 – Jun 2026',
+    xhs1:'<strong>UGC Pipeline</strong> — <span class="dim">Python + AI agent collecting Xiaohongshu automotive notes across 14 brands, 32 popular SUVs, and 20,000+ posts</span>',
+    xhs2:'<strong>Sentiment Insight</strong> — <span class="dim">AI agent handling cleaning, sentiment, and attribution, scoring six dimensions (powertrain & handling, intelligent experience, space & comfort, build quality, brand recognition, price perception)</span>',
+    xhs3:'<strong>Competitor Comparison</strong> — <span class="dim">Surfaced core pain points, word-of-mouth gaps, and competitor opportunities for purchase-preference insight</span>',
+    txhs1:'Social Listening', txhs2:'User Sentiment', txhs3:'Sentiment Analysis',
     edu_heading:'Education',
-    e1_school:'University of Sydney', e1_degree:'Master of Computer Science', e1_date:'Feb 2025 – Feb 2027',
-    e2_school:'Wenzhou-Kean University', e2_degree:'Bachelor of Accounting', e2_date:'Sep 2020 – Jun 2024',
+    e1_school:'University of Sydney', e1_degree:'Master of Computer Science', e1_courses:'Coursework: NLP, Machine Learning, Software Development, Database Management, Data Analysis & Modeling', e1_date:'Feb 2025 – Feb 2027',
+    e2_school:'Wenzhou-Kean University', e2_degree:'B.S. Accounting (International Accounting)', e2_courses:'Coursework: Financial Statement Analysis, Business Statistics & Applications, Marketing, Management', e2_date:'Sep 2020 – Jun 2024',
   }
 };
 
@@ -1049,11 +956,9 @@ function applyLang() {
   setT('career-heading', t.career_heading);
   setT('c-jlr-co', t.jlr_co); setT('c-jlr-role', t.jlr_role); setT('c-jlr-loc', t.jlr_loc); setT('c-jlr-date', t.jlr_date);
   setT('c-zeekr-co', t.zeekr_co); setT('c-zeekr-role', t.zeekr_role); setT('c-zeekr-loc', t.zeekr_loc); setT('c-zeekr-date', t.zeekr_date);
-  setT('c-risen-co', t.risen_co); setT('c-risen-role', t.risen_role); setT('c-risen-loc', t.risen_loc); setT('c-risen-date', t.risen_date);
-  setT('c-label1', t.label_contrib); setT('c-label2', t.label_contrib); setT('c-label3', t.label_contrib);
+  setT('c-label1', t.label_contrib); setT('c-label2', t.label_contrib);
   setH('jlr1', t.jlr1); setH('jlr2', t.jlr2); setH('jlr3', t.jlr3); setH('jlr4', t.jlr4);
   setH('zeekr1', t.zeekr1); setH('zeekr2', t.zeekr2); setH('zeekr3', t.zeekr3); setH('zeekr4', t.zeekr4);
-  setH('risen1', t.risen1); setH('risen2', t.risen2);
   setT('proj-heading', t.proj_heading);
   setT('p-news-co', t.news_co); setT('p-news-role', t.news_role); setT('p-news-date', t.news_date);
   setT('p-label-news', t.label_work_news);
@@ -1064,18 +969,9 @@ function applyLang() {
   setT('p-label-xhs', t.label_work);
   setH('xhs1', t.xhs1); setH('xhs2', t.xhs2); setH('xhs3', t.xhs3);
   setT('t-xhs-1', t.txhs1); setT('t-xhs-2', t.txhs2); setT('t-xhs-3', t.txhs3);
-  setT('p-dealer-co', t.dealer_co); setT('p-dealer-role', t.dealer_role); setT('p-dealer-date', t.dealer_date);
-  setT('p-label1', t.label_work);
-  setH('dealer1', t.dealer1); setH('dealer2', t.dealer2); setH('dealer3', t.dealer3);
-  setT('t1', t.t1); setT('t2', t.t2); setT('t3', t.t3);
-  setT('dealer-link', t.dealer_link);
-  setT('p-sjtu-co', t.sjtu_co); setT('p-sjtu-role', t.sjtu_role); setT('p-sjtu-date', t.sjtu_date);
-  setT('p-label2', t.label_contrib2);
-  setH('sjtu1', t.sjtu1); setH('sjtu2', t.sjtu2);
-  setT('t4', t.t4);
   setT('edu-heading', t.edu_heading);
-  setT('e1-school', t.e1_school); setT('e1-degree', t.e1_degree); setT('e1-date', t.e1_date);
-  setT('e2-school', t.e2_school); setT('e2-degree', t.e2_degree); setT('e2-date', t.e2_date);
+  setT('e1-school', t.e1_school); setT('e1-degree', t.e1_degree); setT('e1-courses', t.e1_courses); setT('e1-date', t.e1_date);
+  setT('e2-school', t.e2_school); setT('e2-degree', t.e2_degree); setT('e2-courses', t.e2_courses); setT('e2-date', t.e2_date);
   document.getElementById('lang-btn').textContent = lang === 'zh' ? 'EN' : '中文';
   document.querySelectorAll('.lang-btn').forEach(function(b){ b.textContent = lang === 'zh' ? 'EN' : '中文'; });
 }
