@@ -381,6 +381,12 @@ body.dark-theme .page-heading { color: #a9a9b3; border-color: #3a3a3e; }
   width: 88%;
   height: 88%;
 }
+.entry-logo.logo-usyd { padding: .32em; }
+.entry-logo.logo-wku { padding: .3em; }
+.entry-logo.logo-wku img { border-radius: 50%; }
+/* compact timeline entries (no bullets) */
+.entry-compact { padding-top: .95em; padding-bottom: 1.15em; }
+.entry-compact .entry-header { margin-bottom: 0; }
 body.dark-theme .entry::before { background: #3a3a3e; }
 body.dark-theme .entry::after { box-shadow: 0 0 0 4px #1d1f21; }
 body.dark-theme .entry-logo {
@@ -667,31 +673,56 @@ body.dark-theme .about-bio { color: #888; }
       <br>
       <p class="about-bio" id="about-bio">悉尼大学计算机硕士在读，拥有会计学本科背景。曾在捷豹路虎、极氪智能科技实习，熟悉销售漏斗、竞品研究与用户洞察；擅长用 Vibe Coding 与 AI Agent 搭建从数据采集、清洗到可视化看板的自动化分析闭环，用数据驱动产品与市场决策。</p>
 
-      <div class="page-heading" id="edu-heading" style="margin-top:1.6em;">Education</div>
-      <br>
-      <div>
-        <div class="edu-item">
-          <div class="edu-dot"></div>
-          <div class="edu-body">
-            <div class="edu-left">
-              <div class="edu-school" id="e1-school">悉尼大学</div>
-              <div class="edu-degree" id="e1-degree">计算机科学硕士</div>
-              <div class="edu-courses" id="e1-courses">相关课程：自然语言处理（NLP）、机器学习（ML）、软件开发、数据库管理、数据分析与建模</div>
+      <div class="timeline" style="margin-top:1.8em;">
+
+        <div class="entry has-logo entry-compact">
+          <div class="entry-logo logo-jlr"><img src="static/assets/logos/jlr.svg" alt="JLR logo" /></div>
+          <div class="entry-header">
+            <div>
+              <div class="entry-company" id="a-jlr-co">捷豹路虎中国</div>
+              <div class="entry-role" id="a-jlr-role">商业分析实习生</div>
+              <div class="entry-loc" id="a-jlr-loc">上海</div>
             </div>
-            <div class="edu-date" id="e1-date">2025.02 – 2027.02</div>
+            <div class="entry-date" id="a-jlr-date">2025.12 – 2026.03</div>
           </div>
         </div>
-        <div class="edu-item">
-          <div class="edu-dot"></div>
-          <div class="edu-body">
-            <div class="edu-left">
-              <div class="edu-school" id="e2-school">温州肯恩大学</div>
-              <div class="edu-degree" id="e2-degree">会计学（国际会计方向）学士</div>
-              <div class="edu-courses" id="e2-courses">相关课程：财务报表分析、商业统计及应用、市场营销、管理学</div>
+
+        <div class="entry has-logo entry-compact">
+          <div class="entry-logo"><img src="static/assets/logos/zeekr.svg" alt="ZEEKR logo" /></div>
+          <div class="entry-header">
+            <div>
+              <div class="entry-company" id="a-zeekr-co">极氪智能科技</div>
+              <div class="entry-role" id="a-zeekr-role">商业分析实习生</div>
+              <div class="entry-loc" id="a-zeekr-loc">上海</div>
             </div>
-            <div class="edu-date" id="e2-date">2020.09 – 2024.07</div>
+            <div class="entry-date" id="a-zeekr-date">2025.07 – 2025.10</div>
           </div>
         </div>
+
+        <div class="entry has-logo entry-compact">
+          <div class="entry-logo logo-usyd"><img src="static/assets/logos/usyd.svg" alt="University of Sydney crest" /></div>
+          <div class="entry-header">
+            <div>
+              <div class="entry-company" id="a-syd-co">悉尼大学</div>
+              <div class="entry-role" id="a-syd-role">计算机科学硕士</div>
+              <div class="entry-loc" id="a-syd-loc">悉尼</div>
+            </div>
+            <div class="entry-date" id="a-syd-date">2025.02 – 2027.02</div>
+          </div>
+        </div>
+
+        <div class="entry has-logo entry-compact">
+          <div class="entry-logo logo-wku"><img src="static/assets/logos/wku.png" alt="Wenzhou-Kean University seal" /></div>
+          <div class="entry-header">
+            <div>
+              <div class="entry-company" id="a-wku-co">温州肯恩大学</div>
+              <div class="entry-role" id="a-wku-role">会计学（国际会计方向）学士</div>
+              <div class="entry-loc" id="a-wku-loc">温州</div>
+            </div>
+            <div class="entry-date" id="a-wku-date">2020.09 – 2024.07</div>
+          </div>
+        </div>
+
       </div>
           </div>
 
@@ -959,8 +990,8 @@ var T = {
     sjtu2:'<span class="dim">嵌入 SWOT 与 PESTEL 框架，实现 <strong>100% 结课率</strong>，优秀报告占比环比提升 25%</span>',
     t4:'教学辅导',
     edu_heading:'Education',
-    e1_school:'悉尼大学', e1_degree:'计算机科学硕士', e1_courses:'相关课程：自然语言处理（NLP）、机器学习（ML）、软件开发、数据库管理、数据分析与建模', e1_date:'2025.02 – 2027.02',
-    e2_school:'温州肯恩大学', e2_degree:'会计学（国际会计方向）学士', e2_courses:'相关课程：财务报表分析、商业统计及应用、市场营销、管理学', e2_date:'2020.09 – 2024.07',
+    e1_school:'悉尼大学', e1_degree:'计算机科学硕士', e1_loc:'悉尼', e1_courses:'相关课程：自然语言处理（NLP）、机器学习（ML）、软件开发、数据库管理、数据分析与建模', e1_date:'2025.02 – 2027.02',
+    e2_school:'温州肯恩大学', e2_degree:'会计学（国际会计方向）学士', e2_loc:'温州', e2_courses:'相关课程：财务报表分析、商业统计及应用、市场营销、管理学', e2_date:'2020.09 – 2024.07',
   },
   en: {
     brand: 'Pinrun Chen',
@@ -1007,8 +1038,8 @@ var T = {
     sjtu2:'<span class="dim">Applied SWOT & PESTEL frameworks, achieved <strong>100% completion rate</strong> with 25% increase in excellent reports</span>',
     t4:'Teaching',
     edu_heading:'Education',
-    e1_school:'University of Sydney', e1_degree:'Master of Computer Science', e1_courses:'Coursework: NLP, Machine Learning, Software Development, Database Management, Data Analysis & Modeling', e1_date:'Feb 2025 – Feb 2027',
-    e2_school:'Wenzhou-Kean University', e2_degree:'B.S. Accounting (International Accounting)', e2_courses:'Coursework: Financial Statement Analysis, Business Statistics & Applications, Marketing, Management', e2_date:'Sep 2020 – Jun 2024',
+    e1_school:'University of Sydney', e1_degree:'Master of Computer Science', e1_loc:'Sydney', e1_courses:'Coursework: NLP, Machine Learning, Software Development, Database Management, Data Analysis & Modeling', e1_date:'Feb 2025 – Feb 2027',
+    e2_school:'Wenzhou-Kean University', e2_degree:'B.S. Accounting (International Accounting)', e2_loc:'Wenzhou', e2_courses:'Coursework: Financial Statement Analysis, Business Statistics & Applications, Marketing, Management', e2_date:'Sep 2020 – Jun 2024',
   }
 };
 
@@ -1045,9 +1076,10 @@ function applyLang() {
   setT('p-label2', t.label_contrib2);
   setH('sjtu1', t.sjtu1); setH('sjtu2', t.sjtu2);
   setT('t4', t.t4);
-  setT('edu-heading', t.edu_heading);
-  setT('e1-school', t.e1_school); setT('e1-degree', t.e1_degree); setT('e1-courses', t.e1_courses); setT('e1-date', t.e1_date);
-  setT('e2-school', t.e2_school); setT('e2-degree', t.e2_degree); setT('e2-courses', t.e2_courses); setT('e2-date', t.e2_date);
+  setT('a-jlr-co', t.jlr_co); setT('a-jlr-role', t.jlr_role); setT('a-jlr-loc', t.jlr_loc); setT('a-jlr-date', t.jlr_date);
+  setT('a-zeekr-co', t.zeekr_co); setT('a-zeekr-role', t.zeekr_role); setT('a-zeekr-loc', t.zeekr_loc); setT('a-zeekr-date', t.zeekr_date);
+  setT('a-syd-co', t.e1_school); setT('a-syd-role', t.e1_degree); setT('a-syd-loc', t.e1_loc); setT('a-syd-date', t.e1_date);
+  setT('a-wku-co', t.e2_school); setT('a-wku-role', t.e2_degree); setT('a-wku-loc', t.e2_loc); setT('a-wku-date', t.e2_date);
   document.getElementById('lang-btn').textContent = lang === 'zh' ? 'EN' : '中文';
   document.querySelectorAll('.lang-btn').forEach(function(b){ b.textContent = lang === 'zh' ? 'EN' : '中文'; });
 }
