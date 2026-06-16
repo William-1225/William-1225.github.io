@@ -516,7 +516,7 @@ let SEL_BRANDS   = new Set();   // 空集 = 全部品牌
 let SUB_CHECKED  = null;        // 单品牌钻取时使用; SEL_BRANDS.size===1 才生效
 let SEL_REGIONS  = new Set();   // 空集 = 全选
 let SEL_TIERS    = new Set();
-let SEL_CATS     = new Set();   // 网点类型: 销售/服务/钣喷
+let SEL_CATS     = new Set();   // 网点能力: 销售/售后
 let SEL_PROVS    = new Set();
 let SEL_CITIES   = new Set();    // 仅含地级市名 (镜像 SEL_BRANDS); 县级市选择放在 COUNTY_CHECKED
 let COUNTY_CHECKED = null;       // 镜像 SUB_CHECKED: 单 SEL_CITIES 项时才生效
@@ -800,6 +800,8 @@ function _hydrateView(view){
     prev: new Array(r.prevCount).fill({g:r.g}),
     curSales: r.curSales,
     prevSales: r.prevSales,
+    curAfterSales: r.curAfterSales,
+    prevAfterSales: r.prevAfterSales,
     cities: r.cities,
     cityDelta: r.cityDelta,
     diff: r.diff,
@@ -1224,6 +1226,23 @@ function getSnap(ts){ return DATA.snapshots.find(s=>s.ts===ts); }
 function _stripTailCode(a){ return String(a||'').replace(/\s*\d{5,6}\s*$/,'').trim(); }
 function locKey(x){ return `${x.g}||${x.n}||${stripSuffix(x.p)}||${x.a||''}`; }
 function lkLoc(l){ return `${l.g}||${l.n}||${l.p}||${_stripTailCode(l.a)}`; }
+function capSet(x){
+  const raw = String(x && x.cap || '').split('|').map(s=>s.trim()).filter(Boolean);
+  if(raw.length) return new Set(raw);
+  const t = String(x && x.t || '');
+  if(t === '销售') return new Set(['S']);
+  if(['服务','钣喷','联合店'].includes(t)) return new Set(['A']);
+  return new Set();
+}
+function hasCap(x, label){
+  const caps = x && x.caps instanceof Set ? x.caps : capSet(x);
+  return label === '销售' ? caps.has('S') : label === '售后' ? caps.has('A') : false;
+}
+function passesCapabilityFilter(x){
+  if(!SEL_CATS.size) return true;
+  for(const c of SEL_CATS) if(hasCap(x, c)) return true;
+  return false;
+}
 
 function _addrClean(a){
   return String(a||'').replace(/\s+/g,'').replace(/[，。、（）()【】\[\]·•\-—_]/g,'');
@@ -1358,10 +1377,11 @@ function buildLocations(dealers){
     const k = locKey(d);
     let l = m.get(k);
     if(!l){
-      l = {r:d.r, p:stripSuffix(d.p), c:d.c, lv:d.lv, g:d.g, n:d.n, t:d.t, a:d.a, ph:d.ph, subs:new Set()};
+      l = {r:d.r, p:stripSuffix(d.p), c:d.c, lv:d.lv, g:d.g, n:d.n, t:d.t, a:d.a, ph:d.ph, subs:new Set(), caps:new Set()};
       m.set(k, l);
     }
     l.subs.add(d.b);
+    capSet(d).forEach(c=>l.caps.add(c));
   }
   return [...m.values()];
 }
@@ -1369,7 +1389,7 @@ function buildLocations(dealers){
 // 只应用全局筛选(cat/region/tier)，不应用品牌/子品牌 —— 用于品牌 chip 的计数
 function filterGlobal(dealers){
   let list = dealers;
-  if(SEL_CATS.size)    list = list.filter(d=>SEL_CATS.has(d.t));
+  if(SEL_CATS.size)    list = list.filter(d=>passesCapabilityFilter(d));
   if(SEL_REGIONS.size) list = list.filter(d=>SEL_REGIONS.has(d.r));
   if(SEL_TIERS.size)   list = list.filter(d=>SEL_TIERS.has(d.lv));
   if(SEL_PROVS.size)   list = list.filter(d=>SEL_PROVS.has(stripSuffix(d.p)));
@@ -1500,7 +1520,7 @@ async function render(){
 
   // 级联失效清洗：上游变则下游失效项清除
   const _afterRegion = CUR.dealers.filter(d=>{
-    if(SEL_CATS.size    && !SEL_CATS.has(d.t))    return false;
+    if(SEL_CATS.size    && !passesCapabilityFilter(d))    return false;
     if(SEL_REGIONS.size && !SEL_REGIONS.has(d.r)) return false;
     if(SEL_TIERS.size   && !SEL_TIERS.has(d.lv))  return false;
     return true;
@@ -1523,7 +1543,7 @@ async function render(){
   }
 
   // 网点类型 / 大区 / 城市等级 chips（基于当前期数据）
-  renderChipRow('catChips', ['销售','服务','钣喷'], SEL_CATS);
+  renderChipRow('catChips', ['销售','售后'], SEL_CATS);
   const regions = [...new Set(CUR.dealers.map(d=>d.r))].sort();
   renderChipRow('regionChips', regions, SEL_REGIONS);
   renderChipRow('tierChips',   TIERS.filter(t=>CUR.dealers.some(d=>d.lv===t)), SEL_TIERS);
@@ -1831,7 +1851,8 @@ function trendBrandParts(d){
 
 // 计算每期每品牌/子品牌的 location 数（受全局筛选 cat/region/tier + SEL_BRANDS 影响）
 function trendSeriesData(){
-  if(DATA.snapshots.every(s=>s.trendCounts)){
+  const noFilters = !SEL_CATS.size && !SEL_REGIONS.size && !SEL_TIERS.size && !SEL_PROVS.size && !SEL_CITIES.size && !SEL_BRANDS.size;
+  if(noFilters && DATA.snapshots.every(s=>s.trendCounts)){
     return DATA.snapshots.map(s=>({ts:s.ts, counts:s.trendCounts || {}}));
   }
   return DATA.snapshots.map(s=>{
@@ -2546,12 +2567,6 @@ const DOC_BRANDS = [
 ];
 /* ========= 城市覆盖率页：品牌 × 线级 城市覆盖率 ========= */
 const PEN_TIERS = ['一线','二线','三线','四线','五线'];
-// 网点性质 → 销售/售后 归类（联合店两边都算，二手车归售后）
-const PEN_TYPE_FILTERS = {
-  all:  null,
-  sales:['销售','联合店'],
-  after:['服务','钣喷','联合店','二手车'],
-};
 let PEN_TYPE = 'all';
 const PEN_CAT_ORDER = [['ev','新能源'],['luxury','豪华'],['super','超豪华']];
 function penCatOf(name){
@@ -2572,11 +2587,11 @@ function penInTableCity(c){
 // 统计每个品牌/子品牌/品牌组在各线级覆盖的去重城市集合（线级取自权威表，分子⊆分母）
 function penCoverage(dealers){
   const CT = DATA.cityTier || {};
-  const allow = PEN_TYPE_FILTERS[PEN_TYPE];     // null = 全部
   const map = {};
   const ensure = k => map[k] || (map[k] = {tiers:{}, cities:new Set()});
   for(const d of dealers){
-    if(allow && !allow.includes(d.t)) continue; // 按销售/售后过滤
+    if(PEN_TYPE === 'sales' && !hasCap(d, '销售')) continue;
+    if(PEN_TYPE === 'after' && !hasCap(d, '售后')) continue;
     const city = penInTableCity(d.c);
     if(!city) continue;                              // 不在 342 表内（含未分级/省直管县）不计
     const tier = CT[city];
@@ -2648,7 +2663,7 @@ function renderPenetration(){
     <div class="doc-sub">数据周期：${fmtTs(CUR.ts)}</div>
     <div class="doc-note">
       <b>切换周期：</b>本页随顶部「当前日期」切换，仅显示该期、不含对比期。换期请到 <span style="display:inline-flex;align-items:center;gap:5px;padding:1px 7px;border:1px solid rgba(0,0,0,.18);border-radius:5px;font-weight:600;white-space:nowrap">可视化查询 顶栏 <span style="color:#1a7f37">→</span> 当前日期 ▾</span> 选好期数后返回本页。<br>
-      <b>网点性质：</b>右上角可切换「全部 / 销售 / 售后」。销售 = 销售 + 联合店；售后 = 服务 + 钣喷 + 联合店 + 二手车（联合店两边都计，二手车归售后）。<br>
+      <b>网点能力：</b>右上角可切换「全部 / 销售 / 售后」。同一物理网点可同时具备销售和售后能力；钣喷并入售后；全部按城市并集去重，不把双能力重复相加。<br>
       <b>口径：</b>城市覆盖率 = 品牌覆盖的城市数 ÷ 该线级城市总数，去重到城市（一城多店只计一个）。城市分级取自 342 城市分级表（一线 8 / 二线 38 / 三线 39 / 四线 121 / 五线 136）。<br>
       <b>合计列</b> = 覆盖城市数 ÷ 342，按城市数加权汇总，非各线级百分比的平均。鸿蒙智行 / 奥迪按子品牌分行统计，并保留品牌组的城市并集行。<br>
       <span class="pen-legend">覆盖率高低：<span class="bar"></span></span> 绿色为各线级，蓝色为合计列。
