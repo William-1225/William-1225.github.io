@@ -120,8 +120,13 @@
   .kpi .delta{font-size:12px;margin-top:3px}
   .kpi .delta.pos{color:var(--pos)} .kpi .delta.neg{color:var(--neg)} .kpi .delta.zero{color:var(--mute)}
 
-  /* 渗透率页 */
+  /* 城市覆盖率页 */
   .pen-title{font-size:20px;font-weight:700;margin:0 0 4px;color:var(--fg)}
+  .pen-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 4px;flex-wrap:wrap}
+  .pen-seg{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden;background:#fff;flex-shrink:0}
+  .pen-seg button{appearance:none;border:none;background:transparent;padding:6px 16px;font-size:13px;font-weight:600;color:#475467;cursor:pointer;border-left:1px solid var(--line)}
+  .pen-seg button:first-child{border-left:none}
+  .pen-seg button.on{background:#1a7f37;color:#fff}
   .pen-legend{display:inline-flex;align-items:center;gap:7px;margin-left:2px;color:#475467}
   .pen-legend .bar{height:10px;width:120px;border-radius:3px;background:linear-gradient(90deg,rgba(26,127,55,.12),rgba(26,127,55,.7))}
   .pen-table{border-collapse:separate;border-spacing:0;width:100%;font-size:13px}
@@ -279,7 +284,7 @@
     <div class="nav-item active" data-page="viz"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 2 5-7"/></svg>可视化查询</div>
     <div class="nav-item" data-page="report"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>当期报告</div>
     <div class="nav-item" data-page="monthly"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="m8 15 2 2 4-5"/></svg>月度报告</div>
-    <div class="nav-item" data-page="penetration"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg>渗透率</div>
+    <div class="nav-item" data-page="penetration"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg>城市覆盖率</div>
     <div class="nav-item" data-page="download"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>数据下载</div>
     <div class="nav-item" data-page="doc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>口径说明</div>
   </div>
@@ -434,7 +439,7 @@
   <div id="monthlyBody"></div>
 </div>
 
-<!-- 右侧：渗透率 -->
+<!-- 右侧：城市覆盖率 -->
 <div id="page-penetration" class="page" style="display:none;overflow-y:auto">
   <div id="penBody" style="padding:22px 28px 32px"></div>
 </div>
@@ -1542,7 +1547,7 @@ async function render(){
   if(CUR_TAB==='net') renderNetTab(curLocs, prevLocs);
   if(CUR_TAB==='map' && mapLoaded) renderMap();
   if(CUR_TAB==='detail') renderDetail(curLocs, added, removed, diff.changed);
-  // 渗透率页若正显示，跟随周期重算（渗透率页用全量数据，不受可视化页筛选影响）
+  // 城市覆盖率页若正显示，跟随周期重算（本页用全量数据，不受可视化页筛选影响）
   if(document.getElementById('page-penetration').style.display!=='none') renderPenetration();
 }
 
@@ -2539,8 +2544,15 @@ const DOC_BRANDS = [
   {cat:'super', b:'兰博基尼', sales:'授权经销商、展厅', service:'售后服务网点、钣喷', note:'包含兰博基尼授权经销商及售后服务网点，数据来自官网经销商查询页面。'},
   {cat:'super', b:'劳斯莱斯', sales:'授权经销商、展厅', service:'服务网点', note:'包含劳斯莱斯授权经销商及服务网点，数据来自官网经销商查询页面。'},
 ];
-/* ========= 渗透率页：品牌 × 线级 城市覆盖率 ========= */
+/* ========= 城市覆盖率页：品牌 × 线级 城市覆盖率 ========= */
 const PEN_TIERS = ['一线','二线','三线','四线','五线'];
+// 网点性质 → 销售/售后 归类（联合店两边都算，二手车归售后）
+const PEN_TYPE_FILTERS = {
+  all:  null,
+  sales:['销售','联合店'],
+  after:['服务','钣喷','联合店','二手车'],
+};
+let PEN_TYPE = 'all';
 const PEN_CAT_ORDER = [['ev','新能源'],['luxury','豪华'],['super','超豪华']];
 function penCatOf(name){
   const hit = DOC_BRANDS.find(x=>x.b===name);
@@ -2560,9 +2572,11 @@ function penInTableCity(c){
 // 统计每个品牌/子品牌/品牌组在各线级覆盖的去重城市集合（线级取自权威表，分子⊆分母）
 function penCoverage(dealers){
   const CT = DATA.cityTier || {};
+  const allow = PEN_TYPE_FILTERS[PEN_TYPE];     // null = 全部
   const map = {};
   const ensure = k => map[k] || (map[k] = {tiers:{}, cities:new Set()});
   for(const d of dealers){
+    if(allow && !allow.includes(d.t)) continue; // 按销售/售后过滤
     const city = penInTableCity(d.c);
     if(!city) continue;                              // 不在 342 表内（含未分级/省直管县）不计
     const tier = CT[city];
@@ -2596,7 +2610,7 @@ function renderPenetration(){
     return `<tr class="cat-${catKey} ${cls||''}"><td class="pen-brand">${name}</td>${cells}${total}</tr>`;
   };
 
-  // 组织行：品类分组 → 单品牌 / 品牌组(+子品牌)，组内按合计渗透率降序
+  // 组织行：品类分组 → 单品牌 / 品牌组(+子品牌)，组内按合计覆盖率降序
   const subNames = new Set(Object.values(GROUP_SUBS).flat());
   const groupNames = Object.keys(GROUP_SUBS).filter(g=>cov[g]);
   const singles = Object.keys(cov).filter(k=>!GROUP_SUBS[k] && !subNames.has(k));
@@ -2625,14 +2639,19 @@ function renderPenetration(){
 
   const th = (t)=>`<th>${t}<span class="den">/${totals[t]||0}</span></th>`;
   const nUnits = units.length;
+  const segBtn = (key,label)=>`<button data-pentype="${key}" class="${PEN_TYPE===key?'on':''}">${label}</button>`;
   host.innerHTML = `
-    <div class="pen-title">网点渗透率</div>
+    <div class="pen-head">
+      <div class="pen-title">城市覆盖率</div>
+      <div class="pen-seg">${segBtn('all','全部')}${segBtn('sales','销售')}${segBtn('after','售后')}</div>
+    </div>
     <div class="doc-sub">数据周期：${fmtTs(CUR.ts)}</div>
     <div class="doc-note">
       <b>切换周期：</b>本页随顶部「当前日期」切换，仅显示该期、不含对比期。换期请到 <span style="display:inline-flex;align-items:center;gap:5px;padding:1px 7px;border:1px solid rgba(0,0,0,.18);border-radius:5px;font-weight:600;white-space:nowrap">可视化查询 顶栏 <span style="color:#1a7f37">→</span> 当前日期 ▾</span> 选好期数后返回本页。<br>
-      <b>口径：</b>渗透率 = 品牌覆盖的城市数 ÷ 该线级城市总数，去重到城市（一城多店只计一个）。城市分级取自 342 城市分级表（一线 8 / 二线 38 / 三线 39 / 四线 121 / 五线 136）。<br>
+      <b>网点性质：</b>右上角可切换「全部 / 销售 / 售后」。销售 = 销售 + 联合店；售后 = 服务 + 钣喷 + 联合店 + 二手车（联合店两边都计，二手车归售后）。<br>
+      <b>口径：</b>城市覆盖率 = 品牌覆盖的城市数 ÷ 该线级城市总数，去重到城市（一城多店只计一个）。城市分级取自 342 城市分级表（一线 8 / 二线 38 / 三线 39 / 四线 121 / 五线 136）。<br>
       <b>合计列</b> = 覆盖城市数 ÷ 342，按城市数加权汇总，非各线级百分比的平均。鸿蒙智行 / 奥迪按子品牌分行统计，并保留品牌组的城市并集行。<br>
-      <span class="pen-legend">渗透率高低：<span class="bar"></span></span> 绿色为各线级，蓝色为合计列。
+      <span class="pen-legend">覆盖率高低：<span class="bar"></span></span> 绿色为各线级，蓝色为合计列。
     </div>
     <table class="pen-table">
       <thead><tr>
@@ -2641,6 +2660,9 @@ function renderPenetration(){
       </tr></thead>
       <tbody>${body}</tbody>
     </table>`;
+  host.querySelectorAll('.pen-seg button').forEach(btn=>{
+    btn.onclick = ()=>{ const t=btn.dataset.pentype; if(t!==PEN_TYPE){ PEN_TYPE=t; renderPenetration(); } };
+  });
 }
 
 const DOC_GROUPS = [
