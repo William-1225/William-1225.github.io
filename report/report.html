@@ -2627,8 +2627,9 @@ function renderPenetration(){
   const nUnits = units.length;
   host.innerHTML = `
     <div class="pen-title">网点渗透率</div>
-    <div class="doc-sub">数据周期：${fmtTs(CUR.ts)} · 共 ${nUnits} 个品牌（鸿蒙智行 / 奥迪含子品牌及品牌组合计）· 全量口径，不受可视化页筛选影响</div>
+    <div class="doc-sub">数据周期：${fmtTs(CUR.ts)}</div>
     <div class="doc-note">
+      <b>切换周期：</b>本页随顶部「当前日期」切换，仅显示该期、不含对比期。换期请到 <span style="display:inline-flex;align-items:center;gap:5px;padding:1px 7px;border:1px solid rgba(0,0,0,.18);border-radius:5px;font-weight:600;white-space:nowrap">可视化查询 顶栏 <span style="color:#1a7f37">→</span> 当前日期 ▾</span> 选好期数后返回本页。<br>
       <b>口径：</b>渗透率 = 品牌覆盖的城市数 ÷ 该线级城市总数，去重到城市（一城多店只计一个）。城市分级取自 342 城市分级表（一线 8 / 二线 38 / 三线 39 / 四线 121 / 五线 136）。<br>
       <b>合计列</b> = 覆盖城市数 ÷ 342，按城市数加权汇总，非各线级百分比的平均。鸿蒙智行 / 奥迪按子品牌分行统计，并保留品牌组的城市并集行。<br>
       <span class="pen-legend">渗透率高低：<span class="bar"></span></span> 绿色为各线级，蓝色为合计列。
