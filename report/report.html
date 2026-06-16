@@ -121,25 +121,26 @@
   .kpi .delta.pos{color:var(--pos)} .kpi .delta.neg{color:var(--neg)} .kpi .delta.zero{color:var(--mute)}
 
   /* 渗透率页 */
-  .pen-title{font-size:20px;font-weight:700;color:var(--fg);letter-spacing:-.01em}
-  .pen-sub{font-size:13px;color:var(--mute);margin:6px 0 18px}
+  .pen-title{font-size:20px;font-weight:700;margin:0 0 4px;color:var(--fg)}
+  .pen-legend{display:inline-flex;align-items:center;gap:7px;margin-left:2px;color:#475467}
+  .pen-legend .bar{height:10px;width:120px;border-radius:3px;background:linear-gradient(90deg,rgba(26,127,55,.12),rgba(26,127,55,.7))}
   .pen-table{border-collapse:separate;border-spacing:0;width:100%;font-size:13px}
   .pen-table th,.pen-table td{border-bottom:1px solid var(--line);padding:0}
-  .pen-table thead th{position:sticky;top:0;background:var(--card);z-index:2;text-align:center;font-weight:600;color:var(--fg);padding:8px 6px;border-bottom:2px solid var(--line);white-space:nowrap}
+  .pen-table thead th{position:sticky;top:0;background:#f8fafc;z-index:2;text-align:center;font-weight:600;color:#475467;padding:8px 6px;border-bottom:2px solid var(--line);white-space:nowrap}
   .pen-table thead th .den{display:block;font-size:11px;font-weight:400;color:var(--mute);margin-top:1px}
-  .pen-table th:first-child{text-align:left;padding-left:14px}
-  .pen-cat-row td{background:var(--bg);font-weight:700;color:var(--fg);padding:7px 14px;font-size:12px;letter-spacing:.04em}
-  .pen-brand{text-align:left;padding:9px 14px;white-space:nowrap;font-weight:500}
-  tr.pen-group .pen-brand{font-weight:700}
-  tr.pen-childrow .pen-brand{color:var(--mute);font-weight:400}
-  .pen-indent{display:inline-block;width:14px;border-left:2px solid var(--line);margin-right:8px;height:11px;vertical-align:middle}
+  .pen-table th:first-child{text-align:left;padding-left:24px}
+  .pen-cat-row td{font-weight:650;color:var(--fg);background:#fbfcfe;padding:8px 8px 8px 14px}
+  .pen-cat-row .pen-cat-label{display:inline-flex;align-items:center;gap:7px}
+  .pen-cat-row .pen-cat-label::before{content:"";display:inline-block;width:4px;height:18px;border-radius:4px;background:var(--group)}
+  .pen-brand{position:relative;text-align:left;padding:9px 14px 9px 24px;white-space:nowrap;font-weight:600;color:var(--fg)}
+  .pen-brand::before{content:"";position:absolute;left:8px;top:50%;width:4px;height:18px;border-radius:4px;background:var(--group);transform:translateY(-50%)}
+  tr.pen-childrow .pen-brand{padding-left:34px;font-weight:400;color:#475467}
+  tr.pen-childrow .pen-brand::before{display:none}
+  .pen-table tbody tr:hover{background:#fbfcfe}
   .pen-cell{text-align:center;padding:7px 4px;line-height:1.25}
   .pen-cell .pen-pct{display:block;font-weight:600;font-size:13px}
   .pen-cell .pen-frac{display:block;font-size:10.5px;opacity:.7}
   .pen-total .pen-frac{opacity:.85}
-  .pen-delta{text-align:center;font-size:12px;padding:7px 6px}
-  .pen-legend{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:12px;color:var(--mute)}
-  .pen-legend .bar{height:10px;width:130px;border-radius:3px;background:linear-gradient(90deg,rgba(26,127,55,.1),rgba(26,127,55,.7))}
 
   /* 月度报告 */
   #page-monthly .kpi-row, #page-report .kpi-row{padding:10px 0 16px;background:transparent}
@@ -379,9 +380,9 @@
           <div class="ct-title">N界店分布</div>
           <div id="jieStoreChart" style="height:180px;width:100%"></div>
         </div>
-        <!-- 奔驰特色授权网点：仅奔驰单选时显示 -->
+        <!-- 奔驰高端授权网点：仅奔驰单选时显示 -->
         <div id="mbTagBlock" style="display:none;flex-direction:column">
-          <div class="ct-title">特色授权网点</div>
+          <div class="ct-title">高端授权网点</div>
           <div id="mbTagChart" style="height:180px;width:100%"></div>
           <div id="mbTagNote" style="font-size:12px;color:var(--mute);margin-top:2px;line-height:1.5"></div>
         </div>
@@ -2297,7 +2298,7 @@ function renderMbTag(){
     prevDenom = pv.filter(isSales).length;
   }
 
-  const LABELS = ['G级车','AMG','迈巴赫','合计'];
+  const LABELS = ['G-Class','AMG','迈巴赫','合计'];
   const vals = [cg, ca, cm, cu];
   const data = vals.map((v,i)=>({value:v, itemStyle:{color: i===3 ? '#0b2e6b' : '#174ea6', borderRadius:[3,3,0,0]}}));
 
@@ -2318,15 +2319,9 @@ function renderMbTag(){
   },true);
   mbTagChart.resize();
 
-  let note = `合计 <b>${cu}</b> 家带特色授权，占奔驰卖车门店（${denom} 家）<b>${pct.toFixed(1)}%</b>`;
-  if(prevVals && prevDenom){
-    const prevPct = prevDenom ? prevVals[3]/prevDenom*100 : 0;
-    const dp = pct - prevPct;
-    const sign = dp>0?'+':'';
-    const col = dp>0?'var(--pos)':dp<0?'var(--neg)':'var(--mute)';
-    note += ` · 较上期 <span style="color:${col}">${sign}${dp.toFixed(1)}pt</span>`;
-  }
-  document.getElementById('mbTagNote').innerHTML = note;
+  // 合计 = 具备 G-Class / AMG / 迈巴赫 任一高端授权的去重门店；分母 = 奔驰卖车门店（性质含销售）
+  document.getElementById('mbTagNote').innerHTML =
+    `具备高端授权（G-Class / AMG / 迈巴赫 之一）的门店共 <b>${cu}</b> 家，占奔驰卖车门店（${denom} 家）的 <b>${pct.toFixed(1)}%</b>。`;
 }
 
 /* ============ 净变化 tab：水平柱状图 ============ */
@@ -2585,24 +2580,19 @@ function renderPenetration(){
   const totals = DATA.tierTotals || {};
   const grand = PEN_TIERS.reduce((s,t)=>s+(totals[t]||0),0);
   const cov = penCoverage(CUR.dealers);
-  const prevCov = PREV ? penCoverage(PREV.dealers) : null;
 
-  const pctOf = (entry,tier)=>{ const tot=totals[tier]||0; const c=entry.tiers[tier]?entry.tiers[tier].size:0; return tot?c/tot:0; };
   const cell = (entry,tier)=>{
     const tot=totals[tier]||0, c=entry.tiers[tier]?entry.tiers[tier].size:0, pct=tot?c/tot:0;
     const a=(c===0?0:0.10+0.60*pct).toFixed(3);
     const txt=pct>=0.55?'#0a3d18':'#1a2e22';
     return `<td class="pen-cell" style="background:rgba(26,127,55,${a});color:${txt}"><span class="pen-pct">${tot?Math.round(pct*100)+'%':'–'}</span><span class="pen-frac">${c}/${tot}</span></td>`;
   };
-  const row = (name, entry, prevEntry, cls, indent)=>{
+  const row = (name, entry, catKey, cls)=>{
     const cells = PEN_TIERS.map(t=>cell(entry,t)).join('');
     const c=entry.cities.size, pct=grand?c/grand:0;
     const a=(0.12+0.55*pct).toFixed(3);
     const total=`<td class="pen-cell pen-total" style="background:rgba(11,46,107,${a});color:#fff"><span class="pen-pct">${Math.round(pct*100)}%</span><span class="pen-frac">${c}/${grand}</span></td>`;
-    let delta='<span style="color:var(--mute)">—</span>';
-    if(prevEntry){ const d=c-prevEntry.cities.size; const col=d>0?'var(--pos)':d<0?'var(--neg)':'var(--mute)'; delta=`<span style="color:${col}">${d===0?'—':(d>0?'+':'')+d}</span>`; }
-    const label=(indent?'<span class="pen-indent"></span>':'')+name;
-    return `<tr class="${cls||''}"><td class="pen-brand">${label}</td>${cells}${total}<td class="pen-delta">${delta}</td></tr>`;
+    return `<tr class="cat-${catKey} ${cls||''}"><td class="pen-brand">${name}</td>${cells}${total}</tr>`;
   };
 
   // 组织行：品类分组 → 单品牌 / 品牌组(+子品牌)，组内按合计渗透率降序
@@ -2618,33 +2608,37 @@ function renderPenetration(){
   for(const [catKey,catLabel] of PEN_CAT_ORDER){
     const us = units.filter(u=>u.cat===catKey).sort((a,b)=>b.tot-a.tot);
     if(!us.length) continue;
-    body += `<tr class="pen-cat-row"><td colspan="8">${catLabel}</td></tr>`;
+    body += `<tr class="pen-cat-row cat-${catKey}"><td colspan="7"><span class="pen-cat-label">${catLabel}</span></td></tr>`;
     for(const u of us){
       if(u.kind==='single'){
-        body += row(u.name, cov[u.name], prevCov&&prevCov[u.name]?prevCov[u.name]:(prevCov?EMPTY_COV:null), '');
+        body += row(u.name, cov[u.name], catKey, '');
       }else{
-        body += row(u.name, cov[u.name], prevCov&&prevCov[u.name]?prevCov[u.name]:(prevCov?EMPTY_COV:null), 'pen-group');
+        body += row(u.name, cov[u.name], catKey, 'pen-group');
         const subs = GROUP_SUBS[u.name].filter(s=>cov[s]).sort((a,b)=>cov[b].cities.size-cov[a].cities.size);
         for(const s of subs){
-          body += row(s, cov[s], prevCov&&prevCov[s]?prevCov[s]:(prevCov?EMPTY_COV:null), 'pen-childrow', true);
+          body += row(s, cov[s], catKey, 'pen-childrow');
         }
       }
     }
   }
 
   const th = (t)=>`<th>${t}<span class="den">/${totals[t]||0}</span></th>`;
+  const nUnits = units.length;
   host.innerHTML = `
     <div class="pen-title">网点渗透率</div>
-    <div class="pen-sub">城市渗透率 = 品牌覆盖的城市数 ÷ 该线级城市总数（去重到城市，一城多店只算一个）· 当前 ${fmtTs(CUR.ts)}${PREV?` · 对比 ${fmtTs(PREV.ts)}`:''} · 全量口径，不受可视化页筛选影响</div>
+    <div class="doc-sub">数据周期：${fmtTs(CUR.ts)} · 共 ${nUnits} 个品牌（鸿蒙智行 / 奥迪含子品牌及品牌组合计）· 全量口径，不受可视化页筛选影响</div>
+    <div class="doc-note">
+      <b>口径：</b>渗透率 = 品牌覆盖的城市数 ÷ 该线级城市总数，去重到城市（一城多店只计一个）。城市分级取自 342 城市分级表（一线 8 / 二线 38 / 三线 38 / 四线 121 / 五线 137）。<br>
+      <b>合计列</b> = 覆盖城市数 ÷ 342，按城市数加权汇总，非各线级百分比的平均。鸿蒙智行 / 奥迪按子品牌分行统计，并保留品牌组的城市并集行。<br>
+      <span class="pen-legend">渗透率高低：<span class="bar"></span></span> 绿色为各线级，蓝色为合计列。
+    </div>
     <table class="pen-table">
       <thead><tr>
         <th>品牌</th>${PEN_TIERS.map(th).join('')}
         <th>合计<span class="den">/${grand}</span></th>
-        <th>较上期<span class="den">城市</span></th>
       </tr></thead>
       <tbody>${body}</tbody>
-    </table>
-    <div class="pen-legend"><span>低</span><span class="bar"></span><span>高</span><span style="margin-left:10px">绿=各线级渗透率，蓝=合计（÷342）。合计为按城市数加权，非各线级百分比的平均。</span></div>`;
+    </table>`;
 }
 
 const DOC_GROUPS = [
