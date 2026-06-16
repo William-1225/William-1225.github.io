@@ -243,7 +243,9 @@
   .doc-rule li{margin:2px 0}
   .doc-table-wrap{border:1px solid var(--line);border-radius:8px;overflow:auto;background:#fff}
   .doc-table{width:100%;min-width:920px;border-collapse:collapse;font-size:13px}
-  .doc-table th,.doc-table td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+  .doc-table th,.doc-table td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left}
+  .doc-table td{vertical-align:middle}
+  .doc-table th{vertical-align:middle}
   .doc-table th{position:sticky;top:0;background:#f8fafc;z-index:1;color:#475467;font-weight:600;white-space:nowrap}
   .doc-table tbody tr:hover{background:#fbfcfe}
   .doc-table tbody tr:last-child td{border-bottom:0}
@@ -255,7 +257,7 @@
   .doc-table .brand-col::before{content:"";position:absolute;left:26px;top:50%;width:4px;height:18px;border-radius:4px;background:var(--group);transform:translateY(-50%)}
   .doc-table .sales-col{width:270px}
   .doc-table .service-col{width:210px;color:#475467}
-  .doc-table .note-col{min-width:320px;color:#344054}
+  .doc-table .note-col{min-width:320px;color:#344054;line-height:1.6}
   .doc-table .muted{color:#b7c0cc}
   .cat-ev{--group:#10b981}
   .cat-luxury{--group:#2563eb}
@@ -2546,24 +2548,24 @@ function exportCSV(){
 
 /* ========= 口径说明页面 ========= */
 const DOC_BRANDS = [
-  {cat:'ev', b:'蔚来', sales:'直营店、交付中心、服务中心等', service:'', note:'蔚来所有网点（直营店、交付中心、服务中心等）均计入统计，销售口径包含全部职能类型。'},
-  {cat:'ev', b:'理想', sales:'零售中心、用户服务中心、交付中心', service:'', note:'包含零售中心、用户服务中心、交付中心，数据来自官网经销商查询页面。'},
+  {cat:'ev', b:'蔚来', sales:'直营店、交付中心、服务中心等', service:'同销售口径', note:'蔚来门店按直营体系统一纳入统计；同一实体网点可同时进入销售与售后能力视图，全部口径按物理网点去重。'},
+  {cat:'ev', b:'理想', sales:'零售中心、用户服务中心、交付中心', service:'用户服务中心等', note:'包含零售中心、用户服务中心、交付中心，数据来自官网经销商查询页面。'},
   {cat:'ev', b:'小鹏', sales:'销售门店、体验中心、交付中心', service:'售后服务网点', note:'包含销售门店与售后服务网点，数据来自官网门店查询页面。'},
   {cat:'ev', b:'小米', sales:'销售门店、交付中心', service:'售后维修', note:'销售门店、交付中心、售后维修分别采集后合并，完整覆盖各职能类型。'},
-  {cat:'ev', b:'鸿蒙智行', sales:'体验店、用户中心、授权销售网点等', service:'', note:'一个实体门店通常同时挂靠多个子品牌（如同一家店同时经营问界和智界）。各子品牌数字存在交叉，整体网点数按物理门店统计。'},
-  {cat:'ev', b:'特斯拉', sales:'直营门店、交付中心、服务中心等', service:'', note:'特斯拉全部为直营模式，所有网点统一计入销售口径。'},
+  {cat:'ev', b:'鸿蒙智行', sales:'体验店、用户中心、授权销售网点等', service:'同销售口径', note:'体验中心、用户中心均纳入销售能力；同一实体门店可能挂靠多个子品牌，整体按物理门店去重，并可进入售后能力视图。'},
+  {cat:'ev', b:'特斯拉', sales:'直营门店、交付中心、服务中心等', service:'同销售口径', note:'特斯拉全部为直营模式，同一实体网点可同时进入销售与售后能力视图，全部口径按物理网点去重。'},
   {cat:'luxury', b:'一汽奥迪', sales:'授权经销商、新车销售网点', service:'服务网点', note:'纯二手车展厅单独标注，不计入新车销售网点数。'},
   {cat:'luxury', b:'上汽奥迪', sales:'用户中心、授权销售网点', service:'服务网点', note:'上汽奥迪与一汽奥迪为独立品牌渠道，本报告分开统计，数字不叠加。'},
   {cat:'luxury', b:'奔驰', sales:'授权经销商、4S 店、展厅', service:'服务中心', note:'部分网点设有专项中心（如 AMG 性能中心、迈巴赫专区），体现在备注列，不影响网点总数统计。'},
   {cat:'luxury', b:'宝马', sales:'宝马授权经销商（含 4S 店）', service:'独立售后服务网点', note:'包含宝马授权经销商（含 4S 店）及独立售后服务网点，数据来自官网经销商查询页面。'},
   {cat:'luxury', b:'雷克萨斯', sales:'授权经销商', service:'服务中心', note:'包含雷克萨斯授权经销商及服务中心，数据来自官网经销商查询页面。'},
-  {cat:'luxury', b:'沃尔沃', sales:'授权经销商、纯电体验空间', service:'服务/钣喷网点', note:'沃尔沃纯电体验空间（名称含"空间"）计入销售口径。'},
+  {cat:'luxury', b:'沃尔沃', sales:'授权经销商、纯电体验空间', service:'售后服务网点', note:'沃尔沃纯电体验空间（名称含"空间"）计入销售能力；钣金喷漆等服务统一并入售后能力。'},
   {cat:'luxury', b:'保时捷', sales:'保时捷中心（4S）、展厅', service:'认证售后服务网点', note:'包含保时捷中心（4S）、展厅及认证售后服务网点，数据来自官网经销商查询页面。'},
   {cat:'super', b:'阿斯顿·马丁', sales:'授权经销商、展厅', service:'服务网点', note:'部分经销商在同一城市设有多个实体地址，每个地址单独计为一个网点。'},
   {cat:'super', b:'宾利', sales:'授权经销商、展厅', service:'服务网点', note:'包含宾利授权经销商及服务网点，数据来自官网经销商查询页面。'},
   {cat:'super', b:'法拉利', sales:'授权经销商、展厅', service:'服务中心', note:'包含法拉利授权经销商及服务中心，数据来自官网各城市经销商页面。'},
-  {cat:'super', b:'兰博基尼', sales:'授权经销商、展厅', service:'售后服务网点、钣喷', note:'包含兰博基尼授权经销商及售后服务网点，数据来自官网经销商查询页面。'},
-  {cat:'super', b:'劳斯莱斯', sales:'授权经销商、展厅', service:'服务网点', note:'包含劳斯莱斯授权经销商及服务网点，数据来自官网经销商查询页面。'},
+  {cat:'super', b:'兰博基尼', sales:'授权经销商、展厅', service:'售后服务网点', note:'包含兰博基尼授权经销商及售后服务网点，数据来自官网经销商查询页面；钣金喷漆等服务统一并入售后能力。'},
+  {cat:'super', b:'劳斯莱斯', sales:'授权经销商、展厅', service:'服务网点', note:'包含劳斯莱斯授权经销商及服务网点，数据来自官网经销商查询页面；同一实体网点同时承担销售和服务时，全部口径仅计一次。'},
 ];
 /* ========= 城市覆盖率页：品牌 × 线级 城市覆盖率 ========= */
 const PEN_TIERS = ['一线','二线','三线','四线','五线'];
@@ -2702,26 +2704,26 @@ function renderDoc(){
 
   const html = `
     <h1 class="doc-title">统计口径说明</h1>
-    <div class="doc-sub">更新日期：2026-05 · 共 22 个品牌（含鸿蒙智行 5 个子品牌）· 口径表按品牌/品牌组展示</div>
+    <div class="doc-sub">更新日期：2026-06 · 共 22 个品牌（含鸿蒙智行 5 个子品牌）· 口径表按品牌/品牌组展示</div>
     <div class="doc-note">
-      <b>说明：</b>本表重点说明各品牌纳入销售网点统计的门店类型。售后网点不是本报告的核心关注对象，因此仅在品牌有明确单独售后口径、且会影响网点统计理解时补充说明；否则售后列留空。
+      <b>说明：</b>本页按“销售能力 / 售后能力”说明各品牌网点纳入范围。同一实体网点如同时承担销售和售后服务，在销售、售后视图中均可出现；在全部口径下仅按物理网点计一次。钣金喷漆等服务统一并入售后能力，不再单独列示。
     </div>
     <div class="doc-rules">
       <div class="doc-rule">
         <h3>网点如何分类</h3>
         <ul>
-          <li>销售：凡是能买车的网点，包括 4S 店、展厅、体验中心、交付中心等，统一归为销售。</li>
-          <li>服务：只做售后、不卖车的网点，如维修中心、服务站。</li>
-          <li>钣喷：专门做钣金喷漆的网点。</li>
-          <li>一个网点同时有销售和售后职能（如标准 4S 店），计入销售，不拆分统计。</li>
+          <li>销售能力：凡是能买车的网点，包括 4S 店、展厅、体验中心、用户中心、交付中心等。</li>
+          <li>售后能力：承担保养、维修、服务中心、服务站、钣金喷漆等服务的网点。</li>
+          <li>同一网点可以同时具备销售与售后能力；能力视图用于筛选，不改变原始门店记录。</li>
         </ul>
       </div>
       <div class="doc-rule">
         <h3>如何避免重复计数</h3>
         <ul>
           <li>名称和地址完全相同的重复条目直接合并。</li>
-          <li>同一地址挂了多种服务类型时，合并为一个网点，类型取销售优先。</li>
+          <li>同一地址挂了多种服务类型时，合并为一个物理网点，并保留销售/售后能力信息。</li>
           <li>同一城市内名称相同的网点合并；不同城市的同名网点不合并。</li>
+          <li>全部视图按物理网点去重，不能把销售数量和售后数量直接相加。</li>
         </ul>
       </div>
       <div class="doc-rule">
@@ -2735,7 +2737,7 @@ function renderDoc(){
       </div>
       <div class="doc-rule">
         <h3>统计范围</h3>
-        港澳台网点不纳入统计，仅统计中国大陆门店。命中的同店地址或名称变化会使用本期新地址展示，不计入新增/退出。
+        港澳台网点不纳入统计，仅统计中国大陆门店。城市覆盖率按品牌覆盖的城市去重计算，一城多店只计一个城市；命中的同店地址或名称变化会使用本期新地址展示，不计入新增/退出。
       </div>
     </div>
     <div class="doc-table-wrap">
