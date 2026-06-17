@@ -1233,7 +1233,8 @@ function capSet(x){
   if(raw.length) return new Set(raw);
   const t = String(x && x.t || '');
   if(t === '销售') return new Set(['S']);
-  if(['服务','钣喷','联合店'].includes(t)) return new Set(['A']);
+  if(t === '联合店') return new Set(['S','A']);
+  if(['服务','钣喷'].includes(t)) return new Set(['A']);
   return new Set();
 }
 function hasCap(x, label){
