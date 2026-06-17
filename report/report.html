@@ -283,7 +283,7 @@
     <div class="sub">竞对经销商网点</div>
   </div>
   <div class="nav-group">
-    <div class="nav-item active" data-page="viz"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 2 5-7"/></svg>可视化查询</div>
+    <div class="nav-item active" data-page="viz"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 2 5-7"/></svg>网点查询</div>
     <div class="nav-item" data-page="report"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>当期报告</div>
     <div class="nav-item" data-page="monthly"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="m8 15 2 2 4-5"/></svg>月度报告</div>
     <div class="nav-item" data-page="penetration"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg>城市覆盖率</div>
@@ -292,7 +292,7 @@
   </div>
 </nav>
 
-<!-- 右侧：可视化查询（原有全部内容） -->
+<!-- 右侧：网点查询（原有全部内容） -->
 <div id="page-viz" class="page">
 
 <header>
@@ -2665,7 +2665,7 @@ function renderPenetration(){
     </div>
     <div class="doc-sub">数据周期：${fmtTs(CUR.ts)}</div>
     <div class="doc-note">
-      <b>切换周期：</b>本页随顶部「当前日期」切换，仅显示该期、不含对比期。换期请到 <span style="display:inline-flex;align-items:center;gap:5px;padding:1px 7px;border:1px solid rgba(0,0,0,.18);border-radius:5px;font-weight:600;white-space:nowrap">可视化查询 顶栏 <span style="color:#1a7f37">→</span> 当前日期 ▾</span> 选好期数后返回本页。<br>
+      <b>切换周期：</b>本页随顶部「当前日期」切换，仅显示该期、不含对比期。换期请到 <span style="display:inline-flex;align-items:center;gap:5px;padding:1px 7px;border:1px solid rgba(0,0,0,.18);border-radius:5px;font-weight:600;white-space:nowrap">网点查询 顶栏 <span style="color:#1a7f37">→</span> 当前日期 ▾</span> 选好期数后返回本页。<br>
       <b>网点能力：</b>右上角可切换「全部 / 销售 / 售后」。同一物理网点可同时具备销售和售后能力；钣喷并入售后；全部按城市并集去重，不把双能力重复相加。<br>
       <b>口径：</b>城市覆盖率 = 品牌覆盖的城市数 ÷ 该线级城市总数，去重到城市（一城多店只计一个）。城市分级取自 342 城市分级表（一线 8 / 二线 38 / 三线 39 / 四线 121 / 五线 136）。<br>
       <b>合计列</b> = 覆盖城市数 ÷ 342，按城市数加权汇总，非各线级百分比的平均。鸿蒙智行 / 奥迪按子品牌分行统计，并保留品牌组的城市并集行。<br>
