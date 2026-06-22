@@ -114,8 +114,9 @@
   .cal-nav.dis{opacity:.3;cursor:default;pointer-events:none}
   .cal-wk{display:grid;grid-template-columns:repeat(7,1fr);margin-bottom:2px}
   .cal-wk span{text-align:center;font-size:11px;color:var(--mute);padding:3px 0}
-  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
-  .cal-d{height:28px;display:flex;align-items:center;justify-content:center;font-size:12px;
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);grid-auto-rows:30px;
+            align-content:start;gap:2px}
+  .cal-d{height:30px;display:flex;align-items:center;justify-content:center;font-size:12px;
          border-radius:5px;color:var(--mute)}
   .cal-d.empty{visibility:hidden}
   .cal-d.off{color:#cbd5e1;cursor:default}
