@@ -104,6 +104,29 @@
   }
   .dd .dd-pop .opt.expanded .sub-pop{display:block}
 
+  /* ====== 日历选择器 (当前日期 / 对比日期) ====== */
+  .dd .dd-pop .cal{padding:8px;min-width:232px}
+  .cal-hd{display:flex;align-items:center;gap:2px;margin-bottom:6px}
+  .cal-title{flex:1;text-align:center;font-weight:600;font-size:13px;color:var(--fg)}
+  .cal-nav{width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;
+           border-radius:5px;color:var(--mute);cursor:pointer;font-size:13px;user-select:none;transition:all .12s}
+  .cal-nav:hover{background:var(--acc-soft);color:var(--acc)}
+  .cal-nav.dis{opacity:.3;cursor:default;pointer-events:none}
+  .cal-wk{display:grid;grid-template-columns:repeat(7,1fr);margin-bottom:2px}
+  .cal-wk span{text-align:center;font-size:11px;color:var(--mute);padding:3px 0}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+  .cal-d{height:28px;display:flex;align-items:center;justify-content:center;font-size:12px;
+         border-radius:5px;color:var(--mute)}
+  .cal-d.empty{visibility:hidden}
+  .cal-d.off{color:#cbd5e1;cursor:default}
+  .cal-d.on{color:var(--acc);font-weight:600;cursor:pointer}
+  .cal-d.on:hover{background:var(--acc-soft)}
+  .cal-d.sel,.cal-d.sel:hover{background:var(--acc);color:#fff}
+  .cal-none{margin-top:6px;padding:6px;text-align:center;font-size:12px;border-radius:5px;
+            border:1px solid var(--line);color:var(--mute);cursor:pointer;transition:all .12s}
+  .cal-none:hover{border-color:var(--acc);color:var(--acc)}
+  .cal-none.sel{background:var(--acc);color:#fff;border-color:var(--acc)}
+
   .chip{background:var(--card);border:1px solid var(--line);padding:6px 12px;border-radius:14px;cursor:pointer;font-size:13px;display:inline-flex;align-items:center;gap:6px;transition:all .12s;user-select:none}
   .chip:hover{border-color:var(--acc)}
   .chip.active{border-color:var(--acc);background:var(--acc-soft);color:var(--acc)}
@@ -552,8 +575,8 @@ async function boot(){
     prevSel.addEventListener(ev, render);
   });
   // 镜像 snap/prev <select> 成胶囊下拉; cat 改用多选 popover
-  setupSelectDropdown('snap', 'snapPop', 'ddSnap');
-  setupSelectDropdown('prev', 'prevPop', 'ddPrev');
+  setupCalendarDropdown('snap', 'snapPop', 'ddSnap', {allowNone:false});
+  setupCalendarDropdown('prev', 'prevPop', 'ddPrev', {allowNone:true});
   setupDropdownToggles();
   document.getElementById('reset').onclick=()=>{
     SEL_BRANDS.clear(); SUB_CHECKED=null;
@@ -1468,6 +1491,79 @@ function setupSelectDropdown(selId, popId, valId){
   build();
   sel.addEventListener('change', ()=>{ build(); });
   // expose for refresh after dynamic option add
+  sel._ddRebuild = build;
+}
+/* 日历版下拉 (当前日期/对比日期): 单月网格, 仅有快照的日期可点; 底层仍同步隐藏 <select> */
+function setupCalendarDropdown(selId, popId, valId, opts){
+  opts = opts || {};
+  const sel = document.getElementById(selId);
+  const pop = document.getElementById(popId);
+  const val = document.getElementById(valId);
+  const WK = ['一','二','三','四','五','六','日'];
+  let viewYM = null;  // 年*12 + (月-1)
+  const avail = () => [...sel.options].map(o=>o.value).filter(v=>/^\d{8}$/.test(v));
+  const ymOf  = ts => (+ts.slice(0,4))*12 + (+ts.slice(4,6)-1);
+  const defaultYM = () => {
+    if(/^\d{8}$/.test(sel.value)) return ymOf(sel.value);
+    const a = avail();
+    if(a.length) return ymOf(a[a.length-1]);
+    const d = new Date(); return d.getFullYear()*12 + d.getMonth();
+  };
+  function build(){
+    if(viewYM==null) viewYM = defaultYM();
+    const ar = avail().map(ymOf);
+    const minYM = ar.length ? Math.min(...ar) : null;
+    const maxYM = ar.length ? Math.max(...ar) : null;
+    if(minYM!=null) viewYM = Math.max(minYM, Math.min(maxYM, viewYM));
+    const y = Math.floor(viewYM/12), m = viewYM%12;       // m: 0-based
+    const availSet = new Set(avail());
+    const lead = (new Date(y, m, 1).getDay()+6)%7;         // 周一为首列
+    const dim  = new Date(y, m+1, 0).getDate();
+    let cells = '';
+    for(let i=0;i<lead;i++) cells += '<div class="cal-d empty"></div>';
+    for(let d=1; d<=dim; d++){
+      const ts = `${y}${String(m+1).padStart(2,'0')}${String(d).padStart(2,'0')}`;
+      const has = availSet.has(ts), seld = ts===sel.value;
+      cells += `<div class="cal-d ${has?'on':'off'} ${seld?'sel':''}" ${has?`data-v="${ts}"`:''}>${d}</div>`;
+    }
+    const prevDis = (minYM!=null && viewYM<=minYM) ? 'dis' : '';
+    const nextDis = (maxYM!=null && viewYM>=maxYM) ? 'dis' : '';
+    const none = opts.allowNone
+      ? `<div class="cal-none ${sel.value===''?'sel':''}" data-none="1">不对比</div>` : '';
+    pop.innerHTML = `<div class="cal">
+      <div class="cal-hd">
+        <span class="cal-nav ${prevDis}" data-j="-12">«</span>
+        <span class="cal-nav ${prevDis}" data-j="-1">‹</span>
+        <span class="cal-title">${y} 年 ${m+1} 月</span>
+        <span class="cal-nav ${nextDis}" data-j="1">›</span>
+        <span class="cal-nav ${nextDis}" data-j="12">»</span>
+      </div>
+      <div class="cal-wk">${WK.map(w=>`<span>${w}</span>`).join('')}</div>
+      <div class="cal-grid">${cells}</div>${none}</div>`;
+    pop.querySelectorAll('.cal-nav').forEach(n=>n.onclick=ev=>{
+      ev.stopPropagation();
+      if(n.classList.contains('dis')) return;
+      viewYM += (+n.dataset.j); build();
+    });
+    pop.querySelectorAll('.cal-d.on').forEach(c=>c.onclick=ev=>{
+      ev.stopPropagation();
+      sel.value = c.dataset.v; sel.dispatchEvent(new Event('change'));
+      build(); closeAllDD();
+    });
+    const noneEl = pop.querySelector('.cal-none');
+    if(noneEl) noneEl.onclick=ev=>{
+      ev.stopPropagation();
+      sel.value=''; sel.dispatchEvent(new Event('change'));
+      build(); closeAllDD();
+    };
+    syncLabel();
+  }
+  function syncLabel(){
+    const o = sel.options[sel.selectedIndex];
+    val.textContent = o ? o.textContent : (opts.allowNone ? '不对比' : '-');
+  }
+  build();
+  sel.addEventListener('change', ()=>{ viewYM = defaultYM(); build(); });
   sel._ddRebuild = build;
 }
 function refreshSelectDDs(){
