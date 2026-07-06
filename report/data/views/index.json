@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-29T01:11:37.569Z",
+  "generatedAt": "2026-07-06T03:35:19.380Z",
   "reports": [
     {
       "oldTs": "20260504",
@@ -42,9 +42,19 @@
       "href": "data/views/report_20260622_vs_20260629.json"
     },
     {
+      "oldTs": "20260629",
+      "newTs": "20260706",
+      "href": "data/views/report_20260629_vs_20260706.json"
+    },
+    {
       "oldTs": "20260504",
       "newTs": "20260601",
       "href": "data/views/report_20260504_vs_20260601.json"
+    },
+    {
+      "oldTs": "20260601",
+      "newTs": "20260706",
+      "href": "data/views/report_20260601_vs_20260706.json"
     }
   ]
 }
