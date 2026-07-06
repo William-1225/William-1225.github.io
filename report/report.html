@@ -287,6 +287,23 @@
   .cat-luxury{--group:#2563eb}
   .cat-super{--group:#d97706}
 
+  /* ── 更新日志 ── */
+  .cl-month{margin-bottom:20px}
+  .cl-month-hd{font-size:13px;font-weight:700;color:var(--fg);margin:0 0 8px;padding-left:2px;display:flex;align-items:center;gap:8px}
+  .cl-month-hd::before{content:"";width:4px;height:15px;border-radius:4px;background:var(--acc)}
+  .doc-log-title{font-size:15px;font-weight:700;color:var(--fg);margin:26px 0 10px}
+  .doc-log{border:1px solid var(--line);border-radius:8px;background:#fff;overflow:hidden}
+  .doc-log-item{display:flex;gap:14px;padding:12px 16px;border-bottom:1px solid var(--line)}
+  .doc-log-item:last-child{border-bottom:0}
+  .doc-log-date{flex:0 0 84px;color:var(--mute);font-size:12px;font-variant-numeric:tabular-nums;padding-top:2px;white-space:nowrap}
+  .doc-log-body{flex:1;font-size:13px;line-height:1.65;color:#344054}
+  .doc-log-tag{display:inline-block;font-size:11px;font-weight:600;padding:1px 7px;border-radius:4px;margin-right:7px}
+  .doc-log-tag.feat{background:#d1fae5;color:#065f46}
+  .doc-log-tag.opt{background:#e0edff;color:#1e40af}
+  .doc-log-tag.fix{background:#fef3c7;color:#92400e}
+  .doc-log-body ul{margin:5px 0 0;padding-left:17px}
+  .doc-log-body li{margin:2px 0}
+
   /* ── 全局滚动条：细款半透明 ── */
   ::-webkit-scrollbar{width:10px;height:10px}
   ::-webkit-scrollbar-track{background:transparent}
@@ -313,6 +330,7 @@
     <div class="nav-item" data-page="penetration"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg>城市覆盖率</div>
     <div class="nav-item" data-page="download"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>数据下载</div>
     <div class="nav-item" data-page="doc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>口径说明</div>
+    <div class="nav-item" data-page="changelog"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v5h5"/><path d="M3.05 13A9 9 0 1 0 6 5.3L3 8"/><path d="M12 7v5l4 2"/></svg>更新日志</div>
   </div>
 </nav>
 
@@ -473,6 +491,11 @@
 <!-- 右侧：口径说明 -->
 <div id="page-doc" class="page doc-page" style="display:none">
   <div class="doc-wrap" id="docBody"></div>
+</div>
+
+<!-- 右侧：更新日志 -->
+<div id="page-changelog" class="page doc-page" style="display:none">
+  <div class="doc-wrap" id="changelogBody"></div>
 </div>
 
 <!-- 右侧：数据下载 -->
@@ -674,7 +697,7 @@ function switchTab(name){
 /* ── 左侧导航切换 ── */
 function switchPage(name){
   document.querySelectorAll('.nav-item').forEach(el=>el.classList.toggle('active', el.dataset.page===name));
-  ['viz','report','monthly','doc','download','penetration'].forEach(p=>{
+  ['viz','report','monthly','doc','changelog','download','penetration'].forEach(p=>{
     document.getElementById('page-'+p).style.display = p===name ? (p==='viz'?'flex':'block') : 'none';
   });
   if(name==='viz'){
@@ -686,6 +709,7 @@ function switchPage(name){
   if(name==='report') _initReport();
   if(name==='monthly') _initMonthlyReport();
   if(name==='doc') renderDoc();
+  if(name==='changelog') renderChangelog();
   if(name==='download') _initDownload();
   if(name==='penetration') renderPenetration();
 }
@@ -2202,6 +2226,8 @@ function bindTrendHandlers(groupKeys){
 }
 
 /* ============ 单品牌钻取: 左 省份热力图 + 右 省份明细表 ============ */
+// 点省份(地图/表格行)→弹窗时读取的每省网点明细缓存, 由 renderProvMap 填充
+let PROV_LOCS = {};
 // 把简称省名映射到 GeoJSON 全称（与 renderMap 同一份候选列表）
 function fullProvNames(short){
   return [short, short+'省', short+'市',
@@ -2241,18 +2267,19 @@ async function renderProvMap(){
     }
     return true;
   };
-  const buildProvSets = (snap) => {
+  // 每省 Map(去重键 → location 对象), 去重键与地图/表格计数完全一致(名称||地址)
+  const buildProvLocs = (snap) => {
     if(!snap) return {};
     const locs = buildLocations(filterGlobal(snap.dealers)).filter(subFilter);
     const o = {};
     for(const l of locs){
       const p = stripSuffix(l.p);
-      (o[p] ??= new Set()).add(l.n + '||' + (l.a||''));
+      (o[p] ??= new Map()).set(l.n + '||' + (l.a||''), l);
     }
     return o;
   };
-  const curSets = buildProvSets(CUR);
-  const preSets = PREV ? buildProvSets(PREV) : {};
+  const curSets = buildProvLocs(CUR);
+  const preSets = PREV ? buildProvLocs(PREV) : {};
 
   const allProvs = new Set([...Object.keys(curSets), ...Object.keys(preSets)]);
   const total = [...allProvs].reduce((s,p)=>s+(curSets[p]?.size||0), 0);
@@ -2262,17 +2289,29 @@ async function renderProvMap(){
     const cur = curSets[p] ? curSets[p].size : 0;
     const pre = preSets[p] ? preSets[p].size : 0;
     let add=0, rem=0;
-    if(curSets[p]) for(const n of curSets[p]) if(!preSets[p] || !preSets[p].has(n)) add++;
-    if(preSets[p]) for(const n of preSets[p]) if(!curSets[p] || !curSets[p].has(n)) rem++;
+    if(curSets[p]) for(const n of curSets[p].keys()) if(!preSets[p] || !preSets[p].has(n)) add++;
+    if(preSets[p]) for(const n of preSets[p].keys()) if(!curSets[p] || !curSets[p].has(n)) rem++;
     return {p, cur, pre, add, rem, pct: total ? cur/total*100 : 0};
   }).sort((a,b)=> b.cur - a.cur);
+
+  // 缓存每省网点明细(供点击弹窗): 新增→退出→在营, 组内按名称
+  PROV_LOCS = {};
+  const _statusOrd = {新增:0, 退出:1, 在营:2};
+  for(const p of allProvs){
+    const cm = curSets[p] || new Map(), pm = preSets[p] || new Map();
+    const list = [];
+    for(const [k,l] of cm) list.push({status: pm.has(k)?'在营':'新增', ...l});
+    for(const [k,l] of pm) if(!cm.has(k)) list.push({status:'退出', ...l});
+    list.sort((a,b)=> (_statusOrd[a.status]-_statusOrd[b.status]) || (a.n||'').localeCompare(b.n||''));
+    PROV_LOCS[p] = list;
+  }
 
   // 渲染表格
   const tbody = document.querySelector('#provTable tbody');
   tbody.innerHTML = rows.map(r => {
     const addCell = r.add ? `<span style="color:#1a7f37">+${r.add}</span>` : '<span style="color:#8c959f">0</span>';
     const remCell = r.rem ? `<span style="color:#cf222e">-${r.rem}</span>` : '<span style="color:#8c959f">0</span>';
-    return `<tr>
+    return `<tr data-prov="${r.p}" style="cursor:pointer" title="点击查看${r.p}网点明细">
       <td>${r.p}</td>
       <td style="text-align:right">${r.cur}</td>
       <td style="text-align:right;color:#656d76">${r.pct.toFixed(1)}%</td>
@@ -2280,6 +2319,7 @@ async function renderProvMap(){
       <td style="text-align:right">${remCell}</td>
     </tr>`;
   }).join('') || `<tr><td colspan="5" class="empty">无数据</td></tr>`;
+  tbody.onclick = e=>{ const tr=e.target.closest('tr[data-prov]'); if(tr) openProvDetailModal(tr.dataset.prov); };
 
   const provTitleBrand = (()=>{
     const g = ACTIVE_BRAND;
@@ -2331,6 +2371,9 @@ async function renderProvMap(){
     }],
   }, true);
   provMapChart.resize();
+  // 点省份 → 弹该省网点明细(off 先解绑, 避免 renderProvMap 多次调用重复绑定)
+  provMapChart.off('click');
+  provMapChart.on('click', pe=>{ const sn = shortOf[pe.name]; if(sn && PROV_LOCS[sn] && PROV_LOCS[sn].length) openProvDetailModal(sn); });
 
   const jieSubBlock = document.getElementById('jieSubBlock');
   const jieBlock = document.getElementById('jieStoreBlock');
@@ -2401,6 +2444,56 @@ async function renderProvMap(){
   } else {
     mbBlock.style.display='none';
   }
+}
+
+// ── 点省份 → 弹窗看该省网点明细(在营/新增/退出), 字段同可视化明细表 ──
+function openProvDetailModal(prov){
+  const data = PROV_LOCS[prov];
+  if(!data || !data.length) return;
+  const brandLbl = (()=>{
+    const g = ACTIVE_BRAND;
+    if(GROUP_SUBS[g] && SUB_CHECKED && SUB_CHECKED.size>0) return `${g}（${[...SUB_CHECKED].join(' ')}）`;
+    return g;
+  })();
+  const nCur = data.filter(r=>r.status!=='退出').length;
+  const nAdd = data.filter(r=>r.status==='新增').length;
+  const nRem = data.filter(r=>r.status==='退出').length;
+  const period = PREV ? `${fmtTs(PREV.ts)} → ${fmtTs(CUR.ts)}` : fmtTs(CUR.ts);
+  let mask = document.getElementById('provModal');
+  if(!mask){ mask = document.createElement('div'); mask.id='provModal'; mask.className='modal-mask'; document.body.appendChild(mask); }
+  mask.innerHTML = `<div class="modal-card">
+    <div class="modal-head">
+      <div><b>${prov}</b> · ${brandLbl}　<span style="color:var(--mute);font-weight:400;font-size:13px">当期 ${nCur} · <span style="color:#1a7f37">新增 +${nAdd}</span> · <span style="color:#cf222e">退出 -${nRem}</span>　${period}</span></div>
+      <button class="modal-x" aria-label="关闭">×</button>
+    </div>
+    <input class="modal-search" placeholder="搜索名称 / 地址 / 城市 …">
+    <div class="modal-body"><table class="modal-table">
+      <thead><tr><th>状态</th><th>名称</th><th>大区</th><th>省/市</th><th>等级</th><th>类型</th><th>地址</th></tr></thead>
+      <tbody></tbody></table></div>
+  </div>`;
+  mask.style.display = 'flex';
+  const render = (q='')=>{
+    const ql = q.trim().toLowerCase();
+    const list = ql ? data.filter(r=>(r.n||'').toLowerCase().includes(ql)||(r.a||'').toLowerCase().includes(ql)||(r.c||'').toLowerCase().includes(ql)) : data;
+    const tb = mask.querySelector('.modal-table tbody');
+    if(!list.length){ tb.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--mute);padding:24px">无匹配</td></tr>'; return; }
+    tb.innerHTML = list.map(r=>{
+      const cls = r.status==='新增'?'add':r.status==='退出'?'del':'';
+      return `<tr>
+        <td><span class="pill ${cls}">${r.status}</span></td>
+        <td>${r.n||''}</td><td>${r.r||''}</td><td>${r.p||''} ${r.c||''}</td>
+        <td>${r.lv||''}</td><td>${r.t||''}</td>
+        <td style="color:var(--mute)">${r.a||''}</td>
+      </tr>`;
+    }).join('');
+  };
+  render();
+  const close = ()=>{ mask.style.display='none'; document.removeEventListener('keydown', onEsc); };
+  function onEsc(ev){ if(ev.key==='Escape') close(); }
+  mask.querySelector('.modal-x').onclick = close;
+  mask.onclick = e=>{ if(e.target===mask) close(); };
+  mask.querySelector('.modal-search').oninput = e=>render(e.target.value);
+  document.addEventListener('keydown', onEsc);
 }
 
 /* ============ 奔驰特色授权网点图 ============ */
@@ -2645,6 +2738,23 @@ function exportCSV(){
 }
 
 /* ========= 口径说明页面 ========= */
+// 更新日志: 最新在最前, 渲染时按月份分组. tag: feat=新功能 / opt=优化 / fix=修复.
+// 只记对用户有意义的更新; 改名/内部重构等琐碎变动不入日志. 新增一期 = 顶部加一条.
+const CHANGELOG = [
+  {date:'2026-07-06', tag:'feat', tagText:'新功能',
+   text:'网点查询页支持省份下钻：点击地图上的省份或右侧「省份明细」表的任意一行，即可查看该省网点清单（在营 / 新增 / 退出，支持按名称、地址、城市搜索）。'},
+  {date:'2026-06-17', tag:'feat', tagText:'新功能',
+   items:['新增「城市覆盖率」页，按城市线级统计各品牌的城市覆盖情况。',
+          '网点按「销售能力 / 售后能力」拆分口径，可分别查看。']},
+  {date:'2026-06-16', tag:'feat', tagText:'新功能',
+   text:'新增奔驰「高端授权网点」图，展示 G-Class / AMG / 迈巴赫授权网点分布。'},
+  {date:'2026-06-01', tag:'opt', tagText:'优化',
+   text:'月度 / 当期报告改版；跨期同店配对更精准，门店改名或地址微调不再被误判为「退出 + 新增」。'},
+  {date:'2026-05-28', tag:'feat', tagText:'新功能',
+   text:'新增「口径说明」页，公开各品牌网点纳入范围与去重、跨期对比规则。'},
+  {date:'2026-04-18', tag:'opt', tagText:'优化',
+   text:'全部品牌切换为官方数据接口直连采集，数据更新更稳定、更及时。'},
+];
 const DOC_BRANDS = [
   {cat:'ev', b:'蔚来', sales:'直营店、交付中心、服务中心等', service:'同销售口径', note:'蔚来门店按直营体系统一纳入统计；同一实体网点可同时进入销售与售后能力视图，全部口径按物理网点去重。'},
   {cat:'ev', b:'理想', sales:'零售中心、用户服务中心、交付中心', service:'用户服务中心等', note:'包含零售中心、用户服务中心、交付中心，数据来自官网经销商查询页面。'},
@@ -2854,6 +2964,38 @@ function renderDoc(){
   `;
 
   body.innerHTML = html;
+  body.dataset.rendered = '1';
+}
+
+/* ========= 更新日志页面（按月份分组） ========= */
+function renderChangelog(){
+  const body = document.getElementById('changelogBody');
+  if(body.dataset.rendered) return;
+
+  // 按月份(YYYY-MM)分组, 保持 CHANGELOG 原顺序(最新在前)
+  const groups = [], gi = {};
+  for(const e of CHANGELOG){
+    const m = e.date.slice(0,7);
+    if(!(m in gi)){ gi[m] = groups.length; groups.push({month:m, list:[]}); }
+    groups[gi[m]].list.push(e);
+  }
+  const monthLabel = m => { const [y,mo] = m.split('-'); return `${y} 年 ${+mo} 月`; };
+
+  const sections = groups.map(g => {
+    const items = g.list.map(e => {
+      const inner = e.items ? `<ul>${e.items.map(i=>`<li>${i}</li>`).join('')}</ul>` : e.text;
+      const dm = e.date.slice(5).replace('-','/'); // MM/DD, 月份已在分组标题
+      return `<div class="doc-log-item">
+        <div class="doc-log-date">${dm}</div>
+        <div class="doc-log-body"><span class="doc-log-tag ${e.tag}">${e.tagText}</span>${inner}</div>
+      </div>`;
+    }).join('');
+    return `<div class="cl-month"><div class="cl-month-hd">${monthLabel(g.month)}</div><div class="doc-log">${items}</div></div>`;
+  }).join('');
+
+  body.innerHTML = `<h1 class="doc-title">更新日志</h1>
+    <div class="doc-sub">看板重要更新记录 · 按月份归档 · 最新在最前</div>
+    ${sections}`;
   body.dataset.rendered = '1';
 }
 
