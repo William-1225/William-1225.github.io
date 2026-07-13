@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-06T03:35:19.380Z",
+  "generatedAt": "2026-07-13T02:00:55.868Z",
   "reports": [
     {
       "oldTs": "20260504",
@@ -45,6 +45,11 @@
       "oldTs": "20260629",
       "newTs": "20260706",
       "href": "data/views/report_20260629_vs_20260706.json"
+    },
+    {
+      "oldTs": "20260706",
+      "newTs": "20260713",
+      "href": "data/views/report_20260706_vs_20260713.json"
     },
     {
       "oldTs": "20260504",
