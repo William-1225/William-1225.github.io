@@ -235,7 +235,7 @@
   /* 品牌网点数 / 净变化：胶囊标签 + 细条形列表 */
   .bar-row{margin-bottom:15px;cursor:pointer}
   .bar-row:last-child{margin-bottom:0}
-  .bar-pill{display:inline-flex;align-items:center;padding:2px 10px;border-radius:999px;font-size:11.5px;font-weight:600;margin-bottom:7px}
+  .bar-pill{display:inline-flex;align-items:center;padding:2px 10px;border-radius:999px;font-size:11.5px;font-weight:600;margin-bottom:3px}
   .bar-line{display:flex;align-items:center;gap:10px}
   .bar-track{flex:1;height:6px;border-radius:999px;background:#eef1f4;overflow:hidden}
   .bar-fill{height:100%;border-radius:999px}
@@ -414,8 +414,11 @@
     <!-- 跨品牌模式: 左柱状 + 右趋势，各自独立卡片 -->
     <div id="netSplit" style="display:flex;gap:14px;align-items:stretch">
       <div class="panel" style="flex:1;min-width:0;display:flex;flex-direction:column">
-        <div class="ct-title">品牌网点数 / 净变化</div>
-        <div id="netchart" style="flex:1;min-height:310px;max-height:560px;overflow-y:auto;padding-right:4px"></div>
+        <div style="display:flex;align-items:center">
+          <div class="ct-title" style="margin:0;flex:1">品牌网点数 / 净变化</div>
+          <div class="bar-val-lbl" style="min-width:100px;text-align:right;padding-right:4px">网点数</div>
+        </div>
+        <div id="netchart" style="flex:1;min-height:310px;max-height:560px;overflow-y:auto;padding-right:4px;margin-top:8px"></div>
       </div>
       <div class="panel" style="flex:1;min-width:0;display:flex;flex-direction:column">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
@@ -425,7 +428,7 @@
             <div class="dd-pop wide"><div id="trendChips"></div></div>
           </div>
           <div class="dd" data-dd="trendPeriod">
-            <span class="dd-lbl">时间维度</span><span class="dd-val" id="ddTrendPeriod">周度</span><span class="dd-arrow">▾</span>
+            <span class="dd-lbl">时间维度</span><span class="dd-val" id="ddTrendPeriod">月度</span><span class="dd-arrow">▾</span>
             <div class="dd-pop" style="min-width:100px"><div id="trendPeriodChips"></div></div>
           </div>
         </div>
@@ -595,7 +598,7 @@ let CUR_TAB      = 'net';
 let TREND_SELECTED = null;       // Set<trend key>; null = 取默认
 let TREND_QUICK = 'default';     // default/all/luxury/ev/super/null(自定义)
 let TREND_HOVER_SERIES = null;
-let TREND_PERIOD = 'week';       // week/month，趋势图统计维度，默认周度
+let TREND_PERIOD = 'month';      // week/month，趋势图时间维度，默认月度
 
 async function boot(){
   try{
@@ -691,6 +694,7 @@ async function ensureSnap(ts){
     delete snap.rows;
   }
   SNAP_CACHE[ts] = snap;
+  meta.dealers = snap.dealers;  // 回填到 DATA.snapshots 原始条目，trendSeriesData() 等按 s.dealers 遍历全期的逻辑才能读到
   return snap;
 }
 
@@ -1707,7 +1711,17 @@ async function render(){
   document.getElementById('meta').textContent =
     `共 ${DATA.snapshots.length} 期 · 当前 ${fmtTs(CUR.ts)}` + (PREV?` · 对比 ${fmtTs(PREV.ts)}`:'');
 
-  if(CUR_TAB==='net') renderNetTab(curLocs, prevLocs);
+  if(CUR_TAB==='net'){
+    // 筛选（网点类型/大区/城市等级/省份/城市/品牌）激活时，趋势折线图需要全部历史期的经销商明细，
+    // 而默认只有当前期/对比期会被加载——这里提前把其余期数补拉齐，避免 trendSeriesData() 里
+    // 因某期 dealers 未加载而漏算（数据缺口，非报错；trendSeriesData 本身已做兜底不会崩）。
+    const filtersActive = SEL_CATS.size || SEL_REGIONS.size || SEL_TIERS.size || SEL_PROVS.size || SEL_CITIES.size || SEL_BRANDS.size;
+    if(filtersActive){
+      await Promise.all(DATA.snapshots.map(s=>ensureSnap(s.ts).catch(()=>null)));
+      if(seq !== RENDER_SEQ) return;
+    }
+    renderNetTab(curLocs, prevLocs);
+  }
   if(CUR_TAB==='map' && mapLoaded) renderMap();
   if(CUR_TAB==='detail') renderDetail(curLocs, added, removed, diff.changed);
   // 城市覆盖率页若正显示，跟随周期重算（本页用全量数据，不受可视化页筛选影响）
@@ -1999,6 +2013,9 @@ function trendSeriesData(){
     return DATA.snapshots.map(s=>({ts:s.ts, counts:s.trendCounts || {}}));
   }
   return DATA.snapshots.map(s=>{
+    // 历史期 dealers 是懒加载的（仅当前期/对比期保证已加载）；筛选激活时 renderNetTab 会提前
+    // 预拉全部期数，但这里仍做兜底——未加载完成前该期先按 0 处理，不让整个趋势计算崩溃。
+    if(!s.dealers) return {ts:s.ts, counts:{}};
     let list = filterGlobal(s.dealers);
     if(SEL_BRANDS.size) list = list.filter(d=>SEL_BRANDS.has(d.g));
     const locs = buildLocations(list);
@@ -2036,10 +2053,32 @@ const TREND_PALETTE = ['#2563eb','#dc2626','#16a34a','#9333ea','#ea580c',
                        '#be123c','#65a30d','#6d28d9','#0e7490','#a16207',
                        '#1d4ed8','#991b1b','#15803d','#86198f'];
 
+// 品牌配色排序用的数据源：故意不走 trendSeriesData() 的筛选分支——配色应该保持稳定，
+// 不该跟着当前筛选（网点类型/大区/…）变化，也不能因为触发历史期 dealers 懒加载而有崩溃风险。
+// 优先用预计算的 trendCounts（全期数都有，覆盖所有 17 个品牌）；缺失时兜底用已加载过的期数据。
+function trendSeriesDataForColor(){
+  if(DATA.snapshots.every(s=>s.trendCounts)){
+    return DATA.snapshots.map(s=>({ts:s.ts, counts:s.trendCounts || {}}));
+  }
+  const loaded = DATA.snapshots.filter(s=>s.dealers);
+  if(!loaded.length) return [{ts:'', counts:{}}];
+  return loaded.map(s=>{
+    const locs = buildLocations(s.dealers);
+    const counts = {};
+    for(const l of locs){
+      const parts = trendBrandParts(l);
+      if(!parts.group) continue;
+      const gk = trendGroupKey(parts.group);
+      counts[gk] = (counts[gk] || 0) + 1;
+    }
+    return {ts:s.ts, counts};
+  });
+}
+
 // 品牌 -> 趋势线颜色的稳定映射（按当前网点数降序排列，与 renderTrend 内部排序算法保持一致），
 // 供柱状图（renderNet）复用，确保两个图表里同一品牌的颜色一致。
 function trendGroupKeysOrdered(){
-  const sd = trendSeriesData();
+  const sd = trendSeriesDataForColor();
   const last = sd.at(-1).counts;
   const allKeys = new Set();
   sd.forEach(s => Object.keys(s.counts).forEach(k => allKeys.add(k)));
@@ -2152,7 +2191,7 @@ function renderTrend(){
 
   trendChart.setOption({
     backgroundColor: 'transparent',
-    grid: {left: 56, right: 24, top: 16, bottom: 36},
+    grid: {left: 56, right: 36, top: 16, bottom: 36},
     tooltip: {trigger: 'axis', order: 'valueDesc',
       formatter: params => {
         if(!params.length) return '';
@@ -2177,7 +2216,7 @@ function renderTrend(){
         return `<div style="font-weight:600;margin-bottom:4px">${ts}</div>${rows}`;
       }
     },
-    xAxis: {type: 'category', data: xs, axisLabel: {fontSize: 13, color:'#24292f'},
+    xAxis: {type: 'category', data: xs, boundaryGap: false, axisLabel: {fontSize: 13, color:'#24292f'},
             axisLine:{lineStyle:{color:'#d1d5da'}}},
     yAxis: {type: 'value', axisLabel: {fontSize: 13, color:'#24292f'},
             splitLine: {lineStyle: {color: '#e1e4e8'}},
@@ -2638,7 +2677,7 @@ function renderNet(curLocs, prevLocs){
       <div class="bar-pill" style="background:${color}1f;color:${color}">${x.n}</div>
       <div class="bar-line">
         <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${color}"></div></div>
-        <div class="bar-val"><div class="bar-val-lbl">网点数</div><div class="bar-val-num"><b>${x.cur}</b>${deltaHtml}</div></div>
+        <div class="bar-val"><div class="bar-val-num"><b>${x.cur}</b>${deltaHtml}</div></div>
       </div>
     </div>`;
   }).join('');
