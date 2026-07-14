@@ -597,7 +597,7 @@ Object.defineProperty(window, 'ACTIVE_BRAND', { get:()=>ACTIVE_BRAND_VAL() });
 let CUR_TAB      = 'net';
 let TREND_SELECTED = null;       // Set<trend key>; null = 取默认
 let TREND_QUICK = 'default';     // default/all/luxury/ev/super/null(自定义)
-let TREND_HOVER_SERIES = null;
+let TREND_HOVER_Y = null;        // tooltip 内高亮判定用：鼠标相对图表容器的像素Y（见 renderTrend 里的 position 回调）
 let TREND_PERIOD = 'month';      // week/month，趋势图时间维度，默认月度
 
 async function boot(){
@@ -2196,11 +2196,27 @@ function renderTrend(){
       // appendToBody: 挂到 .body（有 overflow-y:auto）内部时，靠近图表顶部悬停会因为祖先裁剪
       // 把最上面几个品牌的行截没（实测复现）；挂到 body 上脱离裁剪祖先，靠 confine 保持不出视口。
       appendToBody: true, confine: true,
+      // position 回调每次移动都会触发（不需要精确停在某个数据点/线段上），把鼠标相对图表容器的
+      // 像素 Y 存下来，供 formatter 用"哪条线在这个 x 上离鼠标 Y 最近"判定高亮——
+      // 和 ECharts 自己给最近那条线加粗（emphasis）用的是同一个"最近"标准，视觉上就能对上。
+      position: (point, _params, _dom, _rect, size) => {
+        TREND_HOVER_Y = point[1];
+        return [point[0]+12, point[1]-size.contentSize[1]/2];
+      },
       formatter: params => {
         if(!params.length) return '';
         const idx = params[0].dataIndex;
         const ts = params[0].axisValueLabel;
-        // 全部选中品牌都照常显示；鼠标停留在某条线上时，只给对应行加淡蓝色圆角高光背景，不隐藏其它行。
+        let hoverKey = null;
+        if(TREND_HOVER_Y != null){
+          let best = Infinity;
+          for(const p of params){
+            const py = trendChart.convertToPixel({seriesIndex:p.seriesIndex}, [idx, p.value])[1];
+            const dist = Math.abs(py - TREND_HOVER_Y);
+            if(dist < best){ best = dist; hoverKey = p.seriesName; }
+          }
+        }
+        // 全部选中品牌都照常显示；离鼠标 Y 最近的那条线对应行加淡蓝色圆角高光背景，不隐藏其它行。
         // 排版：方形色点 + 品牌名(flex:1) + 数值/涨跌右对齐成列。
         const rows = params.slice().sort((a,b)=>b.value-a.value).map(p => {
           const cur = p.value;
@@ -2214,7 +2230,7 @@ function renderTrend(){
             const color = d>0?'#1a7f37':d<0?'#cf222e':'#8c959f';
             pct = `<span style="color:${color};margin-left:2px">（${sign}${d} / ${sign}${pctVal.toFixed(1)}%）</span>`;
           }
-          const hl = TREND_HOVER_SERIES && p.seriesName === TREND_HOVER_SERIES;
+          const hl = p.seriesName === hoverKey;
           const dot = `<span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:${p.color};flex-shrink:0"></span>`;
           return `<div style="display:flex;align-items:center;gap:6px;padding:3px 7px;border-radius:6px;margin:1px 0${hl?';background:#e8f1ff':''}">`
             + dot
@@ -2232,20 +2248,8 @@ function renderTrend(){
             max: v => Math.ceil((v.max + (v.max - v.min) * 0.1) / 10) * 10},
     series
   }, true);
-  trendChart.off('mouseover');
   trendChart.off('mouseout');
-  trendChart.on('mouseover', p => {
-    if(p.componentType==='series'){
-      TREND_HOVER_SERIES = p.seriesName;
-      // 设完 TREND_HOVER_SERIES 后必须重触发 showTip，让 formatter 拿着新 hover 状态重渲染出
-      // 高光行（mousemove 那次渲染发生在本 handler 之前）。showTip 必须同时带 seriesIndex +
-      // dataIndex 才是合法调用，trigger:'axis' 下 tooltip 仍会列出全部已选品牌。
-      trendChart.dispatchAction({type:'showTip', seriesIndex:p.seriesIndex, dataIndex:p.dataIndex});
-    }
-  });
-  trendChart.on('mouseout', p => {
-    if(p.componentType==='series') TREND_HOVER_SERIES = null;
-  });
+  trendChart.on('mouseout', () => { TREND_HOVER_Y = null; });
   trendChart.resize();
 }
 
