@@ -597,7 +597,9 @@ Object.defineProperty(window, 'ACTIVE_BRAND', { get:()=>ACTIVE_BRAND_VAL() });
 let CUR_TAB      = 'net';
 let TREND_SELECTED = null;       // Set<trend key>; null = 取默认
 let TREND_QUICK = 'default';     // default/all/luxury/ev/super/null(自定义)
-let TREND_HOVER_KEY = null;      // tooltip 内高亮判定用：当前原生 hover/emphasis 命中的 series 名（见 renderTrend 里的 mouseover/mouseout）
+let TREND_HOVER_KEY = null;      // tooltip 内高亮判定用：鼠标当前贴近的那条线的 series 名（见 renderTrend 里 zr 的 mousemove 插值判定）
+let TREND_ZR_MOUSEMOVE = null;   // 当前绑定在 trendChart zr 实例上的 mousemove 处理函数引用，重渲染时按引用精确解绑，避免误删 echarts 内部监听
+let TREND_ZR_GLOBALOUT = null;
 let TREND_PERIOD = 'month';      // week/month，趋势图时间维度，默认月度
 
 async function boot(){
@@ -2235,14 +2237,38 @@ function renderTrend(){
             max: v => Math.ceil(v.max * 1.03 / 50) * 50},
     series
   }, true);
-  trendChart.off('mouseover');
-  trendChart.off('mouseout');
-  trendChart.on('mouseover', params => {
-    if(params.componentType === 'series') TREND_HOVER_KEY = params.seriesName;
-  });
-  trendChart.on('mouseout', params => {
-    if(!params.componentType || params.componentType === 'series') TREND_HOVER_KEY = null;
-  });
+
+  // 高亮判定：原生 mouseover 只在精确命中数据点/线条描边(几像素宽)时触发，两点之间的线段大概率打不中，
+  // 表现为"只有三个节点会高亮"。改用 zrender 的连续 mousemove，在当前鼠标 x 对应的两个相邻数据点之间
+  // 按比例插值算出每条线在该 x 处的像素 y，取离鼠标 y 最近且在阈值内的一条——这样线上任意位置都能高亮，
+  // 同时线与线之间的空白仍然不会误触发（阈值之外直接判 null）。
+  const zr = trendChart.getZr();
+  if(TREND_ZR_MOUSEMOVE) zr.off('mousemove', TREND_ZR_MOUSEMOVE);
+  if(TREND_ZR_GLOBALOUT) zr.off('globalout', TREND_ZR_GLOBALOUT);
+  const n = sd.length;
+  TREND_ZR_MOUSEMOVE = e => {
+    if(n < 2){ TREND_HOVER_KEY = null; return; }
+    const x0 = trendChart.convertToPixel({xAxisIndex:0}, 0);
+    const x1 = trendChart.convertToPixel({xAxisIndex:0}, n-1);
+    const fracIdx = (e.offsetX - x0) / (x1 - x0) * (n-1);
+    if(fracIdx < 0 || fracIdx > n-1){ TREND_HOVER_KEY = null; return; }
+    const idxFloor = Math.max(0, Math.min(n-2, Math.floor(fracIdx)));
+    const idxCeil = idxFloor + 1;
+    const t = fracIdx - idxFloor;
+    let best = Infinity, bestKey = null;
+    series.forEach((s, i) => {
+      const yFloor = trendChart.convertToPixel({seriesIndex:i}, [idxFloor, s.data[idxFloor]])[1];
+      const yCeil = trendChart.convertToPixel({seriesIndex:i}, [idxCeil, s.data[idxCeil]])[1];
+      const yInterp = yFloor + (yCeil - yFloor) * t;
+      const dist = Math.abs(e.offsetY - yInterp);
+      if(dist < best){ best = dist; bestKey = s.name; }
+    });
+    TREND_HOVER_KEY = best <= 12 ? bestKey : null;
+  };
+  TREND_ZR_GLOBALOUT = () => { TREND_HOVER_KEY = null; };
+  zr.on('mousemove', TREND_ZR_MOUSEMOVE);
+  zr.on('globalout', TREND_ZR_GLOBALOUT);
+
   trendChart.resize();
 }
 
