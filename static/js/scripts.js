@@ -60,9 +60,9 @@ const contentData = {
 - **商务支持**：整理新品产品参数对比表与报价单，对接北美存量客户开展新品介绍与选品支持，结合客户历史采购偏好推荐适配产品组合，辅助客户完成新订单周期选品决策，支持销售团队维护客户关系与复购转化。
 <br><br>`,
         project: `### **竞对渠道监测**
-**2026.01-至今&nbsp;&nbsp;|&nbsp;&nbsp;个人项目&nbsp;&nbsp;|&nbsp;&nbsp;每周自动更新**
+**2026.01-2026.05&nbsp;&nbsp;|&nbsp;&nbsp;个人项目&nbsp;&nbsp;|&nbsp;&nbsp;每周自动更新**
 
-面向豪华及新能源汽车板块，持续追踪 17 个主流品牌、8700+ 经销商网点的渠道布局变化，为产品定位、区域策略与渠道规划提供数据支撑。
+面向豪华及新能源汽车板块，持续追踪 17 个主流品牌、8800+ 经销商网点的渠道布局变化，为产品定位、区域策略与渠道规划提供数据支撑。
 
 \`渠道分析\` &nbsp;·&nbsp; \`市场研究\` &nbsp;·&nbsp; \`数据可视化\` &nbsp;·&nbsp; \`Python\`
 
@@ -145,9 +145,9 @@ Overseas order management and customer analysis to support international busines
 - Supported North American customer product selection, assisted in customer relationship maintenance and repurchase growth.
 <br><br>`,
         project: `### **Competitor Dealer Network Monitoring**
-**Jan 2026 - Present&nbsp;&nbsp;|&nbsp;&nbsp;Personal Project&nbsp;&nbsp;|&nbsp;&nbsp;Weekly Auto-Update**
+**Jan 2026 - May 2026&nbsp;&nbsp;|&nbsp;&nbsp;Personal Project&nbsp;&nbsp;|&nbsp;&nbsp;Weekly Auto-Update**
 
-Continuous tracking of 17 luxury and new-energy automotive brands across 8,700+ dealer locations, providing data support for product positioning, regional strategy, and channel planning.
+Continuous tracking of 17 luxury and new-energy automotive brands across 8,800+ dealer locations, providing data support for product positioning, regional strategy, and channel planning.
 
 \`Channel Analysis\` &nbsp;·&nbsp; \`Market Research\` &nbsp;·&nbsp; \`Data Visualization\` &nbsp;·&nbsp; \`Python\`
 
