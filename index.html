@@ -18,7 +18,7 @@ body {
   overflow: overlay;
   background-color: #fbfbfb;
   color: #161209;
-  font-family: 'Microsoft Jhenghei', 'Lantinghei SC', 'PingFang SC', 'Segoe UI', 'Microsoft Yahei', Arial, sans-serif;
+  font-family: 'PingFang SC', 'Microsoft Yahei', 'Segoe UI', 'Microsoft Jhenghei', 'Lantinghei SC', Arial, sans-serif;
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
   margin: 0;
 }
@@ -394,6 +394,13 @@ body.dark-theme .page-heading { color: #a9a9b3; border-color: #3a3a3e; }
 .entry-logo.logo-usyd { padding: .32em; }
 .entry-logo.logo-wku { padding: .3em; }
 .entry-logo.logo-wku img { border-radius: 50%; }
+.entry-logo.logo-dewu {
+  background: #17171a;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05em;
+  letter-spacing: .02em;
+}
 /* compact timeline entries (no bullets) */
 .entry-compact { padding-top: .95em; padding-bottom: 1.15em; }
 .entry-compact .entry-header { margin-bottom: 0; }
@@ -405,6 +412,7 @@ body.dark-theme .entry-logo {
 }
 body.dark-theme .entry-logo.logo-dark { background: #1f2a2a; }
 body.dark-theme .entry-logo.logo-sjtu { background: #b10f2e; }
+body.dark-theme .entry-logo.logo-dewu { background: #17171a; color: #fff; }
 .entry:hover::after { background: #8f8f8f; }
 .entry-header {
   display: flex;
@@ -698,6 +706,18 @@ body.dark-theme .about-bio { color: #888; }
       <div class="timeline" style="margin-top:1em;">
 
         <div class="entry has-logo entry-compact">
+          <div class="entry-logo logo-dewu">得物</div>
+          <div class="entry-header">
+            <div>
+              <div class="entry-company" id="a-dewu-co">得物</div>
+              <div class="entry-role" id="a-dewu-role">国际电商运营实习生</div>
+              <div class="entry-loc" id="a-dewu-loc">上海</div>
+            </div>
+            <div class="entry-date" id="a-dewu-date">2026.06 – 至今</div>
+          </div>
+        </div>
+
+        <div class="entry has-logo entry-compact">
           <div class="entry-logo logo-jlr"><img src="static/assets/logos/jlr.svg" alt="JLR logo" /></div>
           <div class="entry-header">
             <div>
@@ -759,6 +779,25 @@ body.dark-theme .about-bio { color: #888; }
       <br>
 
       <div class="entry has-logo">
+        <div class="entry-logo logo-dewu">得物</div>
+        <div class="entry-header">
+          <div>
+            <div class="entry-company" id="c-dewu-co">得物</div>
+            <div class="entry-role" id="c-dewu-role">国际电商运营实习生</div>
+            <div class="entry-loc" id="c-dewu-loc">上海</div>
+          </div>
+          <div class="entry-date" id="c-dewu-date">2026.06 – 至今</div>
+        </div>
+        <hr class="entry-divider"/>
+        <div class="entry-label" id="c-label-dewu">主要贡献</div>
+        <ul class="entry-bullets">
+          <li id="dewu1"><strong>品牌运营策略</strong> — <span class="dim">针对重点品牌月度 GMV 下滑，交叉对标竞品搜索 UV、GMV、大盘趋势与本地货源覆盖，定位瓶颈为供给承接不足；推动建立周度新品监控机制，对 20+ 款高热高潜 SPU 补贴并触达核心商家，重点系列月度 GMV 增长 15%</span></li>
+          <li id="dewu2"><strong>供给机会挖掘</strong> — <span class="dim">梳理品牌官网库存至商家可获利 SKU 的供给链路，量化各环节转化率以定位增量货品机会；基于 AI 搭建「货号校验-利润测算-机会排序」自动化工作流，单次盘货耗时缩短 70%，提升商家选品决策与入仓效率</span></li>
+          <li id="dewu3"><strong>新品上市监测</strong> — <span class="dim">因日本市场新品渠道分散、长期依赖人工周度汇总，开发 SNKRDUNK 等平台新品自动采集脚本并接入后台，实现「采集-汇总-推送」自动化运转，信息整理耗时减少 80%，支持货架及时纳新与新品机会追踪</span></li>
+        </ul>
+      </div>
+
+      <div class="entry has-logo">
         <div class="entry-logo logo-jlr">
           <img src="static/assets/logos/jlr.svg" alt="JLR logo" />
         </div>
@@ -773,10 +812,9 @@ body.dark-theme .about-bio { color: #888; }
         <hr class="entry-divider"/>
         <div class="entry-label" id="c-label1">主要贡献</div>
         <ul class="entry-bullets">
-          <li id="jlr1"><strong>数据基建与看板</strong> — <span class="dim">搭建竞对经销商渠道监测看板，覆盖 17 品牌 / 8,800+ 网点 / 290+ 城市，支持区域、城市、品牌多维下钻；通过 Vibe Coding 构建「采集-分析-洞察-看板」AI 自动化链路，渠道调研周期缩短 80%，月度使用率达 90%+</span></li>
-          <li id="jlr2"><strong>竞对策略分析</strong> — <span class="dim">整合豪华品牌销量、财报、产品规划及渠道动态，输出 10+ 份竞品分析报告，拆解销量波动、价格策略与新车投放节奏，支撑产品定位与竞争应对</span></li>
-          <li id="jlr3"><strong>市场研究</strong> — <span class="dim">持续追踪 20+ 车企月度销量、年度目标及达成进度，结合乘联会数据、行业政策与宏观报告输出 3 期市场快报与专题分析</span></li>
-          <li id="jlr4"><strong>AI 驱动分析优化</strong> — <span class="dim">整合中汽协 5,000+ 条保值率数据构建残值分析底表，沉淀结构化 AI 分析框架与输出规则，数据解读效率提升 50%+，支撑生命周期管理与定价</span></li>
+          <li id="jlr1"><strong>数据基建与看板</strong> — <span class="dim">搭建渠道网络监测看板，替代人工调研、及时捕捉竞对渠道动态，覆盖 17 个品牌 8,800+ 网点；以 AI 自动化链路缩短 80% 调研周期，累计自动产出 10+ 份竞对分析报告，看板月度使用率超 90%，支撑白点识别与投放决策</span></li>
+          <li id="jlr2"><strong>市场与竞对研究</strong> — <span class="dim">追踪 20+ 车企销量与目标达成，结合政策与市场动态输出 3 期月报，支持大盘趋势判断；整合豪华品牌竞品销量、财报与渠道信息，输出 10+ 份竞品分析报告，拆解价格策略与新车投放节奏，支持竞争策略制定</span></li>
+          <li id="jlr3"><strong>AI 驱动分析优化</strong> — <span class="dim">围绕车型残值与二手车竞争力评估，整合中汽协 5,000+ 条保值率数据构建残值分析底表，沉淀 AI 分析框架，聚焦维度拆解与竞品对标；数据解读效率提升超 50%，为产品生命周期管理与定价策略提供依据</span></li>
         </ul>
       </div>
 
@@ -795,10 +833,9 @@ body.dark-theme .about-bio { color: #888; }
         <hr class="entry-divider"/>
         <div class="entry-label" id="c-label2">主要贡献</div>
         <ul class="entry-bullets">
-          <li id="zeekr1"><strong>销售漏斗分析</strong> — <span class="dim">围绕「线索-到店-试驾-订单」拆解各环节转化，识别转化波动、门店承接差异与流失节点；输出 10+ 份销售分析报告，推动线索跟进、到店邀约与试驾转化优化</span></li>
-          <li id="zeekr2"><strong>数据基建与看板</strong> — <span class="dim">基于 Python + Playwright 整合线索、到店、试驾、订单数据，搭建自动化日报与异常监控看板，日报产出耗时减少 70%</span></li>
-          <li id="zeekr3"><strong>线索承接优化</strong> — <span class="dim">基于后台线索流转数据优化分发规则与跟进口径，线索分发效率提升 70%，促进「线索-到店」环节转化改善</span></li>
-          <li id="zeekr4"><strong>运营优化</strong> — <span class="dim">结合上海门店实地调研与漏斗数据，识别试驾资源错配与门店承接差异，推进试驾资源调配与区域销售 SOP 优化</span></li>
+          <li id="zeekr1"><strong>销售运营分析</strong> — <span class="dim">围绕销售漏斗转化波动，结合指标拆解与门店调研，识别关键流失节点；累计输出 10+ 份分析复盘报告，推动线索跟进机制、试驾转化策略及区域销售 SOP 优化，提升区域经营诊断与销售执行效率</span></li>
+          <li id="zeekr2"><strong>数据基建与看板</strong> — <span class="dim">为提高销售数据更新与异常识别效率，整合「线索-到店-试驾-订单」全链路数据，搭建自动化日报与异常监控看板；日报产出耗时减少 80%，提升区域销售数据更新、异常识别与经营复盘效率</span></li>
+          <li id="zeekr3"><strong>线索承接优化</strong> — <span class="dim">基于后台线索流转数据，识别响应滞后、分发不均及跟进节奏不一致等问题，开发自动化脚本并优化分发规则与监控口径；线索分发效率提升 70%，缩短门店响应周期并提升到店邀约效率</span></li>
         </ul>
       </div>
 
@@ -954,19 +991,21 @@ var T = {
     hero_name: '陈品润 · William',
     hero_desc: '悉尼大学计算机硕士在读',
     about_heading: 'About',
-    about_bio: '悉尼大学计算机硕士在读，拥有会计学本科背景。曾在捷豹路虎、极氪智能科技实习，熟悉销售漏斗、竞品研究与用户洞察；擅长用 Vibe Coding 与 AI Agent 搭建从数据采集、清洗到可视化看板的自动化分析闭环，用数据驱动产品与市场决策。',
+    about_bio: '悉尼大学计算机硕士在读，拥有会计学本科背景。曾在得物、捷豹路虎、极氪智能科技实习，熟悉电商运营、销售漏斗、竞品研究与用户洞察；擅长用 Vibe Coding 与 AI Agent 搭建从数据采集、清洗到可视化看板的自动化分析闭环，用数据驱动产品与市场决策。',
     career_heading:'Career',
+    dewu_co:'得物', dewu_role:'国际电商运营实习生', dewu_loc:'上海', dewu_date:'2026.06 – 至今',
     jlr_co:'捷豹路虎中国', jlr_role:'商业分析实习生', jlr_loc:'上海', jlr_date:'2025.12 – 2026.03',
     zeekr_co:'极氪智能科技', zeekr_role:'商业分析实习生', zeekr_loc:'上海', zeekr_date:'2025.07 – 2025.10',
     label_contrib:'主要贡献',
-    jlr1:'<strong>数据基建与看板</strong> — <span class="dim">搭建竞对经销商渠道监测看板，覆盖 17 品牌 / 8,800+ 网点 / 290+ 城市，支持区域、城市、品牌多维下钻；通过 Vibe Coding 构建「采集-分析-洞察-看板」AI 自动化链路，渠道调研周期缩短 80%，月度使用率达 90%+</span>',
-    jlr2:'<strong>竞对策略分析</strong> — <span class="dim">整合豪华品牌销量、财报、产品规划及渠道动态，输出 10+ 份竞品分析报告，拆解销量波动、价格策略与新车投放节奏，支撑产品定位与竞争应对</span>',
-    jlr3:'<strong>市场研究</strong> — <span class="dim">持续追踪 20+ 车企月度销量、年度目标及达成进度，结合乘联会数据、行业政策与宏观报告输出 3 期市场快报与专题分析</span>',
-    jlr4:'<strong>AI 驱动分析优化</strong> — <span class="dim">整合中汽协 5,000+ 条保值率数据构建残值分析底表，沉淀结构化 AI 分析框架与输出规则，数据解读效率提升 50%+，支撑生命周期管理与定价</span>',
-    zeekr1:'<strong>销售漏斗分析</strong> — <span class="dim">围绕「线索-到店-试驾-订单」拆解各环节转化，识别转化波动、门店承接差异与流失节点；输出 10+ 份销售分析报告，推动线索跟进、到店邀约与试驾转化优化</span>',
-    zeekr2:'<strong>数据基建与看板</strong> — <span class="dim">基于 Python + Playwright 整合线索、到店、试驾、订单数据，搭建自动化日报与异常监控看板，日报产出耗时减少 70%</span>',
-    zeekr3:'<strong>线索承接优化</strong> — <span class="dim">基于后台线索流转数据优化分发规则与跟进口径，线索分发效率提升 70%，促进「线索-到店」环节转化改善</span>',
-    zeekr4:'<strong>运营优化</strong> — <span class="dim">结合上海门店实地调研与漏斗数据，识别试驾资源错配与门店承接差异，推进试驾资源调配与区域销售 SOP 优化</span>',
+    dewu1:'<strong>品牌运营策略</strong> — <span class="dim">针对重点品牌月度 GMV 下滑，交叉对标竞品搜索 UV、GMV、大盘趋势与本地货源覆盖，定位瓶颈为供给承接不足；推动建立周度新品监控机制，对 20+ 款高热高潜 SPU 补贴并触达核心商家，重点系列月度 GMV 增长 15%</span>',
+    dewu2:'<strong>供给机会挖掘</strong> — <span class="dim">梳理品牌官网库存至商家可获利 SKU 的供给链路，量化各环节转化率以定位增量货品机会；基于 AI 搭建「货号校验-利润测算-机会排序」自动化工作流，单次盘货耗时缩短 70%，提升商家选品决策与入仓效率</span>',
+    dewu3:'<strong>新品上市监测</strong> — <span class="dim">因日本市场新品渠道分散、长期依赖人工周度汇总，开发 SNKRDUNK 等平台新品自动采集脚本并接入后台，实现「采集-汇总-推送」自动化运转，信息整理耗时减少 80%，支持货架及时纳新与新品机会追踪</span>',
+    jlr1:'<strong>数据基建与看板</strong> — <span class="dim">搭建渠道网络监测看板，替代人工调研、及时捕捉竞对渠道动态，覆盖 17 个品牌 8,800+ 网点；以 AI 自动化链路缩短 80% 调研周期，累计自动产出 10+ 份竞对分析报告，看板月度使用率超 90%，支撑白点识别与投放决策</span>',
+    jlr2:'<strong>市场与竞对研究</strong> — <span class="dim">追踪 20+ 车企销量与目标达成，结合政策与市场动态输出 3 期月报，支持大盘趋势判断；整合豪华品牌竞品销量、财报与渠道信息，输出 10+ 份竞品分析报告，拆解价格策略与新车投放节奏，支持竞争策略制定</span>',
+    jlr3:'<strong>AI 驱动分析优化</strong> — <span class="dim">围绕车型残值与二手车竞争力评估，整合中汽协 5,000+ 条保值率数据构建残值分析底表，沉淀 AI 分析框架，聚焦维度拆解与竞品对标；数据解读效率提升超 50%，为产品生命周期管理与定价策略提供依据</span>',
+    zeekr1:'<strong>销售运营分析</strong> — <span class="dim">围绕销售漏斗转化波动，结合指标拆解与门店调研，识别关键流失节点；累计输出 10+ 份分析复盘报告，推动线索跟进机制、试驾转化策略及区域销售 SOP 优化，提升区域经营诊断与销售执行效率</span>',
+    zeekr2:'<strong>数据基建与看板</strong> — <span class="dim">为提高销售数据更新与异常识别效率，整合「线索-到店-试驾-订单」全链路数据，搭建自动化日报与异常监控看板；日报产出耗时减少 80%，提升区域销售数据更新、异常识别与经营复盘效率</span>',
+    zeekr3:'<strong>线索承接优化</strong> — <span class="dim">基于后台线索流转数据，识别响应滞后、分发不均及跟进节奏不一致等问题，开发自动化脚本并优化分发规则与监控口径；线索分发效率提升 70%，缩短门店响应周期并提升到店邀约效率</span>',
     proj_heading:'Projects',
     news_co:'汽车行业 AI 情报监测系统', news_role:'个人项目 · Python + AI Agent', news_date:'2026.05 – 2026.06',
     label_work_news:'主要工作',
@@ -997,19 +1036,21 @@ var T = {
     hero_name: 'Pinrun Chen · William',
     hero_desc: 'Master of Computer Science @ University of Sydney',
     about_heading: 'About',
-    about_bio: 'Master of Computer Science candidate at the University of Sydney with a Bachelor of Accounting background. Across internships at Jaguar Land Rover and ZEEKR, I work on sales-funnel, competitor, and user-insight analysis, and use Vibe Coding and AI agents to build automated pipelines — from data collection and cleaning to visual dashboards — that turn data into product and market decisions.',
+    about_bio: 'Master of Computer Science candidate at the University of Sydney with a Bachelor of Accounting background. Across internships at Poizon, Jaguar Land Rover, and ZEEKR, I work on e-commerce operations, sales-funnel, competitor, and user-insight analysis, and use Vibe Coding and AI agents to build automated pipelines — from data collection and cleaning to visual dashboards — that turn data into product and market decisions.',
     career_heading:'Career',
+    dewu_co:'Poizon', dewu_role:'International E-commerce Operations Intern', dewu_loc:'Shanghai', dewu_date:'Jun 2026 – Present',
     jlr_co:'Jaguar Land Rover China', jlr_role:'Business Analysis Intern', jlr_loc:'Shanghai', jlr_date:'Dec 2025 – Mar 2026',
     zeekr_co:'ZEEKR Intelligent Technology', zeekr_role:'Business Analysis Intern', zeekr_loc:'Shanghai', zeekr_date:'Jul 2025 – Oct 2025',
     label_contrib:'Key Contributions',
-    jlr1:'<strong>Channel Infrastructure & Dashboard</strong> — <span class="dim">Built a competitor dealer-network monitor covering 17 brands / 8,800+ outlets / 290+ cities with region, city-tier, and brand drill-down; wired a "collect–analyze–insight–dashboard" AI-automated pipeline via Vibe Coding, cutting the channel-research cycle by 80% with 90%+ monthly adoption</span>',
-    jlr2:'<strong>Competitor Strategy</strong> — <span class="dim">Synthesized luxury brands\' sales, financials, product roadmaps, and channel moves into 10+ competitive reports linking pricing, product, and launch cadence to sales swings</span>',
-    jlr3:'<strong>Market Research</strong> — <span class="dim">Tracked monthly sales, annual targets, and progress for 20+ automakers; synthesized CPCA data, policy, and macro reports into 3 market briefs and topical analyses</span>',
-    jlr4:'<strong>AI-Driven Optimization</strong> — <span class="dim">Integrated 5,000+ CAAM residual-value records into a base table; codified a structured AI analysis framework, lifting data-interpretation efficiency by 50%+ for lifecycle management and pricing</span>',
-    zeekr1:'<strong>Sales Funnel Analysis</strong> — <span class="dim">Decomposed lead–visit–test-drive–order conversion to pinpoint volatility, store gaps, and drop-off points; delivered 10+ sales reports driving lead follow-up, visit invitation, and test-drive optimization</span>',
-    zeekr2:'<strong>Dashboard Build</strong> — <span class="dim">Python + Playwright pipeline over lead, test-drive, and order data feeding an automated daily report and anomaly monitor, cutting daily-report turnaround by 70%</span>',
-    zeekr3:'<strong>Lead Intake Optimization</strong> — <span class="dim">Refined backend lead-distribution rules and follow-up tracking, lifting lead-distribution efficiency by 70% and improving lead-to-visit conversion</span>',
-    zeekr4:'<strong>Operations</strong> — <span class="dim">Combined Shanghai store field research with funnel data to fix test-drive resource misallocation and store-capacity gaps, driving regional sales SOP optimization</span>',
+    dewu1:'<strong>Brand Operations Strategy</strong> — <span class="dim">Addressed a key brand\'s monthly GMV decline by cross-benchmarking competitor search UV, GMV, and category trends against local supply coverage, pinpointing supply capacity as the bottleneck; drove a weekly new-arrival monitoring mechanism, subsidized 20+ high-potential SPUs and engaged core sellers, lifting the key series\' monthly GMV by 15%</span>',
+    dewu2:'<strong>Supply Opportunity Mining</strong> — <span class="dim">Mapped the supply chain from brand-site inventory to seller-profitable SKUs, quantifying conversion at each stage to surface incremental product opportunities; built an AI-powered "SKU verification–margin calculation–opportunity ranking" workflow, cutting per-cycle inventory review time by 70% and improving seller assortment decisions and onboarding efficiency</span>',
+    dewu3:'<strong>New-Arrival Monitoring</strong> — <span class="dim">With Japan\'s new-arrival channels fragmented and reliant on manual weekly aggregation, built auto-scraping scripts for platforms like SNKRDUNK feeding into the backend for a "collect–aggregate–push" automated pipeline, cutting information-processing time by 80% and supporting timely catalog refresh and opportunity tracking</span>',
+    jlr1:'<strong>Channel Infrastructure & Dashboard</strong> — <span class="dim">Built a competitor dealer-network monitor replacing manual research to catch channel moves in real time, covering 17 brands and 8,800+ outlets; an AI-automated pipeline cut the research cycle by 80%, auto-generated 10+ competitive reports, and drove 90%+ monthly dashboard adoption, supporting white-space identification and investment decisions</span>',
+    jlr2:'<strong>Market & Competitor Research</strong> — <span class="dim">Tracked monthly sales and target attainment for 20+ automakers, synthesizing policy and market signals into 3 market briefs to support macro trend calls; integrated luxury competitors\' sales, financials, and channel data into 10+ competitive reports unpacking pricing strategy and launch cadence to inform competitive strategy</span>',
+    jlr3:'<strong>AI-Driven Analysis Optimization</strong> — <span class="dim">For residual-value and used-car competitiveness assessment, integrated 5,000+ CAAM residual-value records into a base table and codified an AI analysis framework focused on dimension breakdown and competitor benchmarking, lifting data-interpretation efficiency by 50%+ to inform lifecycle management and pricing strategy</span>',
+    zeekr1:'<strong>Sales Operations Analysis</strong> — <span class="dim">Addressed sales-funnel conversion volatility through metric breakdowns and store visits to pinpoint key drop-off points; delivered 10+ analysis and review reports driving lead follow-up mechanisms, test-drive conversion tactics, and regional sales SOP optimization, improving regional diagnosis and sales execution efficiency</span>',
+    zeekr2:'<strong>Channel Infrastructure & Dashboard</strong> — <span class="dim">To improve sales-data refresh and anomaly-detection efficiency, integrated end-to-end lead–visit–test-drive–order data into an automated daily report and anomaly-monitoring dashboard, cutting daily-report turnaround by 80% and improving regional data refresh, anomaly detection, and review efficiency</span>',
+    zeekr3:'<strong>Lead Intake Optimization</strong> — <span class="dim">Identified delayed responses, uneven distribution, and inconsistent follow-up pacing from backend lead-flow data; built automation scripts and refined distribution rules and tracking metrics, lifting lead-distribution efficiency by 70% and shortening store response time and visit-invitation efficiency</span>',
     proj_heading:'Projects',
     news_co:'Automotive AI Intelligence Monitoring System', news_role:'Personal Project · Python + AI Agent', news_date:'May 2026 – Jun 2026',
     label_work_news:'Key Work',
@@ -1045,11 +1086,13 @@ function applyLang() {
   setT('about-bio', t.about_bio);
   setT('about-heading', t.about_heading);
   setT('career-heading', t.career_heading);
+  setT('c-dewu-co', t.dewu_co); setT('c-dewu-role', t.dewu_role); setT('c-dewu-loc', t.dewu_loc); setT('c-dewu-date', t.dewu_date);
   setT('c-jlr-co', t.jlr_co); setT('c-jlr-role', t.jlr_role); setT('c-jlr-loc', t.jlr_loc); setT('c-jlr-date', t.jlr_date);
   setT('c-zeekr-co', t.zeekr_co); setT('c-zeekr-role', t.zeekr_role); setT('c-zeekr-loc', t.zeekr_loc); setT('c-zeekr-date', t.zeekr_date);
-  setT('c-label1', t.label_contrib); setT('c-label2', t.label_contrib);
-  setH('jlr1', t.jlr1); setH('jlr2', t.jlr2); setH('jlr3', t.jlr3); setH('jlr4', t.jlr4);
-  setH('zeekr1', t.zeekr1); setH('zeekr2', t.zeekr2); setH('zeekr3', t.zeekr3); setH('zeekr4', t.zeekr4);
+  setT('c-label-dewu', t.label_contrib); setT('c-label1', t.label_contrib); setT('c-label2', t.label_contrib);
+  setH('dewu1', t.dewu1); setH('dewu2', t.dewu2); setH('dewu3', t.dewu3);
+  setH('jlr1', t.jlr1); setH('jlr2', t.jlr2); setH('jlr3', t.jlr3);
+  setH('zeekr1', t.zeekr1); setH('zeekr2', t.zeekr2); setH('zeekr3', t.zeekr3);
   setT('proj-heading', t.proj_heading);
   setT('p-news-co', t.news_co); setT('p-news-role', t.news_role); setT('p-news-date', t.news_date);
   setT('p-label-news', t.label_work_news);
@@ -1065,6 +1108,7 @@ function applyLang() {
   setT('p-label2', t.label_contrib2);
   setH('sjtu1', t.sjtu1); setH('sjtu2', t.sjtu2);
   setT('t4', t.t4);
+  setT('a-dewu-co', t.dewu_co); setT('a-dewu-role', t.dewu_role); setT('a-dewu-loc', t.dewu_loc); setT('a-dewu-date', t.dewu_date);
   setT('a-jlr-co', t.jlr_co); setT('a-jlr-role', t.jlr_role); setT('a-jlr-loc', t.jlr_loc); setT('a-jlr-date', t.jlr_date);
   setT('a-zeekr-co', t.zeekr_co); setT('a-zeekr-role', t.zeekr_role); setT('a-zeekr-loc', t.zeekr_loc); setT('a-zeekr-date', t.zeekr_date);
   setT('a-syd-co', t.e1_school); setT('a-syd-role', t.e1_degree); setT('a-syd-loc', t.e1_loc); setT('a-syd-date', t.e1_date);
