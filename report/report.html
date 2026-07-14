@@ -229,9 +229,23 @@
   /* 主体 */
   .body{padding:14px 28px;flex:1;overflow-y:auto;min-height:0}
   .panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px}
-  #netchart,#mapchart{height:310px}
+  #mapchart{height:310px}
   .ct-title{font-size:12px;font-weight:600;color:var(--fg);margin:0 0 8px;padding-left:2px;display:flex;align-items:center;gap:7px}
   .ct-title::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--acc);flex-shrink:0}
+  /* 品牌网点数 / 净变化：胶囊标签 + 细条形列表 */
+  .bar-row{margin-bottom:15px;cursor:pointer}
+  .bar-row:last-child{margin-bottom:0}
+  .bar-pill{display:inline-flex;align-items:center;padding:2px 10px;border-radius:999px;font-size:11.5px;font-weight:600;margin-bottom:7px}
+  .bar-line{display:flex;align-items:center;gap:10px}
+  .bar-track{flex:1;height:6px;border-radius:999px;background:#eef1f4;overflow:hidden}
+  .bar-fill{height:100%;border-radius:999px}
+  .bar-val{flex-shrink:0;text-align:right;min-width:100px}
+  .bar-val-lbl{font-size:10.5px;color:var(--mute);margin-bottom:2px}
+  .bar-val-num{font-size:12px;color:var(--fg)}
+  .bar-val-num b{font-weight:600}
+  .d-pos{color:var(--pos)}
+  .d-neg{color:var(--neg)}
+  .d-zero{color:var(--mute)}
   .trend-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px;max-height:80px;overflow-y:auto;padding:2px}
   .trend-chips .chip{padding:3px 9px;font-size:12px;border-radius:12px}
   .trend-chips .chip .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
@@ -401,7 +415,7 @@
     <div id="netSplit" style="display:flex;gap:14px;align-items:stretch">
       <div class="panel" style="flex:1;min-width:0;display:flex;flex-direction:column">
         <div class="ct-title">品牌网点数 / 净变化</div>
-        <div id="netchart" style="flex:1;min-height:310px"></div>
+        <div id="netchart" style="flex:1;min-height:310px;max-height:560px;overflow-y:auto;padding-right:4px"></div>
       </div>
       <div class="panel" style="flex:1;min-width:0;display:flex;flex-direction:column">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
@@ -409,6 +423,10 @@
           <div class="dd trend-dd" data-dd="trend">
             <span class="dd-lbl">趋势品牌</span><span class="dd-val" id="ddTrend">-</span><span class="dd-arrow">▾</span>
             <div class="dd-pop wide"><div id="trendChips"></div></div>
+          </div>
+          <div class="dd" data-dd="trendPeriod">
+            <span class="dd-lbl">时间维度</span><span class="dd-val" id="ddTrendPeriod">周度</span><span class="dd-arrow">▾</span>
+            <div class="dd-pop" style="min-width:100px"><div id="trendPeriodChips"></div></div>
           </div>
         </div>
         <div id="trendchart" style="flex:1;min-height:560px"></div>
@@ -559,7 +577,7 @@ const TREND_QUICK_DEFS = {
 };
 const CN_GEO = "./cn.json";
 
-let DATA, CUR, PREV, MANIFEST=null, SNAP_CACHE={}, LOC_CACHE={}, REPORT_DATA_CACHE={}, RENDER_SEQ=0, REPORT_PAIR=null, netChart, mapChart, trendChart, provMapChart, jieStoreChart, jieSubChart, mbTagChart, penChart, mapLoaded=false;
+let DATA, CUR, PREV, MANIFEST=null, SNAP_CACHE={}, LOC_CACHE={}, REPORT_DATA_CACHE={}, RENDER_SEQ=0, REPORT_PAIR=null, mapChart, trendChart, provMapChart, jieStoreChart, jieSubChart, mbTagChart, penChart, mapLoaded=false;
 let MONTHLY_PAIR=null;
 let MONTHLY_ROWS=null, MONTHLY_PERIOD=null;   // 供月度大表“详情”弹窗下钻取数
 let SEL_BRANDS   = new Set();   // 空集 = 全部品牌
@@ -577,6 +595,7 @@ let CUR_TAB      = 'net';
 let TREND_SELECTED = null;       // Set<trend key>; null = 取默认
 let TREND_QUICK = 'default';     // default/all/luxury/ev/super/null(自定义)
 let TREND_HOVER_SERIES = null;
+let TREND_PERIOD = 'week';       // week/month，趋势图统计维度，默认周度
 
 async function boot(){
   try{
@@ -616,14 +635,15 @@ async function boot(){
   document.querySelectorAll('.nav-item').forEach(t=>t.onclick=()=>switchPage(t.dataset.page));
 
   const ECOPT = {devicePixelRatio: Math.max(window.devicePixelRatio || 1, 2)};
-  netChart = echarts.init(document.getElementById('netchart'), null, ECOPT);
-  // 点击柱条 → 触发对应品牌/子品牌 chip 的同名点击逻辑（筛选到该品牌）
-  netChart.on('click', params => {
-    if(!params || !params.name) return;
+  // 品牌网点数/净变化列表点击（HTML 列表，非 echarts）→ 触发对应品牌/子品牌 chip 的同名点击逻辑（筛选到该品牌）
+  document.getElementById('netchart').addEventListener('click', ev => {
+    const row = ev.target.closest('.bar-row');
+    if(!row) return;
+    const name = row.dataset.brand;
     const sel = (attr,val) => document.querySelector(`[${attr}="${CSS.escape(val)}"]`);
-    const brandChip = sel('data-brand', params.name);
+    const brandChip = sel('data-brand', name);
     if(brandChip && !brandChip.classList.contains('dim')){ brandChip.click(); return; }
-    const subChip = sel('data-sub', params.name);
+    const subChip = sel('data-sub', name);
     if(subChip) subChip.click();
   });
   trendChart = echarts.init(document.getElementById('trendchart'), null, ECOPT);
@@ -632,19 +652,17 @@ async function boot(){
   jieSubChart   = echarts.init(document.getElementById('jieSubChart'),   null, ECOPT);
   mbTagChart    = echarts.init(document.getElementById('mbTagChart'),    null, ECOPT);
   window.addEventListener('resize',()=>{
-    netChart.resize(); trendChart.resize(); provMapChart.resize(); jieStoreChart.resize(); jieSubChart.resize(); mbTagChart.resize(); if(penChart) penChart.resize();
+    trendChart.resize(); provMapChart.resize(); jieStoreChart.resize(); jieSubChart.resize(); mbTagChart.resize(); if(penChart) penChart.resize();
   });
   // 监听各 chart 容器自身尺寸变化（tab切换/布局回流/字体加载导致内部坐标系与CSS尺寸脱节，会引起 tooltip 错位）
   if(window.ResizeObserver){
     const ro = new ResizeObserver(entries=>{
       for(const e of entries){
         const id = e.target.id;
-        if(id==='netchart') netChart.resize();
-        else if(id==='trendchart') trendChart.resize();
+        if(id==='trendchart') trendChart.resize();
         else if(id==='provMapChart') provMapChart.resize();
       }
     });
-    ro.observe(document.getElementById('netchart'));
     ro.observe(document.getElementById('trendchart'));
     ro.observe(document.getElementById('provMapChart'));
   }
@@ -690,7 +708,7 @@ function switchTab(name){
   ['net','detail'].forEach(n=>{
     document.getElementById('tab-'+n).style.display = n===name ? '' : 'none';
   });
-  if(name==='net'){ netChart.resize(); trendChart.resize(); provMapChart.resize(); }
+  if(name==='net'){ trendChart.resize(); provMapChart.resize(); }
   if(name==='detail') renderDetail();
 }
 
@@ -705,7 +723,7 @@ function switchPage(name){
     // 防止报告 CSS 污染 kpi-row 布局，强制恢复
     const kr = document.querySelector('.kpi-row');
     if(kr){ kr.style.gridTemplateColumns='repeat(5,1fr)'; kr.style.alignItems=''; }
-    netChart.resize(); trendChart.resize(); provMapChart.resize(); jieStoreChart.resize(); jieSubChart.resize();
+    trendChart.resize(); provMapChart.resize(); jieStoreChart.resize(); jieSubChart.resize();
   }
   if(name==='report') _initReport();
   if(name==='monthly') _initMonthlyReport();
@@ -2004,6 +2022,13 @@ function trendSeriesData(){
   });
 }
 
+// 趋势图"统计维度=月度"：每个自然月取最后一期快照作为该月代表点（sd 按时间升序，故同月内后出现的覆盖先出现的）。
+function monthlyFilterSD(sd){
+  const lastByMonth = {};
+  for(const s of sd) lastByMonth[s.ts.slice(0,6)] = s;
+  return Object.values(lastByMonth);
+}
+
 // 高区分度调色板，用于趋势线和下拉色点保持一致。
 const TREND_PALETTE = ['#2563eb','#dc2626','#16a34a','#9333ea','#ea580c',
                        '#0891b2','#ca8a04','#db2777','#4f46e5','#059669',
@@ -2063,7 +2088,8 @@ function syncTrendLabel(allKeys){
 }
 
 function renderTrend(){
-  const sd = trendSeriesData();
+  let sd = trendSeriesData();
+  if(TREND_PERIOD === 'month') sd = monthlyFilterSD(sd);
   const last = sd.at(-1).counts;
   const allKeys = new Set();
   sd.forEach(s => Object.keys(s.counts).forEach(k => allKeys.add(k)));
@@ -2112,8 +2138,9 @@ function renderTrend(){
   chipsEl.innerHTML = `<div class="dd-pop-inner">${items.join('')}</div>`;
   bindTrendHandlers(groupKeys, last, colorOf);
   syncTrendLabel(orderedKeys);
+  renderTrendPeriodChips();
 
-  const xs = sd.map(s => fmtTs(s.ts));
+  const xs = TREND_PERIOD === 'month' ? sd.map(s => `${s.ts.slice(0,4)}/${s.ts.slice(4,6)}`) : sd.map(s => fmtTs(s.ts));
   const selectedKeys = orderedKeys.filter(k=>TREND_SELECTED.has(k));
   const series = selectedKeys.map(k => ({
     name: trendKeyLabel(k), type: 'line', smooth: true, symbol: 'circle', symbolSize: 7,
@@ -2170,6 +2197,21 @@ function renderTrend(){
     if(p.componentType==='series') TREND_HOVER_SERIES = null;
   });
   trendChart.resize();
+}
+
+const TREND_PERIOD_DEFS = [{key:'week', label:'周度'}, {key:'month', label:'月度'}];
+function renderTrendPeriodChips(){
+  document.getElementById('ddTrendPeriod').textContent = TREND_PERIOD_DEFS.find(d=>d.key===TREND_PERIOD).label;
+  const el = document.getElementById('trendPeriodChips');
+  el.innerHTML = `<div class="dd-pop-inner">${TREND_PERIOD_DEFS.map(d =>
+    `<div class="opt ${TREND_PERIOD===d.key?'sel':''}" data-tperiod="${d.key}"><span class="check"></span><span class="nm">${d.label}</span></div>`
+  ).join('')}</div>`;
+  el.querySelectorAll('[data-tperiod]').forEach(c=>c.onclick=ev=>{
+    ev.stopPropagation();
+    if(TREND_PERIOD === c.dataset.tperiod) return;
+    TREND_PERIOD = c.dataset.tperiod;
+    renderTrend();
+  });
 }
 
 function renderTrendSubPopHtml(g, subKeys, last, colorOf){
@@ -2560,7 +2602,7 @@ function renderMbTag(){
     `具备高端授权（G-Class / AMG / 迈巴赫 之一）的门店共 <b>${cu}</b> 家，占奔驰卖车门店（${denom} 家）的 <b>${pct.toFixed(1)}%</b>。`;
 }
 
-/* ============ 净变化 tab：水平柱状图 ============ */
+/* ============ 净变化 tab：品牌网点数 / 净变化（胶囊标签 + 细条形列表） ============ */
 function renderNet(curLocs, prevLocs){
   // 按品牌(g)聚合；当 ACTIVE_BRAND 选了含子品牌的集团，按子品牌(b)聚合
   const dim = (ACTIVE_BRAND && GROUP_SUBS[ACTIVE_BRAND]) ? 'b' : 'g';
@@ -2568,81 +2610,38 @@ function renderNet(curLocs, prevLocs){
   const aggPre = PREV ? aggBy(prevLocs, dim) : null;
   let names = Object.keys(aggCur);
   if(aggPre) for(const k in aggPre) if(!(k in aggCur)) names.push(k);
-  let series, tooltipData = [];
+  let data;
   if(PREV){
-    // 柱高/变化量：物理计数（与 KPI 总计对齐）
-    const data = names.map(n=>{
+    // 变化量：物理计数（与 KPI 总计对齐）
+    data = names.map(n=>{
       const cur = aggCur[n] || 0;
       const pre = aggPre[n] || 0;
       const cList = curLocs.filter(l => dim==='b' ? l.subs.has(n) : l.g===n);
       const pList = prevLocs.filter(l => dim==='b' ? l.subs.has(n) : l.g===n);
       const diff = pairPeriodChanges(cList, pList);
-      const add = diff.added.length;
-      const rem = diff.removed.length;
-      const keep = Math.max(0, cur - add);
-      return {n, cur, pre, d:cur-pre, keep, add, rem};
+      return {n, cur, pre, d:cur-pre, add:diff.added.length, rem:diff.removed.length};
     });
-    data.sort((a,b)=>a.cur-b.cur);  // 升序，配合默认 yAxis 方向最大值在顶部
-    names = data.map(x=>x.n);
-    tooltipData = Object.fromEntries(data.map(x=>[x.n, x]));
-    series = [{
-      name:'网点数', type:'bar', barMaxWidth:'20px',
-      data: data.map(x=>({value:x.cur, itemStyle:{color:trendGroupColorOf(x.n),borderRadius:[0,4,4,0]}})),
-      label:{show:true, position:'right', fontSize:12,
-        formatter:p=>{
-          const x=tooltipData[p.name];
-          if(!x) return '';
-          const sign = x.d>0?'+':'';
-          return `{cur|${x.cur}}{paren|（}{${x.d>0?'pos':x.d<0?'neg':'zero'}|${sign}${x.d}}{paren|）}`;
-        },
-        rich:{
-          cur:{color:'#24292f', fontSize:12, fontWeight:600},
-          paren:{color:'#8c959f', fontSize:12},
-          pos:{color:'#1a7f37', fontSize:12, fontWeight:600},
-          neg:{color:'#cf222e', fontSize:12, fontWeight:600},
-          zero:{color:'#8c959f', fontSize:12},
-        },
-      },
-    }];
   } else {
-    const data = names.map(n=>({n, cur:aggCur[n]||0}));
-    data.sort((a,b)=>a.cur-b.cur);  // 升序，配合默认 yAxis 方向最大值在顶部
-    names = data.map(x=>x.n);
-    series = [{
-      name:'网点数', type:'bar', barMaxWidth:'20px',
-      data: data.map(x=>({value:x.cur, itemStyle:{color:trendGroupColorOf(x.n),borderRadius:[0,4,4,0]}})),
-      label:{show:true, position:'right', color:'#24292f', fontSize:12},
-    }];
+    data = names.map(n=>({n, cur:aggCur[n]||0, pre:null, d:null, add:0, rem:0}));
   }
-  const tipDot = c => `<span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:${c};margin-right:6px;vertical-align:middle"></span>`;
-  const tooltipOpt = PREV ? {
-    trigger:'axis',
-    axisPointer:{type:'shadow'},
-    appendToBody:true,position:(pt,_p,_el,_r,size)=>[pt[0]+12,pt[1]-size.contentSize[1]/2],
-    formatter:(params)=>{
-      const p = Array.isArray(params) ? params[0] : params;
-      if(!p) return '';
-      const x = tooltipData[p.name];
-      if(!x) return '';
-      return `<div style="font-weight:600;margin-bottom:4px">${x.n}</div>`
-        + `<div>${tipDot('#1a7f37')}新增 <b>+${x.add}</b></div>`
-        + `<div>${tipDot('#cf222e')}减少 <b>-${x.rem}</b></div>`;
-    }
-  } : {trigger:'axis', axisPointer:{type:'shadow'},
-        appendToBody:true,position:(pt,_p,_el,_r,size)=>[pt[0]+12,pt[1]-size.contentSize[1]/2]};
-  const yLabelRich = {};
-  names.forEach((n,i)=>{ yLabelRich['dot'+i] = {color:trendGroupColorOf(n), fontSize:9, padding:[0,6,0,0]}; });
-  netChart.setOption({
-    backgroundColor:'transparent',
-    grid:{left:130, right:80, top:20, bottom:30},
-    tooltip: tooltipOpt,
-    xAxis:{type:'value', axisLine:{show:false}, splitLine:{lineStyle:{color:'#e1e4e8'}}},
-    yAxis:{type:'category', data:names, axisLine:{show:false}, axisTick:{show:false},
-           axisLabel:{color:'#24292f', fontSize:13, fontWeight:600,
-             formatter:(value,index)=>`{dot${index}|●}${value}`, rich:yLabelRich}},
-    series
-  }, true);
-  netChart.resize();
+  data.sort((a,b)=>b.cur-a.cur);  // 降序，从上到下阅读
+  const max = Math.max(1, ...data.map(x=>x.cur));
+  const el = document.getElementById('netchart');
+  el.innerHTML = data.map(x=>{
+    const color = trendGroupColorOf(x.n);
+    const pct = (x.cur/max*100).toFixed(1);
+    const deltaHtml = x.d===null ? '' :
+      `（<span class="${x.d>0?'d-pos':x.d<0?'d-neg':'d-zero'}">${x.d>0?'+':''}${x.d}</span>）`;
+    const title = PREV ? `${x.n}
+新增 +${x.add} / 减少 -${x.rem}` : x.n;
+    return `<div class="bar-row" data-brand="${x.n}" title="${title}">
+      <div class="bar-pill" style="background:${color}1f;color:${color}">${x.n}</div>
+      <div class="bar-line">
+        <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${color}"></div></div>
+        <div class="bar-val"><div class="bar-val-lbl">网点数</div><div class="bar-val-num"><b>${x.cur}</b>${deltaHtml}</div></div>
+      </div>
+    </div>`;
+  }).join('');
 }
 
 // 按 dim(g/b) 分组，返回 {dimValue: Set<locKey>}，用于增/减/不变集合运算
