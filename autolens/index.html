@@ -16,7 +16,6 @@
   .page{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
   .sidebar{width:216px;min-width:216px;background:var(--side-bg);border-right:1px solid var(--side-line);display:flex;flex-direction:column;flex-shrink:0}
   .sidebar-logo{padding:24px 20px 20px;font-size:20px;font-weight:700;color:var(--side-fg);line-height:1.2;border-bottom:1px solid var(--side-line)}
-  .sidebar-logo .sub{font-size:12px;font-weight:400;color:var(--side-mute);margin-top:5px;letter-spacing:.3px}
   .nav-group{padding:14px 12px 4px}
   .nav-group-label{padding:4px 10px 8px;font-size:11px;letter-spacing:.6px;color:#5b6472;font-weight:600;text-transform:uppercase}
   .nav-items{display:flex;flex-direction:column;gap:8px}
@@ -31,8 +30,6 @@
   .feedhead{padding:2px 0 14px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
   .feedhead h1{margin:0;font-size:24px;font-weight:700;color:var(--fg)}
   .feedhead .sub{color:var(--mute);font-size:13px;margin-top:5px}
-  .badge{display:inline-flex;align-items:center;gap:6px;background:var(--voice-soft);color:#047857;border:1px solid #a7f3d0;border-radius:999px;padding:4px 12px;font-size:12px;font-weight:600;white-space:nowrap;margin-top:2px}
-  .badge.blue{background:var(--acc-soft);color:#1d4ed8;border-color:#bfdbfe}
   .body{padding:14px 28px 40px;flex:1;overflow-y:auto;min-height:0}
 
   .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
@@ -54,6 +51,8 @@
   .card a.t{color:var(--fg);text-decoration:none;font-size:16px;font-weight:600;line-height:1.5;display:block}
   .card a.t:hover{color:var(--acc)}
   .card .sum{color:#475467;font-size:13px;line-height:1.7;margin-top:8px}
+  .card .thumb{display:block;width:min(300px,100%);aspect-ratio:16/9;border-radius:9px;overflow:hidden;margin-top:10px;background:#f1f5f9}
+  .card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
   .card .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px;align-items:center}
   .pill{display:inline-block;padding:3px 9px;border-radius:6px;font-size:12px;font-weight:500;background:#f1f5f9;color:#64748b;white-space:nowrap}
   .pill.brand{background:#fff7ed;color:#c2410c}
@@ -101,6 +100,13 @@
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
 
   .filterbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#eef3f7;border:1px solid #e2eaf1;border-radius:14px;padding:8px 10px;margin:0 0 16px}
+  .seg{display:inline-flex;align-items:center;gap:4px;flex-wrap:wrap}
+  .pill-tab{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:10px;cursor:pointer;font-size:13px;color:var(--mute);background:transparent;border:1px solid transparent;transition:all .12s;user-select:none;white-space:nowrap}
+  .pill-tab:hover{color:var(--fg)}
+  .pill-tab.active{background:var(--card);color:var(--fg);border-color:#cbd5e1;font-weight:600;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+  .pill-tab .n{font-size:12px;color:var(--mute);font-weight:600}
+  .pill-tab.active .n{color:var(--acc)}
+  .fb-right{display:flex;align-items:center;gap:8px;margin-left:auto;flex-wrap:wrap}
   select,button,input{font:inherit}
   button{background:var(--card);color:var(--fg);border:1px solid var(--line);padding:7px 12px;border-radius:6px;cursor:pointer;font-size:13px}
   button:hover{border-color:var(--acc)}
@@ -144,7 +150,7 @@
 <body>
 <div class="app">
 <nav class="sidebar">
-  <div class="sidebar-logo">车镜 AutoLens<div class="sub">行业情报 × 用户之声</div></div>
+  <div class="sidebar-logo">车镜 AutoLens</div>
   <div class="nav-group">
     <div class="nav-group-label">行业情报</div>
     <div class="nav-items">
@@ -171,45 +177,51 @@
 </nav>
 
 <div id="page-news" class="page">
-  <header><div class="feedhead"><div><h1>每日精选</h1><div class="sub" id="newsSub">自动挑选的高价值汽车资讯</div></div><span class="badge blue">行业情报</span></div></header>
+  <header><div class="feedhead"><div><h1>每日精选</h1><div class="sub" id="newsSub">自动挑选的高价值汽车资讯</div></div></div></header>
   <div class="body">
     <div class="filterbar">
-      <div class="dd" id="ddDate-news"><span class="dd-lbl">日期</span><span class="dd-val" id="ddDateVal-news">-</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="datePop-news"></div></div></div>
-      <div class="dd" id="ddBrand-news"><span class="dd-lbl">品牌</span><span class="dd-val" id="ddBrandVal-news">全部</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="brandPop-news"></div></div></div>
-      <div class="dd" id="ddSource-news"><span class="dd-lbl">来源</span><span class="dd-val" id="ddSourceVal-news">全部</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="sourcePop-news"></div></div></div>
-      <input class="search" id="q-news" placeholder="搜索标题 / 摘要">
-      <button id="reset-news">重置</button>
+      <div class="seg" id="catSeg-news"></div>
+      <div class="fb-right">
+        <div class="dd" id="ddDate-news"><span class="dd-lbl">日期</span><span class="dd-val" id="ddDateVal-news">-</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="datePop-news"></div></div></div>
+        <div class="dd" id="ddBrand-news"><span class="dd-lbl">品牌</span><span class="dd-val" id="ddBrandVal-news">全部</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="brandPop-news"></div></div></div>
+        <div class="dd" id="ddSource-news"><span class="dd-lbl">来源</span><span class="dd-val" id="ddSourceVal-news">全部</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="sourcePop-news"></div></div></div>
+        <input class="search" id="q-news" placeholder="搜索标题 / 摘要">
+        <button id="reset-news">重置</button>
+      </div>
     </div>
     <div class="timeline" id="list-news"></div>
   </div>
 </div>
 
 <div id="page-all" class="page" style="display:none">
-  <header><div class="feedhead"><div><h1>全部动态</h1><div class="sub" id="allSub">当日全量抓取资讯</div></div><span class="badge blue">行业情报</span></div></header>
+  <header><div class="feedhead"><div><h1>全部动态</h1><div class="sub" id="allSub">当日全量抓取资讯</div></div></div></header>
   <div class="body">
     <div class="filterbar">
-      <div class="dd" id="ddDate-all"><span class="dd-lbl">日期</span><span class="dd-val" id="ddDateVal-all">-</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="datePop-all"></div></div></div>
-      <div class="dd" id="ddBrand-all"><span class="dd-lbl">品牌</span><span class="dd-val" id="ddBrandVal-all">全部</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="brandPop-all"></div></div></div>
-      <div class="dd" id="ddSource-all"><span class="dd-lbl">来源</span><span class="dd-val" id="ddSourceVal-all">全部</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="sourcePop-all"></div></div></div>
-      <input class="search" id="q-all" placeholder="搜索标题 / 摘要">
-      <button id="reset-all">重置</button>
+      <div class="seg" id="catSeg-all"></div>
+      <div class="fb-right">
+        <div class="dd" id="ddDate-all"><span class="dd-lbl">日期</span><span class="dd-val" id="ddDateVal-all">-</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="datePop-all"></div></div></div>
+        <div class="dd" id="ddBrand-all"><span class="dd-lbl">品牌</span><span class="dd-val" id="ddBrandVal-all">全部</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="brandPop-all"></div></div></div>
+        <div class="dd" id="ddSource-all"><span class="dd-lbl">来源</span><span class="dd-val" id="ddSourceVal-all">全部</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="sourcePop-all"></div></div></div>
+        <input class="search" id="q-all" placeholder="搜索标题 / 摘要">
+        <button id="reset-all">重置</button>
+      </div>
     </div>
     <div class="timeline" id="list-all"></div>
   </div>
 </div>
 
 <div id="page-weekly" class="page" style="display:none">
-  <header><div class="feedhead"><div><h1>每周精选</h1><div class="sub" id="weeklySub">一周内二次筛选的重点资讯</div></div><span class="badge blue">行业情报</span></div></header>
+  <header><div class="feedhead"><div><h1>每周精选</h1><div class="sub" id="weeklySub">一周内二次筛选的重点资讯</div></div></div></header>
   <div class="body"><div class="timeline" id="weeklyList"></div></div>
 </div>
 
 <div id="page-insight" class="page" style="display:none">
-  <header><div class="feedhead"><div><h1>本周洞察</h1><div class="sub" id="insightSub">基于周精选和证据材料形成的专题分析</div></div><span class="badge blue">行业情报</span></div></header>
+  <header><div class="feedhead"><div><h1>本周洞察</h1><div class="sub" id="insightSub">基于周精选和证据材料形成的专题分析</div></div></div></header>
   <div class="body" id="insightList"></div>
 </div>
 
 <div id="page-brand" class="page" style="display:none">
-  <header><div class="feedhead"><div><h1>品牌画像</h1><div class="sub" id="brandSub">小红书用户之声 × 行业情报联动</div></div><span class="badge">用户之声</span></div></header>
+  <header><div class="feedhead"><div><h1>品牌画像</h1><div class="sub" id="brandSub">小红书用户之声 × 行业情报联动</div></div></div></header>
   <div class="body" id="brandBody">
     <div class="filterbar">
       <div class="dd voice-dd" id="ddBrandVoice">
@@ -261,7 +273,7 @@
 </div>
 
 <div id="page-wall" class="page" style="display:none">
-  <header><div class="feedhead"><div><h1>相关原帖</h1><div class="sub" id="wallSub">小红书真实笔记样本</div></div><span class="badge">用户之声</span></div></header>
+  <header><div class="feedhead"><div><h1>相关原帖</h1><div class="sub" id="wallSub">小红书真实笔记样本</div></div></div></header>
   <div class="body"><div class="grid2" id="wallGrid"></div></div>
 </div>
 
@@ -294,23 +306,25 @@
 const CATS=["政策","市场","产品","技术","舆情"];
 const esc=s=>(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const fmtDate=s=>s?`${s.slice(0,4)}-${s.slice(4,6)}-${s.slice(6,8)}`:"-";
+const fmtDateShort=s=>s?`${s.slice(0,4)}-${+s.slice(4,6)}-${+s.slice(6,8)}`:"-";
 const trimSent=s=>{s=(s||"").trim();if(!s)return"";let i=-1;for(const ch of "。！？"){i=Math.max(i,s.lastIndexOf(ch));}return i>=0?s.slice(0,i+1):s;};
 function hhmm(it){if(it.has_time&&it.publish_ts){const d=new Date((it.publish_ts+8*3600)*1000);return String(d.getUTCHours()).padStart(2,'0')+':'+String(d.getUTCMinutes()).padStart(2,'0');}return it.publish_date?it.publish_date.slice(5):"—";}
 
-function itemHtml(it,featuredMode){const brands=(it.brands||[]).map(b=>`<span class="pill brand">${esc(b)}</span>`).join("");const take=(it.takeaway||"").trim();const showInsight=featuredMode&&take;const bodyText=featuredMode?(it.summary||""):trimSent((it.snippet||"").slice(0,200));const showBody=bodyText&&bodyText!==it.title;return `<div class="tl-row"><div class="tl-gutter"><span class="tl-time">${esc(hhmm(it))}</span><span class="dot"></span></div><div class="card"><div class="card-head"><div class="src"><span>${esc(it.source_name||"")}</span>${it.publish_date?`<span class="dt">· ${it.publish_date}</span>`:""}</div><div class="head-right">${it.is_featured?`<span class="feat">精选</span>`:""}<span class="score">${it.importance||0}</span></div></div><a class="t" href="${it.url}" target="_blank" rel="noopener">${esc(it.title)}</a>${showBody?`<div class="sum">${esc(bodyText)}</div>`:""}<div class="tags">${it.category?`<span class="pill">${esc(it.category)}</span>`:""}${brands}</div>${showInsight?`<div class="reason"><div class="rbox"><b>Insight:</b> ${esc(take)}</div></div>`:""}</div></div>`}
+function itemHtml(it,featuredMode){const brands=(it.brands||[]).map(b=>`<span class="pill brand">${esc(b)}</span>`).join("");const take=(it.takeaway||"").trim();const showInsight=featuredMode&&take;const bodyText=featuredMode?(it.summary||""):trimSent((it.snippet||"").slice(0,200));const showBody=bodyText&&bodyText!==it.title;const showImg=it.image&&it.image_status==="ok";return `<div class="tl-row"><div class="tl-gutter"><span class="tl-time">${esc(hhmm(it))}</span><span class="dot"></span></div><div class="card"><div class="card-head"><div class="src"><span>${esc(it.source_name||"")}</span>${it.publish_date?`<span class="dt">· ${it.publish_date}</span>`:""}</div><div class="head-right">${it.is_featured?`<span class="feat">精选</span>`:""}<span class="score">${it.importance||0}</span></div></div><a class="t" href="${it.url}" target="_blank" rel="noopener">${esc(it.title)}</a>${showBody?`<div class="sum">${esc(bodyText)}</div>`:""}${showImg?`<a class="thumb" href="${it.url}" target="_blank" rel="noopener"><img src="${it.image}" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.thumb').remove()"></a>`:""}<div class="tags">${it.category?`<span class="pill">${esc(it.category)}</span>`:""}${brands}</div>${showInsight?`<div class="reason"><div class="rbox"><b>Insight:</b> ${esc(take)}</div></div>`:""}</div></div>`}
 
 function makeFeedView(suffix,featuredMode){
   const state={index:null,feed:null,cat:"",brands:new Set(),sources:new Set(),q:""};
   const el=id=>document.getElementById(id+"-"+suffix);
   function closeDD(){document.querySelectorAll(".dd.open").forEach(d=>d.classList.remove("open"))}
   [el("ddDate"),el("ddBrand"),el("ddSource")].forEach(dd=>dd.addEventListener("click",e=>{if(e.target.closest(".dd-pop"))return;const open=dd.classList.contains("open");closeDD();if(!open)dd.classList.add("open")}));
+  function buildCatSeg(){if(!state.feed)return;const base=baseItems();const counts={};CATS.forEach(c=>counts[c]=0);base.forEach(i=>{if(counts[i.category]!=null)counts[i.category]++});let html=`<div class="pill-tab ${state.cat===""?"active":""}" data-c="">全部 <span class="n">${base.length}</span></div>`;CATS.forEach(c=>html+=`<div class="pill-tab ${state.cat===c?"active":""}" data-c="${c}">${c} <span class="n">${counts[c]||0}</span></div>`);el("catSeg").innerHTML=html;el("catSeg").querySelectorAll(".pill-tab").forEach(t=>t.onclick=()=>{state.cat=t.dataset.c;buildCatSeg();render()});}
   function buildMulti(popEl,valEl,counts,set){popEl.innerHTML=Object.entries(counts).map(([k,v])=>`<div class="opt ${set.has(k)?"sel":""}" data-k="${esc(k)}"><span class="check"></span><span class="nm">${esc(k)}</span><span class="cnt">${v}</span></div>`).join("")||'<div class="opt" style="color:var(--mute);cursor:default">无</div>';popEl.querySelectorAll(".opt[data-k]").forEach(o=>o.onclick=()=>{const k=o.dataset.k;set.has(k)?set.delete(k):set.add(k);o.classList.toggle("sel");valEl.textContent=set.size?`${set.size} 项`:"全部";render()});}
   function match(it){if(state.cat&&it.category!==state.cat)return false;if(state.brands.size&&!(it.brands||[]).some(b=>state.brands.has(b)))return false;if(state.sources.size&&!state.sources.has(it.source_name))return false;if(state.q&&!(`${it.title} ${it.summary||""}`.toLowerCase().includes(state.q.toLowerCase())))return false;return true}
   function baseItems(){return featuredMode?state.feed.items.filter(i=>i.is_featured):state.feed.items}
   function render(){if(!state.feed)return;const list=baseItems().filter(match);el("list").innerHTML=list.length?list.map(it=>itemHtml(it,featuredMode)).join(""):'<div class="empty">没有符合条件的内容</div>'}
   el("q").oninput=e=>{state.q=e.target.value.trim();render()};
-  el("reset").onclick=()=>{state.cat="";state.brands.clear();state.sources.clear();state.q="";el("q").value="";el("ddBrandVal").textContent="全部";el("ddSourceVal").textContent="全部";render()};
-  async function loadFeed(date){state.feed=await fetch(`./data/news/feed_${date}.json`).then(r=>r.json());state.cat="";state.brands.clear();state.sources.clear();state.q="";el("q").value="";el("ddDateVal").textContent=fmtDate(date);buildMulti(el("brandPop"),el("ddBrandVal"),state.feed.brand_counts||{},state.brands);buildMulti(el("sourcePop"),el("ddSourceVal"),state.feed.source_counts||{},state.sources);render();}
+  el("reset").onclick=()=>{state.cat="";state.brands.clear();state.sources.clear();state.q="";el("q").value="";el("ddBrandVal").textContent="全部";el("ddSourceVal").textContent="全部";buildCatSeg();render()};
+  async function loadFeed(date){state.feed=await fetch(`./data/news/feed_${date}.json`).then(r=>r.json());state.cat="";state.brands.clear();state.sources.clear();state.q="";el("q").value="";el("ddDateVal").textContent=fmtDate(date);buildCatSeg();buildMulti(el("brandPop"),el("ddBrandVal"),state.feed.brand_counts||{},state.brands);buildMulti(el("sourcePop"),el("ddSourceVal"),state.feed.source_counts||{},state.sources);render();}
   async function init(index){state.index=index;el("datePop").innerHTML=(index.dates||[]).map(d=>`<div class="opt" data-d="${d}"><span class="nm">${fmtDate(d)}</span></div>`).join("");el("datePop").querySelectorAll(".opt").forEach(o=>o.onclick=()=>{closeDD();loadFeed(o.dataset.d)});await loadFeed(index.latest);}
   return {init};
 }
@@ -367,7 +381,7 @@ async function boot(){
   document.getElementById("allSub").textContent=`${fmtDate(index.latest)} · 当日全量抓取资讯`;
   window.__newsIndex=index;
   const v=await loadVoice();
-  document.getElementById("sideFoot").innerHTML=`整合方案 A · 并列合并<br>行业情报数据取自 ${fmtDate(index.latest)} 真实抓取<br>用户之声数据取自${v.brand} ${v.sample_total} 条真实样本`;
+  document.getElementById("sideFoot").textContent=`更新于 ${fmtDateShort(index.latest)}`;
   const todayFeed=await fetch(`./data/news/feed_${index.latest}.json`).then(r=>r.json());
   const brandNews=todayFeed.items.find(it=>(it.brands||[]).includes(v.brand)) || null;
   renderBrandPage(v,brandNews);
