@@ -315,7 +315,7 @@
   .doc-log-tag{display:inline-block;font-size:11px;font-weight:600;padding:1px 7px;border-radius:4px;margin-right:7px}
   .doc-log-tag.feat{background:#d1fae5;color:#065f46}
   .doc-log-tag.opt{background:#e0edff;color:#1e40af}
-  .doc-log-tag.fix{background:#fef3c7;color:#92400e}
+  .doc-log-tag.fix{background:#fee2e2;color:#b91c1c}
   .doc-log-body ul{margin:5px 0 0;padding-left:17px}
   .doc-log-body li{margin:2px 0}
 
@@ -879,7 +879,10 @@ function _hydrateView(view){
     prevAfterSales: r.prevAfterSales,
     cities: r.cities,
     cityDelta: r.cityDelta,
+    salesCities: r.salesCities,
+    salesCityDelta: r.salesCityDelta,
     diff: r.diff,
+    salesDiff: r.salesDiff || r.diff,
   }));
   // curLocs 仅在 renderDynamicReport/renderMonthlyReport 里被取 length 和 map(l=>l.g) 用作品牌数
   const curLocs = view.rows.flatMap(r => new Array(r.curCount).fill(0).map(()=>({g:r.g})));
@@ -923,22 +926,23 @@ function visibleReportRows(rows){
   return rows.filter(r => !SUPER_LUX_BRANDS.has(r.g) || _rowHasChange(r));
 }
 function renderReportRows(rows){
-  // 净变化=0 的品牌（月初=月末，如本期理想/奔驰）默认不显示
-  rows = rows.filter(r => r.cur.length !== r.prev.length);
-  const max = Math.max(1, ...rows.map(r=>r.cur.length));
-  return rows.map(r=>{
-    const add = reportNameList(r.diff.added);
-    const rem = reportNameList(r.diff.removed);
+  // 净变化=0 的品牌（月初=月末，如本期理想/奔驰）默认不显示；这里的"销售网点数"口径统一按
+  // curSales/prevSales/salesCities/salesDiff（hasCap 销售），跟服务/钣喷网点区分开，见 P037。
+  rows = rows.filter(r => r.curSales !== r.prevSales);
+  return rows.map((r,i)=>{
+    const salesDiff = r.salesDiff || r.diff;
+    const add = reportNameList(salesDiff.added);
+    const rem = reportNameList(salesDiff.removed);
     const changeDetail = [
       add ? `<div class="detail-add">+新增 ${add}</div>` : '',
       rem ? `<div class="detail-rem">−退出 ${rem}</div>` : '',
     ].join('');
     return `<tr>
-      <td class="brand-cell"><span class="dot"></span>${r.g}</td>
-      <td><div class="bar-wrap"><div class="bar-fill" style="width:${(r.cur.length/max*100).toFixed(1)}%;background:#5d7a8a"></div><span class="bar-val">${r.cur.length}</span></div></td>
-      <td class="num">${reportDeltaHtml(r.cur.length-r.prev.length)}</td>
-      <td class="num">${r.cities}</td>
-      <td class="num">${reportDeltaHtml(r.cityDelta)}</td>
+      <td class="brand-cell"><span class="dot" style="background:${trendGroupColorOf(r.g)}"></span>${r.g}</td>
+      <td class="num">${r.curSales}</td>
+      <td class="num">${reportDeltaHtml(r.curSales-r.prevSales)}</td>
+      <td class="num">${r.salesCities!=null?r.salesCities:r.cities}</td>
+      <td class="num">${reportDeltaHtml(r.salesCityDelta!=null?r.salesCityDelta:r.cityDelta)}</td>
       <td class="detail-cell">${changeDetail || '<span class="zero">—</span>'}</td>
     </tr>`;
   }).join('');
@@ -973,9 +977,6 @@ async function renderDynamicReport(){
   const changedBrands = new Set([...allDiff.added, ...allDiff.removed, ...allDiff.changed].map(x=>x.g)).size;
   const options = pairs.map(p=>`<option value="${p.oldTs}|${p.newTs}" ${p.oldTs===pair.oldTs&&p.newTs===pair.newTs?'selected':''}>${p.label}</option>`).join('');
   el.innerHTML = `<div class="hero">
-    <div class="hero-top">
-      <span class="logo">渠道研究</span>
-    </div>
     <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:10px">
       <h1 style="margin:0">竞对汽车品牌销售网点变化报告</h1>
       <label style="display:flex;align-items:center;gap:12px;font-size:15px;color:var(--mute);margin-top:4px;white-space:nowrap">
@@ -996,7 +997,7 @@ async function renderDynamicReport(){
 
     <div class="sec-title">销售网点数（家）& 城市覆盖</div>
     <table>
-      <thead><tr><th style="width:110px">品牌</th><th style="min-width:180px">销售网点数（当期）</th><th>净变化</th><th>覆盖城市</th><th>城市变化</th><th>本期动态</th></tr></thead>
+      <thead><tr><th style="width:110px">品牌</th><th class="num">本期销售网点数</th><th>净变化</th><th>覆盖城市</th><th>城市变化</th><th>本期动态</th></tr></thead>
       <tbody>${renderReportRows(rows)}</tbody>
     </table>
 
@@ -1049,7 +1050,6 @@ async function renderMonthlyReport(){
   const pct = prevTotal ? (totalDelta/prevTotal*100) : 0;
   const summary = buildMonthlySummary(pair, rows, allDiff, curTotal, prevTotal, citiesNet);
   el.innerHTML = `<div class="hero">
-      <div class="hero-top"><span class="logo">月度渠道研究</span></div>
       <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:10px">
         <h1 style="margin:0">竞对汽车品牌销售网点月度变化报告</h1>
         <label style="display:flex;align-items:center;gap:12px;font-size:15px;color:var(--mute);margin-top:4px;white-space:nowrap">
@@ -1131,7 +1131,7 @@ function buildMonthlyTable(rows){
     const rate = prev ? (net/prev*100) : (net>0?100:0);
     const rateTxt = `${reportDeltaHtml(net)} <span class="mtbl-rate">${net>0?'+':''}${rate.toFixed(1)}%</span>`;
     return `<tr>
-      <td class="brand-cell"><span class="dot"></span>${r.g}</td>
+      <td class="brand-cell"><span class="dot" style="background:${trendGroupColorOf(r.g)}"></span>${r.g}</td>
       <td class="num">${prev.toLocaleString()}</td>
       <td class="num">${r.prevSales!=null?r.prevSales.toLocaleString():'—'}</td>
       <td class="num">${cur.toLocaleString()}</td>
@@ -2841,6 +2841,8 @@ function exportCSV(){
 // 更新日志: 最新在最前, 渲染时按月份分组. tag: feat=新功能 / opt=优化 / fix=修复.
 // 只记对用户有意义的更新; 改名/内部重构等琐碎变动不入日志. 新增一期 = 顶部加一条.
 const CHANGELOG = [
+  {date:'2026-07-15', tag:'fix', tagText:'错误修复',
+   text:'修复「当期报告」「销售网点数」表格误把服务中心 / 钣喷中心等非销售性质网点计入总数的问题（如奥迪、小米实际销售网点数比页面此前显示的少 15%~20%）；同时统一「覆盖城市」「本期动态」新增退出明细的统计口径，均改为只看销售能力网点。表格样式同步优化：数字列去掉灰色进度条改为纯数字、品牌前圆点改为方块并对齐主视图配色。'},
   {date:'2026-07-06', tag:'feat', tagText:'新功能',
    text:'网点查询页支持省份下钻：点击地图上的省份或右侧「省份明细」表的任意一行，即可查看该省网点清单（在营 / 新增 / 退出，支持按名称、地址、城市搜索）。'},
   {date:'2026-06-17', tag:'feat', tagText:'新功能',
