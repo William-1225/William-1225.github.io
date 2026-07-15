@@ -184,8 +184,8 @@
   .monthly-table td{padding:8px 12px;border-bottom:1px solid var(--line)}
   .monthly-table tbody tr:hover{background:#f8fafc}
   .mtbl-rate{color:var(--mute);font-size:12px;margin-left:4px}
-  .mtbl-detail{border:1px solid var(--line);background:var(--card);color:var(--acc);border-radius:6px;padding:3px 12px;font-size:12px;cursor:pointer}
-  .mtbl-detail:hover{border-color:var(--acc);background:#f0f6ff}
+  .mtbl-detail{border:none;background:none;color:var(--acc);padding:0;font-size:12px;cursor:pointer}
+  .mtbl-detail:hover{text-decoration:underline}
   /* 品牌变化详情：分行 + 标签三色 + 城市胶囊 */
   .bd-line{margin:3px 0;font-size:13px;line-height:1.7;display:flex;gap:6px}
   .bd-tag{flex-shrink:0;font-weight:700}
@@ -997,7 +997,7 @@ async function renderDynamicReport(){
 
     <div class="sec-title">销售网点数（家）& 城市覆盖</div>
     <table>
-      <thead><tr><th style="width:110px">品牌</th><th class="num">本期销售网点数</th><th>净变化</th><th>覆盖城市</th><th>城市变化</th><th>本期动态</th></tr></thead>
+      <thead><tr><th style="width:110px">品牌</th><th class="num">本期销售网点数</th><th class="num">净变化</th><th class="num">覆盖城市</th><th class="num">城市变化</th><th>本期动态</th></tr></thead>
       <tbody>${renderReportRows(rows)}</tbody>
     </table>
 
