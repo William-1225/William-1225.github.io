@@ -979,14 +979,19 @@ async function renderDynamicReport(){
   }
   const {curLocs, allDiff, rows, totalDelta} = await computePairReportData(pair.oldTs, pair.newTs);
   const changedBrands = new Set([...allDiff.added, ...allDiff.removed, ...allDiff.changed].map(x=>x.g)).size;
-  const options = pairs.map(p=>`<option value="${p.oldTs}|${p.newTs}" ${p.oldTs===pair.oldTs&&p.newTs===pair.newTs?'selected':''}>${p.label}</option>`).join('');
+  // 值用 newTs（相邻期天然是"选当期日期，自动带出它的上一期"），跟数据下载页的对比报告日历同一套逻辑
+  const options = pairs.map(p=>`<option value="${p.newTs}" ${p.newTs===pair.newTs?'selected':''}>${p.label}</option>`).join('');
   el.innerHTML = `<div class="hero">
     <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:10px">
       <h1 style="margin:0">竞对汽车品牌销售网点变化报告</h1>
-      <label style="display:flex;align-items:center;gap:12px;font-size:15px;color:var(--mute);margin-top:4px;white-space:nowrap">
+      <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:var(--mute);margin-top:4px;white-space:nowrap">
         对比区间
-        <select id="reportPairSel" style="font-size:15px;padding:8px 14px;min-width:230px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--fg)">${options}</select>
-      </label>
+        <div class="dd" data-dd="reportPairSel" style="font-size:15px;padding:8px 14px;min-width:230px">
+          <span class="dd-val" id="reportPairSelVal">${pair.label}</span><span class="dd-arrow">-</span>
+          <div class="dd-pop" id="reportPairSelPop"></div>
+          <select id="reportPairSel" style="display:none">${options}</select>
+        </div>
+      </div>
     </div>
     <div class="sub">数据周期：${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}　｜　覆盖品牌：${new Set(curLocs.map(l=>l.g)).size} 个　｜　报告日期：${reportDateText(pair.newTs)}</div>
   </div>
@@ -1017,9 +1022,12 @@ async function renderDynamicReport(){
   </div>`;
   const sel = document.getElementById('reportPairSel');
   el._rendered = true;
+  bindDDToggle(document.querySelector('[data-dd="reportPairSel"]'));
+  setupCalendarDropdown('reportPairSel', 'reportPairSelPop', 'reportPairSelVal');
   sel.onchange = () => {
-    const [oldTs, newTs] = sel.value.split('|');
-    REPORT_PAIR = {oldTs, newTs};
+    const p = pairs.find(pp=>pp.newTs===sel.value);
+    if(!p) return;
+    REPORT_PAIR = {oldTs:p.oldTs, newTs:p.newTs};
     renderDynamicReport();
   };
 }
@@ -1040,7 +1048,9 @@ async function renderMonthlyReport(){
   if(!MONTHLY_PAIR || !pairs.some(p=>p.month===MONTHLY_PAIR.month)) MONTHLY_PAIR = pairs[pairs.length-1];
   const pair = pairs.find(p=>p.month===MONTHLY_PAIR.month) || pairs[pairs.length-1];
   MONTHLY_PAIR = pair;
-  const options = pairs.map(p=>`<option value="${p.month}" ${p.month===pair.month?'selected':''}>${p.label}</option>`).join('');
+  // 值用 newTs（完整月的下月首个快照日）而非 month，这样才能落到日历网格的具体某天上；
+  // pairs 已经 filter 过 p.newTs 存在（只保留"已完成月"），每个月都有唯一对应的可点日期。
+  const options = pairs.map(p=>`<option value="${p.newTs}" ${p.newTs===pair.newTs?'selected':''}>${p.label}</option>`).join('');
   const cacheKey = `${pair.oldTs}|${pair.newTs}`;
   if(!REPORT_DATA_CACHE[cacheKey]){
     el.innerHTML = '<p style="color:var(--mute);padding:60px;text-align:center">月度报告加载中…</p>';
@@ -1056,10 +1066,14 @@ async function renderMonthlyReport(){
   el.innerHTML = `<div class="hero">
       <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:10px">
         <h1 style="margin:0">竞对汽车品牌销售网点月度变化报告</h1>
-        <label style="display:flex;align-items:center;gap:12px;font-size:15px;color:var(--mute);margin-top:4px;white-space:nowrap">
+        <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:var(--mute);margin-top:4px;white-space:nowrap">
           月度区间
-          <select id="monthlyPairSel" style="font-size:15px;padding:8px 14px;min-width:300px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--fg)">${options}</select>
-        </label>
+          <div class="dd" data-dd="monthlyPairSel" style="font-size:15px;padding:8px 14px;min-width:300px">
+            <span class="dd-val" id="monthlyPairSelVal">${pair.label}</span><span class="dd-arrow">-</span>
+            <div class="dd-pop" id="monthlyPairSelPop"></div>
+            <select id="monthlyPairSel" style="display:none">${options}</select>
+          </div>
+        </div>
       </div>
       <div class="sub">月度周期：${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}　｜　覆盖品牌：${brandCount} 个　｜　报告日期：${reportDateText(pair.newTs)}</div>
     </div>
@@ -1090,8 +1104,12 @@ async function renderMonthlyReport(){
   const sel = document.getElementById('monthlyPairSel');
   el._rendered = true;
   if(sel){
+    bindDDToggle(document.querySelector('[data-dd="monthlyPairSel"]'));
+    setupCalendarDropdown('monthlyPairSel', 'monthlyPairSelPop', 'monthlyPairSelVal');
     sel.onchange = () => {
-      MONTHLY_PAIR = {month: sel.value};
+      const p = pairs.find(pp=>pp.newTs===sel.value);
+      if(!p) return;
+      MONTHLY_PAIR = {month: p.month};
       renderMonthlyReport();
     };
   }
@@ -1246,7 +1264,7 @@ async function _initDownload(){
         <div class="dl-card-meta">${meta}</div></div>
         <div class="dl-actions">
           <div class="dd" data-dd="${id}">
-            <span class="dd-val" id="${id}Val">${fmtLabel(cur)}</span><span class="dd-arrow">▾</span>
+            <span class="dd-val" id="${id}Val">${fmtLabel(cur)}</span><span class="dd-arrow">-</span>
             <div class="dd-pop" id="${id}Pop"></div>
             <select id="${id}" style="display:none">${opts}</select>
           </div>
@@ -1261,18 +1279,6 @@ async function _initDownload(){
       cards.push(selectorCard('网点变化对比报告', '按相邻两期下载对比报告；日历上选当期日期，自动对比它的上一期', reportItems, 'reportDownloadSel'));
     }
     el.innerHTML = cards.join('');
-    // 动态插入的 .dd 不在 boot() 时 setupDropdownToggles() 的扫描范围内，单独绑开合
-    const bindDDToggle = dd => {
-      dd.addEventListener('click', e=>{
-        if(e.target.closest('.dd-pop')) return;
-        const wasOpen = dd.classList.contains('open');
-        closeAllDD();
-        if(!wasOpen) dd.classList.add('open');
-        e.stopPropagation();
-      });
-      const pop = dd.querySelector('.dd-pop');
-      if(pop) pop.addEventListener('click', e=>e.stopPropagation());
-    };
     const bind = (id, items) => {
       const sel = document.getElementById(id);
       const btn = document.getElementById(id + 'Btn');
@@ -1528,6 +1534,21 @@ function groupCounts(dealers){
 
 /* ============ 胶囊下拉: 展开/收起 + 与隐藏 <select> 同步 ============ */
 function closeAllDD(){ document.querySelectorAll('.dd.open').forEach(d=>d.classList.remove('open')); }
+// 动态插入的 .dd（报告/月度区间、数据下载）不在 boot() 时 setupDropdownToggles() 的扫描范围内，
+// 每次渲染完都要单独绑一次开合；抽成公用函数避免每处各写一份重复逻辑。
+function bindDDToggle(dd){
+  if(!dd || dd._ddToggleBound) return;
+  dd._ddToggleBound = true;
+  dd.addEventListener('click', e=>{
+    if(e.target.closest('.dd-pop')) return;
+    const wasOpen = dd.classList.contains('open');
+    closeAllDD();
+    if(!wasOpen) dd.classList.add('open');
+    e.stopPropagation();
+  });
+  const pop = dd.querySelector('.dd-pop');
+  if(pop) pop.addEventListener('click', e=>e.stopPropagation());
+}
 function setupDropdownToggles(){
   document.querySelectorAll('.dd').forEach(dd=>{
     dd.addEventListener('click', e=>{
@@ -2867,7 +2888,7 @@ function exportCSV(){
 // 只记对用户有意义的更新; 改名/内部重构等琐碎变动不入日志. 新增一期 = 顶部加一条.
 const CHANGELOG = [
   {date:'2026-07-15', tag:'opt', tagText:'优化',
-   text:'「数据下载」页两个期数选择器改成日历弹窗（跟顶部「当前日期」同款），只有实际有数据的日期可点；「网点变化对比报告」按相邻两期固定配对，日历上选当期日期会自动带出它对应的上一期。'},
+   text:'「数据下载」「当期报告」「月度报告」的期数选择器统一改成日历弹窗（跟顶部「当前日期」同款），只有实际有数据的日期可点；对比区间 / 月度区间 / 网点变化对比报告都是固定相邻期配对，日历上选当期日期会自动带出它对应的上一期。下拉箭头统一改成「-」。'},
   {date:'2026-07-15', tag:'fix', tagText:'错误修复',
    text:'修复「当期报告」「销售网点数」表格误把非销售性质网点计入总数的问题，现已修复。'},
   {date:'2026-07-06', tag:'feat', tagText:'新功能',
