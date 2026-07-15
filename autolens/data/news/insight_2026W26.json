@@ -1,0 +1,211 @@
+{
+  "week": "2026W26",
+  "generated_at": "2026-06-29T10:30:00+08:00",
+  "method": "codex",
+  "topics": [
+    {
+      "title": "欧洲不只加关税：本地化、软件和成本防线同步抬高",
+      "summary": "本周欧洲线索显示，针对中国车企的竞争压力已经从单一 BEV 关税扩展到多重门槛。周精选提到，欧盟在对中国产纯电动车加征反补贴税后，正准备把插混也纳入新的关税讨论；与此同时，中国品牌5月在欧洲销量同比增长97%，份额升至10.7%，艾睿铂预计2030年中国车企欧洲份额可能达到16%。欧洲本土阵营的反应也更系统：大众进行德国本土大规模裁员和产能收缩，欧洲车企抱团推进开源车载软件，日产则在削减纯电逍客项目的同时考虑让奇瑞在英国桑德兰工厂代工。",
+      "why_it_matters": "欧洲正在从“挡住中国低价纯电车”转向“重写进入欧洲的经营条件”。关税可以延缓整车进口，但难以阻止中国车企通过 PHEV、当地组装、技术授权和供应链合作继续渗透；本地车企如果只依赖保护性政策，仍会暴露软件、成本和产品节奏短板。接下来需要跟踪三件事：PHEV 是否正式被纳入欧盟贸易工具，奇瑞、上汽、比亚迪等是否加速欧洲产能和代工安排，以及欧洲开源软件联盟能否在2030年前形成真实量产效率。",
+      "items": [
+        {
+          "title": "盖世周报 | 欧盟拟对中国产PHEV加征新关税；安通林达成债务再融资协议",
+          "url": "https://auto.gasgoo.com/news/202606/28I70463408C108.shtml",
+          "published_date": "2026-06-28",
+          "source": "盖世汽车",
+          "relevance": "提供欧盟拟扩大关税对象至中国产 PHEV 的核心线索。"
+        },
+        {
+          "title": "中国车企2030年欧洲市场份额将达16%",
+          "url": "https://auto.gasgoo.com/news/202606/26I70463385C501.shtml",
+          "published_date": "2026-06-26",
+          "source": "盖世汽车",
+          "relevance": "提供中国品牌欧洲份额、销量增速和2030年预测。"
+        },
+        {
+          "title": "欧洲车企抱团共建软件定义汽车 能否追上中国智能化步伐？",
+          "url": "https://auto.gasgoo.com/news/202606/25I70463244C601.shtml",
+          "published_date": "2026-06-25",
+          "source": "盖世汽车",
+          "relevance": "说明欧洲车企试图通过开源协作降低软件研发成本。"
+        },
+        {
+          "title": "传日产叫停纯电版逍客开发",
+          "url": "https://auto.gasgoo.com/news/202606/24I70463016C109.shtml",
+          "published_date": "2026-06-24",
+          "source": "盖世汽车",
+          "relevance": "反映传统车企在欧洲重新评估纯电投入，并考虑与中国品牌合作利用产能。"
+        },
+        {
+          "title": "每6个员工就有1个被裁，大众迎88年来最大的战略收缩",
+          "url": "https://www.iautodaily.com/news/review/mei6geyuangongjiuyou1gebeicaidazhongying88nianlaizuidadezhan/",
+          "published_date": "2026-06-22",
+          "source": "汽车商业评论",
+          "relevance": "大众裁员和降本体现欧洲车企从扩张转向现金流防守。"
+        }
+      ],
+      "evidence": [
+        {
+          "title": "Commission imposes countervailing duties on imports of battery electric vehicles from China",
+          "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_24_5589",
+          "published_date": "2024-10-29",
+          "source": "European Commission"
+        },
+        {
+          "title": "盖世周报 | 欧盟拟对中国产PHEV加征新关税；安通林达成债务再融资协议",
+          "url": "https://auto.gasgoo.com/news/202606/28I70463408C108.shtml",
+          "published_date": "2026-06-28",
+          "source": "盖世汽车"
+        },
+        {
+          "title": "中国车企2030年欧洲市场份额将达16%",
+          "url": "https://auto.gasgoo.com/news/202606/26I70463385C501.shtml",
+          "published_date": "2026-06-26",
+          "source": "盖世汽车"
+        },
+        {
+          "title": "欧洲车企抱团共建软件定义汽车 能否追上中国智能化步伐？",
+          "url": "https://auto.gasgoo.com/news/202606/25I70463244C601.shtml",
+          "published_date": "2026-06-25",
+          "source": "盖世汽车"
+        }
+      ]
+    },
+    {
+      "title": "智驾进入责任战：兜底承诺比参数堆叠更能改变使用率",
+      "summary": "本周智能驾驶线索的共同点，是竞争焦点从“有没有高阶功能”转向“用户敢不敢用、事故谁承担、监管如何验证”。华为乾崑智驾 ADS 新增高阶功能包保障与服务权益，覆盖合法道路和区域内正常使用辅助驾驶时发生的意外事故；此前比亚迪也提出城市领航辅助驾驶安全兜底。另一边，中国高阶 NOA 与 L4 出海需要重建定位、信号链路和功能安全体系，欧洲车企则通过开源基础软件联盟补短板。智驾的商业化正在从硬件配置竞争，进入责任、数据、保险和合规能力竞争。",
+      "why_it_matters": "高阶智驾普及的瓶颈不是单车硬件成本，而是责任边界和信任成本。车企愿意对特定场景作出兜底，意味着智驾从营销配置变成准服务承诺，也会倒逼算法验证、事故取证、保险定价和 OTA 风险控制更透明。对供应链而言，机会不只在激光雷达和芯片，还在高精定位、冗余感知、数据闭环、功能安全和合规测试。后续应重点观察兜底承诺是否写入可执行条款、保险公司如何定价，以及海外监管是否接受中国方案的安全数据。",
+      "items": [
+        {
+          "title": "华为跟进辅助驾驶兜底，车主终于不用背锅了",
+          "url": "https://auto.gasgoo.com/news/202606/26I70463390C601.shtml",
+          "published_date": "2026-06-26",
+          "source": "盖世汽车",
+          "relevance": "提供华为乾崑 ADS 高阶功能包保障和服务权益的核心事实。"
+        },
+        {
+          "title": "从L2+全球量产到L4场景落地",
+          "url": "https://auto.gasgoo.com/news/202606/24I70463093C106.shtml",
+          "published_date": "2026-06-24",
+          "source": "盖世汽车",
+          "relevance": "说明中国智驾出海需要补齐定位、功能安全和海外适配链路。"
+        },
+        {
+          "title": "欧洲车企抱团共建软件定义汽车 能否追上中国智能化步伐？",
+          "url": "https://auto.gasgoo.com/news/202606/25I70463244C601.shtml",
+          "published_date": "2026-06-25",
+          "source": "盖世汽车",
+          "relevance": "欧洲开源车载软件合作显示智能化能力已成为全球车企共同短板。"
+        },
+        {
+          "title": "我国牵头制定！全球首个自动驾驶系统全球技术法规获批发布",
+          "url": "https://www.autohome.com.cn/news/202606/1315315.html",
+          "published_date": "2026-06-28",
+          "source": "汽车之家",
+          "relevance": "补充自动驾驶技术规则进入全球协调阶段的背景。"
+        }
+      ],
+      "evidence": [
+        {
+          "title": "华为跟进辅助驾驶兜底，车主终于不用背锅了",
+          "url": "https://auto.gasgoo.com/news/202606/26I70463390C601.shtml",
+          "published_date": "2026-06-26",
+          "source": "盖世汽车"
+        },
+        {
+          "title": "从L2+全球量产到L4场景落地",
+          "url": "https://auto.gasgoo.com/news/202606/24I70463093C106.shtml",
+          "published_date": "2026-06-24",
+          "source": "盖世汽车"
+        },
+        {
+          "title": "Standing General Order on Crash Reporting for ADS and Level 2 ADAS",
+          "url": "https://www.nhtsa.gov/laws-regulations/standing-general-order-crash-reporting",
+          "published_date": "2021-06-29",
+          "source": "NHTSA"
+        },
+        {
+          "title": "特斯拉误导性FSD数据",
+          "url": "https://auto.gasgoo.com/news/202606/16I70462040C111.shtml",
+          "published_date": "2026-06-16",
+          "source": "盖世汽车"
+        }
+      ]
+    },
+    {
+      "title": "价格战后半场：资本开始奖励客单价、场景定义和盈利路径",
+      "summary": "本周新势力和自主品牌的信号出现明显分化。蔚来、理想、小鹏港股市值先后跌破千亿港元，说明资本市场已不再只为销量故事付费；但蔚来 ES9 以50万元以上成交均价实现30天交付破万，乐道在组织和渠道调整后5月交付12029辆，零跑 D99 则以25万至32万元价格切入大六座 MPV。与此同时，主流自主品牌一季度客单价普遍较2025年提高，行业利润率却仍只有低个位数，继续低价换量的空间正在变窄。",
+      "why_it_matters": "中国车企正在从单纯价格战进入“价格带经营”阶段：低价车型要证明规模和成本效率，高端车型要证明场景定义和品牌溢价，中间价位则要在配置、补能、智驾和售后中找到可持续毛利。资本市场压低蔚小理估值，不代表新能源需求消失，而是要求企业把交付量转化为现金流、毛利率和复购心智。后续应重点跟踪蔚来多品牌能否兼顾 ES9 高端溢价与乐道家庭市场，零跑上探 MPV 后的毛利表现，以及增程、存量车服务和客单价回升能否缓冲价格战压力。",
+      "items": [
+        {
+          "title": "蔚小理，港股市值全员跌破千亿",
+          "url": "https://auto.gasgoo.com/news/202606/28I70463552C103.shtml",
+          "published_date": "2026-06-28",
+          "source": "盖世汽车",
+          "relevance": "提供资本市场从规模故事转向盈利与技术兑现的估值信号。"
+        },
+        {
+          "title": "均价50万、30天万辆：蔚来ES9做对了什么？",
+          "url": "https://auto.gasgoo.com/news/202606/26I70463374C501.shtml",
+          "published_date": "2026-06-26",
+          "source": "盖世汽车",
+          "relevance": "说明高端纯电并非没有需求，关键在场景定义和交付节奏。"
+        },
+        {
+          "title": "买不起蔚来才买乐道？沈斐回应来了",
+          "url": "https://auto.gasgoo.com/news/202606/23I70462884C109.shtml",
+          "published_date": "2026-06-23",
+          "source": "盖世汽车",
+          "relevance": "乐道样本用于观察多品牌车企如何建立独立家庭品牌心智。"
+        },
+        {
+          "title": "2026年一季度客单价出炉",
+          "url": "https://auto.gasgoo.com/news/202606/26I70463193C108.shtml",
+          "published_date": "2026-06-26",
+          "source": "盖世汽车",
+          "relevance": "客单价回升反映车企从抢销量转向守利润。"
+        },
+        {
+          "title": "零跑D99提档上市，30万级MPV迎来新王炸",
+          "url": "https://auto.gasgoo.com/news/202606/26I70463287C109.shtml",
+          "published_date": "2026-06-25",
+          "source": "盖世汽车",
+          "relevance": "零跑从15万元级家用 SUV 向30万元级 MPV 上探，验证品牌天花板。"
+        },
+        {
+          "title": "3.7亿存量车，是汽车消费的新“金矿”",
+          "url": "https://auto.gasgoo.com/news/202606/25I70463192C108.shtml",
+          "published_date": "2026-06-25",
+          "source": "盖世汽车",
+          "relevance": "政策从新车销售延伸到流通、置换、改装和用车服务，提供价格战之外的增量。"
+        }
+      ],
+      "evidence": [
+        {
+          "title": "蔚小理，港股市值全员跌破千亿",
+          "url": "https://auto.gasgoo.com/news/202606/28I70463552C103.shtml",
+          "published_date": "2026-06-28",
+          "source": "盖世汽车"
+        },
+        {
+          "title": "均价50万、30天万辆：蔚来ES9做对了什么？",
+          "url": "https://auto.gasgoo.com/news/202606/26I70463374C501.shtml",
+          "published_date": "2026-06-26",
+          "source": "盖世汽车"
+        },
+        {
+          "title": "2026年一季度客单价出炉",
+          "url": "https://auto.gasgoo.com/news/202606/26I70463193C108.shtml",
+          "published_date": "2026-06-26",
+          "source": "盖世汽车"
+        },
+        {
+          "title": "3.7亿存量车，是汽车消费的新“金矿”",
+          "url": "https://auto.gasgoo.com/news/202606/25I70463192C108.shtml",
+          "published_date": "2026-06-25",
+          "source": "盖世汽车"
+        }
+      ]
+    }
+  ]
+}

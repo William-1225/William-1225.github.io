@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>车镜 AutoLens</title>
+<style>
+  :root { --bg:#f7fafc; --panel:#ffffff; --line:#e2e8f0; --fg:#1a202c; --mute:#718096;
+          --acc:#2563eb; --acc-soft:#eaf2ff; --warn:#d97706; --card:#ffffff;
+          --side-bg:#111827; --side-line:#243244; --side-hover:#1f2937; --side-fg:#f8fafc;
+          --side-mute:#a7b0bf; --side-active:#1e40af; --side-active-fg:#ffffff;
+          --voice-acc:#059669; --voice-soft:#ecfdf5; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:13px/1.55 -apple-system,Segoe UI,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;height:100vh;overflow:hidden}
+  .app{display:flex;height:100vh;width:100vw;overflow:hidden}
+  .page{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+  .sidebar{width:216px;min-width:216px;background:var(--side-bg);border-right:1px solid var(--side-line);display:flex;flex-direction:column;flex-shrink:0}
+  .sidebar-logo{padding:24px 20px 20px;font-size:20px;font-weight:700;color:var(--side-fg);line-height:1.2;border-bottom:1px solid var(--side-line)}
+  .sidebar-logo .sub{font-size:12px;font-weight:400;color:var(--side-mute);margin-top:5px;letter-spacing:.3px}
+  .nav-group{padding:14px 12px 4px}
+  .nav-group-label{padding:4px 10px 8px;font-size:11px;letter-spacing:.6px;color:#5b6472;font-weight:600;text-transform:uppercase}
+  .nav-items{display:flex;flex-direction:column;gap:8px}
+  .nav-item{position:relative;display:flex;align-items:center;gap:10px;padding:10px 12px 10px 14px;cursor:pointer;color:var(--side-mute);font-size:14.5px;border-radius:8px;transition:all .12s}
+  .nav-item:hover{background:var(--side-hover);color:var(--side-fg)}
+  .nav-item.active{background:var(--side-active);color:var(--side-active-fg);font-weight:600}
+  .nav-item.voice.active{background:#065f46}
+  .nav-item.active::before{content:"";position:absolute;left:6px;top:9px;bottom:9px;width:3px;border-radius:3px;background:var(--side-active-fg)}
+  .nav-item .ico{width:15px;height:15px;flex-shrink:0}
+  .side-foot{margin-top:auto;padding:16px 20px;border-top:1px solid var(--side-line);font-size:11px;color:var(--side-mute);line-height:1.7}
+  header{padding:22px 28px 14px;background:var(--bg);position:sticky;top:0;z-index:10}
+  .feedhead{padding:2px 0 14px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+  .feedhead h1{margin:0;font-size:24px;font-weight:700;color:var(--fg)}
+  .feedhead .sub{color:var(--mute);font-size:13px;margin-top:5px}
+  .badge{display:inline-flex;align-items:center;gap:6px;background:var(--voice-soft);color:#047857;border:1px solid #a7f3d0;border-radius:999px;padding:4px 12px;font-size:12px;font-weight:600;white-space:nowrap;margin-top:2px}
+  .badge.blue{background:var(--acc-soft);color:#1d4ed8;border-color:#bfdbfe}
+  .body{padding:14px 28px 40px;flex:1;overflow-y:auto;min-height:0}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .stat .n{font-size:22px;font-weight:700;color:var(--fg)}
+  .stat .l{font-size:12px;color:var(--mute);margin-top:3px}
+
+  .timeline{position:relative;display:flex;flex-direction:column;gap:14px}
+  .timeline::before{content:"";position:absolute;left:83px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .tl-row{display:flex;gap:18px;align-items:flex-start;position:relative}
+  .tl-gutter{width:76px;flex-shrink:0;align-self:stretch;position:relative}
+  .tl-time{position:absolute;right:10px;top:22px;white-space:nowrap;color:#475467;font-size:17px;font-weight:700;font-variant-numeric:tabular-nums}
+  .tl-gutter .dot{position:absolute;left:78px;top:27px;width:11px;height:11px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 3px var(--bg)}
+  .card{flex:1;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;transition:border-color .15s,box-shadow .15s}
+  .card:hover{border-color:#cbd5e1;box-shadow:0 2px 10px rgba(15,23,42,.05)}
+  .card-head{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+  .card .src{font-size:12.5px;color:var(--mute);flex:1;min-width:0;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .card .src .dt{color:#94a3b8}
+  .card a.t{color:var(--fg);text-decoration:none;font-size:16px;font-weight:600;line-height:1.5;display:block}
+  .card a.t:hover{color:var(--acc)}
+  .card .sum{color:#475467;font-size:13px;line-height:1.7;margin-top:8px}
+  .card .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px;align-items:center}
+  .pill{display:inline-block;padding:3px 9px;border-radius:6px;font-size:12px;font-weight:500;background:#f1f5f9;color:#64748b;white-space:nowrap}
+  .pill.brand{background:#fff7ed;color:#c2410c}
+  .score{flex-shrink:0;min-width:34px;height:22px;border-radius:999px;background:#eff6ff;border:1px solid #bfdbfe;color:var(--acc);display:inline-flex;align-items:center;justify-content:center;padding:0 9px;font-weight:700;font-size:12px;line-height:1}
+  .feat{display:inline-flex;align-items:center;gap:4px;background:#fff7ed;color:#c2410c;border:1px solid #fed7aa;border-radius:999px;padding:3px 10px;font-size:12px;font-weight:600;line-height:1}
+  .head-right{flex-shrink:0;display:flex;align-items:center;gap:8px;margin-left:auto}
+  .reason{margin-top:13px;padding-top:13px;border-top:1px solid #eef1f5;font-size:13px;line-height:1.65}
+  .reason .rbox{background:#eaf2ff;border:0;border-radius:8px;padding:9px 12px;color:#1d4ed8;font-weight:500}
+  .empty{color:var(--mute);text-align:center;padding:60px 0}
+
+  .split{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:start}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+  .panel h2{margin:0 0 4px;font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px}
+  .panel h2 .dot{width:8px;height:8px;border-radius:50%;background:var(--acc)}
+  .panel h2.voice .dot{background:var(--voice-acc)}
+  .panel .ptag{font-size:11.5px;color:var(--mute);margin-bottom:14px}
+  .panel .headline{font-size:15.5px;font-weight:600;line-height:1.5;margin:0 0 8px}
+  .panel .body-text{color:#475467;font-size:13px;line-height:1.75}
+
+  .quote{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:10px;background:#fafcfb}
+  .quote:last-child{margin-bottom:0}
+  .quote .qtop{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+  .quote .model{font-size:12.5px;font-weight:700;color:#065f46}
+  .quote .cat{font-size:11px;padding:2px 8px;border-radius:999px;background:#ecfdf5;color:#047857;border:1px solid #a7f3d0}
+  .quote .cat.neg{background:#fef2f2;color:#b91c1c;border-color:#fecaca}
+  .quote .cat.pos{background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe}
+  .quote .eng{margin-left:auto;font-size:11.5px;color:#94a3b8}
+  .quote .qtext{font-size:13px;line-height:1.7;color:#344054}
+
+  .insight-box{margin-top:16px;background:#eaf2ff;border:1px solid #bfdbfe;border-radius:10px;padding:14px 16px;font-size:13px;line-height:1.75;color:#1e3a8a}
+  .insight-box b{color:#1d4ed8}
+  .insight-tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.4px;color:#1d4ed8;background:#dbeafe;border-radius:5px;padding:2px 7px;margin-bottom:8px}
+
+  .cat-bar{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+  .cat-row{display:flex;align-items:center;gap:10px}
+  .cat-row .nm{width:78px;flex-shrink:0;font-size:12.5px;color:#475467}
+  .cat-row .bar{flex:1;height:9px;background:#eef2f6;border-radius:5px;overflow:hidden}
+  .cat-row .bar>span{display:block;height:100%;background:var(--voice-acc);border-radius:5px}
+  .cat-row .v{width:34px;text-align:right;font-size:12px;color:var(--mute);font-variant-numeric:tabular-nums}
+
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .chip{font-size:12px;padding:5px 12px;border-radius:999px;background:#f0fdf4;color:#166534;border:1px dashed #86efac}
+  .chip .soon{color:#94a3b8;font-weight:400}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+
+  .filterbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#eef3f7;border:1px solid #e2eaf1;border-radius:14px;padding:8px 10px;margin:0 0 16px}
+  select,button,input{font:inherit}
+  button{background:var(--card);color:var(--fg);border:1px solid var(--line);padding:7px 12px;border-radius:6px;cursor:pointer;font-size:13px}
+  button:hover{border-color:var(--acc)}
+  .search{flex:1;min-width:160px;max-width:300px;padding:7px 12px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--fg)}
+  .dd{position:relative;display:inline-flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:6px 11px;cursor:pointer;font-size:13px;user-select:none;transition:border-color .12s}
+  .dd:hover{border-color:var(--acc)}
+  .dd.open{border-color:var(--acc);box-shadow:0 0 0 3px rgba(59,130,246,.08)}
+  .dd .dd-lbl{color:var(--mute);font-size:11px;letter-spacing:.2px}
+  .dd .dd-val{color:var(--fg);font-weight:500}
+  .dd .dd-arrow{color:var(--mute);font-size:10px;margin-left:2px;transition:transform .15s}
+  .dd.open .dd-arrow{transform:rotate(180deg);color:var(--acc)}
+  .dd .dd-pop{display:none;position:absolute;top:calc(100% + 6px);left:0;min-width:200px;max-width:320px;background:var(--card);border:1px solid var(--line);border-radius:8px;box-shadow:0 10px 28px rgba(15,23,42,.1);z-index:50;cursor:default}
+  .dd .dd-pop-inner{padding:6px;max-height:60vh;overflow-y:auto}
+  .dd.open .dd-pop{display:block}
+  .dd .opt{padding:7px 10px;border-radius:6px;cursor:pointer;font-size:13px;display:flex;align-items:center;gap:9px;line-height:1.3}
+  .dd .opt:hover{background:#fbfbfb}
+  .dd .opt.sel{color:var(--acc);font-weight:600}
+  .dd .opt.disabled{color:#c3cad4;cursor:not-allowed}
+  .dd .opt .check{width:14px;height:14px;border:1.5px solid #cbd5e1;border-radius:3px;background:#fff;flex-shrink:0;position:relative;transition:all .12s}
+  .dd .opt.sel>.check{background:var(--acc);border-color:var(--acc)}
+  .dd.voice-dd .opt.sel>.check{background:var(--voice-acc);border-color:var(--voice-acc)}
+  .dd .opt.sel>.check::after{content:'';position:absolute;left:3.5px;top:0;width:5px;height:9px;border:solid #fff;border-width:0 1.5px 1.5px 0;transform:rotate(45deg)}
+  .dd .opt .nm{flex:1}
+  .dd .opt .cnt{color:var(--mute);font-size:12px;margin-left:auto;padding-left:8px}
+
+  .doc-title{font-size:24px;font-weight:700;margin:0 0 6px}
+  .doc-sub{color:var(--mute);font-size:14px;margin-bottom:20px}
+  .doc-rules{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;max-width:900px}
+  .doc-rule{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 20px;font-size:13.5px;line-height:1.85;color:#344054}
+  .doc-rule h3{font-size:14.5px;margin:0 0 8px;color:var(--fg);font-weight:700;display:flex;align-items:center;gap:7px}
+  .doc-rule h3 .dot{width:7px;height:7px;border-radius:50%}
+  .doc-rule.news h3 .dot{background:var(--acc)}
+  .doc-rule.voice h3 .dot{background:var(--voice-acc)}
+  .doc-rule ul{margin:4px 0 0;padding-left:18px;list-style:disc}
+  .doc-rule li{margin:5px 0}
+
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-thumb{background:#8f8f8f;border-radius:8px;border:2px solid transparent;background-clip:content-box}
+</style>
+</head>
+<body>
+<div class="app">
+<nav class="sidebar">
+  <div class="sidebar-logo">车镜 AutoLens<div class="sub">行业情报 × 用户之声</div></div>
+  <div class="nav-group">
+    <div class="nav-group-label">行业情报</div>
+    <div class="nav-items">
+      <div class="nav-item active" data-page="news"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>每日精选</div>
+      <div class="nav-item" data-page="all"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></svg>全部动态</div>
+      <div class="nav-item" data-page="weekly"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>每周精选</div>
+      <div class="nav-item" data-page="insight"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.79.69-1.42 1.31-2A4.5 4.5 0 1 0 7.6 12c.62.58 1.13 1.21 1.31 2"/></svg>本周洞察</div>
+    </div>
+  </div>
+  <div class="nav-group">
+    <div class="nav-group-label">用户之声</div>
+    <div class="nav-items">
+      <div class="nav-item voice" data-page="brand"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg>品牌画像</div>
+      <div class="nav-item voice" data-page="wall"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>相关原帖</div>
+    </div>
+  </div>
+  <div class="nav-group">
+    <div class="nav-group-label">通用</div>
+    <div class="nav-items">
+      <div class="nav-item" data-page="doc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>口径说明</div>
+    </div>
+  </div>
+  <div class="side-foot" id="sideFoot">加载中…</div>
+</nav>
+
+<div id="page-news" class="page">
+  <header><div class="feedhead"><div><h1>每日精选</h1><div class="sub" id="newsSub">自动挑选的高价值汽车资讯</div></div><span class="badge blue">行业情报</span></div></header>
+  <div class="body">
+    <div class="filterbar">
+      <div class="dd" id="ddDate-news"><span class="dd-lbl">日期</span><span class="dd-val" id="ddDateVal-news">-</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="datePop-news"></div></div></div>
+      <div class="dd" id="ddBrand-news"><span class="dd-lbl">品牌</span><span class="dd-val" id="ddBrandVal-news">全部</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="brandPop-news"></div></div></div>
+      <div class="dd" id="ddSource-news"><span class="dd-lbl">来源</span><span class="dd-val" id="ddSourceVal-news">全部</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="sourcePop-news"></div></div></div>
+      <input class="search" id="q-news" placeholder="搜索标题 / 摘要">
+      <button id="reset-news">重置</button>
+    </div>
+    <div class="timeline" id="list-news"></div>
+  </div>
+</div>
+
+<div id="page-all" class="page" style="display:none">
+  <header><div class="feedhead"><div><h1>全部动态</h1><div class="sub" id="allSub">当日全量抓取资讯</div></div><span class="badge blue">行业情报</span></div></header>
+  <div class="body">
+    <div class="filterbar">
+      <div class="dd" id="ddDate-all"><span class="dd-lbl">日期</span><span class="dd-val" id="ddDateVal-all">-</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="datePop-all"></div></div></div>
+      <div class="dd" id="ddBrand-all"><span class="dd-lbl">品牌</span><span class="dd-val" id="ddBrandVal-all">全部</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="brandPop-all"></div></div></div>
+      <div class="dd" id="ddSource-all"><span class="dd-lbl">来源</span><span class="dd-val" id="ddSourceVal-all">全部</span><span class="dd-arrow">▾</span><div class="dd-pop"><div class="dd-pop-inner" id="sourcePop-all"></div></div></div>
+      <input class="search" id="q-all" placeholder="搜索标题 / 摘要">
+      <button id="reset-all">重置</button>
+    </div>
+    <div class="timeline" id="list-all"></div>
+  </div>
+</div>
+
+<div id="page-weekly" class="page" style="display:none">
+  <header><div class="feedhead"><div><h1>每周精选</h1><div class="sub" id="weeklySub">一周内二次筛选的重点资讯</div></div><span class="badge blue">行业情报</span></div></header>
+  <div class="body"><div class="timeline" id="weeklyList"></div></div>
+</div>
+
+<div id="page-insight" class="page" style="display:none">
+  <header><div class="feedhead"><div><h1>本周洞察</h1><div class="sub" id="insightSub">基于周精选和证据材料形成的专题分析</div></div><span class="badge blue">行业情报</span></div></header>
+  <div class="body" id="insightList"></div>
+</div>
+
+<div id="page-brand" class="page" style="display:none">
+  <header><div class="feedhead"><div><h1>品牌画像</h1><div class="sub" id="brandSub">小红书用户之声 × 行业情报联动</div></div><span class="badge">用户之声</span></div></header>
+  <div class="body" id="brandBody">
+    <div class="filterbar">
+      <div class="dd voice-dd" id="ddBrandVoice">
+        <span class="dd-lbl">品牌</span><span class="dd-val">理想</span><span class="dd-arrow">▾</span>
+        <div class="dd-pop"><div class="dd-pop-inner">
+          <div class="opt sel" id="voiceBrandCnt"><span class="check"></span><span class="nm">理想</span><span class="cnt">-</span></div>
+          <div class="opt disabled"><span class="check"></span><span class="nm">蔚来 · 即将接入</span><span class="cnt">-</span></div>
+          <div class="opt disabled"><span class="check"></span><span class="nm">小鹏 · 即将接入</span><span class="cnt">-</span></div>
+          <div class="opt disabled"><span class="check"></span><span class="nm">问界 · 即将接入</span><span class="cnt">-</span></div>
+        </div></div>
+      </div>
+      <div class="dd"><span class="dd-lbl">车型</span><span class="dd-val" id="voiceModelsVal">-</span><span class="dd-arrow">▾</span></div>
+      <button id="reset-brand">重置</button>
+    </div>
+
+    <div class="stats" id="voiceStats"></div>
+
+    <div class="split">
+      <div class="panel">
+        <h2><span class="dot"></span>宏观 · 行业情报怎么说</h2>
+        <div class="ptag" id="brandNewsTag">来源：-</div>
+        <div class="headline" id="brandNewsHeadline">-</div>
+        <div class="body-text" id="brandNewsBody">-</div>
+        <div class="insight-box">
+          <div class="insight-tag">示例洞察</div>
+          <span id="brandInsightText">新品动态与右侧车主真实反馈的对照，是整合后想沉淀的核心分析路径；本页仅做结构示意，尚未做系统性的语义关联。</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h2 class="voice"><span class="dot"></span>微观 · 车主在说什么</h2>
+        <div class="ptag">小红书真实笔记 · 按互动量排序</div>
+        <div id="brandQuotes"></div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="panel">
+        <h2 class="voice"><span class="dot"></span>样本通道分布</h2>
+        <div class="ptag" id="channelTag">真实样本 · 按 FRAMEWORK 查询通道</div>
+        <div class="cat-bar" id="channelBar"></div>
+      </div>
+      <div class="panel">
+        <h2 class="voice"><span class="dot"></span>六维评价框架</h2>
+        <div class="ptag">FRAMEWORK 定义的评分维度 · sentiment.py 计算，暂未在本样本上跑通</div>
+        <div class="chip-row" id="dimChips"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="page-wall" class="page" style="display:none">
+  <header><div class="feedhead"><div><h1>相关原帖</h1><div class="sub" id="wallSub">小红书真实笔记样本</div></div><span class="badge">用户之声</span></div></header>
+  <div class="body"><div class="grid2" id="wallGrid"></div></div>
+</div>
+
+<div id="page-doc" class="page" style="display:none">
+  <div class="body" style="padding-top:24px">
+    <div class="doc-title">口径说明</div>
+    <div class="doc-sub">车镜 AutoLens · 行业情报 + 用户之声 双数据源口径</div>
+    <div class="doc-rules">
+      <div class="doc-rule news"><h3><span class="dot"></span>行业情报</h3>
+        <ul>
+          <li>数据源：懂车帝、汽车之家、盖世汽车、易车、汽车公社、第一电动等公开资讯列表。</li>
+          <li>五维主题分类：政策 / 市场 / 产品 / 技术 / 舆情。</li>
+          <li>日更制：每日抓取昨日 00:00-24:00 新闻，规则打分 + Codex 精选生成概要与 Insight。</li>
+        </ul>
+      </div>
+      <div class="doc-rule voice"><h3><span class="dot"></span>用户之声</h3>
+        <ul>
+          <li>数据源：小红书车型相关用户笔记，懂车帝销量作市场结果参考（不参与反馈综合分）。</li>
+          <li>覆盖框架：14 品牌 / 32 主销车型，当前仅接入理想真实样本，其余品牌待补充抓取。</li>
+          <li>查询通道：日常讨论 / 提车反馈 / 避雷吐槽 / 对比选购 / 真实体验，样本量 ≥100 为高置信。</li>
+          <li>六维评价：动力操控、智能体验、空间舒适、做工质感、品牌认可、价格感知（评分计算未在本样本跑通）。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<script>
+const CATS=["政策","市场","产品","技术","舆情"];
+const esc=s=>(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmtDate=s=>s?`${s.slice(0,4)}-${s.slice(4,6)}-${s.slice(6,8)}`:"-";
+const trimSent=s=>{s=(s||"").trim();if(!s)return"";let i=-1;for(const ch of "。！？"){i=Math.max(i,s.lastIndexOf(ch));}return i>=0?s.slice(0,i+1):s;};
+function hhmm(it){if(it.has_time&&it.publish_ts){const d=new Date((it.publish_ts+8*3600)*1000);return String(d.getUTCHours()).padStart(2,'0')+':'+String(d.getUTCMinutes()).padStart(2,'0');}return it.publish_date?it.publish_date.slice(5):"—";}
+
+function itemHtml(it,featuredMode){const brands=(it.brands||[]).map(b=>`<span class="pill brand">${esc(b)}</span>`).join("");const take=(it.takeaway||"").trim();const showInsight=featuredMode&&take;const bodyText=featuredMode?(it.summary||""):trimSent((it.snippet||"").slice(0,200));const showBody=bodyText&&bodyText!==it.title;return `<div class="tl-row"><div class="tl-gutter"><span class="tl-time">${esc(hhmm(it))}</span><span class="dot"></span></div><div class="card"><div class="card-head"><div class="src"><span>${esc(it.source_name||"")}</span>${it.publish_date?`<span class="dt">· ${it.publish_date}</span>`:""}</div><div class="head-right">${it.is_featured?`<span class="feat">精选</span>`:""}<span class="score">${it.importance||0}</span></div></div><a class="t" href="${it.url}" target="_blank" rel="noopener">${esc(it.title)}</a>${showBody?`<div class="sum">${esc(bodyText)}</div>`:""}<div class="tags">${it.category?`<span class="pill">${esc(it.category)}</span>`:""}${brands}</div>${showInsight?`<div class="reason"><div class="rbox"><b>Insight:</b> ${esc(take)}</div></div>`:""}</div></div>`}
+
+function makeFeedView(suffix,featuredMode){
+  const state={index:null,feed:null,cat:"",brands:new Set(),sources:new Set(),q:""};
+  const el=id=>document.getElementById(id+"-"+suffix);
+  function closeDD(){document.querySelectorAll(".dd.open").forEach(d=>d.classList.remove("open"))}
+  [el("ddDate"),el("ddBrand"),el("ddSource")].forEach(dd=>dd.addEventListener("click",e=>{if(e.target.closest(".dd-pop"))return;const open=dd.classList.contains("open");closeDD();if(!open)dd.classList.add("open")}));
+  function buildMulti(popEl,valEl,counts,set){popEl.innerHTML=Object.entries(counts).map(([k,v])=>`<div class="opt ${set.has(k)?"sel":""}" data-k="${esc(k)}"><span class="check"></span><span class="nm">${esc(k)}</span><span class="cnt">${v}</span></div>`).join("")||'<div class="opt" style="color:var(--mute);cursor:default">无</div>';popEl.querySelectorAll(".opt[data-k]").forEach(o=>o.onclick=()=>{const k=o.dataset.k;set.has(k)?set.delete(k):set.add(k);o.classList.toggle("sel");valEl.textContent=set.size?`${set.size} 项`:"全部";render()});}
+  function match(it){if(state.cat&&it.category!==state.cat)return false;if(state.brands.size&&!(it.brands||[]).some(b=>state.brands.has(b)))return false;if(state.sources.size&&!state.sources.has(it.source_name))return false;if(state.q&&!(`${it.title} ${it.summary||""}`.toLowerCase().includes(state.q.toLowerCase())))return false;return true}
+  function baseItems(){return featuredMode?state.feed.items.filter(i=>i.is_featured):state.feed.items}
+  function render(){if(!state.feed)return;const list=baseItems().filter(match);el("list").innerHTML=list.length?list.map(it=>itemHtml(it,featuredMode)).join(""):'<div class="empty">没有符合条件的内容</div>'}
+  el("q").oninput=e=>{state.q=e.target.value.trim();render()};
+  el("reset").onclick=()=>{state.cat="";state.brands.clear();state.sources.clear();state.q="";el("q").value="";el("ddBrandVal").textContent="全部";el("ddSourceVal").textContent="全部";render()};
+  async function loadFeed(date){state.feed=await fetch(`./data/news/feed_${date}.json`).then(r=>r.json());state.cat="";state.brands.clear();state.sources.clear();state.q="";el("q").value="";el("ddDateVal").textContent=fmtDate(date);buildMulti(el("brandPop"),el("ddBrandVal"),state.feed.brand_counts||{},state.brands);buildMulti(el("sourcePop"),el("ddSourceVal"),state.feed.source_counts||{},state.sources);render();}
+  async function init(index){state.index=index;el("datePop").innerHTML=(index.dates||[]).map(d=>`<div class="opt" data-d="${d}"><span class="nm">${fmtDate(d)}</span></div>`).join("");el("datePop").querySelectorAll(".opt").forEach(o=>o.onclick=()=>{closeDD();loadFeed(o.dataset.d)});await loadFeed(index.latest);}
+  return {init};
+}
+const newsView=makeFeedView("news",true);
+const allView=makeFeedView("all",false);
+
+document.addEventListener("click",e=>{if(!e.target.closest(".dd"))document.querySelectorAll(".dd.open").forEach(d=>d.classList.remove("open"))});
+
+async function loadWeekly(index){const week=index?.latest_week;if(!week){document.getElementById("weeklyList").innerHTML='<div class="empty">暂无每周精选</div>';return}const data=await fetch(`./data/news/weekly_${week}.json`).then(r=>r.json());document.getElementById("weeklySub").textContent=`${week} · 二次筛选 ${data.selected_count||0} 条`;document.getElementById("weeklyList").innerHTML=(data.items||[]).length?data.items.map(it=>itemHtml(it,true)).join(""):'<div class="empty">暂无每周精选</div>'}
+async function loadInsight(index){const week=index?.latest_week;if(!week){document.getElementById("insightList").innerHTML='<div class="empty">暂无本周洞察</div>';return}const data=await fetch(`./data/news/insight_${week}.json`).then(r=>r.json());document.getElementById("insightSub").textContent=`${week} · ${data.topics?.length||0} 个专题`;document.getElementById("insightList").innerHTML=(data.topics||[]).map(t=>`<div class="panel" style="margin-bottom:14px"><h2><span class="dot"></span>${esc(t.title)}</h2><div class="body-text">${esc(t.summary)}</div><div class="body-text">${esc(t.why_it_matters||"")}</div></div>`).join("")||'<div class="empty">暂无本周洞察</div>'}
+
+let voiceData=null;
+async function loadVoice(){
+  if(voiceData)return voiceData;
+  voiceData=await fetch("./data/voice/ideal.json").then(r=>r.json());
+  return voiceData;
+}
+function renderBrandPage(v,newsItem){
+  document.getElementById("brandSub").textContent=`小红书用户之声 × 行业情报联动（当前仅接入${v.brand}品牌真实数据）`;
+  if(newsItem){
+    document.getElementById("brandNewsTag").textContent=`来源：${newsItem.source_name||""} · ${newsItem.publish_date||""}`;
+    document.getElementById("brandNewsHeadline").textContent=newsItem.title||"-";
+    document.getElementById("brandNewsBody").textContent=trimSent((newsItem.snippet||"").slice(0,200))||newsItem.title||"-";
+  }else{
+    document.getElementById("brandNewsTag").textContent=`来源：暂无 ${v.brand} 相关行业情报`;
+    document.getElementById("brandNewsHeadline").textContent="今日抓取范围内没有匹配到该品牌的新闻";
+    document.getElementById("brandNewsBody").textContent="";
+  }
+  document.getElementById("voiceBrandCnt").querySelector(".cnt").textContent=v.sample_total;
+  document.getElementById("voiceModelsVal").textContent=`全部（${v.models.map(m=>m.name).join(" / ")}）`;
+  const total=v.channel_counts.reduce((a,c)=>a+c.count,0)||1;
+  document.getElementById("voiceStats").innerHTML=`
+    <div class="stat"><div class="n">${v.sample_total}</div><div class="l">有效样本 · 高置信</div></div>
+    <div class="stat"><div class="n">${v.models.length}</div><div class="l">已接入车型 ${v.models.map(m=>m.name).join(" / ")}</div></div>
+    <div class="stat"><div class="n">${v.channel_counts.length}</div><div class="l">查询通道类型</div></div>
+    <div class="stat"><div class="n">${(v.date_range.to||"-").slice(5)}</div><div class="l">最近采集时间</div></div>`;
+  document.getElementById("channelTag").textContent=`${v.sample_total} 条真实样本 · 按 FRAMEWORK 查询通道`;
+  document.getElementById("channelBar").innerHTML=v.channel_counts.map(c=>`<div class="cat-row"><span class="nm">${esc(c.label)}</span><div class="bar"><span style="width:${Math.round(c.count/total*100)}%"></span></div><span class="v">${c.count}</span></div>`).join("");
+  document.getElementById("dimChips").innerHTML=v.dimensions.map(d=>`<span class="chip">${esc(d.name)} <span class="soon">· 待计算</span></span>`).join("");
+  const topQuotes=[...v.quotes].sort((a,b)=>(b.likes+b.comments)-(a.likes+a.comments)).slice(0,3);
+  document.getElementById("brandQuotes").innerHTML=topQuotes.map(q=>`<div class="quote"><div class="qtop"><span class="model">${esc(q.model)}</span><span class="eng">👍${q.likes} 💬${q.comments}</span></div><div class="qtext">"${esc(q.content.replace(/\n/g,' '))}"</div></div>`).join("");
+}
+function renderWallPage(v){
+  document.getElementById("wallSub").textContent=`${v.brand} ${v.models.map(m=>m.name).join(' / ')} · 小红书真实笔记样本`;
+  const sorted=[...v.quotes].sort((a,b)=>(b.likes+b.comments)-(a.likes+a.comments));
+  document.getElementById("wallGrid").innerHTML=sorted.map(q=>`<div class="quote"><div class="qtop"><span class="model">${esc(q.model)}</span><span class="eng">👍${q.likes} 💬${q.comments}</span></div><div class="qtext">"${esc(q.content.replace(/\n/g,' '))}"</div></div>`).join("");
+}
+
+async function boot(){
+  const index=await fetch("./data/news/index.json").then(r=>r.json());
+  await newsView.init(index);
+  await allView.init(index);
+  document.getElementById("newsSub").textContent=`${fmtDate(index.latest)} · 自动挑选的高价值汽车资讯`;
+  document.getElementById("allSub").textContent=`${fmtDate(index.latest)} · 当日全量抓取资讯`;
+  window.__newsIndex=index;
+  const v=await loadVoice();
+  document.getElementById("sideFoot").innerHTML=`整合方案 A · 并列合并<br>行业情报数据取自 ${fmtDate(index.latest)} 真实抓取<br>用户之声数据取自${v.brand} ${v.sample_total} 条真实样本`;
+  const todayFeed=await fetch(`./data/news/feed_${index.latest}.json`).then(r=>r.json());
+  const brandNews=todayFeed.items.find(it=>(it.brands||[]).includes(v.brand)) || null;
+  renderBrandPage(v,brandNews);
+  renderWallPage(v);
+}
+boot().catch(e=>{document.getElementById("sideFoot").textContent="加载失败："+e;console.error(e)});
+
+document.querySelectorAll('.nav-item').forEach(el=>{
+  el.addEventListener('click',async ()=>{
+    document.querySelectorAll('.nav-item').forEach(x=>x.classList.remove('active'));
+    el.classList.add('active');
+    document.querySelectorAll('.page').forEach(p=>p.style.display='none');
+    document.getElementById('page-'+el.dataset.page).style.display='flex';
+    if(el.dataset.page==='weekly')await loadWeekly(window.__newsIndex);
+    if(el.dataset.page==='insight')await loadInsight(window.__newsIndex);
+  });
+});
+</script>
+</body>
+</html>
