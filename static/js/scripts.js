@@ -71,7 +71,7 @@ const contentData = {
 - **渠道动态监测**：周度追踪新增、退出、迁址事件，及时捕捉竞品扩张/收缩信号，配合迁址识别避免误判
 - **数据自动化**：构建周更新的全自动数据流水线，从原始数据到可视化报告零人工介入，研究效率压缩至小时级
 
-<a href="report/report.html" target="_blank"><strong>查看最新报告 →</strong></a>
+<a href="report/report.html" target="_blank"><strong>查看详情 →</strong></a>
 <br><br>
 
 ---
