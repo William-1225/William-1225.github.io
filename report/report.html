@@ -799,7 +799,7 @@ function reportPairs(){
   const snaps = DATA.snapshots || [];
   const out = [];
   for(let i=1;i<snaps.length;i++){
-    out.push({oldTs:snaps[i-1].ts, newTs:snaps[i].ts, label:`${fmtTs(snaps[i-1].ts)} → ${fmtTs(snaps[i].ts)}`});
+    out.push({oldTs:snaps[i-1].ts, newTs:snaps[i].ts, label:`${fmtTs(snaps[i-1].ts)} - ${fmtTs(snaps[i].ts)}`});
   }
   return out;
 }
@@ -834,7 +834,7 @@ function monthlyPairs(){
       oldTs: firstByMonth[ym],
       newTs,
       expectedTs,
-      label: newTs ? `${monthLabel(ym)}｜${fmtTs(firstByMonth[ym])} → ${fmtTs(newTs)}` : `${monthLabel(ym)}｜${fmtTs(firstByMonth[ym])} → 待 ${fmtTs(expectedTs)} 更新`,
+      label: newTs ? `${monthLabel(ym)}｜${fmtTs(firstByMonth[ym])} - ${fmtTs(newTs)}` : `${monthLabel(ym)}｜${fmtTs(firstByMonth[ym])} → 待 ${fmtTs(expectedTs)} 更新`,
     };
   });
 }
@@ -987,7 +987,7 @@ async function renderDynamicReport(){
       <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:var(--mute);margin-top:4px;white-space:nowrap">
         对比区间
         <div class="dd" data-dd="reportPairSel" style="font-size:15px;padding:8px 14px;min-width:230px">
-          <span class="dd-val" id="reportPairSelVal">${pair.label}</span><span class="dd-arrow">-</span>
+          <span class="dd-val" id="reportPairSelVal">${pair.label}</span><span class="dd-arrow">▾</span>
           <div class="dd-pop" id="reportPairSelPop"></div>
           <select id="reportPairSel" style="display:none">${options}</select>
         </div>
@@ -1069,7 +1069,7 @@ async function renderMonthlyReport(){
         <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:var(--mute);margin-top:4px;white-space:nowrap">
           月度区间
           <div class="dd" data-dd="monthlyPairSel" style="font-size:15px;padding:8px 14px;min-width:300px">
-            <span class="dd-val" id="monthlyPairSelVal">${pair.label}</span><span class="dd-arrow">-</span>
+            <span class="dd-val" id="monthlyPairSelVal">${pair.label}</span><span class="dd-arrow">▾</span>
             <div class="dd-pop" id="monthlyPairSelPop"></div>
             <select id="monthlyPairSel" style="display:none">${options}</select>
           </div>
@@ -1251,7 +1251,7 @@ async function _initDownload(){
   const reportItems = Array.isArray(manifest.reportDownloads) ? manifest.reportDownloads : [];
   if(summaryItems.length || reportItems.length){
     const cards = [];
-    const fmtLabel = x => x.label ? x.label.replace(/\b(\d{4})(\d{2})(\d{2})\b/g, '$1/$2/$3') : (fmtDate8(x.ts) || x.name);
+    const fmtLabel = x => x.label ? x.label.replace(/\b(\d{4})(\d{2})(\d{2})\b/g, '$1/$2/$3').replace(/ → /g, ' - ') : (fmtDate8(x.ts) || x.name);
     // 期数选择改成跟顶部「当前日期」同款日历弹窗：只有实际存在文件的日期可点，
     // 网点变化对比报告是固定相邻期配对（不能任选两个日期组自由区间），日历上点某天
     // 就是"这天 vs 它的上一期"这份已经生成好的报告，跟汇总数据的单日历选择风格保持统一。
@@ -1264,7 +1264,7 @@ async function _initDownload(){
         <div class="dl-card-meta">${meta}</div></div>
         <div class="dl-actions">
           <div class="dd" data-dd="${id}">
-            <span class="dd-val" id="${id}Val">${fmtLabel(cur)}</span><span class="dd-arrow">-</span>
+            <span class="dd-val" id="${id}Val">${fmtLabel(cur)}</span><span class="dd-arrow">▾</span>
             <div class="dd-pop" id="${id}Pop"></div>
             <select id="${id}" style="display:none">${opts}</select>
           </div>
@@ -2888,7 +2888,7 @@ function exportCSV(){
 // 只记对用户有意义的更新; 改名/内部重构等琐碎变动不入日志. 新增一期 = 顶部加一条.
 const CHANGELOG = [
   {date:'2026-07-15', tag:'opt', tagText:'优化',
-   text:'「数据下载」「当期报告」「月度报告」的期数选择器统一改成日历弹窗（跟顶部「当前日期」同款），只有实际有数据的日期可点；对比区间 / 月度区间 / 网点变化对比报告都是固定相邻期配对，日历上选当期日期会自动带出它对应的上一期。下拉箭头统一改成「-」。'},
+   text:'「数据下载」「当期报告」「月度报告」的期数选择器统一改成日历弹窗（跟顶部「当前日期」同款），只有实际有数据的日期可点；对比区间 / 月度区间 / 网点变化对比报告都是固定相邻期配对，日历上选当期日期会自动带出它对应的上一期。区间日期之间的分隔符统一从「→」改成「-」。'},
   {date:'2026-07-15', tag:'fix', tagText:'错误修复',
    text:'修复「当期报告」「销售网点数」表格误把非销售性质网点计入总数的问题，现已修复。'},
   {date:'2026-07-06', tag:'feat', tagText:'新功能',
