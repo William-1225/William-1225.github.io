@@ -225,6 +225,10 @@
   .download-page .dl-actions{gap:14px}
   .download-page .dl-select{min-width:270px;height:48px;font-size:16px;line-height:48px;padding:0 44px 0 24px;border-radius:8px}
   .download-page .dl-btn{font-size:16px;padding:11px 22px;border-radius:8px;background:var(--card)}
+  .download-page .dd{min-width:270px;height:48px;padding:0 20px;border-radius:8px;font-size:16px}
+  .download-page .dd .dd-val{font-weight:600}
+  .download-page .dd .dd-arrow{font-size:13px}
+  .download-page .dd .dd-pop{min-width:232px}
 
   /* 主体 */
   .body{padding:14px 28px;flex:1;overflow-y:auto;min-height:0}
@@ -1229,18 +1233,23 @@ async function _initDownload(){
   const reportItems = Array.isArray(manifest.reportDownloads) ? manifest.reportDownloads : [];
   if(summaryItems.length || reportItems.length){
     const cards = [];
+    const fmtLabel = x => x.label ? x.label.replace(/\b(\d{4})(\d{2})(\d{2})\b/g, '$1/$2/$3') : (fmtDate8(x.ts) || x.name);
+    // 期数选择改成跟顶部「当前日期」同款日历弹窗：只有实际存在文件的日期可点，
+    // 网点变化对比报告是固定相邻期配对（不能任选两个日期组自由区间），日历上点某天
+    // 就是"这天 vs 它的上一期"这份已经生成好的报告，跟汇总数据的单日历选择风格保持统一。
     const selectorCard = (title, meta, items, id) => {
       const latestIdx = Math.max(items.length - 1, 0);
-      const opts = items.map((x, i) => {
-        const label = x.label ? x.label.replace(/\b(\d{4})(\d{2})(\d{2})\b/g, '$1/$2/$3') : (fmtDate8(x.ts) || x.name);
-        return `<option value="${i}" ${i===latestIdx?'selected':''}>${label}</option>`;
-      }).join('');
+      const opts = items.map((x, i) => `<option value="${x.ts}" ${i===latestIdx?'selected':''}>${fmtLabel(x)}</option>`).join('');
       const cur = items[latestIdx];
       return `<div class="dl-card">
         <div><div class="dl-card-name">${title}</div>
         <div class="dl-card-meta">${meta}</div></div>
         <div class="dl-actions">
-          <select class="dl-select" id="${id}">${opts}</select>
+          <div class="dd" data-dd="${id}">
+            <span class="dd-val" id="${id}Val">${fmtLabel(cur)}</span><span class="dd-arrow">▾</span>
+            <div class="dd-pop" id="${id}Pop"></div>
+            <select id="${id}" style="display:none">${opts}</select>
+          </div>
           <a class="dl-btn" id="${id}Btn" href="${cur.href}" download="${cur.name}">下载 xlsx</a>
         </div>
       </div>`;
@@ -1249,15 +1258,31 @@ async function _initDownload(){
       cards.push(selectorCard('网点汇总数据', '按数据期数下载原始汇总 Excel（所有品牌）', summaryItems, 'summaryDownloadSel'));
     }
     if(reportItems.length){
-      cards.push(selectorCard('网点变化对比报告', '按相邻两期下载对比报告；默认最新上一期 vs 当期', reportItems, 'reportDownloadSel'));
+      cards.push(selectorCard('网点变化对比报告', '按相邻两期下载对比报告；日历上选当期日期，自动对比它的上一期', reportItems, 'reportDownloadSel'));
     }
     el.innerHTML = cards.join('');
+    // 动态插入的 .dd 不在 boot() 时 setupDropdownToggles() 的扫描范围内，单独绑开合
+    const bindDDToggle = dd => {
+      dd.addEventListener('click', e=>{
+        if(e.target.closest('.dd-pop')) return;
+        const wasOpen = dd.classList.contains('open');
+        closeAllDD();
+        if(!wasOpen) dd.classList.add('open');
+        e.stopPropagation();
+      });
+      const pop = dd.querySelector('.dd-pop');
+      if(pop) pop.addEventListener('click', e=>e.stopPropagation());
+    };
     const bind = (id, items) => {
       const sel = document.getElementById(id);
       const btn = document.getElementById(id + 'Btn');
-      if(!sel || !btn) return;
+      const dd = document.querySelector(`[data-dd="${id}"]`);
+      if(!sel || !btn || !dd) return;
+      bindDDToggle(dd);
+      setupCalendarDropdown(id, id + 'Pop', id + 'Val');
       sel.onchange = () => {
-        const x = items[Number(sel.value)];
+        const x = items.find(it => it.ts === sel.value);
+        if(!x) return;
         btn.href = x.href;
         btn.download = x.name;
       };
@@ -2842,7 +2867,7 @@ function exportCSV(){
 // 只记对用户有意义的更新; 改名/内部重构等琐碎变动不入日志. 新增一期 = 顶部加一条.
 const CHANGELOG = [
   {date:'2026-07-15', tag:'fix', tagText:'错误修复',
-   text:'修复「当期报告」「销售网点数」表格误把服务中心 / 钣喷中心等非销售性质网点计入总数的问题（如奥迪、小米实际销售网点数比页面此前显示的少约 20%）；同时统一「覆盖城市」「本期动态」新增退出明细的统计口径，均改为只看销售能力网点。表格样式同步优化：数字列去掉灰色进度条改为纯数字、品牌前圆点改为方块并对齐主视图配色。'},
+   text:'修复「当期报告」「销售网点数」表格误把非销售性质网点计入总数的问题，现已修复。'},
   {date:'2026-07-06', tag:'feat', tagText:'新功能',
    text:'网点查询页支持省份下钻：点击地图上的省份或右侧「省份明细」表的任意一行，即可查看该省网点清单（在营 / 新增 / 退出，支持按名称、地址、城市搜索）。'},
   {date:'2026-06-17', tag:'feat', tagText:'新功能',
