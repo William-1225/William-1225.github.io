@@ -184,8 +184,8 @@
   .monthly-table td{padding:8px 12px;border-bottom:1px solid var(--line)}
   .monthly-table tbody tr:hover{background:#f8fafc}
   .mtbl-rate{color:var(--mute);font-size:12px;margin-left:4px}
-  .mtbl-detail{border:1px solid var(--line);background:var(--card);color:var(--acc);border-radius:6px;padding:3px 12px;font-size:12px;cursor:pointer}
-  .mtbl-detail:hover{border-color:var(--acc);background:#f0f6ff}
+  .mtbl-detail{border:none;background:none;color:var(--acc);padding:0;font-size:12px;cursor:pointer}
+  .mtbl-detail:hover{text-decoration:underline}
   /* 品牌变化详情：分行 + 标签三色 + 城市胶囊 */
   .bd-line{margin:3px 0;font-size:13px;line-height:1.7;display:flex;gap:6px}
   .bd-tag{flex-shrink:0;font-weight:700}
@@ -225,12 +225,31 @@
   .download-page .dl-actions{gap:14px}
   .download-page .dl-select{min-width:270px;height:48px;font-size:16px;line-height:48px;padding:0 44px 0 24px;border-radius:8px}
   .download-page .dl-btn{font-size:16px;padding:11px 22px;border-radius:8px;background:var(--card)}
+  .download-page .dd{min-width:270px;height:48px;padding:0 20px;border-radius:8px;font-size:16px}
+  .download-page .dd .dd-val{font-weight:600}
+  .download-page .dd .dd-arrow{font-size:13px}
+  .download-page .dd .dd-pop{min-width:232px}
 
   /* 主体 */
   .body{padding:14px 28px;flex:1;overflow-y:auto;min-height:0}
   .panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px}
-  #netchart,#mapchart{height:310px}
-  .ct-title{font-size:12px;font-weight:600;color:var(--fg);margin:0 0 8px;padding-left:2px}
+  #mapchart{height:310px}
+  .ct-title{font-size:12px;font-weight:600;color:var(--fg);margin:0 0 8px;padding-left:2px;display:flex;align-items:center;gap:7px}
+  .ct-title::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--acc);flex-shrink:0}
+  /* 品牌网点数 / 净变化：胶囊标签 + 细条形列表 */
+  .bar-row{margin-bottom:10px;cursor:pointer}
+  .bar-row:last-child{margin-bottom:0}
+  .bar-pill{display:inline-flex;align-items:center;padding:2px 10px;border-radius:999px;font-size:11.5px;font-weight:600;margin-bottom:3px}
+  .bar-line{display:flex;align-items:center;gap:10px}
+  .bar-track{flex:1;height:6px;border-radius:999px;background:#eef1f4;overflow:hidden}
+  .bar-fill{height:100%;border-radius:999px}
+  .bar-val{flex-shrink:0;text-align:right;min-width:100px}
+  .net-col-header{min-width:100px;text-align:right;font-size:12px;font-weight:600;color:var(--fg);line-height:1}
+  .bar-val-num{font-size:12px;color:var(--fg)}
+  .bar-val-num b{font-weight:600}
+  .d-pos{color:var(--pos)}
+  .d-neg{color:var(--neg)}
+  .d-zero{color:var(--mute)}
   .trend-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px;max-height:80px;overflow-y:auto;padding:2px}
   .trend-chips .chip{padding:3px 9px;font-size:12px;border-radius:12px}
   .trend-chips .chip .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
@@ -300,7 +319,7 @@
   .doc-log-tag{display:inline-block;font-size:11px;font-weight:600;padding:1px 7px;border-radius:4px;margin-right:7px}
   .doc-log-tag.feat{background:#d1fae5;color:#065f46}
   .doc-log-tag.opt{background:#e0edff;color:#1e40af}
-  .doc-log-tag.fix{background:#fef3c7;color:#92400e}
+  .doc-log-tag.fix{background:#fee2e2;color:#b91c1c}
   .doc-log-body ul{margin:5px 0 0;padding-left:17px}
   .doc-log-body li{margin:2px 0}
 
@@ -395,19 +414,26 @@
 </div>
 
 <div class="body">
-  <div id="tab-net" class="panel">
-    <!-- 跨品牌模式: 左柱状 + 右趋势 -->
+  <div id="tab-net">
+    <!-- 跨品牌模式: 左柱状 + 右趋势，各自独立卡片 -->
     <div id="netSplit" style="display:flex;gap:14px;align-items:stretch">
-      <div style="flex:1;min-width:0;display:flex;flex-direction:column">
-        <div class="ct-title">品牌网点数 / 净变化</div>
-        <div id="netchart" style="flex:1;min-height:310px"></div>
+      <div class="panel" style="flex:1;min-width:0;display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center">
+          <div class="ct-title" style="margin:0;flex:1">品牌</div>
+          <div class="net-col-header" id="netColHeader">网点数（净变化）</div>
+        </div>
+        <div id="netchart" style="flex:1;min-height:310px;max-height:560px;overflow-y:auto;padding-right:4px;margin-top:8px"></div>
       </div>
-      <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+      <div class="panel" style="flex:1;min-width:0;display:flex;flex-direction:column">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
           <div class="ct-title" style="margin:0">网点数变化趋势</div>
           <div class="dd trend-dd" data-dd="trend">
             <span class="dd-lbl">趋势品牌</span><span class="dd-val" id="ddTrend">-</span><span class="dd-arrow">▾</span>
             <div class="dd-pop wide"><div id="trendChips"></div></div>
+          </div>
+          <div class="dd" data-dd="trendPeriod">
+            <span class="dd-lbl">时间维度</span><span class="dd-val" id="ddTrendPeriod">月度</span><span class="dd-arrow">▾</span>
+            <div class="dd-pop" style="min-width:100px"><div id="trendPeriodChips"></div></div>
           </div>
         </div>
         <div id="trendchart" style="flex:1;min-height:560px"></div>
@@ -415,11 +441,11 @@
     </div>
     <!-- 单品牌模式: 左 省份热力图 / 右 省份明细表 -->
     <div id="netSingle" style="display:none;gap:14px;align-items:stretch">
-      <div style="flex:3;min-width:0;display:flex;flex-direction:column">
+      <div class="panel" style="flex:3;min-width:0;display:flex;flex-direction:column">
         <div class="ct-title" id="provMapTitle">省份分布</div>
         <div id="provMapChart" style="width:100%;height:720px"></div>
       </div>
-      <div style="flex:2;min-width:0;display:flex;flex-direction:column;gap:14px;height:748px">
+      <div class="panel" style="flex:2;min-width:0;display:flex;flex-direction:column;gap:14px;height:748px">
         <!-- 五界子品牌对比：仅鸿蒙智行单选时显示 -->
         <div id="jieSubBlock" style="display:none;flex-direction:column">
           <div class="ct-title">五界子品牌对比</div>
@@ -558,7 +584,7 @@ const TREND_QUICK_DEFS = {
 };
 const CN_GEO = "./cn.json";
 
-let DATA, CUR, PREV, MANIFEST=null, SNAP_CACHE={}, LOC_CACHE={}, REPORT_DATA_CACHE={}, RENDER_SEQ=0, REPORT_PAIR=null, netChart, mapChart, trendChart, provMapChart, jieStoreChart, jieSubChart, mbTagChart, penChart, mapLoaded=false;
+let DATA, CUR, PREV, MANIFEST=null, SNAP_CACHE={}, LOC_CACHE={}, REPORT_DATA_CACHE={}, RENDER_SEQ=0, REPORT_PAIR=null, mapChart, trendChart, provMapChart, jieStoreChart, jieSubChart, mbTagChart, penChart, mapLoaded=false;
 let MONTHLY_PAIR=null;
 let MONTHLY_ROWS=null, MONTHLY_PERIOD=null;   // 供月度大表“详情”弹窗下钻取数
 let SEL_BRANDS   = new Set();   // 空集 = 全部品牌
@@ -575,7 +601,10 @@ Object.defineProperty(window, 'ACTIVE_BRAND', { get:()=>ACTIVE_BRAND_VAL() });
 let CUR_TAB      = 'net';
 let TREND_SELECTED = null;       // Set<trend key>; null = 取默认
 let TREND_QUICK = 'default';     // default/all/luxury/ev/super/null(自定义)
-let TREND_HOVER_SERIES = null;
+let TREND_HOVER_KEY = null;      // tooltip 内高亮判定用：鼠标当前贴近的那条线的 series 名（见 renderTrend 里 zr 的 mousemove 插值判定）
+let TREND_ZR_MOUSEMOVE = null;   // 当前绑定在 trendChart zr 实例上的 mousemove 处理函数引用，重渲染时按引用精确解绑，避免误删 echarts 内部监听
+let TREND_ZR_GLOBALOUT = null;
+let TREND_PERIOD = 'month';      // week/month，趋势图时间维度，默认月度
 
 async function boot(){
   try{
@@ -615,14 +644,15 @@ async function boot(){
   document.querySelectorAll('.nav-item').forEach(t=>t.onclick=()=>switchPage(t.dataset.page));
 
   const ECOPT = {devicePixelRatio: Math.max(window.devicePixelRatio || 1, 2)};
-  netChart = echarts.init(document.getElementById('netchart'), null, ECOPT);
-  // 点击柱条 → 触发对应品牌/子品牌 chip 的同名点击逻辑（筛选到该品牌）
-  netChart.on('click', params => {
-    if(!params || !params.name) return;
+  // 品牌网点数/净变化列表点击（HTML 列表，非 echarts）→ 触发对应品牌/子品牌 chip 的同名点击逻辑（筛选到该品牌）
+  document.getElementById('netchart').addEventListener('click', ev => {
+    const row = ev.target.closest('.bar-row');
+    if(!row) return;
+    const name = row.dataset.brand;
     const sel = (attr,val) => document.querySelector(`[${attr}="${CSS.escape(val)}"]`);
-    const brandChip = sel('data-brand', params.name);
+    const brandChip = sel('data-brand', name);
     if(brandChip && !brandChip.classList.contains('dim')){ brandChip.click(); return; }
-    const subChip = sel('data-sub', params.name);
+    const subChip = sel('data-sub', name);
     if(subChip) subChip.click();
   });
   trendChart = echarts.init(document.getElementById('trendchart'), null, ECOPT);
@@ -631,19 +661,17 @@ async function boot(){
   jieSubChart   = echarts.init(document.getElementById('jieSubChart'),   null, ECOPT);
   mbTagChart    = echarts.init(document.getElementById('mbTagChart'),    null, ECOPT);
   window.addEventListener('resize',()=>{
-    netChart.resize(); trendChart.resize(); provMapChart.resize(); jieStoreChart.resize(); jieSubChart.resize(); mbTagChart.resize(); if(penChart) penChart.resize();
+    trendChart.resize(); provMapChart.resize(); jieStoreChart.resize(); jieSubChart.resize(); mbTagChart.resize(); if(penChart) penChart.resize();
   });
   // 监听各 chart 容器自身尺寸变化（tab切换/布局回流/字体加载导致内部坐标系与CSS尺寸脱节，会引起 tooltip 错位）
   if(window.ResizeObserver){
     const ro = new ResizeObserver(entries=>{
       for(const e of entries){
         const id = e.target.id;
-        if(id==='netchart') netChart.resize();
-        else if(id==='trendchart') trendChart.resize();
+        if(id==='trendchart') trendChart.resize();
         else if(id==='provMapChart') provMapChart.resize();
       }
     });
-    ro.observe(document.getElementById('netchart'));
     ro.observe(document.getElementById('trendchart'));
     ro.observe(document.getElementById('provMapChart'));
   }
@@ -672,6 +700,7 @@ async function ensureSnap(ts){
     delete snap.rows;
   }
   SNAP_CACHE[ts] = snap;
+  meta.dealers = snap.dealers;  // 回填到 DATA.snapshots 原始条目，trendSeriesData() 等按 s.dealers 遍历全期的逻辑才能读到
   return snap;
 }
 
@@ -689,7 +718,7 @@ function switchTab(name){
   ['net','detail'].forEach(n=>{
     document.getElementById('tab-'+n).style.display = n===name ? '' : 'none';
   });
-  if(name==='net'){ netChart.resize(); trendChart.resize(); provMapChart.resize(); }
+  if(name==='net'){ trendChart.resize(); provMapChart.resize(); }
   if(name==='detail') renderDetail();
 }
 
@@ -704,7 +733,7 @@ function switchPage(name){
     // 防止报告 CSS 污染 kpi-row 布局，强制恢复
     const kr = document.querySelector('.kpi-row');
     if(kr){ kr.style.gridTemplateColumns='repeat(5,1fr)'; kr.style.alignItems=''; }
-    netChart.resize(); trendChart.resize(); provMapChart.resize(); jieStoreChart.resize(); jieSubChart.resize();
+    trendChart.resize(); provMapChart.resize(); jieStoreChart.resize(); jieSubChart.resize();
   }
   if(name==='report') _initReport();
   if(name==='monthly') _initMonthlyReport();
@@ -770,7 +799,7 @@ function reportPairs(){
   const snaps = DATA.snapshots || [];
   const out = [];
   for(let i=1;i<snaps.length;i++){
-    out.push({oldTs:snaps[i-1].ts, newTs:snaps[i].ts, label:`${fmtTs(snaps[i-1].ts)} → ${fmtTs(snaps[i].ts)}`});
+    out.push({oldTs:snaps[i-1].ts, newTs:snaps[i].ts, label:`${fmtTs(snaps[i-1].ts)} - ${fmtTs(snaps[i].ts)}`});
   }
   return out;
 }
@@ -805,7 +834,7 @@ function monthlyPairs(){
       oldTs: firstByMonth[ym],
       newTs,
       expectedTs,
-      label: newTs ? `${monthLabel(ym)}｜${fmtTs(firstByMonth[ym])} → ${fmtTs(newTs)}` : `${monthLabel(ym)}｜${fmtTs(firstByMonth[ym])} → 待 ${fmtTs(expectedTs)} 更新`,
+      label: newTs ? `${monthLabel(ym)}｜${fmtTs(firstByMonth[ym])} - ${fmtTs(newTs)}` : `${monthLabel(ym)}｜${fmtTs(firstByMonth[ym])} → 待 ${fmtTs(expectedTs)} 更新`,
     };
   });
 }
@@ -854,7 +883,10 @@ function _hydrateView(view){
     prevAfterSales: r.prevAfterSales,
     cities: r.cities,
     cityDelta: r.cityDelta,
+    salesCities: r.salesCities,
+    salesCityDelta: r.salesCityDelta,
     diff: r.diff,
+    salesDiff: r.salesDiff || r.diff,
   }));
   // curLocs 仅在 renderDynamicReport/renderMonthlyReport 里被取 length 和 map(l=>l.g) 用作品牌数
   const curLocs = view.rows.flatMap(r => new Array(r.curCount).fill(0).map(()=>({g:r.g})));
@@ -898,22 +930,23 @@ function visibleReportRows(rows){
   return rows.filter(r => !SUPER_LUX_BRANDS.has(r.g) || _rowHasChange(r));
 }
 function renderReportRows(rows){
-  // 净变化=0 的品牌（月初=月末，如本期理想/奔驰）默认不显示
-  rows = rows.filter(r => r.cur.length !== r.prev.length);
-  const max = Math.max(1, ...rows.map(r=>r.cur.length));
-  return rows.map(r=>{
-    const add = reportNameList(r.diff.added);
-    const rem = reportNameList(r.diff.removed);
+  // 净变化=0 的品牌（月初=月末，如本期理想/奔驰）默认不显示；这里的"销售网点数"口径统一按
+  // curSales/prevSales/salesCities/salesDiff（hasCap 销售），跟服务/钣喷网点区分开，见 P037。
+  rows = rows.filter(r => r.curSales !== r.prevSales);
+  return rows.map((r,i)=>{
+    const salesDiff = r.salesDiff || r.diff;
+    const add = reportNameList(salesDiff.added);
+    const rem = reportNameList(salesDiff.removed);
     const changeDetail = [
       add ? `<div class="detail-add">+新增 ${add}</div>` : '',
       rem ? `<div class="detail-rem">−退出 ${rem}</div>` : '',
     ].join('');
     return `<tr>
-      <td class="brand-cell"><span class="dot"></span>${r.g}</td>
-      <td><div class="bar-wrap"><div class="bar-fill" style="width:${(r.cur.length/max*100).toFixed(1)}%;background:#5d7a8a"></div><span class="bar-val">${r.cur.length}</span></div></td>
-      <td class="num">${reportDeltaHtml(r.cur.length-r.prev.length)}</td>
-      <td class="num">${r.cities}</td>
-      <td class="num">${reportDeltaHtml(r.cityDelta)}</td>
+      <td class="brand-cell"><span class="dot" style="background:${trendGroupColorOf(r.g)}"></span>${r.g}</td>
+      <td class="num">${r.curSales}</td>
+      <td class="num">${reportDeltaHtml(r.curSales-r.prevSales)}</td>
+      <td class="num">${r.salesCities!=null?r.salesCities:r.cities}</td>
+      <td class="num">${reportDeltaHtml(r.salesCityDelta!=null?r.salesCityDelta:r.cityDelta)}</td>
       <td class="detail-cell">${changeDetail || '<span class="zero">—</span>'}</td>
     </tr>`;
   }).join('');
@@ -946,17 +979,19 @@ async function renderDynamicReport(){
   }
   const {curLocs, allDiff, rows, totalDelta} = await computePairReportData(pair.oldTs, pair.newTs);
   const changedBrands = new Set([...allDiff.added, ...allDiff.removed, ...allDiff.changed].map(x=>x.g)).size;
-  const options = pairs.map(p=>`<option value="${p.oldTs}|${p.newTs}" ${p.oldTs===pair.oldTs&&p.newTs===pair.newTs?'selected':''}>${p.label}</option>`).join('');
+  // 值用 newTs（相邻期天然是"选当期日期，自动带出它的上一期"），跟数据下载页的对比报告日历同一套逻辑
+  const options = pairs.map(p=>`<option value="${p.newTs}" ${p.newTs===pair.newTs?'selected':''}>${p.label}</option>`).join('');
   el.innerHTML = `<div class="hero">
-    <div class="hero-top">
-      <span class="logo">渠道研究</span>
-    </div>
     <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:10px">
       <h1 style="margin:0">竞对汽车品牌销售网点变化报告</h1>
-      <label style="display:flex;align-items:center;gap:12px;font-size:15px;color:var(--mute);margin-top:4px;white-space:nowrap">
+      <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:var(--mute);margin-top:4px;white-space:nowrap">
         对比区间
-        <select id="reportPairSel" style="font-size:15px;padding:8px 14px;min-width:230px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--fg)">${options}</select>
-      </label>
+        <div class="dd" data-dd="reportPairSel" style="font-size:15px;padding:8px 14px;min-width:230px">
+          <span class="dd-val" id="reportPairSelVal">${pair.label}</span><span class="dd-arrow">▾</span>
+          <div class="dd-pop" id="reportPairSelPop"></div>
+          <select id="reportPairSel" style="display:none">${options}</select>
+        </div>
+      </div>
     </div>
     <div class="sub">数据周期：${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}　｜　覆盖品牌：${new Set(curLocs.map(l=>l.g)).size} 个　｜　报告日期：${reportDateText(pair.newTs)}</div>
   </div>
@@ -971,7 +1006,7 @@ async function renderDynamicReport(){
 
     <div class="sec-title">销售网点数（家）& 城市覆盖</div>
     <table>
-      <thead><tr><th style="width:110px">品牌</th><th style="min-width:180px">销售网点数（当期）</th><th>净变化</th><th>覆盖城市</th><th>城市变化</th><th>本期动态</th></tr></thead>
+      <thead><tr><th style="width:110px">品牌</th><th class="num">本期销售网点数</th><th class="num">净变化</th><th class="num">覆盖城市</th><th class="num">城市变化</th><th>本期动态</th></tr></thead>
       <tbody>${renderReportRows(rows)}</tbody>
     </table>
 
@@ -987,9 +1022,12 @@ async function renderDynamicReport(){
   </div>`;
   const sel = document.getElementById('reportPairSel');
   el._rendered = true;
+  bindDDToggle(document.querySelector('[data-dd="reportPairSel"]'));
+  setupCalendarDropdown('reportPairSel', 'reportPairSelPop', 'reportPairSelVal');
   sel.onchange = () => {
-    const [oldTs, newTs] = sel.value.split('|');
-    REPORT_PAIR = {oldTs, newTs};
+    const p = pairs.find(pp=>pp.newTs===sel.value);
+    if(!p) return;
+    REPORT_PAIR = {oldTs:p.oldTs, newTs:p.newTs};
     renderDynamicReport();
   };
 }
@@ -1010,7 +1048,9 @@ async function renderMonthlyReport(){
   if(!MONTHLY_PAIR || !pairs.some(p=>p.month===MONTHLY_PAIR.month)) MONTHLY_PAIR = pairs[pairs.length-1];
   const pair = pairs.find(p=>p.month===MONTHLY_PAIR.month) || pairs[pairs.length-1];
   MONTHLY_PAIR = pair;
-  const options = pairs.map(p=>`<option value="${p.month}" ${p.month===pair.month?'selected':''}>${p.label}</option>`).join('');
+  // 值用 newTs（完整月的下月首个快照日）而非 month，这样才能落到日历网格的具体某天上；
+  // pairs 已经 filter 过 p.newTs 存在（只保留"已完成月"），每个月都有唯一对应的可点日期。
+  const options = pairs.map(p=>`<option value="${p.newTs}" ${p.newTs===pair.newTs?'selected':''}>${p.label}</option>`).join('');
   const cacheKey = `${pair.oldTs}|${pair.newTs}`;
   if(!REPORT_DATA_CACHE[cacheKey]){
     el.innerHTML = '<p style="color:var(--mute);padding:60px;text-align:center">月度报告加载中…</p>';
@@ -1024,13 +1064,16 @@ async function renderMonthlyReport(){
   const pct = prevTotal ? (totalDelta/prevTotal*100) : 0;
   const summary = buildMonthlySummary(pair, rows, allDiff, curTotal, prevTotal, citiesNet);
   el.innerHTML = `<div class="hero">
-      <div class="hero-top"><span class="logo">月度渠道研究</span></div>
       <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:10px">
         <h1 style="margin:0">竞对汽车品牌销售网点月度变化报告</h1>
-        <label style="display:flex;align-items:center;gap:12px;font-size:15px;color:var(--mute);margin-top:4px;white-space:nowrap">
+        <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:var(--mute);margin-top:4px;white-space:nowrap">
           月度区间
-          <select id="monthlyPairSel" style="font-size:15px;padding:8px 14px;min-width:300px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--fg)">${options}</select>
-        </label>
+          <div class="dd" data-dd="monthlyPairSel" style="font-size:15px;padding:8px 14px;min-width:300px">
+            <span class="dd-val" id="monthlyPairSelVal">${pair.label}</span><span class="dd-arrow">▾</span>
+            <div class="dd-pop" id="monthlyPairSelPop"></div>
+            <select id="monthlyPairSel" style="display:none">${options}</select>
+          </div>
+        </div>
       </div>
       <div class="sub">月度周期：${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}　｜　覆盖品牌：${brandCount} 个　｜　报告日期：${reportDateText(pair.newTs)}</div>
     </div>
@@ -1061,8 +1104,12 @@ async function renderMonthlyReport(){
   const sel = document.getElementById('monthlyPairSel');
   el._rendered = true;
   if(sel){
+    bindDDToggle(document.querySelector('[data-dd="monthlyPairSel"]'));
+    setupCalendarDropdown('monthlyPairSel', 'monthlyPairSelPop', 'monthlyPairSelVal');
     sel.onchange = () => {
-      MONTHLY_PAIR = {month: sel.value};
+      const p = pairs.find(pp=>pp.newTs===sel.value);
+      if(!p) return;
+      MONTHLY_PAIR = {month: p.month};
       renderMonthlyReport();
     };
   }
@@ -1106,7 +1153,7 @@ function buildMonthlyTable(rows){
     const rate = prev ? (net/prev*100) : (net>0?100:0);
     const rateTxt = `${reportDeltaHtml(net)} <span class="mtbl-rate">${net>0?'+':''}${rate.toFixed(1)}%</span>`;
     return `<tr>
-      <td class="brand-cell"><span class="dot"></span>${r.g}</td>
+      <td class="brand-cell"><span class="dot" style="background:${trendGroupColorOf(r.g)}"></span>${r.g}</td>
       <td class="num">${prev.toLocaleString()}</td>
       <td class="num">${r.prevSales!=null?r.prevSales.toLocaleString():'—'}</td>
       <td class="num">${cur.toLocaleString()}</td>
@@ -1204,18 +1251,23 @@ async function _initDownload(){
   const reportItems = Array.isArray(manifest.reportDownloads) ? manifest.reportDownloads : [];
   if(summaryItems.length || reportItems.length){
     const cards = [];
+    const fmtLabel = x => x.label ? x.label.replace(/\b(\d{4})(\d{2})(\d{2})\b/g, '$1/$2/$3').replace(/ → /g, ' - ') : (fmtDate8(x.ts) || x.name);
+    // 期数选择改成跟顶部「当前日期」同款日历弹窗：只有实际存在文件的日期可点，
+    // 网点变化对比报告是固定相邻期配对（不能任选两个日期组自由区间），日历上点某天
+    // 就是"这天 vs 它的上一期"这份已经生成好的报告，跟汇总数据的单日历选择风格保持统一。
     const selectorCard = (title, meta, items, id) => {
       const latestIdx = Math.max(items.length - 1, 0);
-      const opts = items.map((x, i) => {
-        const label = x.label ? x.label.replace(/\b(\d{4})(\d{2})(\d{2})\b/g, '$1/$2/$3') : (fmtDate8(x.ts) || x.name);
-        return `<option value="${i}" ${i===latestIdx?'selected':''}>${label}</option>`;
-      }).join('');
+      const opts = items.map((x, i) => `<option value="${x.ts}" ${i===latestIdx?'selected':''}>${fmtLabel(x)}</option>`).join('');
       const cur = items[latestIdx];
       return `<div class="dl-card">
         <div><div class="dl-card-name">${title}</div>
         <div class="dl-card-meta">${meta}</div></div>
         <div class="dl-actions">
-          <select class="dl-select" id="${id}">${opts}</select>
+          <div class="dd" data-dd="${id}">
+            <span class="dd-val" id="${id}Val">${fmtLabel(cur)}</span><span class="dd-arrow">▾</span>
+            <div class="dd-pop" id="${id}Pop"></div>
+            <select id="${id}" style="display:none">${opts}</select>
+          </div>
           <a class="dl-btn" id="${id}Btn" href="${cur.href}" download="${cur.name}">下载 xlsx</a>
         </div>
       </div>`;
@@ -1224,15 +1276,19 @@ async function _initDownload(){
       cards.push(selectorCard('网点汇总数据', '按数据期数下载原始汇总 Excel（所有品牌）', summaryItems, 'summaryDownloadSel'));
     }
     if(reportItems.length){
-      cards.push(selectorCard('网点变化对比报告', '按相邻两期下载对比报告；默认最新上一期 vs 当期', reportItems, 'reportDownloadSel'));
+      cards.push(selectorCard('网点变化对比报告', '按相邻两期下载对比报告；日历上选当期日期，自动对比它的上一期', reportItems, 'reportDownloadSel'));
     }
     el.innerHTML = cards.join('');
     const bind = (id, items) => {
       const sel = document.getElementById(id);
       const btn = document.getElementById(id + 'Btn');
-      if(!sel || !btn) return;
+      const dd = document.querySelector(`[data-dd="${id}"]`);
+      if(!sel || !btn || !dd) return;
+      bindDDToggle(dd);
+      setupCalendarDropdown(id, id + 'Pop', id + 'Val');
       sel.onchange = () => {
-        const x = items[Number(sel.value)];
+        const x = items.find(it => it.ts === sel.value);
+        if(!x) return;
         btn.href = x.href;
         btn.download = x.name;
       };
@@ -1478,6 +1534,21 @@ function groupCounts(dealers){
 
 /* ============ 胶囊下拉: 展开/收起 + 与隐藏 <select> 同步 ============ */
 function closeAllDD(){ document.querySelectorAll('.dd.open').forEach(d=>d.classList.remove('open')); }
+// 动态插入的 .dd（报告/月度区间、数据下载）不在 boot() 时 setupDropdownToggles() 的扫描范围内，
+// 每次渲染完都要单独绑一次开合；抽成公用函数避免每处各写一份重复逻辑。
+function bindDDToggle(dd){
+  if(!dd || dd._ddToggleBound) return;
+  dd._ddToggleBound = true;
+  dd.addEventListener('click', e=>{
+    if(e.target.closest('.dd-pop')) return;
+    const wasOpen = dd.classList.contains('open');
+    closeAllDD();
+    if(!wasOpen) dd.classList.add('open');
+    e.stopPropagation();
+  });
+  const pop = dd.querySelector('.dd-pop');
+  if(pop) pop.addEventListener('click', e=>e.stopPropagation());
+}
 function setupDropdownToggles(){
   document.querySelectorAll('.dd').forEach(dd=>{
     dd.addEventListener('click', e=>{
@@ -1688,7 +1759,17 @@ async function render(){
   document.getElementById('meta').textContent =
     `共 ${DATA.snapshots.length} 期 · 当前 ${fmtTs(CUR.ts)}` + (PREV?` · 对比 ${fmtTs(PREV.ts)}`:'');
 
-  if(CUR_TAB==='net') renderNetTab(curLocs, prevLocs);
+  if(CUR_TAB==='net'){
+    // 筛选（网点类型/大区/城市等级/省份/城市/品牌）激活时，趋势折线图需要全部历史期的经销商明细，
+    // 而默认只有当前期/对比期会被加载——这里提前把其余期数补拉齐，避免 trendSeriesData() 里
+    // 因某期 dealers 未加载而漏算（数据缺口，非报错；trendSeriesData 本身已做兜底不会崩）。
+    const filtersActive = SEL_CATS.size || SEL_REGIONS.size || SEL_TIERS.size || SEL_PROVS.size || SEL_CITIES.size || SEL_BRANDS.size;
+    if(filtersActive){
+      await Promise.all(DATA.snapshots.map(s=>ensureSnap(s.ts).catch(()=>null)));
+      if(seq !== RENDER_SEQ) return;
+    }
+    renderNetTab(curLocs, prevLocs);
+  }
   if(CUR_TAB==='map' && mapLoaded) renderMap();
   if(CUR_TAB==='detail') renderDetail(curLocs, added, removed, diff.changed);
   // 城市覆盖率页若正显示，跟随周期重算（本页用全量数据，不受可视化页筛选影响）
@@ -1980,6 +2061,9 @@ function trendSeriesData(){
     return DATA.snapshots.map(s=>({ts:s.ts, counts:s.trendCounts || {}}));
   }
   return DATA.snapshots.map(s=>{
+    // 历史期 dealers 是懒加载的（仅当前期/对比期保证已加载）；筛选激活时 renderNetTab 会提前
+    // 预拉全部期数，但这里仍做兜底——未加载完成前该期先按 0 处理，不让整个趋势计算崩溃。
+    if(!s.dealers) return {ts:s.ts, counts:{}};
     let list = filterGlobal(s.dealers);
     if(SEL_BRANDS.size) list = list.filter(d=>SEL_BRANDS.has(d.g));
     const locs = buildLocations(list);
@@ -2003,12 +2087,56 @@ function trendSeriesData(){
   });
 }
 
+// 趋势图"统计维度=月度"：每个自然月取最后一期快照作为该月代表点（sd 按时间升序，故同月内后出现的覆盖先出现的）。
+function monthlyFilterSD(sd){
+  const lastByMonth = {};
+  for(const s of sd) lastByMonth[s.ts.slice(0,6)] = s;
+  return Object.values(lastByMonth);
+}
+
 // 高区分度调色板，用于趋势线和下拉色点保持一致。
 const TREND_PALETTE = ['#2563eb','#dc2626','#16a34a','#9333ea','#ea580c',
                        '#0891b2','#ca8a04','#db2777','#4f46e5','#059669',
                        '#b91c1c','#7c3aed','#0f766e','#d97706','#0284c7',
                        '#be123c','#65a30d','#6d28d9','#0e7490','#a16207',
                        '#1d4ed8','#991b1b','#15803d','#86198f'];
+
+// 品牌配色排序用的数据源：故意不走 trendSeriesData() 的筛选分支——配色应该保持稳定，
+// 不该跟着当前筛选（网点类型/大区/…）变化，也不能因为触发历史期 dealers 懒加载而有崩溃风险。
+// 优先用预计算的 trendCounts（全期数都有，覆盖所有 17 个品牌）；缺失时兜底用已加载过的期数据。
+function trendSeriesDataForColor(){
+  if(DATA.snapshots.every(s=>s.trendCounts)){
+    return DATA.snapshots.map(s=>({ts:s.ts, counts:s.trendCounts || {}}));
+  }
+  const loaded = DATA.snapshots.filter(s=>s.dealers);
+  if(!loaded.length) return [{ts:'', counts:{}}];
+  return loaded.map(s=>{
+    const locs = buildLocations(s.dealers);
+    const counts = {};
+    for(const l of locs){
+      const parts = trendBrandParts(l);
+      if(!parts.group) continue;
+      const gk = trendGroupKey(parts.group);
+      counts[gk] = (counts[gk] || 0) + 1;
+    }
+    return {ts:s.ts, counts};
+  });
+}
+
+// 品牌 -> 趋势线颜色的稳定映射（按当前网点数降序排列，与 renderTrend 内部排序算法保持一致），
+// 供柱状图（renderNet）复用，确保两个图表里同一品牌的颜色一致。
+function trendGroupKeysOrdered(){
+  const sd = trendSeriesDataForColor();
+  const last = sd.at(-1).counts;
+  const allKeys = new Set();
+  sd.forEach(s => Object.keys(s.counts).forEach(k => allKeys.add(k)));
+  return [...allKeys].filter(k=>k.startsWith('g:')).sort((a,b)=>trendKeyCount(last,b)-trendKeyCount(last,a));
+}
+function trendGroupColorOf(name){
+  const keys = trendGroupKeysOrdered();
+  const i = keys.indexOf(trendGroupKey(name));
+  return TREND_PALETTE[(i<0?0:i) % TREND_PALETTE.length];
+}
 
 function defaultTrendSelection(groupKeys){
   const porscheIdx = groupKeys.indexOf(trendGroupKey('保时捷'));
@@ -2047,7 +2175,8 @@ function syncTrendLabel(allKeys){
 }
 
 function renderTrend(){
-  const sd = trendSeriesData();
+  let sd = trendSeriesData();
+  if(TREND_PERIOD === 'month') sd = monthlyFilterSD(sd);
   const last = sd.at(-1).counts;
   const allKeys = new Set();
   sd.forEach(s => Object.keys(s.counts).forEach(k => allKeys.add(k)));
@@ -2096,8 +2225,9 @@ function renderTrend(){
   chipsEl.innerHTML = `<div class="dd-pop-inner">${items.join('')}</div>`;
   bindTrendHandlers(groupKeys, last, colorOf);
   syncTrendLabel(orderedKeys);
+  renderTrendPeriodChips();
 
-  const xs = sd.map(s => fmtTs(s.ts));
+  const xs = TREND_PERIOD === 'month' ? sd.map(s => `${s.ts.slice(0,4)}/${s.ts.slice(4,6)}`) : sd.map(s => fmtTs(s.ts));
   const selectedKeys = orderedKeys.filter(k=>TREND_SELECTED.has(k));
   const series = selectedKeys.map(k => ({
     name: trendKeyLabel(k), type: 'line', smooth: true, symbol: 'circle', symbolSize: 7,
@@ -2109,15 +2239,21 @@ function renderTrend(){
 
   trendChart.setOption({
     backgroundColor: 'transparent',
-    grid: {left: 56, right: 24, top: 16, bottom: 36},
+    grid: {left: 56, right: 30, top: 16, bottom: 36},
     tooltip: {trigger: 'axis', order: 'valueDesc',
+      // appendToBody: 挂到 .body（有 overflow-y:auto）内部时，靠近图表顶部悬停会因为祖先裁剪
+      // 把最上面几个品牌的行截没（实测复现）；挂到 body 上脱离裁剪祖先，靠 confine 保持不出视口。
+      appendToBody: true, confine: true,
+      position: (point, _params, _dom, _rect, size) => [point[0]+12, point[1]-size.contentSize[1]/2],
       formatter: params => {
         if(!params.length) return '';
         const idx = params[0].dataIndex;
         const ts = params[0].axisValueLabel;
-        const hovered = TREND_HOVER_SERIES ? params.filter(p=>p.seriesName===TREND_HOVER_SERIES) : [];
-        const shown = hovered.length ? hovered : params;
-        const rows = shown.slice().sort((a,b)=>b.value-a.value).map(p => {
+        const hoverKey = TREND_HOVER_KEY;
+        // 全部选中品牌都照常显示；只有鼠标真正压在某条线（原生 emphasis 命中，与线本身变粗同一判定）上时，
+        // 对应行才加淡蓝色圆角高光背景；鼠标在线与线之间的空白处不高亮任何一行。
+        // 排版：方形色点 + 品牌名(flex:1) + 数值/涨跌右对齐成列。
+        const rows = params.slice().sort((a,b)=>b.value-a.value).map(p => {
           const cur = p.value;
           const key = selectedKeys.find(k=>trendKeyLabel(k)===p.seriesName);
           const prev = idx>0 && key ? sd[idx-1].counts[key] || 0 : null;
@@ -2127,33 +2263,74 @@ function renderTrend(){
             const pctVal = prev>0 ? (d/prev*100) : (d>0?100:0);
             const sign = d>0?'+':'';
             const color = d>0?'#1a7f37':d<0?'#cf222e':'#8c959f';
-            pct = ` <span style="color:${color}">（${sign}${d} / ${sign}${pctVal.toFixed(1)}%）</span>`;
+            pct = `<span style="color:${color};margin-left:2px">（${sign}${d} / ${sign}${pctVal.toFixed(1)}%）</span>`;
           }
-          return `<div>${p.marker}${p.seriesName} <b>${cur}</b>${pct}</div>`;
+          const hl = p.seriesName === hoverKey;
+          const dot = `<span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:${p.color};flex-shrink:0"></span>`;
+          return `<div style="display:flex;align-items:center;gap:6px;padding:3px 7px;border-radius:6px;margin:1px 0${hl?';background:#e8f1ff':''}">`
+            + dot
+            + `<span style="flex:1;white-space:nowrap${hl?';font-weight:600':''}">${p.seriesName}</span>`
+            + `<b>${cur}</b>${pct}</div>`;
         }).join('');
-        return `<div style="font-weight:600;margin-bottom:4px">${ts}</div>${rows}`;
+        return `<div style="min-width:240px"><div style="font-weight:600;margin-bottom:6px;padding:0 7px">${ts}</div>${rows}</div>`;
       }
     },
-    xAxis: {type: 'category', data: xs, axisLabel: {fontSize: 13, color:'#24292f'},
+    xAxis: {type: 'category', data: xs, boundaryGap: false, axisLabel: {fontSize: 13, color:'#24292f'},
             axisLine:{lineStyle:{color:'#d1d5da'}}},
     yAxis: {type: 'value', axisLabel: {fontSize: 13, color:'#24292f'},
             splitLine: {lineStyle: {color: '#e1e4e8'}},
             min: v => Math.max(0, Math.floor((v.min - (v.max - v.min) * 0.15) / 10) * 10),
-            max: v => Math.ceil((v.max + (v.max - v.min) * 0.1) / 10) * 10},
+            max: v => Math.ceil(v.max * 1.03 / 50) * 50},
     series
   }, true);
-  trendChart.off('mouseover');
-  trendChart.off('mouseout');
-  trendChart.on('mouseover', p => {
-    if(p.componentType==='series'){
-      TREND_HOVER_SERIES = p.seriesName;
-      trendChart.dispatchAction({type:'showTip', seriesIndex:p.seriesIndex, dataIndex:p.dataIndex});
-    }
-  });
-  trendChart.on('mouseout', p => {
-    if(p.componentType==='series') TREND_HOVER_SERIES = null;
-  });
+
+  // 高亮判定：原生 mouseover 只在精确命中数据点/线条描边(几像素宽)时触发，两点之间的线段大概率打不中，
+  // 表现为"只有三个节点会高亮"。改用 zrender 的连续 mousemove，在当前鼠标 x 对应的两个相邻数据点之间
+  // 按比例插值算出每条线在该 x 处的像素 y，取离鼠标 y 最近且在阈值内的一条——这样线上任意位置都能高亮，
+  // 同时线与线之间的空白仍然不会误触发（阈值之外直接判 null）。
+  const zr = trendChart.getZr();
+  if(TREND_ZR_MOUSEMOVE) zr.off('mousemove', TREND_ZR_MOUSEMOVE);
+  if(TREND_ZR_GLOBALOUT) zr.off('globalout', TREND_ZR_GLOBALOUT);
+  const n = sd.length;
+  TREND_ZR_MOUSEMOVE = e => {
+    if(n < 2){ TREND_HOVER_KEY = null; return; }
+    const x0 = trendChart.convertToPixel({xAxisIndex:0}, 0);
+    const x1 = trendChart.convertToPixel({xAxisIndex:0}, n-1);
+    const fracIdx = (e.offsetX - x0) / (x1 - x0) * (n-1);
+    if(fracIdx < 0 || fracIdx > n-1){ TREND_HOVER_KEY = null; return; }
+    const idxFloor = Math.max(0, Math.min(n-2, Math.floor(fracIdx)));
+    const idxCeil = idxFloor + 1;
+    const t = fracIdx - idxFloor;
+    let best = Infinity, bestKey = null;
+    series.forEach((s, i) => {
+      const yFloor = trendChart.convertToPixel({seriesIndex:i}, [idxFloor, s.data[idxFloor]])[1];
+      const yCeil = trendChart.convertToPixel({seriesIndex:i}, [idxCeil, s.data[idxCeil]])[1];
+      const yInterp = yFloor + (yCeil - yFloor) * t;
+      const dist = Math.abs(e.offsetY - yInterp);
+      if(dist < best){ best = dist; bestKey = s.name; }
+    });
+    TREND_HOVER_KEY = best <= 12 ? bestKey : null;
+  };
+  TREND_ZR_GLOBALOUT = () => { TREND_HOVER_KEY = null; };
+  zr.on('mousemove', TREND_ZR_MOUSEMOVE);
+  zr.on('globalout', TREND_ZR_GLOBALOUT);
+
   trendChart.resize();
+}
+
+const TREND_PERIOD_DEFS = [{key:'week', label:'周度'}, {key:'month', label:'月度'}];
+function renderTrendPeriodChips(){
+  document.getElementById('ddTrendPeriod').textContent = TREND_PERIOD_DEFS.find(d=>d.key===TREND_PERIOD).label;
+  const el = document.getElementById('trendPeriodChips');
+  el.innerHTML = `<div class="dd-pop-inner">${TREND_PERIOD_DEFS.map(d =>
+    `<div class="opt ${TREND_PERIOD===d.key?'sel':''}" data-tperiod="${d.key}"><span class="check"></span><span class="nm">${d.label}</span></div>`
+  ).join('')}</div>`;
+  el.querySelectorAll('[data-tperiod]').forEach(c=>c.onclick=ev=>{
+    ev.stopPropagation();
+    if(TREND_PERIOD === c.dataset.tperiod) return;
+    TREND_PERIOD = c.dataset.tperiod;
+    renderTrend();
+  });
 }
 
 function renderTrendSubPopHtml(g, subKeys, last, colorOf){
@@ -2544,7 +2721,7 @@ function renderMbTag(){
     `具备高端授权（G-Class / AMG / 迈巴赫 之一）的门店共 <b>${cu}</b> 家，占奔驰卖车门店（${denom} 家）的 <b>${pct.toFixed(1)}%</b>。`;
 }
 
-/* ============ 净变化 tab：水平柱状图 ============ */
+/* ============ 净变化 tab：品牌网点数 / 净变化（胶囊标签 + 细条形列表） ============ */
 function renderNet(curLocs, prevLocs){
   // 按品牌(g)聚合；当 ACTIVE_BRAND 选了含子品牌的集团，按子品牌(b)聚合
   const dim = (ACTIVE_BRAND && GROUP_SUBS[ACTIVE_BRAND]) ? 'b' : 'g';
@@ -2552,80 +2729,49 @@ function renderNet(curLocs, prevLocs){
   const aggPre = PREV ? aggBy(prevLocs, dim) : null;
   let names = Object.keys(aggCur);
   if(aggPre) for(const k in aggPre) if(!(k in aggCur)) names.push(k);
-  let series, tooltipData = [];
+  let data;
   if(PREV){
-    // 柱高/变化量：物理计数（与 KPI 总计对齐）
-    const data = names.map(n=>{
+    // 变化量：物理计数（与 KPI 总计对齐）
+    data = names.map(n=>{
       const cur = aggCur[n] || 0;
       const pre = aggPre[n] || 0;
       const cList = curLocs.filter(l => dim==='b' ? l.subs.has(n) : l.g===n);
       const pList = prevLocs.filter(l => dim==='b' ? l.subs.has(n) : l.g===n);
       const diff = pairPeriodChanges(cList, pList);
-      const add = diff.added.length;
-      const rem = diff.removed.length;
-      const keep = Math.max(0, cur - add);
-      return {n, cur, pre, d:cur-pre, keep, add, rem};
+      return {n, cur, pre, d:cur-pre, add:diff.added.length, rem:diff.removed.length};
     });
-    data.sort((a,b)=>a.cur-b.cur);  // 升序，配合默认 yAxis 方向最大值在顶部
-    names = data.map(x=>x.n);
-    tooltipData = Object.fromEntries(data.map(x=>[x.n, x]));
-    series = [{
-      name:'网点数', type:'bar', barMaxWidth:'20px',
-      data: data.map(x=>x.cur),
-      itemStyle:{color:'#174ea6',borderRadius:[0,4,4,0]},
-      label:{show:true, position:'right', fontSize:12,
-        formatter:p=>{
-          const x=tooltipData[p.name];
-          if(!x) return '';
-          const sign = x.d>0?'+':'';
-          return `{cur|${x.cur}}{paren|（}{${x.d>0?'pos':x.d<0?'neg':'zero'}|${sign}${x.d}}{paren|）}`;
-        },
-        rich:{
-          cur:{color:'#24292f', fontSize:12, fontWeight:600},
-          paren:{color:'#8c959f', fontSize:12},
-          pos:{color:'#1a7f37', fontSize:12, fontWeight:600},
-          neg:{color:'#cf222e', fontSize:12, fontWeight:600},
-          zero:{color:'#8c959f', fontSize:12},
-        },
-      },
-    }];
   } else {
-    const data = names.map(n=>({n, cur:aggCur[n]||0}));
-    data.sort((a,b)=>a.cur-b.cur);  // 升序，配合默认 yAxis 方向最大值在顶部
-    names = data.map(x=>x.n);
-    series = [{
-      name:'网点数', type:'bar', barMaxWidth:'20px',
-      data: data.map(x=>x.cur),
-      itemStyle:{color:'#174ea6',borderRadius:[0,4,4,0]},
-      label:{show:true, position:'right', color:'#24292f', fontSize:12},
-    }];
+    data = names.map(n=>({n, cur:aggCur[n]||0, pre:null, d:null, add:0, rem:0}));
   }
-  const tipDot = c => `<span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:${c};margin-right:6px;vertical-align:middle"></span>`;
-  const tooltipOpt = PREV ? {
-    trigger:'axis',
-    axisPointer:{type:'shadow'},
-    appendToBody:true,position:(pt,_p,_el,_r,size)=>[pt[0]+12,pt[1]-size.contentSize[1]/2],
-    formatter:(params)=>{
-      const p = Array.isArray(params) ? params[0] : params;
-      if(!p) return '';
-      const x = tooltipData[p.name];
-      if(!x) return '';
-      return `<div style="font-weight:600;margin-bottom:4px">${x.n}</div>`
-        + `<div>${tipDot('#1a7f37')}新增 <b>+${x.add}</b></div>`
-        + `<div>${tipDot('#cf222e')}减少 <b>-${x.rem}</b></div>`;
-    }
-  } : {trigger:'axis', axisPointer:{type:'shadow'},
-        appendToBody:true,position:(pt,_p,_el,_r,size)=>[pt[0]+12,pt[1]-size.contentSize[1]/2]};
-  netChart.setOption({
-    backgroundColor:'transparent',
-    grid:{left:120, right:80, top:20, bottom:30},
-    tooltip: tooltipOpt,
-    xAxis:{type:'value', axisLine:{show:false}, splitLine:{lineStyle:{color:'#e1e4e8'}}},
-    yAxis:{type:'category', data:names, axisLine:{show:false}, axisTick:{show:false},
-           axisLabel:{color:'#24292f', fontSize:13, fontWeight:600}},
-    series
-  }, true);
-  netChart.resize();
+  data.sort((a,b)=>b.cur-a.cur);  // 降序，从上到下阅读
+  const max = Math.max(1, ...data.map(x=>x.cur));
+  const el = document.getElementById('netchart');
+  el.innerHTML = data.map(x=>{
+    const color = trendGroupColorOf(x.n);
+    const pct = (x.cur/max*100).toFixed(1);
+    const deltaHtml = x.d===null ? '' :
+      `（<span class="${x.d>0?'d-pos':x.d<0?'d-neg':'d-zero'}">${x.d>0?'+':''}${x.d}</span>）`;
+    const title = PREV ? `${x.n}
+新增 +${x.add} / 减少 -${x.rem}` : x.n;
+    return `<div class="bar-row" data-brand="${x.n}" title="${title}">
+      <div class="bar-pill" style="background:${color}1f;color:${color}">${x.n}</div>
+      <div class="bar-line">
+        <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${color}"></div></div>
+        <div class="bar-val"><div class="bar-val-num"><b>${x.cur}</b>${deltaHtml}</div></div>
+      </div>
+    </div>`;
+  }).join('');
+  // 数字列表头（"网点数（净变化）"）要跟下面每行数字列的右边缘对齐，但列表本身可能出现纵向
+  // 滚动条（是否出现、占多宽跟浏览器/是否溢出有关），表头在滚动条外面天然会跟数字错位——
+  // 这里直接拿第一行数字的真实右边缘量出偏差，把表头的右内边距补上，做到像素级对齐，
+  // 不去猜滚动条宽度这类容易跟浏览器不一致的数字。
+  const header = document.getElementById('netColHeader');
+  const firstVal = el.querySelector('.bar-val');
+  if(header && firstVal){
+    header.style.paddingRight = '0px';
+    const diff = header.getBoundingClientRect().right - firstVal.getBoundingClientRect().right;
+    header.style.paddingRight = Math.max(0, diff) + 'px';
+  }
 }
 
 // 按 dim(g/b) 分组，返回 {dimValue: Set<locKey>}，用于增/减/不变集合运算
@@ -2741,6 +2887,10 @@ function exportCSV(){
 // 更新日志: 最新在最前, 渲染时按月份分组. tag: feat=新功能 / opt=优化 / fix=修复.
 // 只记对用户有意义的更新; 改名/内部重构等琐碎变动不入日志. 新增一期 = 顶部加一条.
 const CHANGELOG = [
+  {date:'2026-07-15', tag:'opt', tagText:'优化',
+   text:'「数据下载」「当期报告」「月度报告」的期数选择器统一改成日历弹窗，只有实际有数据的日期可点；对比区间 / 月度区间 / 网点变化对比报告都是固定相邻期配对，日历上选当期日期会自动带出它对应的上一期。'},
+  {date:'2026-07-15', tag:'fix', tagText:'错误修复',
+   text:'修复「当期报告」「销售网点数」表格误把非销售性质网点计入总数的问题，现已修复。'},
   {date:'2026-07-06', tag:'feat', tagText:'新功能',
    text:'网点查询页支持省份下钻：点击地图上的省份或右侧「省份明细」表的任意一行，即可查看该省网点清单（在营 / 新增 / 退出，支持按名称、地址、城市搜索）。'},
   {date:'2026-06-17', tag:'feat', tagText:'新功能',
