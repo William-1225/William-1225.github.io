@@ -22,6 +22,9 @@
   .sidebar-logo .sub{font-size:13px;font-weight:400;color:var(--side-mute);margin-top:5px;letter-spacing:0;text-transform:uppercase}
   .sidebar-divider{display:none}
   .nav-group{display:flex;flex-direction:column;padding:12px 12px;gap:12px}
+  .sidebar-foot{margin-top:auto;padding:14px 20px 16px;font-size:12px;color:var(--side-mute);border-top:1px solid var(--side-line);cursor:pointer;transition:color .12s}
+  .sidebar-foot:hover{color:var(--side-fg)}
+  .sidebar-foot .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#10b981;margin-right:6px;vertical-align:1px}
   .nav-item{position:relative;display:flex;align-items:center;gap:10px;padding:11px 12px 11px 14px;cursor:pointer;color:var(--side-mute);font-size:16px;border-radius:8px;transition:all .12s;font-weight:400;letter-spacing:0}
   .nav-item:hover{background:var(--side-hover);color:var(--side-fg)}
   .nav-item.active{background:var(--side-active);color:var(--side-active-fg);font-weight:600}
@@ -351,6 +354,7 @@
     <div class="nav-item" data-page="doc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>口径说明</div>
     <div class="nav-item" data-page="changelog"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v5h5"/><path d="M3.05 13A9 9 0 1 0 6 5.3L3 8"/><path d="M12 7v5l4 2"/></svg>更新日志</div>
   </div>
+  <div class="sidebar-foot" id="sidebarLogHint" title="查看最新更新说明"><span class="dot"></span>日志更新于 <span id="logLatestDate">—</span></div>
 </nav>
 
 <!-- 右侧：网点查询（原有全部内容） -->
@@ -2887,6 +2891,8 @@ function exportCSV(){
 // 更新日志: 最新在最前, 渲染时按月份分组. tag: feat=新功能 / opt=优化 / fix=修复.
 // 只记对用户有意义的更新; 改名/内部重构等琐碎变动不入日志. 新增一期 = 顶部加一条.
 const CHANGELOG = [
+  {date:'2026-07-20', tag:'fix', tagText:'错误修复',
+   text:'修复法拉利网点统计不完整的问题：沈阳、郑州两家在营网点此前因官网链接格式特殊一直未被采集，本期起补齐（法拉利 18 → 20 家，其中郑州为纯服务中心）。官网经销商页展示的是公司主体（含总部与同店多法人），本报告按物理网点口径统计，详见「口径说明」。'},
   {date:'2026-07-15', tag:'opt', tagText:'优化',
    text:'「数据下载」「当期报告」「月度报告」的期数选择器统一改成日历弹窗，只有实际有数据的日期可点；对比区间 / 月度区间 / 网点变化对比报告都是固定相邻期配对，日历上选当期日期会自动带出它对应的上一期。'},
   {date:'2026-07-15', tag:'fix', tagText:'错误修复',
@@ -2905,6 +2911,13 @@ const CHANGELOG = [
   {date:'2026-04-18', tag:'opt', tagText:'优化',
    text:'全部品牌切换为官方数据接口直连采集，数据更新更稳定、更及时。'},
 ];
+// 左侧导航栏底部「日志更新于」提示：日期取 CHANGELOG 最新一条，点击跳转更新日志页
+(function(){
+  const el = document.getElementById('logLatestDate');
+  if (el && CHANGELOG.length) el.textContent = CHANGELOG[0].date;
+  const hint = document.getElementById('sidebarLogHint');
+  if (hint) hint.onclick = () => switchPage('changelog');
+})();
 const DOC_BRANDS = [
   {cat:'ev', b:'蔚来', sales:'直营店、交付中心、服务中心等', service:'同销售口径', note:'蔚来门店按直营体系统一纳入统计；同一实体网点可同时进入销售与售后能力视图，全部口径按物理网点去重。'},
   {cat:'ev', b:'理想', sales:'零售中心、用户服务中心、交付中心', service:'用户服务中心等', note:'包含零售中心、用户服务中心、交付中心，数据来自官网经销商查询页面。'},
