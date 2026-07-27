@@ -1334,7 +1334,12 @@ function getSnap(ts){ return DATA.snapshots.find(s=>s.ts===ts); }
 // 剥掉地址末尾被流水线追加的邮编/行政区划码（5-6 位），它在不同期间会抖动，
 // 会把同一家店误判成“退出+新增→地址变更”。仅用于跨期比对，不影响总数/去重展示。
 function _stripTailCode(a){ return String(a||'').replace(/\s*\d{5,6}\s*$/,'').trim(); }
-function locKey(x){ return `${x.g}||${x.n}||${stripSuffix(x.p)}||${x.a||''}`; }
+// 鸿蒙同店双名（P042）：前缀是店型（尚界用户中心/授权用户中心/AITO…），•后地点段才是身份
+function himaLoc(n){ const s=String(n||''); const i=s.search(/[·•]/); const loc=i>=0?s.slice(i+1).replace(/\s+/g,''):''; return loc||null; }
+function locKey(x){
+  if(x.g==='鸿蒙智行'){ const loc=himaLoc(x.n); if(loc) return `${x.g}||${loc}||${stripSuffix(x.p)}||`; }
+  return `${x.g}||${x.n}||${stripSuffix(x.p)}||${x.a||''}`;
+}
 function lkLoc(l){ return `${l.g}||${l.n}||${l.p}||${_stripTailCode(l.a)}`; }
 function capSet(x){
   const raw = String(x && x.cap || '').split('|').map(s=>s.trim()).filter(Boolean);
@@ -2782,7 +2787,8 @@ function renderNet(curLocs, prevLocs){
 function keySetsBy(locs, dim){
   const o={};
   for(const l of locs){
-    const k = `${l.n}||${l.p}||${l.a||''}`;  // 原始名+省+地址，与 locKey 一致，避免同省同类型不同商场被误合并
+    const hl = l.g==='鸿蒙智行' ? himaLoc(l.n) : null;  // 鸿蒙取地点段（P042 同店双名），其余原始名+地址防误合并
+    const k = hl ? `${hl}||${l.p}||` : `${l.n}||${l.p}||${l.a||''}`;
     if(dim==='b'){
       for(const s of l.subs){ (o[s] ??= new Set()).add(k); }
     } else {
