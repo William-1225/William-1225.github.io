@@ -252,9 +252,6 @@
   .bd-tag{flex-shrink:0;font-weight:700}
   .bd-add{color:var(--pos)} .bd-rem{color:var(--neg)} .bd-chg{color:var(--acc)} .bd-net{color:var(--mute)}
   /* P043 二期确认制：回归(teal) / 疑似退出·观察中(amber) */
-  .bd-ret{color:#0e7490} .bd-obs{color:#b45309}
-  #reportBody .detail-ret,#monthlyBody .detail-ret{color:#0e7490;font-size:12px;margin-top:2px}
-  #reportBody .detail-obs,#monthlyBody .detail-obs{color:#b45309;font-size:12px;margin-top:2px}
   .bd-tag::after{content:"："}
   .bd-net::after{content:""}
   .bd-names{color:var(--mute)}
@@ -1082,16 +1079,14 @@ function renderReportRows(rows){
   rows = rows.filter(r => r.curSales !== r.prevSales || ((r.salesDiff||r.diff).removedConfirmed||[]).length);
   return rows.map((r,i)=>{
     const salesDiff = r.salesDiff || r.diff;
-    const sc = salesDiff.confirm || null;   // P043 确认口径：新增剔除回归；退出用确认名单；观察中小字提示
+    // P043 确认口径计数照旧（新增剔除回归、退出用确认名单），但观察中/回归不在对外报告露出
+    // （用户确认：报告读者无口径上下文，标注反生歧义；机制细节见「口径说明」页）
+    const sc = salesDiff.confirm || null;
     const add = reportNameList(sc ? salesDiff.added.filter(x=>!x.ret) : salesDiff.added);
-    const ret = sc ? reportNameList(salesDiff.added.filter(x=>x.ret)) : '';
     const rem = reportNameList(sc ? (salesDiff.removedConfirmed||[]) : salesDiff.removed);
-    const obsN = sc ? salesDiff.removed.length : 0;
     const changeDetail = [
       add ? `<div class="detail-add">+新增 ${add}</div>` : '',
-      ret ? `<div class="detail-ret">↩回归 ${ret}（不计新增）</div>` : '',
       rem ? `<div class="detail-rem">−退出 ${rem}</div>` : '',
-      obsN ? `<div class="detail-obs">⏳观察中 ${obsN} 家（连续两期缺席才计退出）</div>` : '',
     ].join('');
     return `<tr>
       <td class="brand-cell"><span class="dot" style="background:${trendGroupColorOf(r.g)}"></span>${r.g}</td>
@@ -1105,19 +1100,21 @@ function renderReportRows(rows){
 }
 function renderReportBrandDetails(rows, opts){
   const showChanged = !opts || opts.showChanged !== false;   // 当期报告传 {showChanged:false} 隐藏名称/地址变更
-  // P043：confirm 存在时分四组——新增(确认)/回归(不计)/确认退出/疑似退出(观察中)；月度对无 confirm 走老口径
-  return rows.filter(r=> r.diff.added.length || r.diff.removed.length || (r.diff.removedConfirmed||[]).length || (showChanged && r.diff.changed.length)).map(r=>{
+  // P043：确认口径计数（新增剔除回归、退出用确认名单），观察中/回归明细不对外露出——
+  // 报告读者无口径上下文易生歧义；完整分类见网点查询页与「口径说明」（用户确认的呈现策略）
+  return rows.filter(r=>{
+    const d = r.diff, c = d.confirm || null;
+    const nAdd = c ? d.added.filter(x=>!x.ret).length : d.added.length;
+    const nRem = c ? (d.removedConfirmed||[]).length : d.removed.length;
+    return nAdd || nRem || (showChanged && d.changed.length);
+  }).map(r=>{
     const d = r.diff, c = d.confirm || null;
     const addedC = c ? d.added.filter(x=>!x.ret) : d.added;
-    const rets   = c ? d.added.filter(x=>x.ret) : [];
     const remC   = c ? (d.removedConfirmed||[]) : d.removed;
-    const obsL   = c ? d.removed : [];
     const net = r.cur.length - r.prev.length;
     const lines = [`<div class="bd-line"><span class="bd-tag bd-net">净变化</span><span class="bd-names">${reportDeltaHtml(net, ' 家')}</span></div>`];
     if(addedC.length) lines.push(`<div class="bd-line"><span class="bd-tag bd-add">新增</span><span class="bd-names">${reportNameList(addedC, 8)}</span></div>`);
-    if(rets.length)   lines.push(`<div class="bd-line"><span class="bd-tag bd-ret">回归</span><span class="bd-names">${reportNameList(rets, 8)}（隔一期回归，不计新增）</span></div>`);
-    if(remC.length)   lines.push(`<div class="bd-line"><span class="bd-tag bd-rem">${c?'确认退出':'退出'}</span><span class="bd-names">${reportNameList(remC, 8)}</span></div>`);
-    if(obsL.length)   lines.push(`<div class="bd-line"><span class="bd-tag bd-obs">疑似退出</span><span class="bd-names">${reportNameList(obsL, 8)}（观察中，不计数）</span></div>`);
+    if(remC.length)   lines.push(`<div class="bd-line"><span class="bd-tag bd-rem">退出</span><span class="bd-names">${reportNameList(remC, 8)}</span></div>`);
     if(showChanged && d.changed.length) lines.push(`<div class="bd-line"><span class="bd-tag bd-chg">名称/地址变更</span><span class="bd-names">${reportNameList(d.changed, 6)}</span></div>`);
     return `<div class="brand-block">
       <h3>${r.g}</h3>
@@ -1165,8 +1162,8 @@ async function renderDynamicReport(){
     <div class="kpi-row" style="grid-template-columns:repeat(4,1fr)">
       <div class="kpi"><div class="k-label">当期总网点</div><div class="k-val">${curLocs.length.toLocaleString()}</div><div class="k-sub">较上期 ${reportDeltaHtml(totalDelta, ' 家')}</div></div>
       <div class="kpi"><div class="k-label">覆盖品牌</div><div class="k-val">${new Set(curLocs.map(l=>l.g)).size}</div><div class="k-sub">含新能源 / 豪华</div></div>
-      <div class="kpi"><div class="k-label">本期新增${conf?'（确认）':''}</div><div class="k-val" style="color:var(--pos)">${addedConfirmed.length}</div><div class="k-sub">跨 ${new Set(addedConfirmed.map(x=>x.g)).size} 个品牌${conf&&conf.ret?`｜回归 ${conf.ret} 家不计`:''}</div></div>
-      <div class="kpi"><div class="k-label">本期退出${conf?'（确认）':''}</div><div class="k-val" style="color:var(--neg)">${removedConfirmedL.length}</div><div class="k-sub">${conf?`另有 ${conf.obs} 家观察中（不计数）`:`跨 ${new Set(allDiff.removed.map(x=>x.g)).size} 个品牌`}</div></div>
+      <div class="kpi"><div class="k-label">本期新增</div><div class="k-val" style="color:var(--pos)">${addedConfirmed.length}</div><div class="k-sub">跨 ${new Set(addedConfirmed.map(x=>x.g)).size} 个品牌</div></div>
+      <div class="kpi"><div class="k-label">本期退出</div><div class="k-val" style="color:var(--neg)">${removedConfirmedL.length}</div><div class="k-sub">跨 ${new Set(removedConfirmedL.map(x=>x.g)).size} 个品牌</div></div>
     </div>
 
     <div class="sec-title">销售网点数（家）& 城市覆盖</div>
@@ -1180,7 +1177,7 @@ async function renderDynamicReport(){
 
     <div class="footnote">
       <p>说明：本页按所选相邻期动态计算，当前区间为 ${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}。物理网点以品牌组、店名、省份、地址综合去重；同店名称或地址变化会优先识别为变更，不计入新增/退出。</p>
-      ${conf?`<p>增减口径（二期确认制）：门店首次缺席只标「观察中」、不计入退出，连续两期缺席才确认退出；隔一期回归的门店不计新增（单期抓取波动不再造成一退一增的虚报）。缺口≥2 期后回归按新增计。详见「口径说明」页。</p>`:''}
+      ${conf?`<p>新增/退出为确认口径（经跨期复核），与总数差额可能存在少量待确认变动；口径细节见「口径说明」页。</p>`:''}
       <p>鸿蒙智行与奥迪按品牌组统计总网点，子品牌交叉经营会合并到同一物理网点。</p>
       <p>本期网点总数无变化的品牌（月初＝月末）默认不在表格中列出，仅显示发生净增减的品牌。</p>
     </div>
