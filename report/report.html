@@ -174,6 +174,30 @@
   .pen-cell .pen-frac{display:block;font-size:10.5px;opacity:.7}
   .pen-total .pen-frac{opacity:.85}
 
+  /* 网点密度页（区级品牌布局矩阵） */
+  .den-table{border-collapse:separate;border-spacing:0;width:100%;font-size:13px}
+  .den-table thead th{position:sticky;top:0;background:#f8fafc;z-index:2;text-align:center;font-weight:600;color:#475467;padding:8px 6px;border-bottom:2px solid var(--line);white-space:nowrap}
+  .den-table thead th:first-child{text-align:left;padding-left:14px}
+  .den-table td{border-bottom:1px solid var(--line);text-align:center;padding:7px 5px}
+  .den-table td.den-dist{text-align:left;padding-left:14px;white-space:nowrap;font-weight:600;color:var(--acc);cursor:pointer}
+  .den-table td.den-dist:hover{text-decoration:underline}
+  .den-table tr.den-nogeo td.den-dist{color:var(--mute);cursor:default;font-weight:400}
+  .den-table tr.den-nogeo td.den-dist:hover{text-decoration:none}
+  .den-table tbody tr:hover{background:#fbfcfe}
+  .den-table td.den-total{font-weight:700}
+  .den-catgap{border-left:2px solid var(--line)}
+  .den-mapbtn{border:1px solid var(--line);background:#fff;border-radius:7px;padding:6px 14px;font-size:13px;font-weight:600;color:var(--acc);cursor:pointer}
+  .den-mapbtn:hover{background:var(--acc-soft)}
+  /* 高德地图弹窗 */
+  #mapModal .modal-card{width:min(1200px,94vw);max-height:92vh}
+  #amapBox{height:min(66vh,640px);width:100%;background:#f1f5f9}
+  .map-legend{display:flex;flex-wrap:wrap;gap:6px 12px;padding:10px 20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--fg)}
+  .map-legend .lg{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+  .map-legend .dot{width:10px;height:10px;border-radius:50%;display:inline-block;border:1.5px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+  .amap-info-win{font:13px/1.6 -apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;padding:10px 12px;background:#fff;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.18);max-width:300px}
+  .amap-info-win .t{font-weight:700;margin-bottom:3px}
+  .amap-info-win .m{color:#656d76;font-size:12.5px}
+
   /* 月度报告 */
   #page-monthly .kpi-row, #page-report .kpi-row{padding:10px 0 16px;background:transparent}
   /* 注：报告注入 CSS 含 #monthlyBody *{padding:0} reset(特异性1,0,0)，故下列必须带 #page-monthly 前缀才能压过 */
@@ -350,6 +374,7 @@
     <div class="nav-item" data-page="report"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>当期报告</div>
     <div class="nav-item" data-page="monthly"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="m8 15 2 2 4-5"/></svg>月度报告</div>
     <div class="nav-item" data-page="penetration"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg>城市覆盖率</div>
+    <div class="nav-item" data-page="density"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>网点密度</div>
     <div class="nav-item" data-page="download"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>数据下载</div>
     <div class="nav-item" data-page="doc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>口径说明</div>
     <div class="nav-item" data-page="changelog"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v5h5"/><path d="M3.05 13A9 9 0 1 0 6 5.3L3 8"/><path d="M12 7v5l4 2"/></svg>更新日志</div>
@@ -516,6 +541,11 @@
 <!-- 右侧：城市覆盖率 -->
 <div id="page-penetration" class="page" style="display:none;overflow-y:auto">
   <div id="penBody" style="padding:22px 28px 32px"></div>
+</div>
+
+<!-- 右侧：网点密度（区级品牌布局矩阵） -->
+<div id="page-density" class="page" style="display:none;overflow-y:auto">
+  <div id="denBody" style="padding:22px 28px 32px"></div>
 </div>
 
 <!-- 右侧：口径说明 -->
@@ -730,7 +760,7 @@ function switchTab(name){
 /* ── 左侧导航切换 ── */
 function switchPage(name){
   document.querySelectorAll('.nav-item').forEach(el=>el.classList.toggle('active', el.dataset.page===name));
-  ['viz','report','monthly','doc','changelog','download','penetration'].forEach(p=>{
+  ['viz','report','monthly','doc','changelog','download','penetration','density'].forEach(p=>{
     document.getElementById('page-'+p).style.display = p===name ? (p==='viz'?'flex':'block') : 'none';
   });
   if(name==='viz'){
@@ -745,6 +775,7 @@ function switchPage(name){
   if(name==='changelog') renderChangelog();
   if(name==='download') _initDownload();
   if(name==='penetration') renderPenetration();
+  if(name==='density') renderDensity();
 }
 
 async function loadManifest(){
@@ -1493,10 +1524,12 @@ function buildLocations(dealers){
     const k = locKey(d);
     let l = m.get(k);
     if(!l){
-      l = {r:d.r, p:stripSuffix(d.p), c:d.c, lv:d.lv, g:d.g, n:d.n, t:d.t, a:d.a, ph:d.ph, subs:new Set(), caps:new Set()};
+      l = {r:d.r, p:stripSuffix(d.p), c:d.c, lv:d.lv, g:d.g, n:d.n, t:d.t, a:d.a, ph:d.ph,
+           lng:d.lng||'', lat:d.lat||'', d:d.d||'', adc:d.adc||'', subs:new Set(), caps:new Set()};
       m.set(k, l);
     }
     l.subs.add(d.b);
+    if(!l.lng && d.lng){ l.lng=d.lng; l.lat=d.lat; l.d=d.d||''; l.adc=d.adc||''; }
     capSet(d).forEach(c=>l.caps.add(c));
   }
   return [...m.values()];
@@ -1783,6 +1816,7 @@ async function render(){
   if(CUR_TAB==='detail') renderDetail(curLocs, added, removed, diff.changed);
   // 城市覆盖率页若正显示，跟随周期重算（本页用全量数据，不受可视化页筛选影响）
   if(document.getElementById('page-penetration').style.display!=='none') renderPenetration();
+  if(document.getElementById('page-density').style.display!=='none') renderDensity();
 }
 
 function renderChipRow(elId, values, selSet){
@@ -2650,7 +2684,10 @@ function openProvDetailModal(prov){
   mask.innerHTML = `<div class="modal-card">
     <div class="modal-head">
       <div><b>${prov}</b> · ${brandLbl}　<span style="color:var(--mute);font-weight:400;font-size:13px">当期 ${nCur} · <span style="color:#1a7f37">新增 +${nAdd}</span> · <span style="color:#cf222e">退出 -${nRem}</span>　${period}</span></div>
-      <button class="modal-x" aria-label="关闭">×</button>
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="den-mapbtn" id="provMapBtn">🗺 在地图上查看</button>
+        <button class="modal-x" aria-label="关闭">×</button>
+      </div>
     </div>
     <input class="modal-search" placeholder="搜索名称 / 地址 / 城市 …">
     <div class="modal-body"><table class="modal-table">
@@ -2679,6 +2716,10 @@ function openProvDetailModal(prov){
   mask.querySelector('.modal-x').onclick = close;
   mask.onclick = e=>{ if(e.target===mask) close(); };
   mask.querySelector('.modal-search').oninput = e=>render(e.target.value);
+  mask.querySelector('#provMapBtn').onclick = ()=>{
+    close();
+    openStoreMap(`${prov} · ${brandLbl}（当期在营）`, data.filter(r=>r.status!=='退出'));
+  };
   document.addEventListener('keydown', onEsc);
 }
 
@@ -2897,6 +2938,8 @@ function exportCSV(){
 // 更新日志: 最新在最前, 渲染时按月份分组. tag: feat=新功能 / opt=优化 / fix=修复.
 // 只记对用户有意义的更新; 改名/内部重构等琐碎变动不入日志. 新增一期 = 顶部加一条.
 const CHANGELOG = [
+  {date:'2026-07-29', tag:'feat', tagText:'新功能',
+   text:'新增「网点密度」页：一线 8 城（北上广深 + 成都 / 杭州 / 西安 / 重庆）按行政区展示各品牌网点数与品牌共存矩阵，看清哪个区扎堆、哪个区空白、谁和谁贴身竞争；点击区名可在高德地图上查看该区所有门店的实际位置（按品牌着色）。同时「网点查询」页省份明细弹窗新增「在地图上查看」入口。门店坐标与区划来自高德地理编码，少数编码失败的地址归入「未定位」行，合计口径与全站一致。'},
   {date:'2026-07-27', tag:'fix', tagText:'错误修复',
    text:'修复鸿蒙智行「同店多名」重复计数的问题：同一家门店会以「尚界用户中心 / 鸿蒙智行授权用户中心 / AITO授权用户中心」等不同前缀在各子品牌页面重复出现，此前按物理门店合并时被计成多家（历史各期组口径虚高约 15%）。本期起以店名「•」后的地点段识别同一门店，历史各期同步修正；享界 / 尚界 / 智界 / 问界 / 尊界各子品牌的独立统计不受影响，详见「口径说明」。'},
   {date:'2026-07-20', tag:'fix', tagText:'错误修复',
@@ -3059,6 +3102,168 @@ function renderPenetration(){
   host.querySelectorAll('.pen-seg button').forEach(btn=>{
     btn.onclick = ()=>{ const t=btn.dataset.pentype; if(t!==PEN_TYPE){ PEN_TYPE=t; renderPenetration(); } };
   });
+}
+
+/* ========= 网点密度页：区级品牌布局矩阵 + 高德地图打点 ========= */
+// JS API key 仅做底图展示 + 打点，不调用任何 Web 服务接口；已在高德控制台配置域名白名单
+const AMAP_JS_KEY = '047e0aa657ec4c6f1aced817dca8e05f';
+const DEN_CITIES = ['北京市','上海市','广州市','深圳市','成都市','杭州市','西安市','重庆市'];
+let DEN_CITY = DEN_CITIES[0], DEN_TYPE = 'all';
+const MAP_PALETTE = ['#2563eb','#dc2626','#16a34a','#9333ea','#ea580c','#0891b2','#ca8a04','#db2777',
+  '#4f46e5','#059669','#b91c1c','#7c3aed','#c2410c','#0d9488','#a16207','#be185d','#1d4ed8','#65a30d','#831843','#374151'];
+
+function renderDensity(){
+  const host = document.getElementById('denBody');
+  if(!CUR){ host.innerHTML='<div class="doc-sub">数据加载中…</div>'; return; }
+  let dealers = CUR.dealers.filter(d=>d.c===DEN_CITY);
+  if(DEN_TYPE==='sales') dealers = dealers.filter(d=>hasCap(d,'销售'));
+  if(DEN_TYPE==='after') dealers = dealers.filter(d=>hasCap(d,'售后'));
+  const locs = buildLocations(dealers);   // 物理店去重（含鸿蒙同店双名合并），与全站口径一致
+
+  // 列：本市有店的品牌组，按 新势力→豪华→超豪华、组内总数降序
+  const brandTot = {};
+  for(const l of locs) brandTot[l.g] = (brandTot[l.g]||0)+1;
+  const CAT_ORD = {ev:0, luxury:1, super:2};
+  const brands = Object.keys(brandTot).sort((a,b)=>
+    (CAT_ORD[penCatOf(a)]-CAT_ORD[penCatOf(b)]) || (brandTot[b]-brandTot[a]) || a.localeCompare(b));
+
+  // 行：按区聚合（区划来自高德地理编码），未定位兜底行保证合计与全站一致
+  const distMap = {};
+  for(const l of locs){
+    const dist = l.d || '未定位';
+    const e = distMap[dist] || (distMap[dist] = {tot:0, by:{}});
+    e.tot++; e.by[l.g] = (e.by[l.g]||0)+1;
+  }
+  const dists = Object.keys(distMap).sort((a,b)=>{
+    if(a==='未定位') return 1; if(b==='未定位') return -1;
+    return distMap[b].tot - distMap[a].tot;
+  });
+  const cellMax = Math.max(1, ...dists.filter(d=>d!=='未定位').flatMap(d=>Object.values(distMap[d].by)));
+
+  const th = brands.map((b,i)=>{
+    const gap = i>0 && penCatOf(b)!==penCatOf(brands[i-1]) ? ' class="den-catgap"' : '';
+    return `<th${gap}>${b}</th>`;
+  }).join('');
+  const body = dists.map(dist=>{
+    const e = distMap[dist];
+    const cells = brands.map((b,i)=>{
+      const v = e.by[b]||0;
+      const gap = i>0 && penCatOf(b)!==penCatOf(brands[i-1]) ? ' den-catgap' : '';
+      if(!v) return `<td class="${gap}" style="color:#d0d7de">–</td>`;
+      const a = (0.10 + 0.55*(v/cellMax)).toFixed(3);
+      return `<td class="${gap}" style="background:rgba(26,127,55,${a});color:${v/cellMax>=0.6?'#0a3d18':'#1a2e22'};font-weight:600">${v}</td>`;
+    }).join('');
+    const nb = Object.keys(e.by).length;
+    const cls = dist==='未定位' ? ' class="den-nogeo"' : '';
+    return `<tr${cls}><td class="den-dist" data-dist="${dist}">${dist}</td>${cells}
+      <td class="den-total den-catgap">${e.tot}</td><td>${nb}</td></tr>`;
+  }).join('') || `<tr><td colspan="${brands.length+3}" style="color:var(--mute);padding:24px">本期该城市无数据</td></tr>`;
+
+  const cityBtn = c=>`<button data-dencity="${c}" class="${DEN_CITY===c?'on':''}">${c.replace(/市$/,'')}</button>`;
+  const typeBtn = (k,l)=>`<button data-dentype="${k}" class="${DEN_TYPE===k?'on':''}">${l}</button>`;
+  const nGeo = locs.filter(l=>l.lng).length;
+  host.innerHTML = `
+    <div class="pen-head">
+      <div class="pen-title">网点密度 · 区级品牌布局</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <div class="pen-seg">${DEN_CITIES.map(cityBtn).join('')}</div>
+        <div class="pen-seg">${typeBtn('all','全部')}${typeBtn('sales','销售')}${typeBtn('after','售后')}</div>
+        <button class="den-mapbtn" id="denCityMap">🗺 全市地图</button>
+      </div>
+    </div>
+    <div class="doc-sub">数据周期：${fmtTs(CUR.ts)}（随顶部「当前日期」切换）　·　${DEN_CITY} 共 ${locs.length} 家 / 已定位 ${nGeo} 家</div>
+    <div class="doc-note">
+      <b>看什么：</b>每个区各品牌的网点数与品牌共存情况——哪个区扎堆、哪个区空白、谁和谁贴身。<b>点击区名</b>可在高德地图上查看该区所有门店的实际位置。<br>
+      <b>口径：</b>计数与全站一致（物理网点去重，鸿蒙智行同店双名合并、按品牌组统计）。区划取自高德地理编码；少数地址编码失败的门店归入「未定位」行，保证合计与网点查询页一致。覆盖一线 8 城，品牌数 = 该区布点品牌组数（竞争强度）。
+    </div>
+    <div style="overflow-x:auto"><table class="den-table">
+      <thead><tr><th>区 \\ 品牌</th>${th}<th class="den-catgap">合计</th><th>品牌数</th></tr></thead>
+      <tbody>${body}</tbody>
+    </table></div>`;
+
+  host.querySelectorAll('[data-dencity]').forEach(b=>{ b.onclick=()=>{ DEN_CITY=b.dataset.dencity; renderDensity(); }; });
+  host.querySelectorAll('[data-dentype]').forEach(b=>{ b.onclick=()=>{ DEN_TYPE=b.dataset.dentype; renderDensity(); }; });
+  host.querySelectorAll('td.den-dist').forEach(td=>{
+    const dist = td.dataset.dist;
+    if(dist==='未定位') return;
+    td.onclick = ()=> openStoreMap(`${DEN_CITY} ${dist}`, locs.filter(l=>(l.d||'')===dist));
+  });
+  document.getElementById('denCityMap').onclick = ()=> openStoreMap(`${DEN_CITY} · 全部品牌`, locs);
+}
+
+/* ── 高德地图弹窗：门店打点（懒加载 JS API，只用底图+标注，不调服务接口） ── */
+let AMAP_LOADER = null, AMAP_MAP = null;
+function loadAMap(){
+  if(window.AMap && window.AMap.Map) return Promise.resolve();
+  if(AMAP_LOADER) return AMAP_LOADER;
+  AMAP_LOADER = new Promise((res, rej)=>{
+    window.__amapcb = res;
+    const s = document.createElement('script');
+    s.src = `https://webapi.amap.com/maps?v=2.0&key=${AMAP_JS_KEY}&callback=__amapcb`;
+    s.onerror = ()=>{ AMAP_LOADER=null; rej(new Error('高德地图脚本加载失败')); };
+    document.head.appendChild(s);
+  });
+  return AMAP_LOADER;
+}
+
+async function openStoreMap(title, stores){
+  const withGeo = stores.filter(s=>s.lng && s.lat);
+  const missing = stores.length - withGeo.length;
+  let mask = document.getElementById('mapModal');
+  if(!mask){ mask = document.createElement('div'); mask.id='mapModal'; mask.className='modal-mask'; document.body.appendChild(mask); }
+  const missTip = missing>0 ? `　<span style="color:var(--warn)">另有 ${missing} 家未定位未显示</span>` : '';
+  mask.innerHTML = `<div class="modal-card">
+    <div class="modal-head">
+      <div><b>${title}</b>　<span style="color:var(--mute);font-weight:400;font-size:13px">已定位 ${withGeo.length} 家${missTip}</span></div>
+      <button class="modal-x" aria-label="关闭">×</button>
+    </div>
+    <div id="amapBox"></div>
+    <div class="map-legend" id="mapLegend"></div>
+  </div>`;
+  mask.style.display = 'flex';
+  const close = ()=>{
+    mask.style.display='none'; document.removeEventListener('keydown', onEsc);
+    if(AMAP_MAP){ AMAP_MAP.destroy(); AMAP_MAP=null; }
+  };
+  function onEsc(ev){ if(ev.key==='Escape') close(); }
+  mask.querySelector('.modal-x').onclick = close;
+  mask.onclick = e=>{ if(e.target===mask) close(); };
+  document.addEventListener('keydown', onEsc);
+
+  const box = document.getElementById('amapBox');
+  if(!withGeo.length){ box.innerHTML = '<div class="err" style="padding:40px;text-align:center">这批门店均无坐标（地址未编码成功）</div>'; return; }
+  try{ await loadAMap(); }
+  catch(e){ box.innerHTML = `<div class="err" style="padding:40px;text-align:center">${e.message}（检查网络或 key 域名白名单）</div>`; return; }
+
+  // 品牌 → 颜色（按数量降序分配，保证图例主次分明）
+  const cnt = {};
+  for(const s of withGeo) cnt[s.g] = (cnt[s.g]||0)+1;
+  const ordered = Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a]);
+  const colorOf = {};
+  ordered.forEach((g,i)=>{ colorOf[g] = MAP_PALETTE[i % MAP_PALETTE.length]; });
+  document.getElementById('mapLegend').innerHTML = ordered.map(g=>
+    `<span class="lg"><span class="dot" style="background:${colorOf[g]}"></span>${g} <b>${cnt[g]}</b></span>`).join('');
+
+  if(AMAP_MAP){ AMAP_MAP.destroy(); AMAP_MAP=null; }
+  AMAP_MAP = new AMap.Map('amapBox', {viewMode:'2D', resizeEnable:true, mapStyle:'amap://styles/whitesmoke'});
+  const info = new AMap.InfoWindow({isCustom:true, content:'', offset:new AMap.Pixel(0,-14)});
+  for(const s of withGeo){
+    const mk = new AMap.CircleMarker({
+      center:[s.lng, s.lat], radius:7, fillColor:colorOf[s.g], fillOpacity:.9,
+      strokeColor:'#fff', strokeWeight:1.5, cursor:'pointer', bubble:false,
+    });
+    mk.on('click', ()=>{
+      info.setContent(`<div class="amap-info-win"><div class="t">${s.n||''}</div>
+        <div class="m">${s.g||''}${s.t?' · '+s.t:''}</div>
+        <div class="m">${s.a||''}</div>${s.ph?`<div class="m">☎ ${s.ph}</div>`:''}</div>`);
+      info.open(AMAP_MAP, [s.lng, s.lat]);
+    });
+    mk.setMap(AMAP_MAP);
+  }
+  AMAP_MAP.on('click', ()=>info.close());
+  const lngs = withGeo.map(s=>s.lng), lats = withGeo.map(s=>s.lat);
+  if(withGeo.length===1){ AMAP_MAP.setZoomAndCenter(14, [lngs[0], lats[0]]); }
+  else AMAP_MAP.setBounds(new AMap.Bounds([Math.min(...lngs), Math.min(...lats)], [Math.max(...lngs), Math.max(...lats)]), false, [40,40,40,40]);
 }
 
 const DOC_GROUPS = [
