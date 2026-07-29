@@ -251,6 +251,10 @@
   .bd-line{margin:3px 0;font-size:13px;line-height:1.7;display:flex;gap:6px}
   .bd-tag{flex-shrink:0;font-weight:700}
   .bd-add{color:var(--pos)} .bd-rem{color:var(--neg)} .bd-chg{color:var(--acc)} .bd-net{color:var(--mute)}
+  /* P043 二期确认制：回归(teal) / 疑似退出·观察中(amber) */
+  .bd-ret{color:#0e7490} .bd-obs{color:#b45309}
+  #reportBody .detail-ret,#monthlyBody .detail-ret{color:#0e7490;font-size:12px;margin-top:2px}
+  #reportBody .detail-obs,#monthlyBody .detail-obs{color:#b45309;font-size:12px;margin-top:2px}
   .bd-tag::after{content:"："}
   .bd-net::after{content:""}
   .bd-names{color:var(--mute)}
@@ -330,6 +334,9 @@
   .pill{display:inline-block;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:500;background:#f1f5f9;color:var(--mute);white-space:nowrap}
   .pill.add{background:#d1fae5;color:#065f46}
   .pill.del{background:#fee2e2;color:#991b1b}
+  /* P043 二期确认制：回归 / 疑似退出(观察中) */
+  .pill.ret{background:#cffafe;color:#155e75}
+  .pill.obs{background:#fef3c7;color:#92400e}
   .err{color:var(--neg);padding:30px;text-align:center}
   .empty{color:var(--mute);text-align:center;padding:60px 0}
 
@@ -692,7 +699,7 @@ const TREND_QUICK_DEFS = {
 };
 const CN_GEO = "./cn.json";
 
-let DATA, CUR, PREV, MANIFEST=null, SNAP_CACHE={}, LOC_CACHE={}, REPORT_DATA_CACHE={}, RENDER_SEQ=0, REPORT_PAIR=null, mapChart, trendChart, provMapChart, jieStoreChart, jieSubChart, mbTagChart, penChart, mapLoaded=false;
+let DATA, CUR, PREV, PREV2=null, MANIFEST=null, SNAP_CACHE={}, LOC_CACHE={}, REPORT_DATA_CACHE={}, RENDER_SEQ=0, REPORT_PAIR=null, mapChart, trendChart, provMapChart, jieStoreChart, jieSubChart, mbTagChart, penChart, mapLoaded=false;
 let MONTHLY_PAIR=null;
 let MONTHLY_ROWS=null, MONTHLY_PERIOD=null;   // 供月度大表“详情”弹窗下钻取数
 let SEL_BRANDS   = new Set();   // 空集 = 全部品牌
@@ -1024,19 +1031,67 @@ async function computePairReportData(oldTs, newTs){
   const key = `${oldTs}|${newTs}`;
   if(REPORT_DATA_CACHE[key]) return REPORT_DATA_CACHE[key];
   const view = await _tryFetchView(oldTs, newTs);
-  if(!view){
-    throw new Error(`缺少预计算 view: data/views/report_${oldTs}_vs_${newTs}.json —— 请先跑 scripts/precompute_views.mjs`);
-  }
-  const data = _hydrateView(view);
+  // 无预计算 view 时前端现算回退（口径与 precompute_views.mjs buildReportView 一致，含二期确认制）
+  const data = view ? _hydrateView(view) : await _computeViewLocal(oldTs, newTs);
   REPORT_DATA_CACHE[key] = data;
   return data;
+}
+// P043：确认口径包装——老字段结构不变，added/removed 换成带 ret/obs 标记的版本
+function _confirmedDiffLocal(diff, conf){
+  if(!conf) return diff;
+  return {...diff, added: conf.added, removed: conf.removed, removedConfirmed: conf.removedConfirmed, confirm: conf.counts};
+}
+// P043：无 view 时的前端现算回退路径（与 mjs buildReportView 同口径；直接产出 _hydrateView 形状）
+async function _computeViewLocal(oldTs, newTs){
+  const [prevLocs, curLocs] = await Promise.all([ensureLocations(oldTs), ensureLocations(newTs)]);
+  const all = DATA.snapshots.map(s=>s.ts);
+  const oi = all.indexOf(oldTs), ni = all.indexOf(newTs);
+  let prev2Locs = null;
+  if(ni - oi === 1 && oi >= 1){   // 仅相邻期对启用二期确认；最早两期 / 月度对回退现口径
+    try{ prev2Locs = await ensureLocations(all[oi-1]); }catch(e){ prev2Locs = null; }
+  }
+  const allDiff = pairPeriodChanges(curLocs, prevLocs);
+  const allConf = confirmPeriodDiff(allDiff, curLocs, prevLocs, prev2Locs);
+  const brands = [...new Set([...curLocs.map(l=>l.g), ...prevLocs.map(l=>l.g)])];
+  const rows = brands.map(g=>{
+    const cur = curLocs.filter(l=>l.g===g);
+    const prev = prevLocs.filter(l=>l.g===g);
+    const prev2 = prev2Locs ? prev2Locs.filter(l=>l.g===g) : null;
+    const diff = pairPeriodChanges(cur, prev);
+    const conf = confirmPeriodDiff(diff, cur, prev, prev2);
+    const cities = new Set(cur.map(l=>`${l.p}${l.c}`)).size;
+    const prevCities = new Set(prev.map(l=>`${l.p}${l.c}`)).size;
+    const curSalesLocs = cur.filter(l=>hasCap(l,'销售'));
+    const prevSalesLocs = prev.filter(l=>hasCap(l,'销售'));
+    const prev2SalesLocs = prev2 ? prev2.filter(l=>hasCap(l,'销售')) : null;
+    const salesDiff = pairPeriodChanges(curSalesLocs, prevSalesLocs);
+    const salesConf = confirmPeriodDiff(salesDiff, curSalesLocs, prevSalesLocs, prev2SalesLocs);
+    const salesCities = new Set(curSalesLocs.map(l=>`${l.p}${l.c}`)).size;
+    const prevSalesCities = new Set(prevSalesLocs.map(l=>`${l.p}${l.c}`)).size;
+    return {
+      g, cur, prev,
+      curSales: curSalesLocs.length, prevSales: prevSalesLocs.length,
+      curAfterSales: cur.filter(l=>hasCap(l,'售后')).length,
+      prevAfterSales: prev.filter(l=>hasCap(l,'售后')).length,
+      cities, cityDelta: cities - prevCities,
+      salesCities, salesCityDelta: salesCities - prevSalesCities,
+      diff: _confirmedDiffLocal(diff, conf),
+      salesDiff: _confirmedDiffLocal(salesDiff, salesConf),
+    };
+  }).sort((a,b)=>b.cur.length-a.cur.length);
+  return {
+    curLocs, prevLocs,
+    allDiff: _confirmedDiffLocal(allDiff, allConf),
+    rows,
+    totalDelta: curLocs.length - prevLocs.length,
+  };
 }
 // 超豪品牌：网点少、平时基本不动；默认在报告表格/图表中隐藏，仅当本期有变化时才显示
 const SUPER_LUX_BRANDS = new Set(['宾利','劳斯莱斯','法拉利','兰博基尼','阿斯顿·马丁']);
 function _rowHasChange(r){
-  // 超豪品牌的显示判断只看真实的开店/关店（新增/退出）；
+  // 超豪品牌的显示判断只看真实的开店/关店（新增/退出/确认退出）；
   // 仅"名称/地址变更"（多为行政区划码抖动等噪音）不算有变化，避免无意义地放进来
-  return r.diff.added.length > 0 || r.diff.removed.length > 0;
+  return r.diff.added.length > 0 || r.diff.removed.length > 0 || (r.diff.removedConfirmed||[]).length > 0;
 }
 function visibleReportRows(rows){
   return rows.filter(r => !SUPER_LUX_BRANDS.has(r.g) || _rowHasChange(r));
@@ -1044,14 +1099,20 @@ function visibleReportRows(rows){
 function renderReportRows(rows){
   // 净变化=0 的品牌（月初=月末，如本期理想/奔驰）默认不显示；这里的"销售网点数"口径统一按
   // curSales/prevSales/salesCities/salesDiff（hasCap 销售），跟服务/钣喷网点区分开，见 P037。
-  rows = rows.filter(r => r.curSales !== r.prevSales);
+  // P043：有确认退出（发生在 T-2→T-1、总数早已回落）的品牌即使本期销售数持平也要露出。
+  rows = rows.filter(r => r.curSales !== r.prevSales || ((r.salesDiff||r.diff).removedConfirmed||[]).length);
   return rows.map((r,i)=>{
     const salesDiff = r.salesDiff || r.diff;
-    const add = reportNameList(salesDiff.added);
-    const rem = reportNameList(salesDiff.removed);
+    const sc = salesDiff.confirm || null;   // P043 确认口径：新增剔除回归；退出用确认名单；观察中小字提示
+    const add = reportNameList(sc ? salesDiff.added.filter(x=>!x.ret) : salesDiff.added);
+    const ret = sc ? reportNameList(salesDiff.added.filter(x=>x.ret)) : '';
+    const rem = reportNameList(sc ? (salesDiff.removedConfirmed||[]) : salesDiff.removed);
+    const obsN = sc ? salesDiff.removed.length : 0;
     const changeDetail = [
       add ? `<div class="detail-add">+新增 ${add}</div>` : '',
+      ret ? `<div class="detail-ret">↩回归 ${ret}（不计新增）</div>` : '',
       rem ? `<div class="detail-rem">−退出 ${rem}</div>` : '',
+      obsN ? `<div class="detail-obs">⏳观察中 ${obsN} 家（连续两期缺席才计退出）</div>` : '',
     ].join('');
     return `<tr>
       <td class="brand-cell"><span class="dot" style="background:${trendGroupColorOf(r.g)}"></span>${r.g}</td>
@@ -1065,12 +1126,20 @@ function renderReportRows(rows){
 }
 function renderReportBrandDetails(rows, opts){
   const showChanged = !opts || opts.showChanged !== false;   // 当期报告传 {showChanged:false} 隐藏名称/地址变更
-  return rows.filter(r=> r.diff.added.length || r.diff.removed.length || (showChanged && r.diff.changed.length)).map(r=>{
+  // P043：confirm 存在时分四组——新增(确认)/回归(不计)/确认退出/疑似退出(观察中)；月度对无 confirm 走老口径
+  return rows.filter(r=> r.diff.added.length || r.diff.removed.length || (r.diff.removedConfirmed||[]).length || (showChanged && r.diff.changed.length)).map(r=>{
+    const d = r.diff, c = d.confirm || null;
+    const addedC = c ? d.added.filter(x=>!x.ret) : d.added;
+    const rets   = c ? d.added.filter(x=>x.ret) : [];
+    const remC   = c ? (d.removedConfirmed||[]) : d.removed;
+    const obsL   = c ? d.removed : [];
     const net = r.cur.length - r.prev.length;
     const lines = [`<div class="bd-line"><span class="bd-tag bd-net">净变化</span><span class="bd-names">${reportDeltaHtml(net, ' 家')}</span></div>`];
-    if(r.diff.added.length)   lines.push(`<div class="bd-line"><span class="bd-tag bd-add">新增</span><span class="bd-names">${reportNameList(r.diff.added, 8)}</span></div>`);
-    if(r.diff.removed.length) lines.push(`<div class="bd-line"><span class="bd-tag bd-rem">退出</span><span class="bd-names">${reportNameList(r.diff.removed, 8)}</span></div>`);
-    if(showChanged && r.diff.changed.length) lines.push(`<div class="bd-line"><span class="bd-tag bd-chg">名称/地址变更</span><span class="bd-names">${reportNameList(r.diff.changed, 6)}</span></div>`);
+    if(addedC.length) lines.push(`<div class="bd-line"><span class="bd-tag bd-add">新增</span><span class="bd-names">${reportNameList(addedC, 8)}</span></div>`);
+    if(rets.length)   lines.push(`<div class="bd-line"><span class="bd-tag bd-ret">回归</span><span class="bd-names">${reportNameList(rets, 8)}（隔一期回归，不计新增）</span></div>`);
+    if(remC.length)   lines.push(`<div class="bd-line"><span class="bd-tag bd-rem">${c?'确认退出':'退出'}</span><span class="bd-names">${reportNameList(remC, 8)}</span></div>`);
+    if(obsL.length)   lines.push(`<div class="bd-line"><span class="bd-tag bd-obs">疑似退出</span><span class="bd-names">${reportNameList(obsL, 8)}（观察中，不计数）</span></div>`);
+    if(showChanged && d.changed.length) lines.push(`<div class="bd-line"><span class="bd-tag bd-chg">名称/地址变更</span><span class="bd-names">${reportNameList(d.changed, 6)}</span></div>`);
     return `<div class="brand-block">
       <h3>${r.g}</h3>
       ${lines.join('')}
@@ -1091,6 +1160,10 @@ async function renderDynamicReport(){
   }
   const {curLocs, allDiff, rows, totalDelta} = await computePairReportData(pair.oldTs, pair.newTs);
   const changedBrands = new Set([...allDiff.added, ...allDiff.removed, ...allDiff.changed].map(x=>x.g)).size;
+  // P043 二期确认口径：KPI 新增/退出用确认数；观察中/回归以小字提示（无 T-2 时 conf=null 回退现口径）
+  const conf = allDiff.confirm || null;
+  const addedConfirmed = conf ? allDiff.added.filter(x=>!x.ret) : allDiff.added;
+  const removedConfirmedL = conf ? (allDiff.removedConfirmed||[]) : allDiff.removed;
   // 值用 newTs（相邻期天然是"选当期日期，自动带出它的上一期"），跟数据下载页的对比报告日历同一套逻辑
   const options = pairs.map(p=>`<option value="${p.newTs}" ${p.newTs===pair.newTs?'selected':''}>${p.label}</option>`).join('');
   el.innerHTML = `<div class="hero">
@@ -1112,8 +1185,8 @@ async function renderDynamicReport(){
     <div class="kpi-row" style="grid-template-columns:repeat(4,1fr)">
       <div class="kpi"><div class="k-label">当期总网点</div><div class="k-val">${curLocs.length.toLocaleString()}</div><div class="k-sub">较上期 ${reportDeltaHtml(totalDelta, ' 家')}</div></div>
       <div class="kpi"><div class="k-label">覆盖品牌</div><div class="k-val">${new Set(curLocs.map(l=>l.g)).size}</div><div class="k-sub">含新能源 / 豪华</div></div>
-      <div class="kpi"><div class="k-label">本期新增</div><div class="k-val" style="color:var(--pos)">${allDiff.added.length}</div><div class="k-sub">跨 ${new Set(allDiff.added.map(x=>x.g)).size} 个品牌</div></div>
-      <div class="kpi"><div class="k-label">本期退出</div><div class="k-val" style="color:var(--neg)">${allDiff.removed.length}</div><div class="k-sub">跨 ${new Set(allDiff.removed.map(x=>x.g)).size} 个品牌</div></div>
+      <div class="kpi"><div class="k-label">本期新增${conf?'（确认）':''}</div><div class="k-val" style="color:var(--pos)">${addedConfirmed.length}</div><div class="k-sub">跨 ${new Set(addedConfirmed.map(x=>x.g)).size} 个品牌${conf&&conf.ret?`｜回归 ${conf.ret} 家不计`:''}</div></div>
+      <div class="kpi"><div class="k-label">本期退出${conf?'（确认）':''}</div><div class="k-val" style="color:var(--neg)">${removedConfirmedL.length}</div><div class="k-sub">${conf?`另有 ${conf.obs} 家观察中（不计数）`:`跨 ${new Set(allDiff.removed.map(x=>x.g)).size} 个品牌`}</div></div>
     </div>
 
     <div class="sec-title">销售网点数（家）& 城市覆盖</div>
@@ -1127,6 +1200,7 @@ async function renderDynamicReport(){
 
     <div class="footnote">
       <p>说明：本页按所选相邻期动态计算，当前区间为 ${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}。物理网点以品牌组、店名、省份、地址综合去重；同店名称或地址变化会优先识别为变更，不计入新增/退出。</p>
+      ${conf?`<p>增减口径（二期确认制）：门店首次缺席只标「观察中」、不计入退出，连续两期缺席才确认退出；隔一期回归的门店不计新增（单期抓取波动不再造成一退一增的虚报）。缺口≥2 期后回归按新增计。详见「口径说明」页。</p>`:''}
       <p>鸿蒙智行与奥迪按品牌组统计总网点，子品牌交叉经营会合并到同一物理网点。</p>
       <p>本期网点总数无变化的品牌（月初＝月末）默认不在表格中列出，仅显示发生净增减的品牌。</p>
     </div>
@@ -1448,7 +1522,12 @@ function locKey(x){
   if(x.g==='鸿蒙智行'){ const loc=himaLoc(x.n); if(loc) return `${x.g}||${loc}||${stripSuffix(x.p)}||`; }
   return `${x.g}||${x.n}||${stripSuffix(x.p)}||${x.a||''}`;
 }
-function lkLoc(l){ return `${l.g}||${l.n}||${l.p}||${_stripTailCode(l.a)}`; }
+// P042/P043：鸿蒙同店双名跨期也按•地点段认店（与 precompute_views.mjs lkLoc 一致——
+// 此前客户端 lkLoc 漏掉该分支，导致网点查询页把同店换牌算成一退一增，与当期报告 view 数字对不上）
+function lkLoc(l){
+  if(l.g==='鸿蒙智行'){ const loc=himaLoc(l.n); if(loc) return `${l.g}||${loc}||${l.p}||`; }
+  return `${l.g}||${l.n}||${l.p}||${_stripTailCode(l.a)}`;
+}
 function capSet(x){
   const raw = String(x && x.cap || '').split('|').map(s=>s.trim()).filter(Boolean);
   if(raw.length) return new Set(raw);
@@ -1592,6 +1671,45 @@ function pairPeriodChanges(curLocs, prevLocs){
     removed: remainingRemoved,
     changed,
   };
+}
+
+// P043 二期确认制（仅相邻期对比启用；与 precompute_views.mjs 逐字一致，改动必须双向同步）：
+//  - 新增(确认)   ∈T 且 ∉T-1 且 ∉T-2；∈T-2(严格仅隔一期回归) 打 ret 标不计新增
+//  - 疑似退出     ∈T-1 且 ∉T（本期首缺）→ obs 标观察中，不计退出头数
+//  - 确认退出     ∈T-2 且 ∉T-1 且 ∉T，且 T-1/T 无同店存活（同名同城 / 名称高相似 / 地址前缀同）
+//  缺口≥2期后回归按新增计（其退网已在更早报告确认过）；网点总数一律实抓不动。
+function confirmPeriodDiff(diff, curLocs, prevLocs, prev2Locs){
+  if(!prev2Locs) return null;
+  const p2k = new Set(prev2Locs.map(lkLoc));
+  const pk  = new Set(prevLocs.map(lkLoc));
+  const ck  = new Set(curLocs.map(lkLoc));
+  const added   = diff.added.map(a => p2k.has(lkLoc(a)) ? {...a, ret:true} : a);
+  const removed = diff.removed.map(r => ({...r, obs:true}));
+  // 存活索引：T-1 ∪ T 按 品牌||省 分桶 + 同名同城精确键，确认判定只在小候选桶里做相似比对
+  const aliveBy = new Map();
+  const aliveNameCity = new Set();
+  for(const l of [...prevLocs, ...curLocs]){
+    const b = `${l.g}||${l.p}`;
+    if(!aliveBy.has(b)) aliveBy.set(b, []);
+    aliveBy.get(b).push(l);
+    aliveNameCity.add(_sameNameCityKey(l));
+  }
+  const removedConfirmed = [];
+  for(const r of prev2Locs){
+    const k = lkLoc(r);
+    if(pk.has(k) || ck.has(k)) continue;                      // T-1 或 T 仍在营
+    if(aliveNameCity.has(_sameNameCityKey(r))) continue;      // 同名同城存活（地址变更）
+    let alive = false;
+    const rp = _addrPrefixNorm(r.a);
+    for(const l of (aliveBy.get(`${r.g}||${r.p}`) || [])){
+      if(_nameSimilarity(r.n, l.n) >= 0.75){ alive = true; break; }   // 同店改名仍在营
+      if(rp && rp === _addrPrefixNorm(l.a)){ alive = true; break; }   // 同址换牌仍在营
+    }
+    if(!alive) removedConfirmed.push(r);
+  }
+  const retN = added.filter(x=>x.ret).length;
+  return { added, removed, removedConfirmed,
+    counts: { added: added.length - retN, ret: retN, obs: removed.length, removed: removedConfirmed.length } };
 }
 
 // 把行级 dealers 折叠成 location 列表
@@ -1868,13 +1986,26 @@ async function render(){
   updateFilterDDLabels();
   refreshSelectDDs();
 
+  // P043：仅当"对比日期"恰是当前日期的相邻上一期时，懒加载 T-2 启用二期确认口径；
+  // 非相邻对比 / 前两期数据不足时 PREV2=null，行为与原口径完全一致。
+  PREV2 = null;
+  if(PREV){
+    const _seq = DATA.snapshots.map(s=>s.ts);
+    const _ci = _seq.indexOf(CUR.ts);
+    if(_ci >= 2 && _seq[_ci-1] === PREV.ts){
+      try{ PREV2 = await ensureSnap(_seq[_ci-2]); }catch(e){ PREV2 = null; }
+      if(seq !== RENDER_SEQ) return;
+    }
+  }
+
   // KPI + 主体
   const curLocs  = filterAll(CUR.dealers);
   const prevLocs = PREV ? filterAll(PREV.dealers) : [];
   const diff = pairPeriodChanges(curLocs, prevLocs);
   const added = diff.added, removed = diff.removed;
+  const conf = PREV2 ? confirmPeriodDiff(diff, curLocs, prevLocs, filterAll(PREV2.dealers)) : null;
 
-  renderKPI(curLocs, prevLocs, added, removed);
+  renderKPI(curLocs, prevLocs, added, removed, conf);
   document.getElementById('meta').textContent =
     `共 ${DATA.snapshots.length} 期 · 当前 ${fmtTs(CUR.ts)}` + (PREV?` · 对比 ${fmtTs(PREV.ts)}`:'');
 
@@ -1890,7 +2021,7 @@ async function render(){
     renderNetTab(curLocs, prevLocs);
   }
   if(CUR_TAB==='map' && mapLoaded) renderMap();
-  if(CUR_TAB==='detail') renderDetail(curLocs, added, removed, diff.changed);
+  if(CUR_TAB==='detail') renderDetail(curLocs, added, removed, diff.changed, conf);
   // 城市覆盖率页若正显示，跟随周期重算（本页用全量数据，不受可视化页筛选影响）
   if(document.getElementById('page-penetration').style.display!=='none') renderPenetration();
   if(document.getElementById('page-density').style.display!=='none') renderDensity();
@@ -2121,7 +2252,7 @@ function bindBrandHandlers(){
   });
 }
 
-function renderKPI(curLocs, prevLocs, added, removed){
+function renderKPI(curLocs, prevLocs, added, removed, conf){
   const setText=(id,v,d)=>{
     document.getElementById(id).textContent = v;
     const dEl = document.getElementById(id+'D');
@@ -2130,13 +2261,22 @@ function renderKPI(curLocs, prevLocs, added, removed){
     dEl.className='delta '+cls;
     dEl.textContent = (d>0?'+':'')+d;
   };
+  const setNote=(id,txt)=>{ const el=document.getElementById(id); el.className='delta zero'; el.textContent=txt; };
   const cityCur = new Set(curLocs.map(l=>l.p+l.c)).size;
   const cityPre = PREV ? new Set(prevLocs.map(l=>l.p+l.c)).size : null;
   const brCur   = new Set(curLocs.map(l=>l.g)).size;
   const brPre   = PREV ? new Set(prevLocs.map(l=>l.g)).size : null;
   setText('kTotal', curLocs.length, PREV?curLocs.length-prevLocs.length:null);
-  setText('kAdd',   PREV?added.length:'-',   null);
-  setText('kDel',   PREV?removed.length:'-', null);
+  if(conf){
+    // P043 二期确认口径：新增/退出用确认数，观察中/回归以小字提示
+    setText('kAdd', conf.counts.added, null);
+    setNote('kAddD', conf.counts.ret ? `回归 ${conf.counts.ret} 家不计` : '');
+    setText('kDel', conf.counts.removed, null);
+    setNote('kDelD', conf.counts.obs ? `另有 ${conf.counts.obs} 家观察中` : '');
+  }else{
+    setText('kAdd',   PREV?added.length:'-',   null);
+    setText('kDel',   PREV?removed.length:'-', null);
+  }
   setText('kCity',  cityCur, PREV?cityCur-cityPre:null);
   setText('kBrand', brCur,   PREV?brCur-brPre:null);
 }
@@ -2931,26 +3071,36 @@ function aggBy(locs, dim){
 
 /* ============ 明细 tab ============ */
 let DETAIL_ROWS = [];
-function renderDetail(curLocs, added, removed, changed){
+function renderDetail(curLocs, added, removed, changed, conf){
   if(!curLocs){
     curLocs = filterAll(CUR.dealers);
     const prevLocs = PREV ? filterAll(PREV.dealers) : [];
     const diff = pairPeriodChanges(curLocs, prevLocs);
     added = diff.added; removed = diff.removed; changed = diff.changed;
+    // P043：相邻期对比时 PREV2 已在 render() 里加载好，这里同步重算确认口径
+    conf = PREV2 ? confirmPeriodDiff(diff, curLocs, prevLocs, filterAll(PREV2.dealers)) : null;
   }
   const ak = new Set(added.map(lkLoc)), rk = new Set(removed.map(lkLoc));
   const ck = new Map((changed||[]).map(l => [lkLoc(l), l]));
+  // P043：回归 = added 里 ∈T-2 的项（conf.added 带 ret 标）
+  const retK = conf ? new Set(conf.added.filter(x=>x.ret).map(lkLoc)) : null;
   const rows = [];
   for(const l of curLocs){
     const ch = ck.get(lkLoc(l));
-    rows.push({status: ak.has(lkLoc(l))?'新增':ch?'变更':'存量', oldAddress:ch?.oldAddress||'', oldName:ch?.oldName||'', ...l});
+    const isAdd = ak.has(lkLoc(l));
+    const status = isAdd ? (retK && retK.has(lkLoc(l)) ? '回归' : '新增') : ch ? '变更' : '存量';
+    rows.push({status, oldAddress:ch?.oldAddress||'', oldName:ch?.oldName||'', ...l});
   }
   for(const l of removed){
-    rows.push({status:'退出', ...l});
+    rows.push({status: conf ? '疑似退出' : '退出', ...l});
+  }
+  // P043：确认退出 = T-2 有、T-1/T 均无且无同店存活的行（来自 T-2 数据）
+  if(conf) for(const l of conf.removedConfirmed){
+    rows.push({status:'确认退出', ...l});
   }
   // PREV 模式下默认按 状态(新增/退出 优先) → 品牌 排
   rows.sort((a,b)=>{
-    const order={'新增':0,'退出':1,'变更':2,'存量':3};
+    const order={'新增':0,'回归':1,'退出':2,'确认退出':2,'疑似退出':3,'变更':4,'存量':5};
     return (order[a.status]-order[b.status]) || a.g.localeCompare(b.g);
   });
   DETAIL_ROWS = rows;
@@ -2969,7 +3119,7 @@ function applySearch(){
   const tb = document.querySelector('#detailT tbody');
   if(!filtered.length){ tb.innerHTML = `<tr><td colspan="8" class="empty">无数据</td></tr>`; return; }
   tb.innerHTML = filtered.slice(0,1000).map(r=>{
-    const cls = r.status==='新增'?'add':r.status==='退出'?'del':'';
+    const cls = r.status==='新增'?'add' : (r.status==='退出'||r.status==='确认退出')?'del' : r.status==='回归'?'ret' : r.status==='疑似退出'?'obs' : '';
     const subs = (GROUP_SUBS[r.g] && r.subs && r.subs.size>1) ? `<span style="color:var(--mute);font-size:13px"> (${[...r.subs].join('+')})</span>`:'';
     const oldBits = [];
     if(r.oldName && r.oldName !== r.n) oldBits.push(`原名称：${r.oldName}`);
@@ -3198,6 +3348,8 @@ function extExportCSV(locs){
 // 更新日志: 最新在最前, 渲染时按月份分组. tag: feat=新功能 / opt=优化 / fix=修复.
 // 只记对用户有意义的更新; 改名/内部重构等琐碎变动不入日志. 新增一期 = 顶部加一条.
 const CHANGELOG = [
+  {date:'2026-07-29', tag:'opt', tagText:'优化',
+   text:'网点增减口径升级为二期确认制：门店首次缺席只标"观察中"不计退出，连续两期缺席才确认；隔一期回归的门店不计新增——单期抓取波动不再造成一退一增的虚报。'},
   {date:'2026-07-29', tag:'feat', tagText:'新功能',
    text:'新增「自助取数」页：可按品牌 / 品类 / 大区 / 省市区 / 城市级别 / 网点能力 / 经销商性质自由组合筛选任意一期的网点明细，在线预览并一键导出 CSV（Excel 可直接打开）。'},
   {date:'2026-07-29', tag:'opt', tagText:'优化',
@@ -3560,6 +3712,17 @@ function renderDoc(){
           <li>第二层处理地址更新：继续比较区县、路名门牌和地址相似度；单一同名同城候选也视为地址变更。</li>
           <li>第三层处理名称更新：同品牌组下，地址或规范化店名主干高度相似时，视为同店改名/类型调整。</li>
           <li>以上都无法配对的记录，才进入新增或退出。</li>
+        </ul>
+      </div>
+      <div class="doc-rule">
+        <h3>增减口径：二期确认制</h3>
+        <ul>
+          <li>动机：单期抓取波动（官网临时下架、接口漏爬）会造成同一家店"一退一增"的虚报。二期确认制用相邻三期（T-2 / T-1 / T）交叉验证，把这类抖动吸收掉；代价是真实退网信号晚一周确认。</li>
+          <li>新增（确认）：本期出现、且上两期均不存在的门店，计入"新增"。</li>
+          <li>回归：本期出现、上期缺席、但上上期存在（严格仅隔一期）的门店，视为抓取波动回归，不计新增，明细中标"回归"。缺口≥2 期后重新出现的门店仍按新增计（其退网已在更早报告确认计数过）。</li>
+          <li>疑似退出（观察中）：上期在、本期首次缺席的门店，不计入"退出"头数，明细中标"观察中"，待下期确认。</li>
+          <li>确认退出：连续两期缺席（上上期在、上期与本期均无），且排除同店改名后仍在营的情况，计入"退出"。</li>
+          <li>适用范围：仅"相邻期"对比（当期报告、网点查询选相邻上一期时）；月度报告与自定义区间对比不适用。网点总数一律按当期实抓，不受此规则影响。</li>
         </ul>
       </div>
       <div class="doc-rule">
