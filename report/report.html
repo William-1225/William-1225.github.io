@@ -227,7 +227,7 @@
   #amapBox{height:min(66vh,640px);width:100%;background:#f1f5f9}
   .map-legend{display:flex;flex-wrap:wrap;gap:6px 12px;padding:10px 20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--fg)}
   .map-legend .lg{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
-  .map-legend .dot{width:10px;height:10px;border-radius:50%;display:inline-block;border:1.5px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+  .map-legend .dot{width:10px;height:10px;border-radius:3px;display:inline-block;border:1.5px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
   .amap-info-win{font:13px/1.6 -apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;padding:10px 12px;background:#fff;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.18);max-width:300px}
   .amap-info-win .t{font-weight:700;margin-bottom:3px}
   .amap-info-win .m{color:#656d76;font-size:12.5px}
@@ -317,7 +317,7 @@
   .d-zero{color:var(--mute)}
   .trend-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px;max-height:80px;overflow-y:auto;padding:2px}
   .trend-chips .chip{padding:3px 9px;font-size:12px;border-radius:12px}
-  .trend-chips .chip .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
+  .trend-chips .chip .dot{display:inline-block;width:8px;height:8px;border-radius:2.5px;margin-right:5px;vertical-align:middle}
   .table-toolbar{display:flex;gap:10px;align-items:center;padding:0 0 10px}
   .table-toolbar input{flex:1;padding:6px 10px;border:1px solid var(--line);border-radius:6px;font:inherit}
   .tablewrap{max-height:560px;overflow:auto;border:1px solid var(--line);border-radius:6px;background:var(--card)}
@@ -404,17 +404,15 @@
   .ext-zt .ext-hint{font-weight:400;color:var(--mute);font-size:12px}
   .ext-dd.has{border-color:var(--acc)}
   .ext-dd.has .dd-val{color:var(--acc);font-weight:600}
-  .ext-chips{display:flex;flex-wrap:wrap;gap:6px;padding:5px}
-  .ext-chip{display:inline-flex;align-items:center;gap:6px;padding:2px 10px;border:1px solid var(--line);border-radius:999px;font-size:13px;line-height:20px;color:#475467;background:#fff;cursor:pointer;user-select:none;white-space:nowrap}
-  .ext-chip:hover{border-color:#98a2b3}
-  .ext-chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
-  .ext-chip .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  /* 弹层选项照抄网点查询 .opt/.check；仅补滚动容器（省/区选项可达数百个） */
+  .ext-dd .dd-pop-inner{max-height:320px;overflow-y:auto;padding:6px}
+  .ext-dd .opt .dot{width:9px;height:9px;border-radius:2.5px;flex-shrink:0;margin-right:6px;display:inline-block}
   .ext-condrow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 12px;margin-top:10px}
   .ext-condrow .cl{font-size:12px;color:var(--mute);flex-shrink:0}
   .ext-cond{display:inline-flex;align-items:center;gap:6px;border-radius:8px;padding:4px 10px;font-size:12.5px;font-weight:600;border:1px solid}
   .ext-cond .x{opacity:.55;font-weight:400;cursor:pointer}
   .ext-cond .x:hover{opacity:1}
-  .ext-cond .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .ext-cond .dot{width:8px;height:8px;border-radius:2.5px;flex-shrink:0}
   .ext-cond.c-geo{background:#eaf2ff;border-color:#bfdbfe;color:#1e40af}
   .ext-cond.c-brand{background:#ecfdf3;border-color:#bbe7c9;color:#166534}
   .ext-cond.c-cap{background:#fdf3dd;border-color:#f3dfae;color:#8a5c00}
@@ -428,8 +426,10 @@
   .ext-toolbar .cnt b{color:var(--fg)}
   .ext-btn{appearance:none;border:1px solid var(--acc);background:var(--acc);color:#fff;border-radius:7px;padding:7px 16px;font-size:13px;font-weight:600;cursor:pointer;margin-left:auto;flex-shrink:0}
   .ext-btn:hover{filter:brightness(.92)}
-  .ext-table td,.ext-table thead th{text-align:left}
-  .ext-table td:nth-child(8){max-width:360px}
+  .ext-table td,.ext-table thead th{text-align:left;white-space:nowrap}
+  .ext-table td:nth-child(1){min-width:110px}
+  .ext-table td:nth-child(2){min-width:200px}
+  .ext-table td:nth-child(8){max-width:380px;white-space:normal}
   .ext-ft{margin-top:10px;font-size:12px;color:var(--mute);line-height:1.7}
 </style>
 </head>
@@ -2475,7 +2475,7 @@ function renderTrend(){
   for(const gk of groupKeys){
     const g = trendKeyLabel(gk);
     const on = TREND_SELECTED.has(gk);
-    const dot = `<span class="dot" style="width:9px;height:9px;border-radius:50%;background:${on?colorOf(gk):'#d1d5da'};flex-shrink:0"></span>`;
+    const dot = `<span class="dot" style="width:9px;height:9px;border-radius:2.5px;background:${on?colorOf(gk):'#d1d5da'};flex-shrink:0"></span>`;
     const subs = subKeysByGroup[g] || [];
     items.push(`<div class="opt ${on?'sel':''} ${subs.length?'has-sub':''}" data-tb="${gk}">
       <span class="check"></span>${dot}<span class="nm">${g}</span>
@@ -2599,7 +2599,7 @@ function renderTrendSubPopHtml(g, subKeys, last, colorOf){
   const items = subKeys.map(k=>{
     const s = k.split(':')[2];
     const on = TREND_SELECTED.has(k);
-    const dot = `<span class="dot" style="width:9px;height:9px;border-radius:50%;background:${on?colorOf(k):'#d1d5da'};flex-shrink:0"></span>`;
+    const dot = `<span class="dot" style="width:9px;height:9px;border-radius:2.5px;background:${on?colorOf(k):'#d1d5da'};flex-shrink:0"></span>`;
     return `<div class="opt ${on?'sel':''}" data-tsub="${k}" data-parent="${g}"><span class="check"></span>${dot}<span class="nm">${s}</span></div>`;
   }).join('');
   return `<div class="sub-pop">${allItem}${items}</div>`;
@@ -3165,13 +3165,13 @@ function exportCSV(){
 // 独立期数选择 (EXT_TS)，与顶栏「当前日期」互不影响；筛选状态跨换期保留，
 // 级联失效项 (选中的市不在新省域/新期内) 在重渲染时自动清理。
 let EXT_TS = null, EXT_SEQ = 0;
-const EXT_SEL = { g:new Set(), cat:new Set(), r:new Set(), p:new Set(), c:new Set(), d:new Set(), lv:new Set(), cap:new Set(), t:new Set() };
+const EXT_SEL = { g:new Set(), cat:new Set(), r:new Set(), p:new Set(), c:new Set(), d:new Set(), lv:new Set(), cap:new Set() };
 const EXT_CATS = [['ev','新势力'],['luxury','豪华'],['super','超豪华']];
 const EXT_CAT_LABEL = Object.fromEntries(EXT_CATS);
-// 九组筛选的 dd 顺序/标签；cond 药丸用短标签 + 分类配色 (地理蓝/品牌绿/能力性质黄/其他灰)
-const EXT_FIELDS = [['g','品牌'],['cat','品类'],['r','大区'],['p','省份'],['c','城市'],['d','区'],['lv','城市等级'],['cap','网点能力'],['t','经销商性质']];
-const EXT_COND_LABEL = {g:'品牌',cat:'品类',r:'大区',p:'省份',c:'城市',d:'区',lv:'等级',cap:'能力',t:'性质'};
-const EXT_COND_CLS = {p:'c-geo',c:'c-geo',d:'c-geo',r:'c-geo',g:'c-brand',cat:'c-brand',cap:'c-cap',t:'c-cap',lv:'c-other'};
+// 八组筛选的 dd 顺序/标签（经销商性质与网点查询页对齐后移除）；cond 药丸分类配色
+const EXT_FIELDS = [['g','品牌'],['cat','品类'],['r','大区'],['p','省份'],['c','城市'],['d','区'],['lv','城市等级'],['cap','网点能力']];
+const EXT_COND_LABEL = {g:'品牌',cat:'品类',r:'大区',p:'省份',c:'城市',d:'区',lv:'等级',cap:'能力'};
+const EXT_COND_CLS = {p:'c-geo',c:'c-geo',d:'c-geo',r:'c-geo',g:'c-brand',cat:'c-brand',cap:'c-cap',lv:'c-other'};
 function extDistVal(d){ return d.d ? d.d : '未定位'; }
 // 全部筛选器 AND，同一筛选器内多选 OR；对原始 dealers 行过滤 (能力/性质在行级才准确)，之后再 buildLocations 去重
 function extFilterRows(dealers){
@@ -3184,7 +3184,6 @@ function extFilterRows(dealers){
     if(EXT_SEL.d.size   && !EXT_SEL.d.has(extDistVal(d))) return false;
     if(EXT_SEL.lv.size  && !EXT_SEL.lv.has(d.lv||'')) return false;
     if(EXT_SEL.cap.size && ![...EXT_SEL.cap].some(c=>hasCap(d,c))) return false;
-    if(EXT_SEL.t.size   && !EXT_SEL.t.has(d.t||'')) return false;
     return true;
   });
 }
@@ -3195,7 +3194,8 @@ async function renderExtract(){
   const seq = ++EXT_SEQ;
   // 重渲染前记住展开中的 dd 及其滚动位置，渲染后还原（chip 多选时弹层不收起）
   const _openDD = host.querySelector('.dd.open');
-  const openKey = _openDD ? _openDD.dataset.extdd : null;
+  // 期数日历选完即收起，不参与展开态恢复（否则选完日期弹层又被复原成打开）
+  const openKey = (_openDD && _openDD.dataset.extdd !== 'period') ? _openDD.dataset.extdd : null;
   const openScroll = _openDD ? ((_openDD.querySelector('.dd-pop-inner')||{}).scrollTop||0) : 0;
   if(!SNAP_CACHE[EXT_TS]) host.innerHTML = '<div class="doc-sub">明细加载中…</div>';
   let snap;
@@ -3204,14 +3204,13 @@ async function renderExtract(){
   if(seq !== EXT_SEQ) return;   // 期数已被再次切换，丢弃过期渲染
   const dealers = snap.dealers;
 
-  // 选项集: 品牌/大区/省/级别/性质取全期分布；市、区按已选省(市)级联收窄
-  const cG={}, cR={}, cP={}, cLv={}, cT={}, cC={}, cD={};
+  // 选项集: 品牌/大区/省/级别取全期分布；市、区按已选省(市)级联收窄
+  const cG={}, cR={}, cP={}, cLv={}, cC={}, cD={};
   for(const d of dealers){
     cG[d.g]=(cG[d.g]||0)+1;
     if(d.r) cR[d.r]=(cR[d.r]||0)+1;
     const pv=stripSuffix(d.p); if(pv) cP[pv]=(cP[pv]||0)+1;
     if(d.lv) cLv[d.lv]=(cLv[d.lv]||0)+1;
-    if(d.t) cT[d.t]=(cT[d.t]||0)+1;
     if(EXT_SEL.p.size && !EXT_SEL.p.has(pv)) continue;
     if(d.c) cC[d.c]=(cC[d.c]||0)+1;
     if(EXT_SEL.c.size && !EXT_SEL.c.has(d.c||'')) continue;
@@ -3225,18 +3224,19 @@ async function renderExtract(){
   const rows = extFilterRows(dealers);
   const locs = buildLocations(rows);   // 物理网点去重，口径与全站一致
 
-  const chip = (f,v,label,extra='')=>`<span class="ext-chip${EXT_SEL[f].has(v)?' on':''}" data-extf="${f}" data-extv="${v}">${extra}${label||v}</span>`;
+  // 弹层选项照抄网点查询 .opt/.check 结构：首行「全部」清空该组，其余多选
+  const opt = (f,v,label,extra='')=>`<div class="opt${EXT_SEL[f].has(v)?' sel':''}" data-extf="${f}" data-extv="${v}"><span class="check"></span>${extra}<span class="nm">${label||v}</span></div>`;
+  const allOpt = f=>`<div class="opt${EXT_SEL[f].size?'':' sel'}" data-extall="${f}"><span class="check"></span><span class="nm">全部</span></div>`;
   const zh = (a,b)=>a.localeCompare(b,'zh');
   const CHIPS = {
-    g:   Object.keys(cG).sort((a,b)=>cG[b]-cG[a]).map(g=>chip('g',g,g,`<span class="dot" style="background:${trendGroupColorOf(g)}"></span>`)).join(''),
-    cat: EXT_CATS.map(([k,l])=>chip('cat',k,l)).join(''),
-    r:   Object.keys(cR).sort((a,b)=>cR[b]-cR[a]).map(r=>chip('r',r)).join(''),
-    p:   Object.keys(cP).sort(zh).map(p=>chip('p',p)).join(''),
-    c:   Object.keys(cC).sort(zh).map(c=>chip('c',c)).join(''),
-    d:   Object.keys(cD).sort((a,b)=>{ if(a==='未定位') return 1; if(b==='未定位') return -1; return zh(a,b); }).map(v=>chip('d',v)).join(''),
-    lv:  TIERS.filter(t=>cLv[t]).concat(Object.keys(cLv).filter(t=>!TIERS.includes(t))).map(t=>chip('lv',t)).join(''),
-    cap: ['销售','售后'].map(c=>chip('cap',c)).join(''),
-    t:   Object.keys(cT).sort((a,b)=>cT[b]-cT[a]).map(t=>chip('t',t)).join(''),
+    g:   Object.keys(cG).sort((a,b)=>cG[b]-cG[a]).map(g=>opt('g',g,g,`<span class="dot" style="background:${trendGroupColorOf(g)}"></span>`)).join(''),
+    cat: EXT_CATS.map(([k,l])=>opt('cat',k,l)).join(''),
+    r:   Object.keys(cR).sort((a,b)=>cR[b]-cR[a]).map(r=>opt('r',r)).join(''),
+    p:   Object.keys(cP).sort(zh).map(p=>opt('p',p)).join(''),
+    c:   Object.keys(cC).sort(zh).map(c=>opt('c',c)).join(''),
+    d:   Object.keys(cD).sort((a,b)=>{ if(a==='未定位') return 1; if(b==='未定位') return -1; return zh(a,b); }).map(v=>opt('d',v)).join(''),
+    lv:  TIERS.filter(t=>cLv[t]).concat(Object.keys(cLv).filter(t=>!TIERS.includes(t))).map(t=>opt('lv',t)).join(''),
+    cap: ['销售','售后'].map(c=>opt('cap',c)).join(''),
   };
   // dd 值摘要: 空=全部 / 1 项=项名 / 多项=N 项
   const ddSummary = f => {
@@ -3248,7 +3248,7 @@ async function renderExtract(){
   const ddHtml = (f,label)=>`
     <div class="dd ext-dd${EXT_SEL[f].size?' has':''}" data-extdd="${f}">
       <span class="dd-lbl">${label}</span><span class="dd-val">${ddSummary(f)}</span><span class="dd-arrow">▾</span>
-      <div class="dd-pop wide"><div class="dd-pop-inner"><div class="ext-chips">${CHIPS[f]||'<span style="font-size:12px;color:var(--mute)">（本期无选项）</span>'}</div></div></div>
+      <div class="dd-pop wide"><div class="dd-pop-inner">${allOpt(f)}${CHIPS[f]||'<div class="opt" style="color:var(--mute)">（本期无选项）</div>'}</div></div>
     </div>`;
 
   // 已选条件药丸行: 地理蓝 / 品牌绿 / 能力性质黄 / 其他灰，每个可单删
@@ -3262,11 +3262,12 @@ async function renderExtract(){
   }
   const condRow = condPills ? `<div class="ext-condrow"><span class="cl">已选条件</span>${condPills}<span class="clr" id="extClear">清空全部</span></div>` : '';
 
-  const previewRows = locs.slice(0,500).map(l=>{
+  const previewRows = locs.slice(0,10).map(l=>{
     const subs = (GROUP_SUBS[l.g] && l.subs && l.subs.size) ? `<span style="color:var(--mute);font-size:12px"> (${[...l.subs].join('+')})</span>` : '';
     return `<tr><td>${l.g}${subs}</td><td>${l.n||''}</td><td>${l.p||''}</td><td>${l.c||''}</td><td>${l.d||'未定位'}</td><td>${l.lv||''}</td><td>${l.t||''}</td><td style="color:var(--mute)">${l.a||''}</td><td>${l.ph||''}</td></tr>`;
   }).join('');
-  const periodOpts = DATA.snapshots.slice().reverse().map(s=>`<div class="opt${s.ts===EXT_TS?' sel':''}" data-extts="${s.ts}">${fmtTs(s.ts)}</div>`).join('');
+  // 期数用与「数据下载/当期报告」同款日历弹窗（隐藏 select + setupCalendarDropdown）
+  const periodOptions = DATA.snapshots.map(s=>`<option value="${s.ts}"${s.ts===EXT_TS?' selected':''}>${fmtTs(s.ts)}</option>`).join('');
   // 覆盖城市与网点查询页同口径：县级市归并母市（getPrefCity）
   const nCity  = new Set(locs.map(l=>getPrefCity(l)).filter(Boolean)).size;
   const nBrand = new Set(locs.map(l=>l.g)).size;
@@ -3280,8 +3281,9 @@ async function renderExtract(){
       <div class="ext-zt"><span class="ext-no">1</span>选择期数</div>
       <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
         <div class="dd" data-extdd="period">
-          <span class="dd-lbl">当前期数</span><span class="dd-val">${fmtTs(EXT_TS)}</span><span class="dd-arrow">▾</span>
-          <div class="dd-pop"><div class="dd-pop-inner">${periodOpts}</div></div>
+          <span class="dd-lbl">当前期数</span><span class="dd-val" id="extTsVal">${fmtTs(EXT_TS)}</span><span class="dd-arrow">▾</span>
+          <div class="dd-pop" id="extTsPop"></div>
+          <select id="extTsSel" style="display:none">${periodOptions}</select>
         </div>
         <span style="font-size:12px;color:var(--mute)">（默认最新一期，可选任意历史期）</span>
       </div>
@@ -3303,7 +3305,7 @@ async function renderExtract(){
       </div>
       <div class="ext-panel">
         <div class="ext-toolbar">
-          <span class="cnt">预览 <b>${Math.min(locs.length,500)}</b> 行${locs.length>500?'（超 500 行已截断，导出不受限）':''}</span>
+          <span class="cnt">预览前 <b>${Math.min(locs.length,10)}</b> 行（共 ${locs.length} 家，导出不受限）</span>
           <button class="ext-btn" id="extExport">⬇ 导出 CSV（${locs.length} 家）</button>
         </div>
         <div style="overflow-x:auto"><table class="hyb-table ext-table">
@@ -3320,11 +3322,13 @@ async function renderExtract(){
     const dd = host.querySelector(`[data-extdd="${openKey}"]`);
     if(dd){ dd.classList.add('open'); const inner = dd.querySelector('.dd-pop-inner'); if(inner) inner.scrollTop = openScroll; }
   }
-  host.querySelectorAll('[data-extdd="period"] .opt').forEach(o=>{
-    o.onclick = ()=>{ EXT_TS = o.dataset.extts; closeAllDD(); renderExtract(); };
-  });
+  // 期数日历（与数据下载/当期报告同款组件）
+  const tsSel = document.getElementById('extTsSel');
+  setupCalendarDropdown('extTsSel', 'extTsPop', 'extTsVal', {allowNone:false});
+  tsSel.addEventListener('change', ()=>{ if(tsSel.value && tsSel.value !== EXT_TS){ EXT_TS = tsSel.value; renderExtract(); } });
   const toggle = (f,v)=>{ const s = EXT_SEL[f]; s.has(v) ? s.delete(v) : s.add(v); renderExtract(); };
-  host.querySelectorAll('.ext-chip').forEach(el=>{ el.onclick = ()=>toggle(el.dataset.extf, el.dataset.extv); });
+  host.querySelectorAll('.opt[data-extf]').forEach(el=>{ el.onclick = ()=>toggle(el.dataset.extf, el.dataset.extv); });
+  host.querySelectorAll('.opt[data-extall]').forEach(el=>{ el.onclick = ()=>{ EXT_SEL[el.dataset.extall].clear(); renderExtract(); }; });
   host.querySelectorAll('.ext-cond .x').forEach(el=>{ el.onclick = ()=>toggle(el.dataset.extf, el.dataset.extv); });
   const clr = document.getElementById('extClear');
   if(clr) clr.onclick = ()=>{ Object.values(EXT_SEL).forEach(s=>s.clear()); renderExtract(); };
@@ -3351,7 +3355,7 @@ const CHANGELOG = [
   {date:'2026-07-29', tag:'opt', tagText:'优化',
    text:'网点增减口径升级为二期确认制：门店首次缺席只标"观察中"不计退出，连续两期缺席才确认；隔一期回归的门店不计新增——单期抓取波动不再造成一退一增的虚报。'},
   {date:'2026-07-29', tag:'feat', tagText:'新功能',
-   text:'新增「自助取数」页：可按品牌 / 品类 / 大区 / 省市区 / 城市级别 / 网点能力 / 经销商性质自由组合筛选任意一期的网点明细，在线预览并一键导出 CSV（Excel 可直接打开）。'},
+   text:'新增「自助取数」页：可按品牌 / 品类 / 大区 / 省市区 / 城市级别 / 网点能力自由组合筛选任意一期的网点明细，在线预览并一键导出 CSV（Excel 可直接打开）。'},
   {date:'2026-07-29', tag:'opt', tagText:'优化',
    text:'「城市覆盖率」与「网点密度」两页可视化升级：行首新增品牌色块（与全站图表配色一致）和大数字摘要，覆盖率单元格改为量条 + 精确数字，密度矩阵数字下衬比例条。'},
   {date:'2026-07-29', tag:'feat', tagText:'新功能',
