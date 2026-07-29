@@ -390,6 +390,27 @@
   ::-webkit-scrollbar-thumb{background:#8f8f8f;border-radius:8px;border:2px solid transparent;background-clip:content-box}
   ::-webkit-scrollbar-thumb:hover{background:#7a7a7a;background-clip:content-box}
   *{scrollbar-width:auto;scrollbar-color:#8f8f8f transparent}
+  /* ── 自助取数页 (ext-) ── */
+  .ext-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:4px 16px;margin:10px 0 0}
+  .ext-frow{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed var(--line)}
+  .ext-frow:last-child{border-bottom:none}
+  .ext-flab{width:84px;flex-shrink:0;font-size:13px;color:#475467;font-weight:600;padding-top:3px}
+  .ext-chips{display:flex;flex-wrap:wrap;gap:6px;flex:1;max-height:128px;overflow-y:auto}
+  .ext-chip{display:inline-flex;align-items:center;gap:6px;padding:2px 10px;border:1px solid var(--line);border-radius:999px;font-size:13px;line-height:20px;color:#475467;background:#fff;cursor:pointer;user-select:none;white-space:nowrap}
+  .ext-chip:hover{border-color:#98a2b3}
+  .ext-chip.on{background:#1a7f37;border-color:#1a7f37;color:#fff}
+  .ext-chip .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .ext-empty{font-size:13px;color:var(--mute);padding-top:3px}
+  .ext-sel{border:1px solid var(--line);border-radius:7px;background:#fff;padding:5px 8px;font-size:13px;color:var(--fg);cursor:pointer}
+  .ext-bar{display:flex;align-items:center;gap:12px;margin:14px 0 10px;flex-wrap:wrap}
+  .ext-btn{appearance:none;border:1px solid #1a7f37;background:#1a7f37;color:#fff;border-radius:7px;padding:7px 16px;font-size:13px;font-weight:600;cursor:pointer}
+  .ext-btn:hover{background:#166b2e}
+  .ext-btn.ghost{background:#fff;color:#475467;border-color:var(--line)}
+  .ext-btn.ghost:hover{border-color:#98a2b3}
+  .ext-table td,.ext-table thead th{text-align:left}
+  .ext-table td:nth-child(8){max-width:360px}
+  .ext-count{font-size:13px;color:#475467}
+  .ext-count b{color:var(--fg)}
 </style>
 </head>
 <body>
@@ -409,6 +430,7 @@
     <div class="nav-item" data-page="monthly"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="m8 15 2 2 4-5"/></svg>月度报告</div>
     <div class="nav-item" data-page="penetration"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg>城市覆盖率</div>
     <div class="nav-item" data-page="density"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>网点密度</div>
+    <div class="nav-item" data-page="extract"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>自助取数</div>
     <div class="nav-item" data-page="download"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>数据下载</div>
     <div class="nav-item" data-page="doc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>口径说明</div>
     <div class="nav-item" data-page="changelog"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v5h5"/><path d="M3.05 13A9 9 0 1 0 6 5.3L3 8"/><path d="M12 7v5l4 2"/></svg>更新日志</div>
@@ -590,6 +612,11 @@
 <!-- 右侧：更新日志 -->
 <div id="page-changelog" class="page doc-page" style="display:none">
   <div class="doc-wrap" id="changelogBody"></div>
+</div>
+
+<!-- 右侧：自助取数 -->
+<div id="page-extract" class="page" style="display:none;overflow-y:auto">
+  <div id="extractBody" style="padding:22px 28px 32px"></div>
 </div>
 
 <!-- 右侧：数据下载 -->
@@ -796,7 +823,7 @@ function switchTab(name){
 /* ── 左侧导航切换 ── */
 function switchPage(name){
   document.querySelectorAll('.nav-item').forEach(el=>el.classList.toggle('active', el.dataset.page===name));
-  ['viz','report','monthly','doc','changelog','download','penetration','density'].forEach(p=>{
+  ['viz','report','monthly','doc','changelog','download','penetration','density','extract'].forEach(p=>{
     document.getElementById('page-'+p).style.display = p===name ? (p==='viz'?'flex':'block') : 'none';
   });
   if(name==='viz'){
@@ -812,6 +839,7 @@ function switchPage(name){
   if(name==='download') _initDownload();
   if(name==='penetration') renderPenetration();
   if(name==='density') renderDensity();
+  if(name==='extract') renderExtract();
 }
 
 async function loadManifest(){
@@ -2970,10 +2998,146 @@ function exportCSV(){
   a.click(); URL.revokeObjectURL(url);
 }
 
+/* ========= 自助取数页 (一期 MVP) ========= */
+// 独立期数选择 (EXT_TS)，与顶栏「当前日期」互不影响；筛选状态跨换期保留，
+// 级联失效项 (选中的市不在新省域/新期内) 在重渲染时自动清理。
+let EXT_TS = null, EXT_SEQ = 0;
+const EXT_SEL = { g:new Set(), cat:new Set(), r:new Set(), p:new Set(), c:new Set(), d:new Set(), lv:new Set(), cap:new Set(), t:new Set() };
+const EXT_CATS = [['ev','新势力'],['luxury','豪华'],['super','超豪华']];
+function extDistVal(d){ return d.d ? d.d : '未定位'; }
+// 全部筛选器 AND，同一筛选器内多选 OR；对原始 dealers 行过滤 (能力/性质在行级才准确)，之后再 buildLocations 去重
+function extFilterRows(dealers){
+  return dealers.filter(d=>{
+    if(EXT_SEL.g.size   && !EXT_SEL.g.has(d.g)) return false;
+    if(EXT_SEL.cat.size && !EXT_SEL.cat.has(penCatOf(d.g))) return false;
+    if(EXT_SEL.r.size   && !EXT_SEL.r.has(d.r||'')) return false;
+    if(EXT_SEL.p.size   && !EXT_SEL.p.has(stripSuffix(d.p))) return false;
+    if(EXT_SEL.c.size   && !EXT_SEL.c.has(d.c||'')) return false;
+    if(EXT_SEL.d.size   && !EXT_SEL.d.has(extDistVal(d))) return false;
+    if(EXT_SEL.lv.size  && !EXT_SEL.lv.has(d.lv||'')) return false;
+    if(EXT_SEL.cap.size && ![...EXT_SEL.cap].some(c=>hasCap(d,c))) return false;
+    if(EXT_SEL.t.size   && !EXT_SEL.t.has(d.t||'')) return false;
+    return true;
+  });
+}
+async function renderExtract(){
+  const host = document.getElementById('extractBody');
+  if(!DATA || !DATA.snapshots || !DATA.snapshots.length){ host.innerHTML='<div class="doc-sub">数据加载中…</div>'; return; }
+  if(!EXT_TS || !DATA.snapshots.some(s=>s.ts===EXT_TS)) EXT_TS = DATA.snapshots.at(-1).ts;
+  const seq = ++EXT_SEQ;
+  if(!SNAP_CACHE[EXT_TS]) host.innerHTML = '<div class="doc-sub">明细加载中…</div>';
+  let snap;
+  try{ snap = await ensureSnap(EXT_TS); }
+  catch(e){ host.innerHTML = `<div class="doc-sub">明细加载失败：${e && e.message || e}</div>`; return; }
+  if(seq !== EXT_SEQ) return;   // 期数已被再次切换，丢弃过期渲染
+  const dealers = snap.dealers;
+
+  // 选项集: 品牌/大区/省/级别/性质取全期分布；市、区按已选省(市)级联收窄
+  const cG={}, cR={}, cP={}, cLv={}, cT={}, cC={}, cD={};
+  for(const d of dealers){
+    cG[d.g]=(cG[d.g]||0)+1;
+    if(d.r) cR[d.r]=(cR[d.r]||0)+1;
+    const pv=stripSuffix(d.p); if(pv) cP[pv]=(cP[pv]||0)+1;
+    if(d.lv) cLv[d.lv]=(cLv[d.lv]||0)+1;
+    if(d.t) cT[d.t]=(cT[d.t]||0)+1;
+    if(EXT_SEL.p.size && !EXT_SEL.p.has(pv)) continue;
+    if(d.c) cC[d.c]=(cC[d.c]||0)+1;
+    if(EXT_SEL.c.size && !EXT_SEL.c.has(d.c||'')) continue;
+    const dv=extDistVal(d); cD[dv]=(cD[dv]||0)+1;
+  }
+  // 级联收窄后清掉已失效的下游选择 (含换期后消失的值)
+  for(const v of [...EXT_SEL.c]) if(!(v in cC)) EXT_SEL.c.delete(v);
+  for(const v of [...EXT_SEL.d]) if(!(v in cD)) EXT_SEL.d.delete(v);
+  for(const v of [...EXT_SEL.g]) if(!(v in cG)) EXT_SEL.g.delete(v);
+
+  const rows = extFilterRows(dealers);
+  const locs = buildLocations(rows);   // 物理网点去重，口径与全站一致
+
+  const chip = (f,v,label,extra='')=>`<span class="ext-chip${EXT_SEL[f].has(v)?' on':''}" data-extf="${f}" data-extv="${v}">${extra}${label||v}</span>`;
+  const zh = (a,b)=>a.localeCompare(b,'zh');
+  const gChips  = Object.keys(cG).sort((a,b)=>cG[b]-cG[a]).map(g=>chip('g',g,g,`<span class="dot" style="background:${trendGroupColorOf(g)}"></span>`)).join('');
+  const catChips= EXT_CATS.map(([k,l])=>chip('cat',k,l)).join('');
+  const rChips  = Object.keys(cR).sort((a,b)=>cR[b]-cR[a]).map(r=>chip('r',r)).join('');
+  const pChips  = Object.keys(cP).sort(zh).map(p=>chip('p',p)).join('');
+  const cChips  = Object.keys(cC).sort(zh).map(c=>chip('c',c)).join('');
+  const dChips  = Object.keys(cD).sort((a,b)=>{ if(a==='未定位') return 1; if(b==='未定位') return -1; return zh(a,b); }).map(v=>chip('d',v)).join('');
+  const lvChips = TIERS.filter(t=>cLv[t]).concat(Object.keys(cLv).filter(t=>!TIERS.includes(t))).map(t=>chip('lv',t)).join('');
+  const capChips= ['销售','售后'].map(c=>chip('cap',c)).join('');
+  const tChips  = Object.keys(cT).sort((a,b)=>cT[b]-cT[a]).map(t=>chip('t',t)).join('');
+  const frow = (lab,inner)=>`<div class="ext-frow"><div class="ext-flab">${lab}</div><div class="ext-chips">${inner||'<span class="ext-empty">（本期无选项）</span>'}</div></div>`;
+
+  const previewRows = locs.slice(0,500).map(l=>{
+    const subs = (GROUP_SUBS[l.g] && l.subs && l.subs.size) ? `<span style="color:var(--mute);font-size:12px"> (${[...l.subs].join('+')})</span>` : '';
+    return `<tr><td>${l.g}${subs}</td><td>${l.n||''}</td><td>${l.p||''}</td><td>${l.c||''}</td><td>${l.d||'未定位'}</td><td>${l.lv||''}</td><td>${l.t||''}</td><td style="color:var(--mute)">${l.a||''}</td><td>${l.ph||''}</td></tr>`;
+  }).join('');
+  const periodOpts = DATA.snapshots.map(s=>`<option value="${s.ts}"${s.ts===EXT_TS?' selected':''}>${fmtTs(s.ts)}</option>`).join('');
+
+  host.innerHTML = `
+    <div class="pen-head">
+      <div class="pen-title">自助取数</div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="font-size:13px;color:#475467;font-weight:600">数据期数</span>
+        <select id="extPeriod" class="ext-sel">${periodOpts}</select>
+      </div>
+    </div>
+    <div class="doc-sub">按品牌 / 品类 / 大区 / 省市区 / 城市级别 / 网点能力 / 经销商性质自由组合筛选任意一期网点明细，在线预览并一键导出 CSV。</div>
+    <div class="doc-note">
+      <b>规则：</b>筛选器之间为「且」，同一筛选器内多选为「或」；省 / 市 / 区选项级联收窄（选了省，市选项只显示该省的）。<br>
+      <b>口径：</b>行数统计与全站一致，按物理网点去重（鸿蒙智行同店双名合并、按品牌组统计）；「未定位」= 地址暂未解析出行政区的网点。<br>
+      <b>导出：</b>CSV 为 UTF-8（带 BOM），Excel 双击打开中文不乱码；预览最多显示 500 行，导出包含全部筛选结果。
+    </div>
+    <div class="ext-card">
+      ${frow('品牌', gChips)}
+      ${frow('品类', catChips)}
+      ${frow('大区', rChips)}
+      ${frow('省', pChips)}
+      ${frow('市', cChips)}
+      ${frow('区', dChips)}
+      ${frow('城市级别', lvChips)}
+      ${frow('网点能力', capChips)}
+      ${frow('经销商性质', tChips)}
+    </div>
+    <div class="ext-bar">
+      <button class="ext-btn" id="extExport">导出 CSV（${locs.length} 家）</button>
+      <button class="ext-btn ghost" id="extClear">清空筛选</button>
+      <span class="ext-count">物理网点去重后 <b>${locs.length}</b> 家 / 原始 <b>${rows.length}</b> 行${locs.length>500?'　·　预览仅显示前 500 行，导出不受限':''}</span>
+    </div>
+    <div style="overflow-x:auto"><table class="hyb-table ext-table">
+      <thead><tr><th>品牌</th><th>名称</th><th>省</th><th>市</th><th>区</th><th>城市级别</th><th>类型</th><th>地址</th><th>电话</th></tr></thead>
+      <tbody>${previewRows || `<tr><td colspan="9" style="color:var(--mute);padding:24px">无匹配结果，请调整筛选条件</td></tr>`}</tbody>
+    </table></div>`;
+
+  document.getElementById('extPeriod').onchange = e=>{ EXT_TS = e.target.value; renderExtract(); };
+  document.getElementById('extClear').onclick = ()=>{ Object.values(EXT_SEL).forEach(s=>s.clear()); renderExtract(); };
+  document.getElementById('extExport').onclick = ()=> extExportCSV(locs);
+  host.querySelectorAll('.ext-chip').forEach(el=>{
+    el.onclick = ()=>{
+      const s = EXT_SEL[el.dataset.extf], v = el.dataset.extv;
+      s.has(v) ? s.delete(v) : s.add(v);
+      renderExtract();
+    };
+  });
+}
+function extExportCSV(locs){
+  const head = ['品牌','子品牌','名称','大区','省','市','区','城市级别','类型','地址','电话'];
+  const esc = v => `"${(v==null?'':String(v)).replace(/"/g,'""')}"`;
+  const lines = [head.join(',')];
+  for(const l of locs){
+    lines.push([l.g, [...(l.subs||[])].join('+'), l.n, l.r, l.p, l.c, l.d||'未定位', l.lv, l.t, l.a, l.ph].map(esc).join(','));
+  }
+  const blob = new Blob(['﻿'+lines.join('\r\n')], {type:'text/csv;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `自助取数_${EXT_TS}_共${locs.length}家.csv`;
+  a.click(); URL.revokeObjectURL(url);
+}
+
 /* ========= 口径说明页面 ========= */
 // 更新日志: 最新在最前, 渲染时按月份分组. tag: feat=新功能 / opt=优化 / fix=修复.
 // 只记对用户有意义的更新; 改名/内部重构等琐碎变动不入日志. 新增一期 = 顶部加一条.
 const CHANGELOG = [
+  {date:'2026-07-29', tag:'feat', tagText:'新功能',
+   text:'新增「自助取数」页：可按品牌 / 品类 / 大区 / 省市区 / 城市级别 / 网点能力 / 经销商性质自由组合筛选任意一期的网点明细，在线预览并一键导出 CSV（Excel 可直接打开）。'},
   {date:'2026-07-29', tag:'opt', tagText:'优化',
    text:'「城市覆盖率」与「网点密度」两页可视化升级：行首新增品牌色块（与全站图表配色一致）和大数字摘要，覆盖率单元格改为量条 + 精确数字，密度矩阵数字下衬比例条。'},
   {date:'2026-07-29', tag:'feat', tagText:'新功能',
