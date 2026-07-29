@@ -280,20 +280,6 @@
   .tab.active{color:var(--acc);border-bottom-color:var(--acc);font-weight:600}
   .dl-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font-size:13px;text-decoration:none;cursor:pointer}
   .dl-btn:hover{border-color:var(--acc);color:var(--acc)}
-  .download-page{padding:56px 64px;background:var(--bg);overflow-y:auto}
-  .download-page .page-title{font-size:22px;font-weight:700;margin-bottom:30px}
-  .download-list{display:flex;flex-direction:column;gap:18px;max-width:960px}
-  .download-page .dl-card{min-height:128px;padding:24px 28px;gap:28px;border-radius:10px}
-  .download-page .dl-card-name{font-size:18px;font-weight:700;margin-bottom:6px}
-  .download-page .dl-card > div:first-child{min-width:360px}
-  .download-page .dl-card-meta{font-size:14px;line-height:1.7;max-width:none;white-space:nowrap}
-  .download-page .dl-actions{gap:14px}
-  .download-page .dl-select{min-width:270px;height:48px;font-size:16px;line-height:48px;padding:0 44px 0 24px;border-radius:8px}
-  .download-page .dl-btn{font-size:16px;padding:11px 22px;border-radius:8px;background:var(--card)}
-  .download-page .dd{min-width:270px;height:48px;padding:0 20px;border-radius:8px;font-size:16px}
-  .download-page .dd .dd-val{font-weight:600}
-  .download-page .dd .dd-arrow{font-size:13px}
-  .download-page .dd .dd-pop{min-width:232px}
 
   /* 主体 */
   .body{padding:14px 28px;flex:1;overflow-y:auto;min-height:0}
@@ -451,7 +437,6 @@
     <div class="nav-item" data-page="penetration"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg>城市覆盖率</div>
     <div class="nav-item" data-page="density"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>网点密度</div>
     <div class="nav-item" data-page="extract"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>自助取数</div>
-    <div class="nav-item" data-page="download"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>数据下载</div>
     <div class="nav-item" data-page="doc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>口径说明</div>
     <div class="nav-item" data-page="changelog"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v5h5"/><path d="M3.05 13A9 9 0 1 0 6 5.3L3 8"/><path d="M12 7v5l4 2"/></svg>更新日志</div>
   </div>
@@ -639,11 +624,6 @@
   <div id="extractBody" style="padding:22px 28px 32px"></div>
 </div>
 
-<!-- 右侧：数据下载 -->
-<div id="page-download" class="page download-page" style="display:none">
-  <div class="page-title">数据下载</div>
-  <div id="downloadList" class="download-list"></div>
-</div>
 
 </div><!-- /app -->
 
@@ -843,7 +823,7 @@ function switchTab(name){
 /* ── 左侧导航切换 ── */
 function switchPage(name){
   document.querySelectorAll('.nav-item').forEach(el=>el.classList.toggle('active', el.dataset.page===name));
-  ['viz','report','monthly','doc','changelog','download','penetration','density','extract'].forEach(p=>{
+  ['viz','report','monthly','doc','changelog','penetration','density','extract'].forEach(p=>{
     document.getElementById('page-'+p).style.display = p===name ? (p==='viz'?'flex':'block') : 'none';
   });
   if(name==='viz'){
@@ -856,7 +836,6 @@ function switchPage(name){
   if(name==='monthly') _initMonthlyReport();
   if(name==='doc') renderDoc();
   if(name==='changelog') renderChangelog();
-  if(name==='download') _initDownload();
   if(name==='penetration') renderPenetration();
   if(name==='density') renderDensity();
   if(name==='extract') renderExtract();
@@ -1176,6 +1155,7 @@ async function renderDynamicReport(){
           <div class="dd-pop" id="reportPairSelPop"></div>
           <select id="reportPairSel" style="display:none">${options}</select>
         </div>
+        <a class="dl-btn" href="downloads/reports/${encodeURIComponent(`网点变化对比报告_${pair.oldTs}_vs_${pair.newTs}.xlsx`)}" download="网点变化对比报告_${pair.oldTs}_vs_${pair.newTs}.xlsx" title="下载本区间对比报告 Excel（品牌总量 / 省级对比 / 新增·减少·变更明细）">⬇ 下载 Excel 版</a>
       </div>
     </div>
     <div class="sub">数据周期：${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}　｜　覆盖品牌：${new Set(curLocs.map(l=>l.g)).size} 个　｜　报告日期：${reportDateText(pair.newTs)}</div>
@@ -1419,96 +1399,6 @@ function openBrandDetailModal(brand){
   mask.onclick = e=>{ if(e.target===mask) close(); };
   mask.querySelector('.modal-search').oninput = e=>render(e.target.value);
   document.addEventListener('keydown', onEsc);
-}
-
-async function _initDownload(){
-  const el = document.getElementById('downloadList');
-  if(el._done) return;
-  el._done = true;
-  const summaryXlsx = window.__SUMMARY_XLSX__;
-  const reportXlsx = window.__REPORT_XLSX__;
-  const files = [];
-  const fmtDate8 = ts => String(ts||'').replace(/^(\d{4})(\d{2})(\d{2})$/, '$1/$2/$3');
-  const xlsxHref = xlsx => xlsx.b64
-    ? `data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,${xlsx.b64}`
-    : xlsx.href;
-  const manifest = await loadManifest();
-  const summaryItems = Array.isArray(manifest.summaryDownloads) ? manifest.summaryDownloads : [];
-  const reportItems = Array.isArray(manifest.reportDownloads) ? manifest.reportDownloads : [];
-  if(summaryItems.length || reportItems.length){
-    const cards = [];
-    const fmtLabel = x => x.label ? x.label.replace(/\b(\d{4})(\d{2})(\d{2})\b/g, '$1/$2/$3').replace(/ → /g, ' - ') : (fmtDate8(x.ts) || x.name);
-    // 期数选择改成跟顶部「当前日期」同款日历弹窗：只有实际存在文件的日期可点，
-    // 网点变化对比报告是固定相邻期配对（不能任选两个日期组自由区间），日历上点某天
-    // 就是"这天 vs 它的上一期"这份已经生成好的报告，跟汇总数据的单日历选择风格保持统一。
-    const selectorCard = (title, meta, items, id) => {
-      const latestIdx = Math.max(items.length - 1, 0);
-      const opts = items.map((x, i) => `<option value="${x.ts}" ${i===latestIdx?'selected':''}>${fmtLabel(x)}</option>`).join('');
-      const cur = items[latestIdx];
-      return `<div class="dl-card">
-        <div><div class="dl-card-name">${title}</div>
-        <div class="dl-card-meta">${meta}</div></div>
-        <div class="dl-actions">
-          <div class="dd" data-dd="${id}">
-            <span class="dd-val" id="${id}Val">${fmtLabel(cur)}</span><span class="dd-arrow">▾</span>
-            <div class="dd-pop" id="${id}Pop"></div>
-            <select id="${id}" style="display:none">${opts}</select>
-          </div>
-          <a class="dl-btn" id="${id}Btn" href="${cur.href}" download="${cur.name}">下载 xlsx</a>
-        </div>
-      </div>`;
-    };
-    if(summaryItems.length){
-      cards.push(selectorCard('网点汇总数据', '按数据期数下载原始汇总 Excel（所有品牌）', summaryItems, 'summaryDownloadSel'));
-    }
-    if(reportItems.length){
-      cards.push(selectorCard('网点变化对比报告', '按相邻两期下载对比报告；日历上选当期日期，自动对比它的上一期', reportItems, 'reportDownloadSel'));
-    }
-    el.innerHTML = cards.join('');
-    const bind = (id, items) => {
-      const sel = document.getElementById(id);
-      const btn = document.getElementById(id + 'Btn');
-      const dd = document.querySelector(`[data-dd="${id}"]`);
-      if(!sel || !btn || !dd) return;
-      bindDDToggle(dd);
-      setupCalendarDropdown(id, id + 'Pop', id + 'Val');
-      sel.onchange = () => {
-        const x = items.find(it => it.ts === sel.value);
-        if(!x) return;
-        btn.href = x.href;
-        btn.download = x.name;
-      };
-    };
-    bind('summaryDownloadSel', summaryItems);
-    bind('reportDownloadSel', reportItems);
-    return;
-  }
-  if(summaryXlsx && summaryXlsx.b64){
-    files.push({
-      name: summaryXlsx.name,
-      b64: summaryXlsx.b64,
-      meta: '当期网点汇总数据（所有品牌）'
-    });
-  }
-  if(reportXlsx && reportXlsx.b64){
-    files.push({
-      name: reportXlsx.name,
-      b64: reportXlsx.b64,
-      meta: '网点变化对比报告（品牌总量、省级对比、新增/减少/变更明细）'
-    });
-  }
-  if(!files.length && Array.isArray(manifest.downloads)) files.push(...manifest.downloads);
-  if(!files.length){
-    el.innerHTML='<p style="color:var(--mute)">未找到可下载文件</p>'; return;
-  }
-  el.innerHTML = files.map(xlsx => {
-    const href = xlsxHref(xlsx);
-    return `<div class="dl-card">
-    <div><div class="dl-card-name">${xlsx.name}</div>
-    <div class="dl-card-meta">${xlsx.meta}</div></div>
-    <a class="dl-btn" href="${href}" download="${xlsx.name}">下载 xlsx</a>
-  </div>`;
-  }).join('');
 }
 
 function getSnap(ts){ return DATA.snapshots.find(s=>s.ts===ts); }
@@ -3352,6 +3242,8 @@ function extExportCSV(locs){
 // 更新日志: 最新在最前, 渲染时按月份分组. tag: feat=新功能 / opt=优化 / fix=修复.
 // 只记对用户有意义的更新; 改名/内部重构等琐碎变动不入日志. 新增一期 = 顶部加一条.
 const CHANGELOG = [
+  {date:'2026-07-30', tag:'opt', tagText:'优化',
+   text:'「数据下载」页并入其他页面后移除：网点变化对比报告 Excel 移至「当期报告」页右上角（跟随所选区间下载）；单期明细请使用「自助取数」筛选导出。'},
   {date:'2026-07-29', tag:'opt', tagText:'优化',
    text:'网点增减口径升级为二期确认制：门店首次缺席只标"观察中"不计退出，连续两期缺席才确认；隔一期回归的门店不计新增——单期抓取波动不再造成一退一增的虚报。'},
   {date:'2026-07-29', tag:'feat', tagText:'新功能',
