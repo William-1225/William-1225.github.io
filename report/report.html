@@ -390,27 +390,40 @@
   ::-webkit-scrollbar-thumb{background:#8f8f8f;border-radius:8px;border:2px solid transparent;background-clip:content-box}
   ::-webkit-scrollbar-thumb:hover{background:#7a7a7a;background-clip:content-box}
   *{scrollbar-width:auto;scrollbar-color:#8f8f8f transparent}
-  /* ── 自助取数页 (ext-) ── */
-  .ext-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:4px 16px;margin:10px 0 0}
-  .ext-frow{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed var(--line)}
-  .ext-frow:last-child{border-bottom:none}
-  .ext-flab{width:84px;flex-shrink:0;font-size:13px;color:#475467;font-weight:600;padding-top:3px}
-  .ext-chips{display:flex;flex-wrap:wrap;gap:6px;flex:1;max-height:128px;overflow-y:auto}
+  /* ── 自助取数页 (ext-)：三段式布局，dd 药丸复用全站 .dd 组件 ── */
+  .ext-zone{margin:14px 0 20px}
+  .ext-zt{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--fg);margin-bottom:9px}
+  .ext-zt .ext-no{width:20px;height:20px;border-radius:50%;background:var(--acc);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;flex-shrink:0}
+  .ext-zt .ext-hint{font-weight:400;color:var(--mute);font-size:12px}
+  .ext-dd.has{border-color:var(--acc)}
+  .ext-dd.has .dd-val{color:var(--acc);font-weight:600}
+  .ext-chips{display:flex;flex-wrap:wrap;gap:6px;padding:5px}
   .ext-chip{display:inline-flex;align-items:center;gap:6px;padding:2px 10px;border:1px solid var(--line);border-radius:999px;font-size:13px;line-height:20px;color:#475467;background:#fff;cursor:pointer;user-select:none;white-space:nowrap}
   .ext-chip:hover{border-color:#98a2b3}
-  .ext-chip.on{background:#1a7f37;border-color:#1a7f37;color:#fff}
+  .ext-chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
   .ext-chip .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-  .ext-empty{font-size:13px;color:var(--mute);padding-top:3px}
-  .ext-sel{border:1px solid var(--line);border-radius:7px;background:#fff;padding:5px 8px;font-size:13px;color:var(--fg);cursor:pointer}
-  .ext-bar{display:flex;align-items:center;gap:12px;margin:14px 0 10px;flex-wrap:wrap}
-  .ext-btn{appearance:none;border:1px solid #1a7f37;background:#1a7f37;color:#fff;border-radius:7px;padding:7px 16px;font-size:13px;font-weight:600;cursor:pointer}
-  .ext-btn:hover{background:#166b2e}
-  .ext-btn.ghost{background:#fff;color:#475467;border-color:var(--line)}
-  .ext-btn.ghost:hover{border-color:#98a2b3}
+  .ext-condrow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 12px;margin-top:10px}
+  .ext-condrow .cl{font-size:12px;color:var(--mute);flex-shrink:0}
+  .ext-cond{display:inline-flex;align-items:center;gap:6px;border-radius:8px;padding:4px 10px;font-size:12.5px;font-weight:600;border:1px solid}
+  .ext-cond .x{opacity:.55;font-weight:400;cursor:pointer}
+  .ext-cond .x:hover{opacity:1}
+  .ext-cond .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .ext-cond.c-geo{background:#eaf2ff;border-color:#bfdbfe;color:#1e40af}
+  .ext-cond.c-brand{background:#ecfdf3;border-color:#bbe7c9;color:#166534}
+  .ext-cond.c-cap{background:#fdf3dd;border-color:#f3dfae;color:#8a5c00}
+  .ext-cond.c-other{background:#f2f4f7;border-color:#e0e3e8;color:#475467}
+  .ext-condrow .clr{margin-left:auto;color:var(--acc);font-size:12.5px;cursor:pointer;flex-shrink:0}
+  .ext-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 10px}
+  .ext-kpis .kpi .value small{font-size:13px;color:var(--mute);font-weight:400;margin-left:2px}
+  .ext-panel{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .ext-toolbar{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--line)}
+  .ext-toolbar .cnt{font-size:13px;color:#475467}
+  .ext-toolbar .cnt b{color:var(--fg)}
+  .ext-btn{appearance:none;border:1px solid var(--acc);background:var(--acc);color:#fff;border-radius:7px;padding:7px 16px;font-size:13px;font-weight:600;cursor:pointer;margin-left:auto;flex-shrink:0}
+  .ext-btn:hover{filter:brightness(.92)}
   .ext-table td,.ext-table thead th{text-align:left}
   .ext-table td:nth-child(8){max-width:360px}
-  .ext-count{font-size:13px;color:#475467}
-  .ext-count b{color:var(--fg)}
+  .ext-ft{margin-top:10px;font-size:12px;color:var(--mute);line-height:1.7}
 </style>
 </head>
 <body>
@@ -3004,6 +3017,11 @@ function exportCSV(){
 let EXT_TS = null, EXT_SEQ = 0;
 const EXT_SEL = { g:new Set(), cat:new Set(), r:new Set(), p:new Set(), c:new Set(), d:new Set(), lv:new Set(), cap:new Set(), t:new Set() };
 const EXT_CATS = [['ev','新势力'],['luxury','豪华'],['super','超豪华']];
+const EXT_CAT_LABEL = Object.fromEntries(EXT_CATS);
+// 九组筛选的 dd 顺序/标签；cond 药丸用短标签 + 分类配色 (地理蓝/品牌绿/能力性质黄/其他灰)
+const EXT_FIELDS = [['g','品牌'],['cat','品类'],['r','大区'],['p','省份'],['c','城市'],['d','区'],['lv','城市等级'],['cap','网点能力'],['t','经销商性质']];
+const EXT_COND_LABEL = {g:'品牌',cat:'品类',r:'大区',p:'省份',c:'城市',d:'区',lv:'等级',cap:'能力',t:'性质'};
+const EXT_COND_CLS = {p:'c-geo',c:'c-geo',d:'c-geo',r:'c-geo',g:'c-brand',cat:'c-brand',cap:'c-cap',t:'c-cap',lv:'c-other'};
 function extDistVal(d){ return d.d ? d.d : '未定位'; }
 // 全部筛选器 AND，同一筛选器内多选 OR；对原始 dealers 行过滤 (能力/性质在行级才准确)，之后再 buildLocations 去重
 function extFilterRows(dealers){
@@ -3025,6 +3043,10 @@ async function renderExtract(){
   if(!DATA || !DATA.snapshots || !DATA.snapshots.length){ host.innerHTML='<div class="doc-sub">数据加载中…</div>'; return; }
   if(!EXT_TS || !DATA.snapshots.some(s=>s.ts===EXT_TS)) EXT_TS = DATA.snapshots.at(-1).ts;
   const seq = ++EXT_SEQ;
+  // 重渲染前记住展开中的 dd 及其滚动位置，渲染后还原（chip 多选时弹层不收起）
+  const _openDD = host.querySelector('.dd.open');
+  const openKey = _openDD ? _openDD.dataset.extdd : null;
+  const openScroll = _openDD ? ((_openDD.querySelector('.dd-pop-inner')||{}).scrollTop||0) : 0;
   if(!SNAP_CACHE[EXT_TS]) host.innerHTML = '<div class="doc-sub">明细加载中…</div>';
   let snap;
   try{ snap = await ensureSnap(EXT_TS); }
@@ -3055,68 +3077,108 @@ async function renderExtract(){
 
   const chip = (f,v,label,extra='')=>`<span class="ext-chip${EXT_SEL[f].has(v)?' on':''}" data-extf="${f}" data-extv="${v}">${extra}${label||v}</span>`;
   const zh = (a,b)=>a.localeCompare(b,'zh');
-  const gChips  = Object.keys(cG).sort((a,b)=>cG[b]-cG[a]).map(g=>chip('g',g,g,`<span class="dot" style="background:${trendGroupColorOf(g)}"></span>`)).join('');
-  const catChips= EXT_CATS.map(([k,l])=>chip('cat',k,l)).join('');
-  const rChips  = Object.keys(cR).sort((a,b)=>cR[b]-cR[a]).map(r=>chip('r',r)).join('');
-  const pChips  = Object.keys(cP).sort(zh).map(p=>chip('p',p)).join('');
-  const cChips  = Object.keys(cC).sort(zh).map(c=>chip('c',c)).join('');
-  const dChips  = Object.keys(cD).sort((a,b)=>{ if(a==='未定位') return 1; if(b==='未定位') return -1; return zh(a,b); }).map(v=>chip('d',v)).join('');
-  const lvChips = TIERS.filter(t=>cLv[t]).concat(Object.keys(cLv).filter(t=>!TIERS.includes(t))).map(t=>chip('lv',t)).join('');
-  const capChips= ['销售','售后'].map(c=>chip('cap',c)).join('');
-  const tChips  = Object.keys(cT).sort((a,b)=>cT[b]-cT[a]).map(t=>chip('t',t)).join('');
-  const frow = (lab,inner)=>`<div class="ext-frow"><div class="ext-flab">${lab}</div><div class="ext-chips">${inner||'<span class="ext-empty">（本期无选项）</span>'}</div></div>`;
+  const CHIPS = {
+    g:   Object.keys(cG).sort((a,b)=>cG[b]-cG[a]).map(g=>chip('g',g,g,`<span class="dot" style="background:${trendGroupColorOf(g)}"></span>`)).join(''),
+    cat: EXT_CATS.map(([k,l])=>chip('cat',k,l)).join(''),
+    r:   Object.keys(cR).sort((a,b)=>cR[b]-cR[a]).map(r=>chip('r',r)).join(''),
+    p:   Object.keys(cP).sort(zh).map(p=>chip('p',p)).join(''),
+    c:   Object.keys(cC).sort(zh).map(c=>chip('c',c)).join(''),
+    d:   Object.keys(cD).sort((a,b)=>{ if(a==='未定位') return 1; if(b==='未定位') return -1; return zh(a,b); }).map(v=>chip('d',v)).join(''),
+    lv:  TIERS.filter(t=>cLv[t]).concat(Object.keys(cLv).filter(t=>!TIERS.includes(t))).map(t=>chip('lv',t)).join(''),
+    cap: ['销售','售后'].map(c=>chip('cap',c)).join(''),
+    t:   Object.keys(cT).sort((a,b)=>cT[b]-cT[a]).map(t=>chip('t',t)).join(''),
+  };
+  // dd 值摘要: 空=全部 / 1 项=项名 / 多项=N 项
+  const ddSummary = f => {
+    const s = EXT_SEL[f];
+    if(!s.size) return '全部';
+    if(s.size===1){ const v=[...s][0]; return f==='cat' ? EXT_CAT_LABEL[v] : v; }
+    return `${s.size} 项`;
+  };
+  const ddHtml = (f,label)=>`
+    <div class="dd ext-dd${EXT_SEL[f].size?' has':''}" data-extdd="${f}">
+      <span class="dd-lbl">${label}</span><span class="dd-val">${ddSummary(f)}</span><span class="dd-arrow">▾</span>
+      <div class="dd-pop wide"><div class="dd-pop-inner"><div class="ext-chips">${CHIPS[f]||'<span style="font-size:12px;color:var(--mute)">（本期无选项）</span>'}</div></div></div>
+    </div>`;
+
+  // 已选条件药丸行: 地理蓝 / 品牌绿 / 能力性质黄 / 其他灰，每个可单删
+  let condPills = '';
+  for(const [f] of EXT_FIELDS){
+    for(const v of EXT_SEL[f]){
+      const disp = f==='cat' ? EXT_CAT_LABEL[v] : v;
+      const dot = f==='g' ? `<span class="dot" style="background:${trendGroupColorOf(v)}"></span>` : '';
+      condPills += `<span class="ext-cond ${EXT_COND_CLS[f]}">${dot}${EXT_COND_LABEL[f]} = ${disp}<span class="x" data-extf="${f}" data-extv="${v}">✕</span></span>`;
+    }
+  }
+  const condRow = condPills ? `<div class="ext-condrow"><span class="cl">已选条件</span>${condPills}<span class="clr" id="extClear">清空全部</span></div>` : '';
 
   const previewRows = locs.slice(0,500).map(l=>{
     const subs = (GROUP_SUBS[l.g] && l.subs && l.subs.size) ? `<span style="color:var(--mute);font-size:12px"> (${[...l.subs].join('+')})</span>` : '';
     return `<tr><td>${l.g}${subs}</td><td>${l.n||''}</td><td>${l.p||''}</td><td>${l.c||''}</td><td>${l.d||'未定位'}</td><td>${l.lv||''}</td><td>${l.t||''}</td><td style="color:var(--mute)">${l.a||''}</td><td>${l.ph||''}</td></tr>`;
   }).join('');
-  const periodOpts = DATA.snapshots.map(s=>`<option value="${s.ts}"${s.ts===EXT_TS?' selected':''}>${fmtTs(s.ts)}</option>`).join('');
+  const periodOpts = DATA.snapshots.slice().reverse().map(s=>`<div class="opt${s.ts===EXT_TS?' sel':''}" data-extts="${s.ts}">${fmtTs(s.ts)}</div>`).join('');
+  // 覆盖城市与网点查询页同口径：县级市归并母市（getPrefCity）
+  const nCity  = new Set(locs.map(l=>getPrefCity(l)).filter(Boolean)).size;
+  const nBrand = new Set(locs.map(l=>l.g)).size;
+  const kpi = (lb,v,unit)=>`<div class="kpi"><div class="label">${lb}</div><div class="value">${v}<small>${unit}</small></div></div>`;
 
   host.innerHTML = `
-    <div class="pen-head">
-      <div class="pen-title">自助取数</div>
-      <div style="display:flex;align-items:center;gap:8px">
-        <span style="font-size:13px;color:#475467;font-weight:600">数据期数</span>
-        <select id="extPeriod" class="ext-sel">${periodOpts}</select>
+    <div class="pen-head"><div class="pen-title">自助取数</div></div>
+    <div class="doc-sub">物理网点去重口径与全站一致 · 筛选器之间为「且」、同一筛选器内多选为「或」 · 导出 CSV 可直接用 Excel 打开</div>
+
+    <div class="ext-zone">
+      <div class="ext-zt"><span class="ext-no">1</span>选择期数</div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <div class="dd" data-extdd="period">
+          <span class="dd-lbl">当前期数</span><span class="dd-val">${fmtTs(EXT_TS)}</span><span class="dd-arrow">▾</span>
+          <div class="dd-pop"><div class="dd-pop-inner">${periodOpts}</div></div>
+        </div>
+        <span style="font-size:12px;color:var(--mute)">（默认最新一期，可选任意历史期）</span>
       </div>
     </div>
-    <div class="doc-sub">按品牌 / 品类 / 大区 / 省市区 / 城市级别 / 网点能力 / 经销商性质自由组合筛选任意一期网点明细，在线预览并一键导出 CSV。</div>
-    <div class="doc-note">
-      <b>规则：</b>筛选器之间为「且」，同一筛选器内多选为「或」；省 / 市 / 区选项级联收窄（选了省，市选项只显示该省的）。<br>
-      <b>口径：</b>行数统计与全站一致，按物理网点去重（鸿蒙智行同店双名合并、按品牌组统计）；「未定位」= 地址暂未解析出行政区的网点。<br>
-      <b>导出：</b>CSV 为 UTF-8（带 BOM），Excel 双击打开中文不乱码；预览最多显示 500 行，导出包含全部筛选结果。
-    </div>
-    <div class="ext-card">
-      ${frow('品牌', gChips)}
-      ${frow('品类', catChips)}
-      ${frow('大区', rChips)}
-      ${frow('省', pChips)}
-      ${frow('市', cChips)}
-      ${frow('区', dChips)}
-      ${frow('城市级别', lvChips)}
-      ${frow('网点能力', capChips)}
-      ${frow('经销商性质', tChips)}
-    </div>
-    <div class="ext-bar">
-      <button class="ext-btn" id="extExport">导出 CSV（${locs.length} 家）</button>
-      <button class="ext-btn ghost" id="extClear">清空筛选</button>
-      <span class="ext-count">物理网点去重后 <b>${locs.length}</b> 家 / 原始 <b>${rows.length}</b> 行${locs.length>500?'　·　预览仅显示前 500 行，导出不受限':''}</span>
-    </div>
-    <div style="overflow-x:auto"><table class="hyb-table ext-table">
-      <thead><tr><th>品牌</th><th>名称</th><th>省</th><th>市</th><th>区</th><th>城市级别</th><th>类型</th><th>地址</th><th>电话</th></tr></thead>
-      <tbody>${previewRows || `<tr><td colspan="9" style="color:var(--mute);padding:24px">无匹配结果，请调整筛选条件</td></tr>`}</tbody>
-    </table></div>`;
 
-  document.getElementById('extPeriod').onchange = e=>{ EXT_TS = e.target.value; renderExtract(); };
-  document.getElementById('extClear').onclick = ()=>{ Object.values(EXT_SEL).forEach(s=>s.clear()); renderExtract(); };
-  document.getElementById('extExport').onclick = ()=> extExportCSV(locs);
-  host.querySelectorAll('.ext-chip').forEach(el=>{
-    el.onclick = ()=>{
-      const s = EXT_SEL[el.dataset.extf], v = el.dataset.extv;
-      s.has(v) ? s.delete(v) : s.add(v);
-      renderExtract();
-    };
+    <div class="ext-zone">
+      <div class="ext-zt"><span class="ext-no">2</span>设定筛选条件 <span class="ext-hint">下拉多选，选中的药丸会亮起</span></div>
+      <div class="filter-row">${EXT_FIELDS.map(([f,label])=>ddHtml(f,label)).join('')}</div>
+      ${condRow}
+    </div>
+
+    <div class="ext-zone">
+      <div class="ext-zt"><span class="ext-no">3</span>预览与导出</div>
+      <div class="ext-kpis">
+        ${kpi('筛选结果（物理网点）', locs.length, '家')}
+        ${kpi('原始数据行', rows.length, '行')}
+        ${kpi('覆盖城市', nCity, '个')}
+        ${kpi('覆盖品牌', nBrand, '个')}
+      </div>
+      <div class="ext-panel">
+        <div class="ext-toolbar">
+          <span class="cnt">预览 <b>${Math.min(locs.length,500)}</b> 行${locs.length>500?'（超 500 行已截断，导出不受限）':''}</span>
+          <button class="ext-btn" id="extExport">⬇ 导出 CSV（${locs.length} 家）</button>
+        </div>
+        <div style="overflow-x:auto"><table class="hyb-table ext-table">
+          <thead><tr><th>品牌</th><th>名称</th><th>省</th><th>市</th><th>区</th><th>城市级别</th><th>类型</th><th>地址</th><th>电话</th></tr></thead>
+          <tbody>${previewRows || `<tr><td colspan="9" style="color:var(--mute);padding:24px">无匹配结果，请调整筛选条件</td></tr>`}</tbody>
+        </table></div>
+      </div>
+      <div class="ext-ft">口径：物理网点去重（鸿蒙智行同店双名合并、按品牌组统计）；「未定位」= 地址暂未解析出行政区的网点；省 / 市 / 区选项级联收窄（选了省，市选项只显示该省的）；CSV 为 UTF-8（带 BOM），Excel 双击打开中文不乱码。</div>
+    </div>`;
+
+  // dd 开合复用全站机制 (bindDDToggle + document 级 closeAllDD)；还原重渲染前展开的弹层
+  host.querySelectorAll('.dd').forEach(bindDDToggle);
+  if(openKey){
+    const dd = host.querySelector(`[data-extdd="${openKey}"]`);
+    if(dd){ dd.classList.add('open'); const inner = dd.querySelector('.dd-pop-inner'); if(inner) inner.scrollTop = openScroll; }
+  }
+  host.querySelectorAll('[data-extdd="period"] .opt').forEach(o=>{
+    o.onclick = ()=>{ EXT_TS = o.dataset.extts; closeAllDD(); renderExtract(); };
   });
+  const toggle = (f,v)=>{ const s = EXT_SEL[f]; s.has(v) ? s.delete(v) : s.add(v); renderExtract(); };
+  host.querySelectorAll('.ext-chip').forEach(el=>{ el.onclick = ()=>toggle(el.dataset.extf, el.dataset.extv); });
+  host.querySelectorAll('.ext-cond .x').forEach(el=>{ el.onclick = ()=>toggle(el.dataset.extf, el.dataset.extv); });
+  const clr = document.getElementById('extClear');
+  if(clr) clr.onclick = ()=>{ Object.values(EXT_SEL).forEach(s=>s.clear()); renderExtract(); };
+  document.getElementById('extExport').onclick = ()=> extExportCSV(locs);
 }
 function extExportCSV(locs){
   const head = ['品牌','子品牌','名称','大区','省','市','区','城市级别','类型','地址','电话'];
