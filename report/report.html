@@ -723,7 +723,9 @@ async function ensureSnap(ts){
     return meta;
   }
   if(!meta.href) throw new Error(`缺少 ${ts} 明细路径`);
-  const r = await fetch(meta.href,{cache:'no-store'});
+  // 明细文件按期命名、内容基本不可变，走浏览器缓存 + ETag 协商（重发布后 ETag 变化自动拉新）；
+  // 曾经的 no-store 让每次访问都全量重下 ~750KB/期，是首屏慢的主因
+  const r = await fetch(meta.href);
   const snap = await r.json();
   if(snap.columns && snap.rows){
     snap.dealers = snap.rows.map(row => {
@@ -811,7 +813,7 @@ async function ensureReportStyle(){
   const manifest = await loadManifest();
   if(manifest.reportHtml){
     try{
-      const r = await fetch(manifest.reportHtml,{cache:'no-store'});
+      const r = await fetch(manifest.reportHtml);
       const html = await r.text();
       const css = (html.match(/<style>([\s\S]*?)<\/style>/i)||[])[1];
       if(css && !document.getElementById('_rStyle')){
@@ -938,7 +940,7 @@ async function _tryFetchView(oldTs, newTs){
   const key = `${oldTs}_vs_${newTs}`;
   if(window.__VIEWS__ && window.__VIEWS__[key]) return window.__VIEWS__[key];
   try{
-    const r = await fetch(`data/views/report_${oldTs}_vs_${newTs}.json`, {cache:'no-store'});
+    const r = await fetch(`data/views/report_${oldTs}_vs_${newTs}.json`);
     if(!r.ok) return null;
     return await r.json();
   }catch(e){ return null; }
@@ -1525,11 +1527,11 @@ function buildLocations(dealers){
     let l = m.get(k);
     if(!l){
       l = {r:d.r, p:stripSuffix(d.p), c:d.c, lv:d.lv, g:d.g, n:d.n, t:d.t, a:d.a, ph:d.ph,
-           lng:d.lng||'', lat:d.lat||'', d:d.d||'', adc:d.adc||'', subs:new Set(), caps:new Set()};
+           lng:d.lng||'', lat:d.lat||'', d:d.d||'', subs:new Set(), caps:new Set()};
       m.set(k, l);
     }
     l.subs.add(d.b);
-    if(!l.lng && d.lng){ l.lng=d.lng; l.lat=d.lat; l.d=d.d||''; l.adc=d.adc||''; }
+    if(!l.lng && d.lng){ l.lng=d.lng; l.lat=d.lat; l.d=d.d||''; }
     capSet(d).forEach(c=>l.caps.add(c));
   }
   return [...m.values()];
