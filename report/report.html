@@ -251,7 +251,9 @@
   .bd-line{margin:3px 0;font-size:13px;line-height:1.7;display:flex;gap:6px}
   .bd-tag{flex-shrink:0;font-weight:700}
   .bd-add{color:var(--pos)} .bd-rem{color:var(--neg)} .bd-chg{color:var(--acc)} .bd-net{color:var(--mute)}
-  /* P043 二期确认制：回归(teal) / 疑似退出·观察中(amber) */
+  /* P043 隐藏观察中后，净变化与明细可能对不上：用中性小字说明差额去向（不露机制词） */
+  .bd-note{color:var(--mute);font-size:12px;margin-top:2px}
+  #reportBody .detail-note,#monthlyBody .detail-note{color:var(--mute);font-size:11px;margin-top:2px}
   .bd-tag::after{content:"："}
   .bd-net::after{content:""}
   .bd-names{color:var(--mute)}
@@ -1076,7 +1078,11 @@ function renderReportRows(rows){
   // 净变化=0 的品牌（月初=月末，如本期理想/奔驰）默认不显示；这里的"销售网点数"口径统一按
   // curSales/prevSales/salesCities/salesDiff（hasCap 销售），跟服务/钣喷网点区分开，见 P037。
   // P043：有确认退出（发生在 T-2→T-1、总数早已回落）的品牌即使本期销售数持平也要露出。
-  rows = rows.filter(r => r.curSales !== r.prevSales || ((r.salesDiff||r.diff).removedConfirmed||[]).length);
+  rows = rows.filter(r => {
+    const sd = r.salesDiff || r.diff;
+    // 确认退出（总数早已回落）或首缺待复核（可能被同期新增抵平）都要露出，不能只看净变化
+    return r.curSales !== r.prevSales || (sd.removedConfirmed||[]).length || (sd.confirm && sd.removed.length);
+  });
   return rows.map((r,i)=>{
     const salesDiff = r.salesDiff || r.diff;
     // P043 确认口径计数照旧（新增剔除回归、退出用确认名单），但观察中/回归不在对外报告露出
@@ -1084,9 +1090,13 @@ function renderReportRows(rows){
     const sc = salesDiff.confirm || null;
     const add = reportNameList(sc ? salesDiff.added.filter(x=>!x.ret) : salesDiff.added);
     const rem = reportNameList(sc ? (salesDiff.removedConfirmed||[]) : salesDiff.removed);
+    // 确认口径下 removed 只剩首缺（观察中）名单：净变化包含它们但明细不列名，
+    // 补一句中性说明交代差额去向，避免「净变化 -1 动态却是 —」的对不上（不列店名、不用机制词）
+    const hidN = sc ? salesDiff.removed.length : 0;
     const changeDetail = [
       add ? `<div class="detail-add">+新增 ${add}</div>` : '',
       rem ? `<div class="detail-rem">−退出 ${rem}</div>` : '',
+      hidN ? `<div class="detail-note">另有 ${hidN} 家本期变动待下期复核</div>` : '',
     ].join('');
     return `<tr>
       <td class="brand-cell"><span class="dot" style="background:${trendGroupColorOf(r.g)}"></span>${r.g}</td>
@@ -1106,15 +1116,18 @@ function renderReportBrandDetails(rows, opts){
     const d = r.diff, c = d.confirm || null;
     const nAdd = c ? d.added.filter(x=>!x.ret).length : d.added.length;
     const nRem = c ? (d.removedConfirmed||[]).length : d.removed.length;
-    return nAdd || nRem || (showChanged && d.changed.length);
+    const nHid = c ? d.removed.length : 0;   // 首缺（待下期复核）也算有变化：净变化≠0 时不能整块消失
+    return nAdd || nRem || nHid || (showChanged && d.changed.length);
   }).map(r=>{
     const d = r.diff, c = d.confirm || null;
     const addedC = c ? d.added.filter(x=>!x.ret) : d.added;
     const remC   = c ? (d.removedConfirmed||[]) : d.removed;
+    const hidN   = c ? d.removed.length : 0;
     const net = r.cur.length - r.prev.length;
     const lines = [`<div class="bd-line"><span class="bd-tag bd-net">净变化</span><span class="bd-names">${reportDeltaHtml(net, ' 家')}</span></div>`];
     if(addedC.length) lines.push(`<div class="bd-line"><span class="bd-tag bd-add">新增</span><span class="bd-names">${reportNameList(addedC, 8)}</span></div>`);
     if(remC.length)   lines.push(`<div class="bd-line"><span class="bd-tag bd-rem">退出</span><span class="bd-names">${reportNameList(remC, 8)}</span></div>`);
+    if(hidN)          lines.push(`<div class="bd-note">另有 ${hidN} 家本期变动待下期复核</div>`);
     if(showChanged && d.changed.length) lines.push(`<div class="bd-line"><span class="bd-tag bd-chg">名称/地址变更</span><span class="bd-names">${reportNameList(d.changed, 6)}</span></div>`);
     return `<div class="brand-block">
       <h3>${r.g}</h3>
