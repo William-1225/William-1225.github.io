@@ -284,6 +284,12 @@
   .modal-table{width:100%;border-collapse:collapse;font-size:13px}
   .modal-table th{position:sticky;top:0;background:#f8fafc;text-align:left;font-weight:600;color:var(--mute);font-size:12px;padding:8px 10px;border-bottom:2px solid var(--line);white-space:nowrap}
   .modal-table td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  /* 短列（状态/大区/省市/等级/类型）不折行，名称/地址给足最小宽度后自然换行——
+     否则 width:100% 下长列挤压短列出现「南\区」「销\售」竖排（同自助取数表的修法） */
+  .modal-table td:nth-child(1),.modal-table td:nth-child(3),.modal-table td:nth-child(4),
+  .modal-table td:nth-child(5),.modal-table td:nth-child(6){white-space:nowrap}
+  .modal-table th:nth-child(2),.modal-table td:nth-child(2){min-width:200px}
+  .modal-table th:nth-child(7),.modal-table td:nth-child(7){min-width:240px}
 
   /* Tab */
   .tabs{display:flex;border-bottom:1px solid var(--line);padding:0 28px;background:var(--bg)}
@@ -373,8 +379,9 @@
   .doc-table .group-row td{font-weight:650;color:var(--fg);background:#fbfcfe;padding:8px 8px 8px 12px}
   .doc-table .group-row .group-label{display:inline-flex;align-items:center;gap:7px}
   .doc-table .group-row .group-label::before{content:"";display:inline-block;width:4px;height:18px;border-radius:4px;background:var(--group)}
-  .doc-table .brand-col{position:relative;width:140px;padding-left:40px;font-weight:600;color:var(--fg);white-space:nowrap}
-  .doc-table .brand-col::before{content:"";position:absolute;left:26px;top:50%;width:4px;height:18px;border-radius:4px;background:var(--group);transform:translateY(-50%)}
+  /* 品牌行：各品牌自己的颜色小方块（与主图 trendGroupColorOf 同色），不再用分类色条 */
+  .doc-table .brand-col{width:140px;padding-left:23px;font-weight:600;color:var(--fg);white-space:nowrap}
+  .doc-table .brand-col .bdot{display:inline-block;width:9px;height:9px;border-radius:2.5px;margin-right:8px;vertical-align:middle}
   .doc-table .sales-col{width:270px}
   .doc-table .service-col{width:210px;color:#475467}
   .doc-table .note-col{min-width:320px;color:#344054;line-height:1.6}
@@ -3529,7 +3536,7 @@ function renderDoc(){
 
   const rows = DOC_GROUPS.map(g => {
     const items = DOC_BRANDS.filter(x => x.cat === g.key).map(x => `<tr class="cat-${g.key}">
-      <td class="brand-col">${x.b}</td>
+      <td class="brand-col"><span class="bdot" style="background:${trendGroupColorOf(x.b)}"></span>${x.b}</td>
       <td class="sales-col">${x.sales || '<span class="muted">-</span>'}</td>
       <td class="service-col">${x.service || '<span class="muted">-</span>'}</td>
       <td class="note-col">${x.note || ''}</td>
