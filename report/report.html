@@ -3030,7 +3030,7 @@ function exportCSV(){
 // 级联失效项 (选中的市不在新省域/新期内) 在重渲染时自动清理。
 let EXT_TS = null, EXT_SEQ = 0;
 const EXT_SEL = { g:new Set(), cat:new Set(), r:new Set(), p:new Set(), c:new Set(), d:new Set(), lv:new Set(), cap:new Set() };
-const EXT_CATS = [['ev','新势力'],['luxury','豪华'],['super','超豪华']];
+const EXT_CATS = [['ev','新能源'],['luxury','豪华'],['super','超豪华']];
 const EXT_CAT_LABEL = Object.fromEntries(EXT_CATS);
 // 八组筛选的 dd 顺序/标签（经销商性质与网点查询页对齐后移除）；cond 药丸分类配色
 const EXT_FIELDS = [['g','品牌'],['cat','品类'],['r','大区'],['p','省份'],['c','城市'],['d','区'],['lv','城市等级'],['cap','网点能力']];
@@ -3315,7 +3315,7 @@ function renderPenetration(){
   const cov = penCoverage(CUR.dealers);
 
   // 方案5 混合表格：每格 = 覆盖率量条 + 精确数字；行首 = 色块 + 品牌 + 大数字摘要
-  const CATN = {ev:'新势力', luxury:'豪华', super:'超豪华'};
+  const CATN = {ev:'新能源', luxury:'豪华', super:'超豪华'};
   const bcell = (pct, strong)=>`<td><div class="hyb-bc${strong?' strong':''}"><div class="tr"><i style="width:${pct}%;background:${strong?'#0b2e6b':'#174ea6'}"></i></div><span class="v">${pct}%</span></div></td>`;
   const rowHtml = (name, entry, cat, child)=>{
     const c = entry.cities.size, pct = grand ? Math.round(c/grand*100) : 0;
