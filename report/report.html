@@ -303,9 +303,10 @@
   .seg .dd{border:none;border-radius:0;background:transparent;box-shadow:none}
   .seg .dd.open{border:none;box-shadow:none}
   .seg .seg-cal{color:var(--mute);flex-shrink:0}
-  .xls-btn{display:inline-flex;align-items:center;gap:8px;padding:0 14px;border-radius:7px;background:#fff;color:var(--acc);font-size:13px;font-weight:600;text-decoration:none;border:1px solid var(--line);white-space:nowrap}
-  .xls-btn:hover{background:var(--acc-soft)}
-  .xls-btn svg{flex-shrink:0}
+  /* 注：报告注入 CSS 含 #reportBody *{padding:0} reset（特异性1,0,0），必须带 #page-report 前缀压过 */
+  #page-report .xls-btn{display:inline-flex;align-items:center;gap:8px;padding:0 14px;border-radius:7px;background:#fff;color:var(--acc);font-size:13px;font-weight:600;text-decoration:none;border:1px solid var(--line);white-space:nowrap}
+  #page-report .xls-btn:hover{background:var(--acc-soft)}
+  #page-report .xls-btn svg{flex-shrink:0}
 
   /* 主体 */
   .body{padding:14px 28px;flex:1;overflow-y:auto;min-height:0}
@@ -1197,8 +1198,8 @@ async function renderDynamicReport(){
           <button class="seg-btn" id="reportPairNext" title="下一期">›</button>
         </div>
         <a class="xls-btn" href="downloads/reports/${encodeURIComponent(`网点变化对比报告_${pair.oldTs}_vs_${pair.newTs}.xlsx`)}" download="网点变化对比报告_${pair.oldTs}_vs_${pair.newTs}.xlsx" title="下载本区间对比报告 Excel（品牌总量 / 省级对比 / 新增·减少·变更明细）">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           下载 Excel 报告
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         </a>
       </div>
     </div>
