@@ -727,6 +727,7 @@ let CUR_TAB      = 'net';
 let TREND_SELECTED = null;       // Set<trend key>; null = 取默认
 let TREND_QUICK = 'default';     // default/all/luxury/ev/super/null(自定义)
 let TREND_HOVER_KEY = null;      // tooltip 内高亮判定用：鼠标当前贴近的那条线的 series 名（见 renderTrend 里 zr 的 mousemove 插值判定）
+let TREND_TIP_FLIP = false;      // 趋势图 tooltip 当前是否翻到鼠标左侧（配合滞回带防止临界点横跳）
 let TREND_ZR_MOUSEMOVE = null;   // 当前绑定在 trendChart zr 实例上的 mousemove 处理函数引用，重渲染时按引用精确解绑，避免误删 echarts 内部监听
 let TREND_ZR_GLOBALOUT = null;
 let TREND_PERIOD = 'month';      // week/month，趋势图时间维度，默认月度
@@ -1525,6 +1526,24 @@ function _isAddressUpdate(a, r){
 function _sameNameCityKey(x){
   return `${x.g}||${String(x.n||'').trim()}||${stripSuffix(x.p)}||${x.c||''}`;
 }
+// 坐标兜底配对（2026-08-03）：店名和地址写法同时改掉时，前面四步（同名同城 / 地址相似
+// / 地址前缀 / 店名相似）会全部失配，同一家店被拆成"退出 + 新增"。全历史回测新配对 12 对、
+// 零误配，多为特斯拉店名带门牌编码（成都双流万达广场城市展厅YX-CX-CD-05 → 成都双流万达广场体验店）。
+// 两侧都有坐标且相距在阈值内 → 判为变更。放在最后一步，前面能配上的一律不走这里。
+const GEO_PAIR_METERS = 100;
+function _geoOf(x){
+  const lng = parseFloat(x && x.lng), lat = parseFloat(x && x.lat);
+  if(!isFinite(lng) || !isFinite(lat) || (lng === 0 && lat === 0)) return null;
+  return [lng, lat];
+}
+function _geoDistance(a, b){
+  const pa = _geoOf(a), pb = _geoOf(b);
+  if(!pa || !pb) return null;
+  const latMid = (pa[1] + pb[1]) / 2 * Math.PI / 180;
+  const dx = (pa[0] - pb[0]) * 111320 * Math.cos(latMid);
+  const dy = (pa[1] - pb[1]) * 110540;
+  return Math.sqrt(dx*dx + dy*dy);
+}
 function pairPeriodChanges(curLocs, prevLocs){
   if(!prevLocs) return {added:[], removed:[], changed:[]};
   const ck = new Set(curLocs.map(lkLoc)), pk = new Set(prevLocs.map(lkLoc));
@@ -1573,6 +1592,11 @@ function pairPeriodChanges(curLocs, prevLocs){
           const ap = _addrPrefixNorm(a.a), rp = _addrPrefixNorm(r.a);
           ok = !!ap && ap === rp;
           score = ok ? 1 + _nameSimilarity(a.n, r.n) : 0;
+        } else if(kind === 'geo'){
+          const dist = _geoDistance(a, r);
+          ok = dist !== null && dist <= GEO_PAIR_METERS;
+          // 越近越优先；同距离时名字更像的胜出
+          score = ok ? (1 - dist / GEO_PAIR_METERS) + _nameSimilarity(a.n, r.n) : 0;
         } else {
           score = _nameSimilarity(a.n, r.n);
           ok = score >= 0.75;
@@ -1596,6 +1620,7 @@ function pairPeriodChanges(curLocs, prevLocs){
   };
   pairExtra('addr');
   pairExtra('name');
+  pairExtra('geo');
   return {
     added: remainingAdded,
     removed: remainingRemoved,
@@ -2377,7 +2402,21 @@ function renderTrend(){
       // appendToBody: 挂到 .body（有 overflow-y:auto）内部时，靠近图表顶部悬停会因为祖先裁剪
       // 把最上面几个品牌的行截没（实测复现）；挂到 body 上脱离裁剪祖先，靠 confine 保持不出视口。
       appendToBody: true, confine: true,
-      position: (point, _params, _dom, _rect, size) => [point[0]+12, point[1]-size.contentSize[1]/2],
+      // 卡片默认贴鼠标右侧；右侧放不下就翻到左侧，避免挡住最新几期数据（用户反馈）。
+      // 判据用卡片实际宽度而非写死阈值——选中品牌数不同，卡片宽度会变。
+      // TREND_TIP_FLIP 记住上次翻边状态 + 24px 滞回带，防止停在临界点时左右横跳。
+      position: (point, _params, _dom, _rect, size) => {
+        const [cw, ch] = size.contentSize, [vw, vh] = size.viewSize;
+        const GAP = 12, HYST = 24;
+        const roomRight = vw - point[0] - GAP - cw;
+        // 已翻到左边时要多出 HYST 的余量才翻回右边，反之亦然
+        const flip = TREND_TIP_FLIP ? roomRight < HYST : roomRight < 0;
+        TREND_TIP_FLIP = flip;
+        let x = flip ? point[0] - GAP - cw : point[0] + GAP;
+        x = Math.max(0, Math.min(x, vw - cw));           // 兜底夹在图表区内
+        const y = Math.max(0, Math.min(point[1] - ch/2, vh - ch)); // 垂直居中并夹紧，防止上下被切
+        return [x, y];
+      },
       formatter: params => {
         if(!params.length) return '';
         const idx = params[0].dataIndex;
