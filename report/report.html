@@ -362,33 +362,47 @@
   .doc-sub{color:var(--mute);font-size:13px;margin-bottom:16px}
   .doc-note{background:#f6f8fa;border:1px solid var(--line);border-radius:8px;padding:12px 14px;color:#344054;font-size:13px;line-height:1.65;margin-bottom:14px}
   .doc-note b{color:var(--fg)}
-  .doc-rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:14px}
-  .doc-rule{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.65;color:#344054}
-  .doc-rule h3{font-size:13px;margin:0 0 6px;color:var(--fg);font-weight:650}
-  .doc-rule ul{margin:6px 0 0;padding-left:18px}
-  .doc-rule li{margin:2px 0}
-  .doc-table-wrap{border:1px solid var(--line);border-radius:8px;overflow:auto;background:#fff}
+  /* 锚点胶囊目录 */
+  .doc-toc{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+  .doc-toc a{display:inline-flex;align-items:center;gap:6px;padding:5px 13px;border:1px solid var(--line);border-radius:999px;background:#fff;color:#475467;font-size:12.5px;font-weight:600;text-decoration:none;cursor:pointer}
+  .doc-toc a .n{font-size:11px;color:var(--mute);font-weight:700;font-variant-numeric:tabular-nums}
+  .doc-toc a.on{background:var(--acc);border-color:var(--acc);color:#fff}
+  .doc-toc a.on .n{color:#bfdbfe}
+  /* 编号规则卡：左侧主题色条 + 背景大序号 + 主题标签 */
+  .doc-rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:14px}
+  .doc-rule{position:relative;background:#fff;border:1px solid var(--line);border-radius:10px;padding:15px 18px 13px;font-size:13px;line-height:1.65;color:#344054;overflow:hidden}
+  .doc-rule::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--tc,#2563eb)}
+  .doc-rule .ghost{position:absolute;top:-14px;right:6px;font-size:64px;font-weight:800;color:var(--tc,#2563eb);opacity:.07;letter-spacing:-.04em;font-variant-numeric:tabular-nums;pointer-events:none}
+  .doc-rule h3{font-size:14px;margin:0 0 2px;color:var(--fg);font-weight:700;display:flex;align-items:center;gap:8px}
+  .doc-rule h3 .tag{font-size:10.5px;font-weight:700;color:var(--tc);background:var(--tbg);border:1px solid var(--tbd);border-radius:5px;padding:1px 7px;letter-spacing:.5px}
+  .doc-rule ul{margin:8px 0 0;padding-left:17px}
+  .doc-rule li{margin:3px 0}
+  .doc-rule li::marker{color:var(--tc)}
+  .doc-rule b{color:var(--fg)}
+  .doc-kw{background:var(--acc-soft);color:#1d4ed8;border-radius:4px;padding:0 5px;font-weight:600}
+  /* 品牌口径表：品类色带分组行 + 能力胶囊 */
+  .doc-table-wrap{border:1px solid var(--line);border-radius:10px;overflow:auto;background:#fff}
   .doc-table{width:100%;min-width:920px;border-collapse:collapse;font-size:13px}
-  .doc-table th,.doc-table td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left}
-  .doc-table td{vertical-align:middle}
-  .doc-table th{vertical-align:middle}
-  .doc-table th{position:sticky;top:0;background:#f8fafc;z-index:1;color:#475467;font-weight:600;white-space:nowrap}
-  .doc-table tbody tr:hover{background:#fbfcfe}
+  .doc-table th,.doc-table td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+  .doc-table th{position:sticky;top:0;background:#f8fafc;z-index:1;color:#475467;font-weight:600;font-size:12px;white-space:nowrap}
+  .doc-table tbody tr:hover td{background:#fbfcfe}
   .doc-table tbody tr:last-child td{border-bottom:0}
   .doc-table th:first-child{padding-left:23px}
-  .doc-table .group-row td{font-weight:650;color:var(--fg);background:#fbfcfe;padding:8px 8px 8px 12px}
-  .doc-table .group-row .group-label{display:inline-flex;align-items:center;gap:7px}
-  .doc-table .group-row .group-label::before{content:"";display:inline-block;width:4px;height:18px;border-radius:4px;background:var(--group)}
-  /* 品牌行：各品牌自己的颜色小方块（与主图 trendGroupColorOf 同色），不再用分类色条 */
-  .doc-table .brand-col{width:140px;padding-left:23px;font-weight:600;color:var(--fg);white-space:nowrap}
+  .doc-table .doc-gband td{padding:0}
+  .doc-table .doc-gband .lab{display:flex;align-items:center;gap:8px;font-weight:700;font-size:12.5px;padding:7px 12px 7px 20px;background:var(--gbg);color:var(--group);border-left:3px solid var(--group)}
+  .doc-table .doc-gband .cnt{font-weight:500;color:var(--mute)}
+  .doc-table .brand-col{width:140px;padding-left:23px;font-weight:650;color:var(--fg);white-space:nowrap}
   .doc-table .brand-col .bdot{display:inline-block;width:9px;height:9px;border-radius:2.5px;margin-right:8px;vertical-align:middle}
-  .doc-table .sales-col{width:270px}
-  .doc-table .service-col{width:210px;color:#475467}
-  .doc-table .note-col{min-width:320px;color:#344054;line-height:1.6}
-  .doc-table .muted{color:#b7c0cc}
-  .cat-ev{--group:#10b981}
-  .cat-luxury{--group:#2563eb}
-  .cat-super{--group:#d97706}
+  .doc-table .sales-col{width:280px}
+  .doc-table .service-col{width:190px}
+  .doc-table .note-col{min-width:320px;color:#667085;line-height:1.6;font-size:12.5px}
+  .doc-chip{display:inline-block;font-size:11.5px;padding:1px 8px;border-radius:9px;margin:1.5px 3px 1.5px 0;white-space:nowrap;border:1px solid}
+  .doc-chip.s{background:#eff6ff;border-color:#bfdbfe;color:#1d4ed8}
+  .doc-chip.a{background:#ecfdf5;border-color:#a7f3d0;color:#047857}
+  .doc-chip.same{background:#f8fafc;border-color:var(--line);color:var(--mute)}
+  .cat-ev{--group:#047857;--gbg:#f0fdf6}
+  .cat-luxury{--group:#6d28d9;--gbg:#f7f5ff}
+  .cat-super{--group:#c2410c;--gbg:#fff8f3}
 
   /* ── 更新日志 ── */
   .cl-month{margin-bottom:20px}
@@ -3596,80 +3610,93 @@ function renderDoc(){
   const body = document.getElementById('docBody');
   if(body.dataset.rendered) return;
 
+  // 品牌口径表：销售/售后文案按「、」拆成胶囊；「同销售口径」用弱化胶囊
+  const chips = (txt, cls) => {
+    if(!txt) return '<span class="doc-table-muted" style="color:#b7c0cc">-</span>';
+    if(txt === '同销售口径') return '<span class="doc-chip same">同销售口径</span>';
+    return String(txt).split('、').map(t=>`<span class="doc-chip ${cls}">${t}</span>`).join('');
+  };
+  const CAT_META = {ev:['新能源','cat-ev'], luxury:['豪华','cat-luxury'], super:['超豪华','cat-super']};
   const rows = DOC_GROUPS.map(g => {
-    const items = DOC_BRANDS.filter(x => x.cat === g.key).map(x => `<tr class="cat-${g.key}">
+    const list = DOC_BRANDS.filter(x => x.cat === g.key);
+    const items = list.map(x => `<tr>
       <td class="brand-col"><span class="bdot" style="background:${trendGroupColorOf(x.b)}"></span>${x.b}</td>
-      <td class="sales-col">${x.sales || '<span class="muted">-</span>'}</td>
-      <td class="service-col">${x.service || '<span class="muted">-</span>'}</td>
+      <td class="sales-col">${chips(x.sales,'s')}</td>
+      <td class="service-col">${chips(x.service,'a')}</td>
       <td class="note-col">${x.note || ''}</td>
     </tr>`).join('');
-    return `<tr class="group-row cat-${g.key}"><td colspan="4"><span class="group-label">${g.label}</span></td></tr>${items}`;
+    const [label, cls] = CAT_META[g.key];
+    return `<tr class="doc-gband ${cls}"><td colspan="4"><div class="lab">${label} <span class="cnt">${list.length} 个品牌</span></div></td></tr>${items}`;
   }).join('');
+
+  // 六张编号规则卡：主题色条 + 背景大序号 + 主题标签（--tc 主色 / --tbg 标签底 / --tbd 标签边）
+  const rule = (no, theme, title, tag, lis) => `
+    <div class="doc-rule" id="doc-r${no}" style="--tc:${theme[0]};--tbg:${theme[1]};--tbd:${theme[2]}">
+      <div class="ghost">0${no}</div>
+      <h3>${title} <span class="tag">${tag}</span></h3>
+      <ul>${lis.map(l=>`<li>${l}</li>`).join('')}</ul>
+    </div>`;
+  const T_BLUE=['#2563eb','#eff6ff','#bfdbfe'], T_GREEN=['#059669','#ecfdf5','#a7f3d0'],
+        T_PURPLE=['#7c3aed','#f5f3ff','#ddd6fe'], T_ORANGE=['#d97706','#fff7ed','#fed7aa'],
+        T_CYAN=['#0891b2','#ecfeff','#a5f3fc'], T_GRAY=['#64748b','#f8fafc','#e2e8f0'];
 
   const html = `
     <h1 class="doc-title">统计口径说明</h1>
-    <div class="doc-sub">更新日期：2026-06 · 共 22 个品牌（含鸿蒙智行 5 个子品牌）· 口径表按品牌/品牌组展示</div>
-    <div class="doc-note">
-      <b>说明：</b>本页按“销售能力 / 售后能力”说明各品牌网点纳入范围。同一实体网点如同时承担销售和售后服务，在销售、售后视图中均可出现；在全部口径下仅按物理网点计一次。钣金喷漆等服务统一并入售后能力，不再单独列示。
+    <div class="doc-sub">更新日期：2026-08 · 共 22 个品牌（含鸿蒙智行 5 个子品牌）· 同一实体网点在销售/售后视图均可出现，全部口径按物理网点去重；钣金喷漆等服务统一并入售后能力</div>
+    <div class="doc-toc">
+      <a data-doct="doc-r1" class="on"><span class="n">01</span>网点分类</a>
+      <a data-doct="doc-r2"><span class="n">02</span>去重规则</a>
+      <a data-doct="doc-r3"><span class="n">03</span>跨期配对</a>
+      <a data-doct="doc-r4"><span class="n">04</span>增减口径</a>
+      <a data-doct="doc-r5"><span class="n">05</span>运营方归属</a>
+      <a data-doct="doc-r6"><span class="n">06</span>统计范围</a>
+      <a data-doct="doc-brand-table"><span class="n">▦</span>品牌口径表</a>
     </div>
     <div class="doc-rules">
-      <div class="doc-rule">
-        <h3>网点如何分类</h3>
-        <ul>
-          <li>销售能力：凡是能买车的网点，包括 4S 店、展厅、体验中心、用户中心、交付中心等。</li>
-          <li>售后能力：承担保养、维修、服务中心、服务站、钣金喷漆等服务的网点。</li>
-          <li>同一网点可以同时具备销售与售后能力；能力视图用于筛选，不改变原始门店记录。</li>
-        </ul>
-      </div>
-      <div class="doc-rule">
-        <h3>如何避免重复计数</h3>
-        <ul>
-          <li>名称和地址完全相同的重复条目直接合并。</li>
-          <li>同一地址挂了多种服务类型时，合并为一个物理网点，并保留销售/售后能力信息。</li>
-          <li>同一城市内名称相同的网点合并；不同城市的同名网点不合并。</li>
-          <li>全部视图按物理网点去重，不能把销售数量和售后数量直接相加。</li>
-        </ul>
-      </div>
-      <div class="doc-rule">
-        <h3>跨期对比框架</h3>
-        <ul>
-          <li>第一层用“品牌组 + 原始店名 + 省份 + 地址”识别同一物理网点。</li>
-          <li>第二层处理地址更新：继续比较区县、路名门牌和地址相似度；单一同名同城候选也视为地址变更。</li>
-          <li>第三层处理名称更新：同品牌组下，地址或规范化店名主干高度相似时，视为同店改名/类型调整。</li>
-          <li>以上都无法配对的记录，才进入新增或退出。</li>
-        </ul>
-      </div>
-      <div class="doc-rule">
-        <h3>增减口径与抓取质量</h3>
-        <ul>
-          <li>新增 / 退出为两期直接对比：本期出现、上期没有的门店计入新增；上期在、本期不在的计入退出。数字与明细同期对应，净变化 = 新增 − 退出（含同店配对修正）。</li>
-          <li>抓取质量在采集环节保障：每次抓取会与上期逐店比对，出现缺店时自动延时复核重抓并取并集，避免瞬时接口波动造成"一退一增"的虚报（真关店两次都抓不到，不受影响）。</li>
-          <li>官方渠道短暂下架再恢复的门店（历史回测约占消失门店的 2%）会表现为一期退出、下期新增；Excel 对比报告的"历史状态"列会标注此类回归供甄别。</li>
-        </ul>
-      </div>
-      <div class="doc-rule">
-        <h3>运营方归属如何判定（自助取数）</h3>
-        <ul>
-          <li>四层判定：品牌级规则（特斯拉/蔚来/小米/理想为直营体系）→ 鸿蒙智行按名称前缀分华为零售 / 授权零售 / 经销商投资 / 交付 → 名称中的集团字号识别（中升、利星行等）→ 逐店联网核实字典（覆盖宝马 / 奥迪 / 沃尔沃店号、雷克萨斯、保时捷及超豪门店）。</li>
-          <li>以上均未命中的门店标注为「独立/区域经销商」——这是有效结论（单城独立投资人），不是数据缺失。</li>
-          <li>小鹏直营与授权并存且名称无法区分，诚实标注为「混合(未区分)」；上汽奥迪用户中心为代理制，能识别代理运营集团的同时计入集团持店。</li>
-          <li>鸿蒙智行同一物理店在不同子品牌下可能挂不同店型前缀，聚合时按「经销商投资 &gt; 华为零售 &gt; 授权零售 &gt; 交付」取最有信息量的一类，不改变门店总数。</li>
-          <li>自助取数支持按运营方类别筛选（直营 / 代理 / 集团授权 / 独立 / 华为体系 / 混合）；预览与导出中，集团授权/代理店直接显示具体集团名（如「中升(集团)」「华星系(代理)」）。</li>
-          <li>集团并购与退出会使归属随时间变化，核实字典定期复核更新。</li>
-        </ul>
-      </div>
-      <div class="doc-rule">
-        <h3>统计范围</h3>
-        港澳台网点不纳入统计，仅统计中国大陆门店。城市覆盖率按品牌覆盖的城市去重计算，一城多店只计一个城市；命中的同店地址或名称变化会使用本期新地址展示，不计入新增/退出。
-      </div>
+      ${rule(1, T_BLUE, '网点如何分类', '分类', [
+        '<b>销售能力</b>：凡是能买车的网点，包括 4S 店、展厅、体验中心、用户中心、交付中心等。',
+        '<b>售后能力</b>：承担保养、维修、服务中心、服务站、钣金喷漆等服务的网点。',
+        '同一网点可以同时具备销售与售后能力；能力视图用于筛选，不改变原始门店记录。',
+      ])}
+      ${rule(2, T_GREEN, '如何避免重复计数', '去重', [
+        '名称和地址完全相同的重复条目直接合并。',
+        '同一地址挂了多种服务类型时，合并为一个<span class="doc-kw">物理网点</span>，并保留销售/售后能力信息。',
+        '同一城市内名称相同的网点合并；不同城市的同名网点不合并。',
+        '全部视图按物理网点去重，<b>不能把销售数量和售后数量直接相加</b>。',
+      ])}
+      ${rule(3, T_PURPLE, '跨期对比：同店怎么认', '配对', [
+        '第一层：<span class="doc-kw">品牌组 + 原始店名 + 省份 + 地址</span>识别同一物理网点。',
+        '第二层（地址更新）：继续比较区县、路名门牌和地址相似度；单一同名同城候选也视为地址变更。',
+        '第三层（店名更新）：同品牌组下，地址或规范化店名主干高度相似时，视为同店改名/类型调整。',
+        '兜底：店名与地址同时改写时，两侧坐标相距 ≤100m 判为同店；以上都无法配对的记录，才进入新增或退出。',
+      ])}
+      ${rule(4, T_ORANGE, '增减口径与抓取质量', '质量', [
+        '新增 / 退出为<b>两期直接对比</b>：本期出现、上期没有的门店计入新增；上期在、本期不在的计入退出。数字与明细同期对应，净变化 = 新增 − 退出（含同店配对修正）。',
+        '抓取质量在采集环节保障：每次抓取会与上期逐店比对，出现缺店时自动延时复核重抓并取并集，避免瞬时接口波动造成「一退一增」的虚报（真关店两次都抓不到，不受影响）。',
+        '官方渠道短暂下架再恢复的门店（历史回测约占消失门店的 2%）会表现为一期退出、下期新增；Excel 对比报告的「历史状态」列会标注此类回归供甄别。',
+      ])}
+      ${rule(5, T_CYAN, '运营方归属如何判定（自助取数）', '归属', [
+        '四层判定：品牌级规则（特斯拉/蔚来/小米/理想为直营体系）→ 鸿蒙智行按名称前缀分华为零售 / 授权零售 / 经销商投资 / 交付 → 名称中的集团字号识别（中升、利星行等）→ <span class="doc-kw">逐店联网核实字典</span>（覆盖宝马 / 奥迪 / 沃尔沃店号、雷克萨斯、保时捷及超豪门店）。',
+        '以上均未命中的门店标注为「独立/区域经销商」——这是有效结论（单城独立投资人），不是数据缺失。',
+        '小鹏直营与授权并存且名称无法区分，诚实标注为「混合(未区分)」；上汽奥迪用户中心为代理制，能识别代理运营集团的同时计入集团持店。',
+        '鸿蒙智行同一物理店在不同子品牌下可能挂不同店型前缀，聚合时按「经销商投资 &gt; 华为零售 &gt; 授权零售 &gt; 交付」取最有信息量的一类，不改变门店总数。',
+        '自助取数支持按运营方类别筛选（直营 / 代理 / 集团授权 / 独立 / 华为体系 / 混合）；预览与导出中，集团授权/代理店直接显示具体集团名（如「中升(集团)」「华星系(代理)」）。',
+        '集团并购与退出会使归属随时间变化，核实字典定期复核更新。',
+      ])}
+      ${rule(6, T_GRAY, '统计范围', '范围', [
+        '港澳台网点不纳入统计，仅统计中国大陆门店。',
+        '城市覆盖率按品牌覆盖的城市去重计算，一城多店只计一个城市。',
+        '命中的同店地址或名称变化会使用本期新地址展示，不计入新增/退出。',
+      ])}
     </div>
+    <div class="doc-log-title" id="doc-brand-table">品牌口径表</div>
     <div class="doc-table-wrap">
       <table class="doc-table">
         <thead>
           <tr>
             <th>品牌</th>
-            <th>销售</th>
-            <th>售后</th>
+            <th>销售能力</th>
+            <th>售后能力</th>
             <th>备注说明</th>
           </tr>
         </thead>
@@ -3679,6 +3706,15 @@ function renderDoc(){
   `;
 
   body.innerHTML = html;
+  // 锚点胶囊：点击滚动到对应卡片并高亮当前项
+  body.querySelectorAll('.doc-toc a').forEach(a=>{
+    a.onclick = ()=>{
+      body.querySelectorAll('.doc-toc a').forEach(x=>x.classList.remove('on'));
+      a.classList.add('on');
+      const t = document.getElementById(a.dataset.doct);
+      if(t) t.scrollIntoView({behavior:'smooth', block:'start'});
+    };
+  });
   body.dataset.rendered = '1';
 }
 
