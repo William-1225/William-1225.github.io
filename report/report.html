@@ -208,16 +208,6 @@
   .hyb-table tr.den-nogeo td.den-dist{cursor:default}
   .hyb-table tr.den-nogeo td.den-dist .nm{color:var(--mute);font-weight:500;text-decoration:none}
 
-  /* 市场洞察页：信号卡片 / 品牌芯片 / 增减角标 */
-  .ins-card{border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:8px;padding:12px 16px;margin:10px 0;background:#fff}
-  .ins-card.sev-high{border-left-color:#dc2626} .ins-card.sev-mid{border-left-color:#d97706} .ins-card.sev-info{border-left-color:#2563eb}
-  .ins-card .t{font-weight:700;font-size:14px} .ins-card .d{color:#475467;font-size:12.5px;margin-top:3px;line-height:1.55}
-  .ins-chip{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:9px;background:#f1f5f9;color:#334155;margin:2px 4px 2px 0;white-space:nowrap}
-  .grp-link{cursor:pointer;border-bottom:1px dashed #94a3b8}
-  .grp-link:hover{color:#2563eb;border-bottom-color:#2563eb}
-  .ins-delta{font-size:11px;font-weight:600;margin-left:4px;vertical-align:1px}
-  .ins-delta.pos{color:var(--pos)} .ins-delta.neg{color:var(--neg)} .ins-delta.zero{color:var(--mute)}
-
   /* 网点密度页（区级品牌布局矩阵） */
   .den-table{border-collapse:separate;border-spacing:0;width:100%;font-size:13px}
   .den-table thead th{position:sticky;top:0;background:#f8fafc;z-index:2;text-align:center;font-weight:600;color:#475467;padding:8px 6px;border-bottom:2px solid var(--line);white-space:nowrap}
@@ -477,7 +467,6 @@
     <div class="nav-item" data-page="monthly"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="m8 15 2 2 4-5"/></svg>月度报告</div>
     <div class="nav-item" data-page="penetration"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg>城市覆盖率</div>
     <div class="nav-item" data-page="density"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>网点密度</div>
-    <div class="nav-item" data-page="insight"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.4 1 2.3h6c0-.9.4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>市场洞察</div>
     <div class="nav-item" data-page="doc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>口径说明</div>
     <div class="nav-item" data-page="changelog"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v5h5"/><path d="M3.05 13A9 9 0 1 0 6 5.3L3 8"/><path d="M12 7v5l4 2"/></svg>更新日志</div>
   </div>
@@ -526,10 +515,6 @@
     <div class="dd" data-dd="brand">
       <span class="dd-lbl">品牌</span><span class="dd-val" id="ddBrand">全部</span><span class="dd-arrow">▾</span>
       <div class="dd-pop wide"><div id="brandChips"></div></div>
-    </div>
-    <div class="dd" data-dd="op">
-      <span class="dd-lbl">运营方</span><span class="dd-val" id="ddOp">全部</span><span class="dd-arrow">▾</span>
-      <div class="dd-pop"><div id="opChips"></div></div>
     </div>
     <button id="reset" style="margin-left:auto">重置</button>
   </div>
@@ -624,7 +609,7 @@
     <div class="tablewrap">
       <table id="detailT">
         <thead><tr>
-          <th>状态</th><th>品牌</th><th>名称</th><th>大区</th><th>省/市</th><th>等级</th><th>类型</th><th>运营方</th><th>地址</th>
+          <th>状态</th><th>品牌</th><th>名称</th><th>大区</th><th>省/市</th><th>等级</th><th>类型</th><th>地址</th>
         </tr></thead>
         <tbody></tbody>
       </table>
@@ -652,11 +637,6 @@
 <!-- 右侧：网点密度（区级品牌布局矩阵） -->
 <div id="page-density" class="page" style="display:none;overflow-y:auto">
   <div id="denBody" style="padding:22px 28px 32px"></div>
-</div>
-
-<!-- 右侧：市场洞察（渠道策略 / 集团动向 / 市场信号） -->
-<div id="page-insight" class="page" style="display:none;overflow-y:auto">
-  <div id="insBody" style="padding:22px 28px 32px"></div>
 </div>
 
 <!-- 右侧：口径说明 -->
@@ -737,7 +717,6 @@ let SUB_CHECKED  = null;        // 单品牌钻取时使用; SEL_BRANDS.size===1
 let SEL_REGIONS  = new Set();   // 空集 = 全选
 let SEL_TIERS    = new Set();
 let SEL_CATS     = new Set();   // 网点能力: 销售/售后
-let SEL_OPS      = new Set();   // 运营方类别: D/A/G/I/H/M（op 编码首字母，见 OP_LABEL）
 let SEL_PROVS    = new Set();
 let SEL_CITIES   = new Set();    // 仅含地级市名 (镜像 SEL_BRANDS); 县级市选择放在 COUNTY_CHECKED
 let COUNTY_CHECKED = null;       // 镜像 SUB_CHECKED: 单 SEL_CITIES 项时才生效
@@ -780,7 +759,7 @@ async function boot(){
   setupDropdownToggles();
   document.getElementById('reset').onclick=()=>{
     SEL_BRANDS.clear(); SUB_CHECKED=null;
-    SEL_REGIONS.clear(); SEL_TIERS.clear(); SEL_CATS.clear(); SEL_OPS.clear();
+    SEL_REGIONS.clear(); SEL_TIERS.clear(); SEL_CATS.clear();
     SEL_PROVS.clear(); SEL_CITIES.clear(); COUNTY_CHECKED=null;
     TREND_SELECTED=null;
     document.getElementById('search').value='';
@@ -875,7 +854,7 @@ function switchTab(name){
 /* ── 左侧导航切换 ── */
 function switchPage(name){
   document.querySelectorAll('.nav-item').forEach(el=>el.classList.toggle('active', el.dataset.page===name));
-  ['viz','report','monthly','doc','changelog','penetration','density','insight','extract'].forEach(p=>{
+  ['viz','report','monthly','doc','changelog','penetration','density','extract'].forEach(p=>{
     document.getElementById('page-'+p).style.display = p===name ? (p==='viz'?'flex':'block') : 'none';
   });
   if(name==='viz'){
@@ -890,7 +869,6 @@ function switchPage(name){
   if(name==='changelog') renderChangelog();
   if(name==='penetration') renderPenetration();
   if(name==='density') renderDensity();
-  if(name==='insight') renderInsights();
   if(name==='extract') renderExtract();
 }
 
@@ -1500,9 +1478,9 @@ function passesCapabilityFilter(x){
   return false;
 }
 
-/* ── 运营方（op 列）──
-   线上格式 'G:中升' / 'H:经销商投资' / 'D'，冒号前为类别、后为集团名或华为体系子类。
-   类别标签复用洞察页 OP_LABEL；筛选按类别首字母（SEL_OPS）。 */
+/* ── 运营方（op 列，仅自助取数页使用）──
+   线上格式 'G:中升' / 'H:经销商投资' / 'D'，冒号前为类别、后为集团名或华为体系子类。 */
+const OP_LABEL = {D:'直营', A:'代理', G:'集团授权', 'G?':'集团系(待研)', I:'独立/区域', H:'华为体系', M:'混合(未区分)', '未知':'未知'};
 const OP_FILTER_ORDER = ['D','A','G','I','H','M'];
 function opHead(op){ const s=String(op||''); const i=s.indexOf(':'); return i<0?s:s.slice(0,i); }
 function opTail(op){ const s=String(op||''); const i=s.indexOf(':'); return i<0?'':s.slice(i+1); }
@@ -1694,7 +1672,6 @@ function buildLocations(dealers){
 function filterGlobal(dealers){
   let list = dealers;
   if(SEL_CATS.size)    list = list.filter(d=>passesCapabilityFilter(d));
-  if(SEL_OPS.size)     list = list.filter(d=>SEL_OPS.has(opHead(d.op)));
   if(SEL_REGIONS.size) list = list.filter(d=>SEL_REGIONS.has(d.r));
   if(SEL_TIERS.size)   list = list.filter(d=>SEL_TIERS.has(d.lv));
   if(SEL_PROVS.size)   list = list.filter(d=>SEL_PROVS.has(stripSuffix(d.p)));
@@ -1870,7 +1847,6 @@ function updateFilterDDLabels(){
   const setVal = (id, txt) => { const el = document.getElementById(id); if(el) el.textContent = txt; };
   const lbl = (set) => set.size===0 ? '全部' : (set.size===1 ? [...set][0] : `已选 ${set.size}`);
   setVal('ddCat',    lbl(SEL_CATS));
-  setVal('ddOp',     SEL_OPS.size===0 ? '全部' : (SEL_OPS.size===1 ? (OP_LABEL[[...SEL_OPS][0]]||[...SEL_OPS][0]) : `已选 ${SEL_OPS.size}`));
   setVal('ddRegion', lbl(SEL_REGIONS));
   setVal('ddTier',   lbl(SEL_TIERS));
   setVal('ddProv',   lbl(SEL_PROVS));
@@ -1915,7 +1891,6 @@ async function render(){
   // 级联失效清洗：上游变则下游失效项清除
   const _afterRegion = CUR.dealers.filter(d=>{
     if(SEL_CATS.size    && !passesCapabilityFilter(d))    return false;
-    if(SEL_OPS.size     && !SEL_OPS.has(opHead(d.op)))    return false;
     if(SEL_REGIONS.size && !SEL_REGIONS.has(d.r)) return false;
     if(SEL_TIERS.size   && !SEL_TIERS.has(d.lv))  return false;
     return true;
@@ -1939,8 +1914,6 @@ async function render(){
 
   // 网点类型 / 大区 / 城市等级 chips（基于当前期数据）
   renderChipRow('catChips', ['销售','售后'], SEL_CATS);
-  const _opHeads = new Set(CUR.dealers.map(d=>opHead(d.op)).filter(Boolean));
-  renderChipRow('opChips', OP_FILTER_ORDER.filter(h=>_opHeads.has(h)), SEL_OPS, h=>OP_LABEL[h]||h);
   const regions = [...new Set(CUR.dealers.map(d=>d.r))].sort();
   renderChipRow('regionChips', regions, SEL_REGIONS);
   renderChipRow('tierChips',   TIERS.filter(t=>CUR.dealers.some(d=>d.lv===t)), SEL_TIERS);
@@ -1965,7 +1938,7 @@ async function render(){
     // 筛选（网点类型/大区/城市等级/省份/城市/品牌）激活时，趋势折线图需要全部历史期的经销商明细，
     // 而默认只有当前期/对比期会被加载——这里提前把其余期数补拉齐，避免 trendSeriesData() 里
     // 因某期 dealers 未加载而漏算（数据缺口，非报错；trendSeriesData 本身已做兜底不会崩）。
-    const filtersActive = SEL_CATS.size || SEL_OPS.size || SEL_REGIONS.size || SEL_TIERS.size || SEL_PROVS.size || SEL_CITIES.size || SEL_BRANDS.size;
+    const filtersActive = SEL_CATS.size || SEL_REGIONS.size || SEL_TIERS.size || SEL_PROVS.size || SEL_CITIES.size || SEL_BRANDS.size;
     if(filtersActive){
       await Promise.all(DATA.snapshots.map(s=>ensureSnap(s.ts).catch(()=>null)));
       if(seq !== RENDER_SEQ) return;
@@ -1979,13 +1952,13 @@ async function render(){
   if(document.getElementById('page-density').style.display!=='none') renderDensity();
 }
 
-function renderChipRow(elId, values, selSet, labelOf){
+function renderChipRow(elId, values, selSet){
   const el = document.getElementById(elId);
   const allActive = selSet.size === 0;
   const items = [`<div class="opt ${allActive?'sel':''}" data-val="__all__"><span class="check"></span><span class="nm">全部</span></div>`];
   for(const v of values){
     const on = selSet.has(v);
-    items.push(`<div class="opt ${on?'sel':''}" data-val="${v}"><span class="check"></span><span class="nm">${labelOf?labelOf(v):v}</span></div>`);
+    items.push(`<div class="opt ${on?'sel':''}" data-val="${v}"><span class="check"></span><span class="nm">${v}</span></div>`);
   }
   el.innerHTML = `<div class="dd-pop-inner">${items.join('')}</div>`;
   el.querySelectorAll('.opt').forEach(c=>c.onclick=ev=>{
@@ -2259,7 +2232,7 @@ function trendBrandParts(d){
 
 // 计算每期每品牌/子品牌的 location 数（受全局筛选 cat/region/tier + SEL_BRANDS 影响）
 function trendSeriesData(){
-  const noFilters = !SEL_CATS.size && !SEL_OPS.size && !SEL_REGIONS.size && !SEL_TIERS.size && !SEL_PROVS.size && !SEL_CITIES.size && !SEL_BRANDS.size;
+  const noFilters = !SEL_CATS.size && !SEL_REGIONS.size && !SEL_TIERS.size && !SEL_PROVS.size && !SEL_CITIES.size && !SEL_BRANDS.size;
   if(noFilters && DATA.snapshots.every(s=>s.trendCounts)){
     return DATA.snapshots.map(s=>({ts:s.ts, counts:s.trendCounts || {}}));
   }
@@ -3061,12 +3034,11 @@ function applySearch(){
     (r.n||'').toLowerCase().includes(q) ||
     (r.a||'').toLowerCase().includes(q) ||
     (r.c||'').toLowerCase().includes(q) ||
-    (r.p||'').toLowerCase().includes(q) ||
-    opDisp(r.op).toLowerCase().includes(q)
+    (r.p||'').toLowerCase().includes(q)
   ) : DETAIL_ROWS;
   document.getElementById('rowCount').textContent = `${filtered.length} 条`;
   const tb = document.querySelector('#detailT tbody');
-  if(!filtered.length){ tb.innerHTML = `<tr><td colspan="9" class="empty">无数据</td></tr>`; return; }
+  if(!filtered.length){ tb.innerHTML = `<tr><td colspan="8" class="empty">无数据</td></tr>`; return; }
   tb.innerHTML = filtered.slice(0,1000).map(r=>{
     const cls = r.status==='新增'?'add' : r.status==='退出'?'del' : '';
     const subs = (GROUP_SUBS[r.g] && r.subs && r.subs.size>1) ? `<span style="color:var(--mute);font-size:13px"> (${[...r.subs].join('+')})</span>`:'';
@@ -3082,10 +3054,9 @@ function applySearch(){
       <td>${r.p||''} ${r.c||''}</td>
       <td>${r.lv||''}</td>
       <td>${r.t||''}</td>
-      <td>${opDisp(r.op)}</td>
       <td style="color:var(--mute)">${addr}</td>
     </tr>`;
-  }).join('') + (filtered.length>1000?`<tr><td colspan="9" class="empty">仅显示前 1000 条，请用搜索/筛选缩小范围或导出 CSV</td></tr>`:'');
+  }).join('') + (filtered.length>1000?`<tr><td colspan="8" class="empty">仅显示前 1000 条，请用搜索/筛选缩小范围或导出 CSV</td></tr>`:'');
 }
 
 document.addEventListener('input', e=>{ if(e.target.id==='search') applySearch(); });
@@ -3096,14 +3067,13 @@ function exportCSV(){
     (r.n||'').toLowerCase().includes(q) ||
     (r.a||'').toLowerCase().includes(q) ||
     (r.c||'').toLowerCase().includes(q) ||
-    (r.p||'').toLowerCase().includes(q) ||
-    opDisp(r.op).toLowerCase().includes(q)
+    (r.p||'').toLowerCase().includes(q)
   ) : DETAIL_ROWS;
-  const head = ['状态','品牌','子品牌','名称','大区','省','市','等级','类型','运营方','地址','电话'];
+  const head = ['状态','品牌','子品牌','名称','大区','省','市','等级','类型','地址','电话'];
   const esc = v => `"${(v==null?'':String(v)).replace(/"/g,'""')}"`;
   const lines = [head.join(',')];
   for(const r of rows){
-    lines.push([r.status, r.g, [...(r.subs||[])].join('+'), r.n, r.r, r.p, r.c, r.lv, r.t, opDisp(r.op), r.a, r.ph].map(esc).join(','));
+    lines.push([r.status, r.g, [...(r.subs||[])].join('+'), r.n, r.r, r.p, r.c, r.lv, r.t, r.a, r.ph].map(esc).join(','));
   }
   const blob = new Blob(['﻿'+lines.join('\n')], {type:'text/csv;charset=utf-8'});
   const url = URL.createObjectURL(blob);
@@ -3300,9 +3270,7 @@ function extExportCSV(locs){
 // 只记对用户有意义的更新; 改名/内部重构等琐碎变动不入日志. 新增一期 = 顶部加一条.
 const CHANGELOG = [
   {date:'2026-08-07', tag:'feat', tagText:'新功能',
-   text:'运营方下沉到单店：网点查询页新增「运营方」筛选与明细列（直营 / 代理 / 集团授权 / 独立 / 华为体系），集团授权店直接显示集团名；自助取数页同步开放运营方筛选与导出字段；市场洞察「集团动向」支持点击集团名下钻，弹窗查看该集团旗下跨品牌全部门店并可导出。'},
-  {date:'2026-07-31', tag:'feat', tagText:'新功能',
-   text:'新增「市场洞察」页：渠道策略（各品牌分城市层级的扩收矩阵与运营方结构）、集团动向（经销商集团持店矩阵与逐期进退事件流）、市场信号（连续收缩/批量退网/结构迁移等规则信号）。全量门店完成运营方归属（厂家直营 / 代理 / 经销商集团 / 独立经销商 / 华为体系），归属方法见「口径说明」。'},
+   text:'全量门店完成运营方归属（厂家直营 / 代理 / 经销商集团 / 独立经销商 / 华为体系），基于品牌规则 + 名称识别 + 逐店联网核实字典，判定方法见「口径说明」。自助取数页新增「运营方」筛选与导出字段，预览与导出中集团授权/代理店直接显示具体集团名（如「中升(集团)」「华星系(代理)」）。'},
   {date:'2026-07-30', tag:'opt', tagText:'优化',
    text:'网点增减恢复两期直接对比：新增/退出与净变化同期对应，报告即看即懂。抓取波动改由采集环节自动复核重抓兜底，报告层不再引入"观察中/确认"等延迟确认状态。'},
   {date:'2026-07-30', tag:'opt', tagText:'优化',
@@ -3618,194 +3586,6 @@ async function openStoreMap(title, stores){
   else AMAP_MAP.setBounds(new AMap.Bounds([Math.min(...lngs), Math.min(...lats)], [Math.max(...lngs), Math.max(...lats)]), false, [40,40,40,40]);
 }
 
-/* ========= 市场洞察页：渠道策略 / 集团动向 / 市场信号 =========
-   数据全部来自预计算 view（data/views/insights_latest.json，周跑生成）；
-   前端不做任何 CUR.dealers 聚合——运营方归并（鸿蒙同店多行）只在 build_insights.py 一处实现。 */
-let INS_VIEW = null, INS_SEG = 'channel', INS_FETCHED = false;
-const INS_SEGS = [['channel','渠道策略'],['groups','集团动向'],['signals','市场信号']];
-const OP_LABEL = {D:'直营', A:'代理', G:'集团授权', 'G?':'集团系(待研)', I:'独立/区域', H:'华为体系', M:'混合(未区分)', '未知':'未知'};
-const INS_TIERS = ['一线','二线','三线','四线','五线','未分级'];
-
-function insDelta(d, showZero){
-  if(!d) return showZero ? '<span class="ins-delta zero">±0</span>' : '';
-  return `<span class="ins-delta ${d>0?'pos':'neg'}">${d>0?'+':''}${d}</span>`;
-}
-const insLast = s => s[s.length-1];
-
-async function renderInsights(){
-  const host = document.getElementById('insBody');
-  if(!INS_FETCHED){
-    INS_FETCHED = true;
-    try{ const r = await fetch('data/views/insights_latest.json'); if(r.ok) INS_VIEW = await r.json(); }catch(e){}
-  }
-  if(!INS_VIEW){ host.innerHTML = '<div class="pen-title">市场洞察</div><div class="doc-sub">洞察数据尚未生成，待下次周跑发布。</div>'; return; }
-  const v = INS_VIEW;
-  const latestTs = (DATA && DATA.snapshots.length) ? DATA.snapshots[DATA.snapshots.length-1].ts : v.ts;
-  const stale = latestTs !== v.ts ? `　<span style="color:var(--warn)">⚠ 洞察数据期（${fmtTs(v.ts)}）落后于最新数据（${fmtTs(latestTs)}），下次周跑自动更新</span>` : '';
-  host.innerHTML = `
-    <div class="pen-head">
-      <div class="pen-title">市场洞察</div>
-      <div class="pen-seg">${INS_SEGS.map(([k,l])=>`<button data-insseg="${k}" class="${INS_SEG===k?'on':''}">${l}</button>`).join('')}</div>
-    </div>
-    <div class="doc-sub">数据周期：${fmtTs(v.periods[0])} – ${fmtTs(v.ts)}（${v.periods.length} 期周度快照，本页不随顶部日期切换）${stale}</div>
-    ${INS_SEG==='channel' ? insChannelHtml(v) : INS_SEG==='groups' ? insGroupsHtml(v) : insSignalsHtml(v)}`;
-  host.querySelectorAll('[data-insseg]').forEach(b=>{ b.onclick = ()=>{ INS_SEG = b.dataset.insseg; renderInsights(); }; });
-  host.querySelectorAll('[data-grpdrill]').forEach(el=>{ el.onclick = ()=>openGroupDetailModal(el.dataset.grpdrill); });
-}
-
-/* ── 集团下钻：点集团名 → 旗下跨品牌全部门店（最新洞察期实抓明细） ──
-   明细按需取自 dealers_<ts>.json（ensureSnap 已有缓存），按 op 的集团名过滤：
-   G:集团 与 A:集团 都算持店（与 build_insights._op_grp 同口径）。集团店均非鸿蒙，
-   不涉及同店多名归并，buildLocations 去重与洞察矩阵计数同键。 */
-async function openGroupDetailModal(grp){
-  if(!INS_VIEW) return;
-  const ts = INS_VIEW.ts;
-  let snap;
-  try{ snap = await ensureSnap(ts); }catch(e){ return; }
-  const rows = snap.dealers.filter(d=>{ const h=opHead(d.op); return (h==='G'||h==='A') && opTail(d.op)===grp; });
-  const locs = buildLocations(rows).sort((a,b)=> a.g.localeCompare(b.g,'zh') || a.p.localeCompare(b.p,'zh') || (a.c||'').localeCompare(b.c||'','zh'));
-  // 分品牌汇总胶囊（跨品牌视角是本弹窗的核心信息）
-  const byBrand = {};
-  locs.forEach(l=>{ byBrand[l.g]=(byBrand[l.g]||0)+1; });
-  const brandChips = Object.entries(byBrand).sort((a,b)=>b[1]-a[1]).map(([g,n])=>
-    `<span class="ins-chip"><span class="hyb-dot" style="background:${trendGroupColorOf(g)}"></span>${g} ${n} 家</span>`).join('');
-
-  let mask = document.getElementById('grpModal');
-  if(!mask){ mask = document.createElement('div'); mask.id='grpModal'; mask.className='modal-mask'; document.body.appendChild(mask); }
-  mask.innerHTML = `<div class="modal-card" style="width:min(1100px,94vw)">
-    <div class="modal-head">
-      <div><b>${grp}</b> · 旗下门店　<span style="color:var(--mute);font-weight:400;font-size:13px">${fmtTs(ts)} 期 · 共 ${locs.length} 家（物理网点去重）</span></div>
-      <div style="display:flex;gap:10px;align-items:center">
-        <button class="ext-btn" id="grpExport" style="font-size:12px;padding:5px 10px">⬇ 导出 CSV</button>
-        <button class="modal-x" aria-label="关闭">×</button>
-      </div>
-    </div>
-    <div style="padding:10px 20px 0;display:flex;flex-wrap:wrap;gap:6px">${brandChips}</div>
-    <input class="modal-search" placeholder="搜索名称 / 地址 / 城市 / 品牌 …">
-    <div class="modal-body"><table class="modal-table">
-      <thead><tr><th>品牌</th><th>名称</th><th>省/市</th><th>等级</th><th>类型</th><th>性质</th><th>地址</th></tr></thead>
-      <tbody></tbody></table></div>
-  </div>`;
-  mask.style.display = 'flex';
-  const render = (q='')=>{
-    const ql = q.trim().toLowerCase();
-    const list = ql ? locs.filter(l=>(l.n||'').toLowerCase().includes(ql)||(l.a||'').toLowerCase().includes(ql)||(l.c||'').toLowerCase().includes(ql)||(l.p||'').toLowerCase().includes(ql)||(l.g||'').toLowerCase().includes(ql)) : locs;
-    const tb = mask.querySelector('.modal-table tbody');
-    if(!list.length){ tb.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--mute);padding:24px">无数据</td></tr>'; return; }
-    tb.innerHTML = list.map(l=>`<tr>
-      <td><span class="hyb-dot" style="background:${trendGroupColorOf(l.g)}"></span>${l.g}</td>
-      <td>${l.n||''}</td><td>${l.p||''} ${l.c||''}</td>
-      <td>${l.lv||''}</td><td>${l.t||''}</td>
-      <td>${opHead(l.op)==='A'?'代理':'集团授权'}</td>
-      <td style="color:var(--mute)">${l.a||''}</td>
-    </tr>`).join('');
-  };
-  render();
-  mask.querySelector('#grpExport').onclick = ()=>{
-    const head = ['集团','品牌','名称','大区','省','市','区','城市级别','类型','性质','地址','电话'];
-    const esc = v => `"${(v==null?'':String(v)).replace(/"/g,'""')}"`;
-    const lines = [head.join(',')];
-    for(const l of locs) lines.push([grp, l.g, l.n, l.r, l.p, l.c, l.d||'未定位', l.lv, l.t, opHead(l.op)==='A'?'代理':'集团授权', l.a, l.ph].map(esc).join(','));
-    const blob = new Blob(['﻿'+lines.join('\r\n')], {type:'text/csv;charset=utf-8'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href=url; a.download=`集团门店_${grp}_${ts}_共${locs.length}家.csv`;
-    a.click(); URL.revokeObjectURL(url);
-  };
-  const close = ()=>{ mask.style.display='none'; document.removeEventListener('keydown', onEsc); };
-  function onEsc(ev){ if(ev.key==='Escape') close(); }
-  mask.querySelector('.modal-x').onclick = close;
-  mask.onclick = e=>{ if(e.target===mask) close(); };
-  mask.querySelector('.modal-search').oninput = e=>render(e.target.value);
-  document.addEventListener('keydown', onEsc);
-}
-
-/* ── 段一：渠道策略（品牌 × 城市级别 扩收矩阵 + 运营方结构） ── */
-function insChannelHtml(v){
-  const rows = v.channel.tierMatrix.map(r=>{
-    const cur = insLast(r.tot), d13 = cur - r.tot[0];
-    const cells = INS_TIERS.map(t=>{
-      const s = r.tiers[t];
-      if(!s || !insLast(s) && !s[0]) return '<td><span class="hyb-nc zero">·</span></td>';
-      const c = insLast(s), dd = c - s[0];
-      return `<td><span class="hyb-nc"><span>${c}</span></span>${insDelta(dd)}</td>`;
-    }).join('');
-    return `<tr><td class="hyb-rh" style="width:150px"><span class="hyb-dot" style="background:${trendGroupColorOf(r.g)}"></span><span class="nm">${r.g}</span><div class="hero">${cur}<small>家</small>${insDelta(d13,true)}</div></td>${cells}</tr>`;
-  }).join('');
-
-  const clsOrder = ['D','A','G','G?','I','H','M','未知'];
-  const mixRows = v.channel.opMix.map(r=>{
-    const total = clsOrder.reduce((s,c)=> s + (r.mix[c] ? insLast(r.mix[c]) : 0), 0);
-    if(!total) return '';
-    const chips = clsOrder.filter(c=>r.mix[c] && insLast(r.mix[c])).map(c=>{
-      const cur = insLast(r.mix[c]);
-      return `<span class="ins-chip">${OP_LABEL[c]||c} ${cur} 家 · ${Math.round(cur/total*100)}%</span>`;
-    }).join('');
-    return `<tr><td class="hyb-rh" style="width:150px"><span class="hyb-dot" style="background:${trendGroupColorOf(r.g)}"></span><span class="nm">${r.g}</span></td><td>${chips}</td></tr>`;
-  }).join('');
-
-  return `
-    <div class="doc-note">
-      <b>看什么：</b>各品牌网络在向哪些层级城市扩张或收缩，以及渠道由谁在运营（直营 / 代理 / 经销商集团 / 独立经销商）。<br>
-      <b>怎么读：</b>上表数字 = 最新期该品牌在该线级城市的网点数，角标 = 相对首期（${fmtTs(v.periods[0])}）的净变化；行首大数字 = 品牌总网点与净变化。下表为最新期各品牌的运营方结构。<br>
-      <b>口径：</b>物理网点去重，与全站一致；运营方归属由「品牌规则 + 名称识别 + 逐店核实字典」判定，详见「口径说明」页。
-    </div>
-    <div style="overflow-x:auto"><table class="hyb-table">
-      <thead><tr><th style="padding-left:14px">品牌</th>${INS_TIERS.map(t=>`<th>${t}</th>`).join('')}</tr></thead>
-      <tbody>${rows}</tbody>
-    </table></div>
-    <div class="pen-title" style="font-size:15px;margin:26px 0 8px">运营方结构（最新期）</div>
-    <div style="overflow-x:auto"><table class="hyb-table"><tbody>${mixRows}</tbody></table></div>`;
-}
-
-/* ── 段二：集团动向（集团 × 品牌 持店矩阵 + 进退事件流） ── */
-function insGroupsHtml(v){
-  // 「其他集团」是归并桶不对应单一主体，不提供下钻
-  const grpNm = g => g==='其他集团' ? `<span class="nm">${g}</span>` : `<span class="nm grp-link" data-grpdrill="${g}" title="点击查看旗下门店">${g}</span>`;
-  const rows = v.groups.matrix.map(r=>{
-    const cur = insLast(r.tot), d13 = cur - r.tot[0];
-    const chips = r.brands.filter(b=>b.cur || b.delta13).map(b=>
-      `<span class="ins-chip"><span class="hyb-dot" style="background:${trendGroupColorOf(b.g)}"></span>${b.g} ${b.cur}${insDelta(b.delta13)}</span>`).join('');
-    return `<tr><td class="hyb-rh" style="width:170px">${grpNm(r.grp)}<div class="hero">${cur}<small>家</small>${insDelta(d13,true)}</div></td><td>${chips}</td></tr>`;
-  }).join('');
-
-  const evByTs = {};
-  v.groups.events.forEach(e=>{ (evByTs[e.ts] = evByTs[e.ts] || []).push(e); });
-  const evHtml = Object.keys(evByTs).sort().reverse().map(ts=>{
-    const items = evByTs[ts].map(e=>
-      `<div class="d">${e.type==='exit' ? '<b style="color:var(--neg)">退</b>' : '<b style="color:var(--pos)">进</b>'}　<b>${e.grp==='其他集团'?e.grp:`<span class="grp-link" data-grpdrill="${e.grp}">${e.grp}</span>`}</b> · ${e.g} · ${e.p} ${e.c}　${e.n}</div>`).join('');
-    return `<div class="ins-card"><div class="t">${fmtTs(ts)}（${evByTs[ts].length} 起）</div>${items}</div>`;
-  }).join('') || '<div class="doc-sub">观察期内暂无集团进退事件</div>';
-
-  return `
-    <div class="doc-note">
-      <b>看什么：</b>经销商集团的资本流向——谁在增持哪些品牌、谁在撤退。<b>刚退网的经销商保有现成场地、团队与客户，是最直接的渠道松动与招商线索。</b><br>
-      <b>怎么读：</b>上表每行一个集团（按最新期持店数排序），行首大数字 = 集团在监测品牌内的总门店数与观察期净变化，右侧为分品牌持店；角标为相对首期变化。<b>点击集团名</b>可查看旗下全部门店明细（跨品牌）。下方事件流为逐期进/退明细（消抖口径：缺席一期后回归不计事件）。<br>
-      <b>口径：</b>集团归属基于名称规则 + 逐店联网核实字典；最新期不足 ${3} 家的集团并入「其他集团」。代理制门店（上汽奥迪用户中心）的运营集团同样计入。
-    </div>
-    <div style="overflow-x:auto"><table class="hyb-table">
-      <thead><tr><th style="padding-left:14px">集团</th><th>分品牌持店（最新期，角标 = 相对首期净变化）</th></tr></thead>
-      <tbody>${rows}</tbody>
-    </table></div>
-    <div class="pen-title" style="font-size:15px;margin:26px 0 4px">集团进退事件流</div>
-    ${evHtml}`;
-}
-
-/* ── 段三：市场信号（规则自动生成） ── */
-function insSignalsHtml(v){
-  const sevLabel = {high:'高', mid:'中', info:'关注'};
-  const cards = v.signals.map(s=>{
-    const ev = s.evidence || {};
-    const stores = (ev.stores||[]).map(n=>`<span class="ins-chip">${n}</span>`).join('');
-    return `<div class="ins-card sev-${s.sev}"><div class="t">【${sevLabel[s.sev]||s.sev}】${s.title}</div><div class="d">${s.desc}</div>${stores?`<div style="margin-top:6px">${stores}</div>`:''}</div>`;
-  }).join('') || '<div class="doc-sub">本期无触发信号——各品牌与集团网络无显著异动。</div>';
-  return `
-    <div class="doc-note">
-      <b>怎么读：</b>信号由规则自动生成：连续净收缩 / 单期骤减 / 集团批量退网 / 集团首进品牌 / 网络层级与渠道结构迁移。事件与信号采用消抖口径（缺席一期后回归视为连续在档，历史回测真实抖动约 2%）。目前仅 ${v.periods.length} 期数据（约 3 个月），信号反映的是<b>动向</b>而非长期趋势。
-    </div>
-    ${cards}`;
-}
-
 const DOC_GROUPS = [
   {key:'ev', label:'新能源'},
   {key:'luxury', label:'豪华'},
@@ -3868,14 +3648,14 @@ function renderDoc(){
         </ul>
       </div>
       <div class="doc-rule">
-        <h3>运营方归属如何判定（市场洞察 / 网点查询 / 自助取数）</h3>
+        <h3>运营方归属如何判定（自助取数）</h3>
         <ul>
           <li>四层判定：品牌级规则（特斯拉/蔚来/小米/理想为直营体系）→ 鸿蒙智行按名称前缀分华为零售 / 授权零售 / 经销商投资 / 交付 → 名称中的集团字号识别（中升、利星行等）→ 逐店联网核实字典（覆盖宝马 / 奥迪 / 沃尔沃店号、雷克萨斯、保时捷及超豪门店）。</li>
           <li>以上均未命中的门店标注为「独立/区域经销商」——这是有效结论（单城独立投资人），不是数据缺失。</li>
           <li>小鹏直营与授权并存且名称无法区分，诚实标注为「混合(未区分)」；上汽奥迪用户中心为代理制，能识别代理运营集团的同时计入集团持店。</li>
           <li>鸿蒙智行同一物理店在不同子品牌下可能挂不同店型前缀，聚合时按「经销商投资 &gt; 华为零售 &gt; 授权零售 &gt; 交付」取最有信息量的一类，不改变门店总数。</li>
-          <li>网点查询与自助取数支持按运营方类别筛选（直营 / 代理 / 集团授权 / 独立 / 华为体系 / 混合）；明细表与导出中，集团授权店直接显示具体集团名（如「中升(集团)」）。</li>
-          <li>集团并购与退出会使归属随时间变化，核实字典定期复核更新；洞察页矩阵为实抓口径，事件与信号为消抖口径。</li>
+          <li>自助取数支持按运营方类别筛选（直营 / 代理 / 集团授权 / 独立 / 华为体系 / 混合）；预览与导出中，集团授权/代理店直接显示具体集团名（如「中升(集团)」「华星系(代理)」）。</li>
+          <li>集团并购与退出会使归属随时间变化，核实字典定期复核更新。</li>
         </ul>
       </div>
       <div class="doc-rule">
