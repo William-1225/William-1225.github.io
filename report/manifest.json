@@ -1,19 +1,19 @@
 {
   "data": "data/snapshots.json",
   "geo": "cn.json",
-  "reportHtml": "reports/network_report_1005.html",
+  "reportHtml": "reports/network_report_1012.html",
   "downloads": [
     {
-      "ts": "20261005",
-      "name": "汇总_20261005.xlsx",
-      "href": "downloads/summary/汇总_20261005.xlsx",
+      "ts": "20261012",
+      "name": "汇总_20261012.xlsx",
+      "href": "downloads/summary/汇总_20261012.xlsx",
       "meta": "当期网点汇总数据（所有品牌）"
     },
     {
-      "ts": "20261005",
-      "label": "20260928 → 20261005",
-      "name": "网点变化对比报告_20260928_vs_20261005.xlsx",
-      "href": "downloads/reports/网点变化对比报告_20260928_vs_20261005.xlsx",
+      "ts": "20261012",
+      "label": "20261005 → 20261012",
+      "name": "网点变化对比报告_20261005_vs_20261012.xlsx",
+      "href": "downloads/reports/网点变化对比报告_20261005_vs_20261012.xlsx",
       "meta": "网点变化对比报告（品牌总量、省级对比、新增/减少/变更明细）"
     }
   ],
@@ -154,6 +154,12 @@
       "ts": "20261005",
       "name": "汇总_20261005.xlsx",
       "href": "downloads/summary/汇总_20261005.xlsx",
+      "meta": "当期网点汇总数据（所有品牌）"
+    },
+    {
+      "ts": "20261012",
+      "name": "汇总_20261012.xlsx",
+      "href": "downloads/summary/汇总_20261012.xlsx",
       "meta": "当期网点汇总数据（所有品牌）"
     }
   ],
@@ -310,6 +316,13 @@
       "label": "20260928 → 20261005",
       "name": "网点变化对比报告_20260928_vs_20261005.xlsx",
       "href": "downloads/reports/网点变化对比报告_20260928_vs_20261005.xlsx",
+      "meta": "网点变化对比报告（品牌总量、省级对比、新增/减少/变更明细）"
+    },
+    {
+      "ts": "20261012",
+      "label": "20261005 → 20261012",
+      "name": "网点变化对比报告_20261005_vs_20261012.xlsx",
+      "href": "downloads/reports/网点变化对比报告_20261005_vs_20261012.xlsx",
       "meta": "网点变化对比报告（品牌总量、省级对比、新增/减少/变更明细）"
     }
   ]
