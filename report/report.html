@@ -717,7 +717,7 @@ const TREND_CHILD_TO_GROUP = Object.fromEntries(
 const TREND_QUICK_DEFS = {
   default: {label:'默认'},
   all: {label:'全部'},
-  luxury: {label:'豪华', brands:['奔驰','宝马','奥迪','保时捷','沃尔沃','雷克萨斯']},
+  luxury: {label:'豪华', brands:['奔驰','宝马','奥迪','保时捷','沃尔沃','雷克萨斯','MINI']},
   ev: {label:'新能源'},
   super: {label:'超豪华', brands:['宾利','劳斯莱斯','法拉利','兰博基尼','阿斯顿·马丁']},
 };
@@ -744,7 +744,7 @@ let TREND_HOVER_KEY = null;      // tooltip 内高亮判定用：鼠标当前贴
 let TREND_TIP_FLIP = false;      // 趋势图 tooltip 当前是否翻到鼠标左侧（配合滞回带防止临界点横跳）
 let TREND_ZR_MOUSEMOVE = null;   // 当前绑定在 trendChart zr 实例上的 mousemove 处理函数引用，重渲染时按引用精确解绑，避免误删 echarts 内部监听
 let TREND_ZR_GLOBALOUT = null;
-let TREND_PERIOD = 'month';      // week/month，趋势图时间维度，默认月度
+let TREND_PERIOD = 'month';      // week/month/quarter，趋势图时间维度，默认月度
 
 async function boot(){
   try{
@@ -1014,6 +1014,23 @@ function reportNameList(rows, limit=3){
   const names = items.map(x=> (freq[x.n]>1 && x.t) ? `${x.n}（${x.t}）` : x.n);
   return names.slice(0, limit).join('、') + (names.length>limit ? '等' : '');
 }
+// 只有两期都在档的品牌才参与跨期对比：新纳入品牌（如 2026-10 起的 MINI）或某期整品牌缺失（抓取失败，
+// 如宾利 0921~1005）从两侧剔除，否则会把它全部门店计成「新增」或「退出」。与 precompute_views.mjs brandGap() 同口径。
+function brandGap(curAll, prevAll){
+  const cg = new Set(curAll.map(x=>x.g)), pg = new Set(prevAll.map(x=>x.g));
+  return {newBrands:[...cg].filter(g=>!pg.has(g)), goneBrands:[...pg].filter(g=>!cg.has(g))};
+}
+// 只留 otherAll（另一期全量）里也有的品牌
+function cmpScope(locs, otherAll){
+  const og = new Set(otherAll.map(x=>x.g));
+  return locs.filter(l=>og.has(l.g));
+}
+function brandGapNote(newBrands, goneBrands){
+  let s = '';
+  if(newBrands && newBrands.length) s += `<p>${newBrands.join('、')} 上期无数据（新纳入统计或上期采集缺失），暂不计入本区间的总量与新增/退出。</p>`;
+  if(goneBrands && goneBrands.length) s += `<p>${goneBrands.join('、')} 本期无数据（采集缺失），暂不计入本区间的总量与新增/退出。</p>`;
+  return s;
+}
 // 把预计算 view 还原成 renderers 期望的 data 形状
 function _hydrateView(view){
   const rows = view.rows.map(r => ({
@@ -1039,6 +1056,8 @@ function _hydrateView(view){
     allDiff: view.allDiff,
     rows,
     totalDelta: view.curTotal - view.prevTotal,
+    newBrands: view.newBrands || [],
+    goneBrands: view.goneBrands || [],
   };
 }
 async function _tryFetchView(oldTs, newTs){
@@ -1062,7 +1081,9 @@ async function computePairReportData(oldTs, newTs){
 }
 // 无 view 时的前端现算回退路径（与 mjs buildReportView 同口径；直接产出 _hydrateView 形状）
 async function _computeViewLocal(oldTs, newTs){
-  const [prevLocs, curLocs] = await Promise.all([ensureLocations(oldTs), ensureLocations(newTs)]);
+  const [prevAll, curAll] = await Promise.all([ensureLocations(oldTs), ensureLocations(newTs)]);
+  const {newBrands, goneBrands} = brandGap(curAll, prevAll);
+  const curLocs = cmpScope(curAll, prevAll), prevLocs = cmpScope(prevAll, curAll);
   const allDiff = pairPeriodChanges(curLocs, prevLocs);
   const brands = [...new Set([...curLocs.map(l=>l.g), ...prevLocs.map(l=>l.g)])];
   const rows = brands.map(g=>{
@@ -1091,6 +1112,7 @@ async function _computeViewLocal(oldTs, newTs){
     allDiff,
     rows,
     totalDelta: curLocs.length - prevLocs.length,
+    newBrands, goneBrands,
   };
 }
 // 超豪品牌：网点少、平时基本不动；默认在报告表格/图表中隐藏，仅当本期有变化时才显示
@@ -1152,7 +1174,7 @@ async function renderDynamicReport(){
     el.innerHTML = '<p style="color:var(--mute);padding:60px;text-align:center">报告加载中…</p>';
     await new Promise(requestAnimationFrame);
   }
-  const {curLocs, allDiff, rows, totalDelta} = await computePairReportData(pair.oldTs, pair.newTs);
+  const {curLocs, allDiff, rows, totalDelta, newBrands, goneBrands} = await computePairReportData(pair.oldTs, pair.newTs);
   const changedBrands = new Set([...allDiff.added, ...allDiff.removed, ...allDiff.changed].map(x=>x.g)).size;
   // 值用 newTs（相邻期天然是"选当期日期，自动带出它的上一期"），跟数据下载页的对比报告日历同一套逻辑
   const options = pairs.map(p=>`<option value="${p.newTs}" ${p.newTs===pair.newTs?'selected':''}>${p.label}</option>`).join('');
@@ -1199,7 +1221,7 @@ async function renderDynamicReport(){
     <div class="footnote">
       <p>说明：本页按所选相邻期动态计算，当前区间为 ${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}。物理网点以品牌组、店名、省份、地址综合去重；同店名称或地址变化会优先识别为变更，不计入新增/退出。</p>
       <p>鸿蒙智行与奥迪按品牌组统计总网点，子品牌交叉经营会合并到同一物理网点。</p>
-      <p>本期网点总数无变化的品牌（月初＝月末）默认不在表格中列出，仅显示发生净增减的品牌。</p>
+      <p>本期网点总数无变化的品牌（月初＝月末）默认不在表格中列出，仅显示发生净增减的品牌。</p>${brandGapNote(newBrands, goneBrands)}
     </div>
     <footer>竞对经销商网点监测 · 数据截至 ${fmtTs(pair.newTs)}</footer>
   </div>`;
@@ -1245,7 +1267,7 @@ async function renderMonthlyReport(){
     el.innerHTML = '<p style="color:var(--mute);padding:60px;text-align:center">月度报告加载中…</p>';
     await new Promise(requestAnimationFrame);
   }
-  const {curLocs, prevLocs, allDiff, rows, totalDelta} = await computePairReportData(pair.oldTs, pair.newTs);
+  const {curLocs, prevLocs, allDiff, rows, totalDelta, newBrands, goneBrands} = await computePairReportData(pair.oldTs, pair.newTs);
   MONTHLY_ROWS = rows; MONTHLY_PERIOD = pair;
   const curTotal = curLocs.length, prevTotal = prevLocs.length;
   const brandCount = new Set(curLocs.map(l=>l.g)).size;
@@ -1290,7 +1312,7 @@ async function renderMonthlyReport(){
 
       <div class="sec-title">品牌变化详情</div>
       <div class="brand-detail-body">${renderReportBrandDetails(rows, {showChanged:false})}</div>
-      <div class="footnote"><p>月度报告按当月第一次发布至下月第一次发布计算，当前区间为 ${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}；“网点”按物理门店去重（同址多品牌算一处），口径与可视化页一致。“销售”指门店性质为销售的网点数。</p><p>仅列出本月有新增或退出的品牌；无增减的品牌（含超豪华品牌）默认不展示。</p></div>
+      <div class="footnote"><p>月度报告按当月第一次发布至下月第一次发布计算，当前区间为 ${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}；“网点”按物理门店去重（同址多品牌算一处），口径与可视化页一致。“销售”指门店性质为销售的网点数。</p><p>仅列出本月有新增或退出的品牌；无增减的品牌（含超豪华品牌）默认不展示。</p>${brandGapNote(newBrands, goneBrands)}</div>
     </div>`;
   // 绑定表格“详情”按钮 → 弹窗下钻
   el.querySelectorAll('button.mtbl-detail').forEach(btn=>{ btn.onclick = ()=> openBrandDetailModal(btn.dataset.brand); });
@@ -1941,7 +1963,8 @@ async function render(){
   // KPI + 主体
   const curLocs  = filterAll(CUR.dealers);
   const prevLocs = PREV ? filterAll(PREV.dealers) : [];
-  const diff = pairPeriodChanges(curLocs, prevLocs);
+  const diff = PREV ? pairPeriodChanges(cmpScope(curLocs, PREV.dealers), cmpScope(prevLocs, CUR.dealers))
+                    : pairPeriodChanges(curLocs, prevLocs);
   const added = diff.added, removed = diff.removed;
 
   renderKPI(curLocs, prevLocs, added, removed);
@@ -2202,12 +2225,17 @@ function renderKPI(curLocs, prevLocs, added, removed){
   };
   const cityCur = new Set(curLocs.map(l=>l.p+l.c)).size;
   const cityPre = PREV ? new Set(prevLocs.map(l=>l.p+l.c)).size : null;
+  // 变化量只比两期都在档的品牌（见 brandGap/cmpScope）；总数本身仍是本期实数
+  const cmpLocs = PREV ? cmpScope(curLocs, PREV.dealers) : curLocs;
+  const cmpPrev = PREV ? cmpScope(prevLocs, CUR.dealers) : prevLocs;
+  const cityCmp = new Set(cmpLocs.map(l=>l.p+l.c)).size;
+  const cityCmpPre = new Set(cmpPrev.map(l=>l.p+l.c)).size;
   const brCur   = new Set(curLocs.map(l=>l.g)).size;
   const brPre   = PREV ? new Set(prevLocs.map(l=>l.g)).size : null;
-  setText('kTotal', curLocs.length, PREV?curLocs.length-prevLocs.length:null);
+  setText('kTotal', curLocs.length, PREV?cmpLocs.length-cmpPrev.length:null);
   setText('kAdd',   PREV?added.length:'-',   null);
   setText('kDel',   PREV?removed.length:'-', null);
-  setText('kCity',  cityCur, PREV?cityCur-cityPre:null);
+  setText('kCity',  cityCur, PREV?cityCmp-cityCmpPre:null);
   setText('kBrand', brCur,   PREV?brCur-brPre:null);
 }
 
@@ -2277,11 +2305,33 @@ function trendSeriesData(){
   });
 }
 
-// 趋势图"统计维度=月度"：每个自然月取最后一期快照作为该月代表点（sd 按时间升序，故同月内后出现的覆盖先出现的）。
-function monthlyFilterSD(sd){
-  const lastByMonth = {};
-  for(const s of sd) lastByMonth[s.ts.slice(0,6)] = s;
-  return Object.values(lastByMonth);
+// 趋势图"时间维度=月度/季度"：每个自然月/季度取最后一期快照作为代表点（sd 按时间升序，故同期内后出现的覆盖先出现的）。
+// 当前未结束的月/季度取截至最新一期的值。
+const trendQuarterOf = ts => `${ts.slice(0,4)} Q${Math.ceil(+ts.slice(4,6)/3)}`;
+function periodFilterSD(sd, period){
+  if(period === 'week') return sd;
+  const keyOf = period === 'quarter' ? trendQuarterOf : ts => ts.slice(0,6);
+  const last = new Map();
+  for(const s of sd) last.set(keyOf(s.ts), s);
+  return [...last.values()];
+}
+function trendAxisLabel(ts, period){
+  if(period === 'month') return `${ts.slice(0,4)}/${ts.slice(4,6)}`;
+  if(period === 'quarter') return trendQuarterOf(ts);
+  return fmtTs(ts);
+}
+// 某期整期没有该品牌（尚未纳入统计，如 2026-10 前的 MINI；或整品牌抓取失败，如宾利 0921~1005）时画空而不是 0，
+// 避免出现从 0 陡升/骤降到 0 的假线。判定看全量 trendCounts（不随筛选变化），子品牌跟随所属品牌组。
+function trendPresence(){
+  const o = {};
+  for(const s of DATA.snapshots) o[s.ts] = s.trendCounts || null;
+  return o;
+}
+function trendVal(k, s, presence){
+  const full = presence[s.ts];
+  const gk = k.startsWith('s:') ? trendGroupKey(k.split(':')[1]) : k;
+  if(full && !(gk in full)) return null;
+  return s.counts[k] || 0;
 }
 
 // 高区分度调色板，用于趋势线和下拉色点保持一致。
@@ -2366,7 +2416,8 @@ function syncTrendLabel(allKeys){
 
 function renderTrend(){
   let sd = trendSeriesData();
-  if(TREND_PERIOD === 'month') sd = monthlyFilterSD(sd);
+  sd = periodFilterSD(sd, TREND_PERIOD);
+  const presence = trendPresence();
   const last = sd.at(-1).counts;
   const allKeys = new Set();
   sd.forEach(s => Object.keys(s.counts).forEach(k => allKeys.add(k)));
@@ -2417,13 +2468,13 @@ function renderTrend(){
   syncTrendLabel(orderedKeys);
   renderTrendPeriodChips();
 
-  const xs = TREND_PERIOD === 'month' ? sd.map(s => `${s.ts.slice(0,4)}/${s.ts.slice(4,6)}`) : sd.map(s => fmtTs(s.ts));
+  const xs = sd.map(s => trendAxisLabel(s.ts, TREND_PERIOD));
   const selectedKeys = orderedKeys.filter(k=>TREND_SELECTED.has(k));
   const series = selectedKeys.map(k => ({
     name: trendKeyLabel(k), type: 'line', smooth: true, symbol: 'circle', symbolSize: 7,
     lineStyle: {width: 2, color: colorOf(k)},
     itemStyle: {color: colorOf(k)},
-    data: sd.map(s => s.counts[k] || 0),
+    data: sd.map(s => trendVal(k, s, presence)),
     emphasis: {focus: 'series', lineStyle:{width:3}},
   }));
 
@@ -2457,10 +2508,10 @@ function renderTrend(){
         // 全部选中品牌都照常显示；只有鼠标真正压在某条线（原生 emphasis 命中，与线本身变粗同一判定）上时，
         // 对应行才加淡蓝色圆角高光背景；鼠标在线与线之间的空白处不高亮任何一行。
         // 排版：方形色点 + 品牌名(flex:1) + 数值/涨跌右对齐成列。
-        const rows = params.slice().sort((a,b)=>b.value-a.value).map(p => {
+        const rows = params.filter(p=>p.value!=null).sort((a,b)=>b.value-a.value).map(p => {
           const cur = p.value;
           const key = selectedKeys.find(k=>trendKeyLabel(k)===p.seriesName);
-          const prev = idx>0 && key ? sd[idx-1].counts[key] || 0 : null;
+          const prev = idx>0 && key ? trendVal(key, sd[idx-1], presence) : null;
           let pct = '';
           if(prev !== null){
             const d = cur - prev;
@@ -2522,7 +2573,7 @@ function renderTrend(){
   trendChart.resize();
 }
 
-const TREND_PERIOD_DEFS = [{key:'week', label:'周度'}, {key:'month', label:'月度'}];
+const TREND_PERIOD_DEFS = [{key:'week', label:'周度'}, {key:'month', label:'月度'}, {key:'quarter', label:'季度'}];
 function renderTrendPeriodChips(){
   document.getElementById('ddTrendPeriod').textContent = TREND_PERIOD_DEFS.find(d=>d.key===TREND_PERIOD).label;
   const el = document.getElementById('trendPeriodChips');
@@ -2942,8 +2993,10 @@ function renderNet(curLocs, prevLocs){
   if(aggPre) for(const k in aggPre) if(!(k in aggCur)) names.push(k);
   let data;
   if(PREV){
+    const gap = brandGap(CUR.dealers, PREV.dealers), gapG = new Set([...gap.newBrands, ...gap.goneBrands]);
     // 变化量：物理计数（与 KPI 总计对齐）
     data = names.map(n=>{
+      if(gapG.has(dim==='g' ? n : ACTIVE_BRAND)) return {n, cur:aggCur[n]||0, pre:null, d:null, add:0, rem:0, gap:true};
       const cur = aggCur[n] || 0;
       const pre = aggPre[n] || 0;
       const cList = curLocs.filter(l => dim==='b' ? l.subs.has(n) : l.g===n);
@@ -2962,7 +3015,8 @@ function renderNet(curLocs, prevLocs){
     const pct = (x.cur/max*100).toFixed(1);
     const deltaHtml = x.d===null ? '' :
       `（<span class="${x.d>0?'d-pos':x.d<0?'d-neg':'d-zero'}">${x.d>0?'+':''}${x.d}</span>）`;
-    const title = PREV ? `${x.n}
+    const title = x.gap ? `${x.n}
+上期或本期无该品牌数据，不计净变化` : PREV ? `${x.n}
 新增 +${x.add} / 减少 -${x.rem}` : x.n;
     return `<div class="bar-row" data-brand="${x.n}" title="${title}">
       <div class="bar-pill" style="background:${color}1f;color:${color}">${x.n}</div>
@@ -3019,7 +3073,8 @@ function renderDetail(curLocs, added, removed, changed){
   if(!curLocs){
     curLocs = filterAll(CUR.dealers);
     const prevLocs = PREV ? filterAll(PREV.dealers) : [];
-    const diff = pairPeriodChanges(curLocs, prevLocs);
+    const diff = PREV ? pairPeriodChanges(cmpScope(curLocs, PREV.dealers), cmpScope(prevLocs, CUR.dealers))
+                      : pairPeriodChanges(curLocs, prevLocs);
     added = diff.added; removed = diff.removed; changed = diff.changed;
   }
   const ak = new Set(added.map(lkLoc)), rk = new Set(removed.map(lkLoc));
@@ -3283,6 +3338,12 @@ function extExportCSV(locs){
 // 更新日志: 最新在最前, 渲染时按月份分组. tag: feat=新功能 / opt=优化 / fix=修复.
 // 只记对用户有意义的更新; 改名/内部重构等琐碎变动不入日志. 新增一期 = 顶部加一条.
 const CHANGELOG = [
+  {date:'2026-10-16', tag:'feat', tagText:'新功能',
+   text:'新增 MINI 品牌（归入「豪华」品类），覆盖 MINI 授权经销商（展厅 / 4S 店）与售后维修站，首期共 176 家。MINI 自 2026-10-12 这一期起纳入统计，此前各期无 MINI 数据；首期没有上一期可比，不计入当期报告的新增 / 净变化，下一期起正常对比。与宝马同址经营的门店在两个品牌下各算一家。'},
+  {date:'2026-10-16', tag:'fix', tagText:'错误修复',
+   text:'修复宾利 2026-09-21 ~ 10-05 三期数据缺失的问题（官网接口升级了访问防护，采集被拦截），10-12 这一期起恢复（39 个网点，与缺失前一致）；缺失的三期在趋势图中显示为断点，不按 0 计。同时调整跨期对比规则：只有两期都有数据的品牌才参与新增 / 退出 / 净变化计算，新纳入或某期采集缺失的品牌不再被整批误报为「新增」或「退出」（此前 9-14 → 9-21 报告曾把宾利全部网点计为退出，现已更正）。'},
+  {date:'2026-10-16', tag:'feat', tagText:'新功能',
+   text:'网点查询页「网点数变化趋势」的时间维度新增「季度」：每个季度取该季度最后一期数据，可与周度、月度切换查看；当前未结束的季度取截至最新一期的值。'},
   {date:'2026-08-07', tag:'feat', tagText:'新功能',
    text:'全量门店完成运营方归属（厂家直营 / 代理 / 经销商集团 / 独立经销商 / 华为体系），基于品牌规则 + 名称识别 + 逐店联网核实字典，判定方法见「口径说明」。自助取数页新增「运营方」筛选与导出字段，预览与导出中集团授权/代理店直接显示具体集团名（如「中升(集团)」「华星系(代理)」）。'},
   {date:'2026-07-30', tag:'opt', tagText:'优化',
@@ -3335,6 +3396,7 @@ const DOC_BRANDS = [
   {cat:'luxury', b:'上汽奥迪', sales:'用户中心、授权销售网点', service:'服务网点', note:'上汽奥迪与一汽奥迪为独立品牌渠道，本报告分开统计，数字不叠加。'},
   {cat:'luxury', b:'奔驰', sales:'授权经销商、4S 店、展厅', service:'服务中心', note:'部分网点设有专项中心（如 AMG 性能中心、迈巴赫专区），体现在备注列，不影响网点总数统计。'},
   {cat:'luxury', b:'宝马', sales:'宝马授权经销商（含 4S 店）', service:'独立售后服务网点', note:'包含宝马授权经销商（含 4S 店）及独立售后服务网点，数据来自官网经销商查询页面。'},
+  {cat:'luxury', b:'MINI', sales:'授权经销商（展厅、4S 店）', service:'售后维修站', note:'2026 年 10 月起纳入统计，数据来自 MINI 官方经销商查询接口（与宝马同一平台）。与宝马同址经营的门店在两个品牌下各计一次；首期无上期数据，不参与当期跨期对比。'},
   {cat:'luxury', b:'雷克萨斯', sales:'授权经销商', service:'服务中心', note:'包含雷克萨斯授权经销商及服务中心，数据来自官网经销商查询页面。'},
   {cat:'luxury', b:'沃尔沃', sales:'授权经销商、纯电体验空间', service:'售后服务网点', note:'沃尔沃纯电体验空间（名称含"空间"）计入销售能力；钣金喷漆等服务统一并入售后能力。'},
   {cat:'luxury', b:'保时捷', sales:'保时捷中心（4S）、展厅', service:'认证售后服务网点', note:'包含保时捷中心（4S）、展厅及认证售后服务网点，数据来自官网经销商查询页面。'},
