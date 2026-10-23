@@ -750,6 +750,8 @@ async function boot(){
   try{
     const r = await fetch('data/snapshots.json',{cache:'no-store'});
     DATA = await r.json();
+    // P049 数据问题登记簿：缺失不影响页面，只是不显示提示
+    try{ const ri = await fetch('data/data_issues.json',{cache:'no-store'}); if(ri.ok) DATA_ISSUES = await ri.json(); }catch(e){}
   }catch(e){
     document.body.innerHTML = '<div class="err">无法加载 data/snapshots.json —— 请通过线上入口访问</div>';
     return;
@@ -1025,6 +1027,24 @@ function cmpScope(locs, otherAll){
   const og = new Set(otherAll.map(x=>x.g));
   return locs.filter(l=>og.has(l.g));
 }
+// P049：某期出现大批量缺失（品牌掉 0 / 大幅下跌）时由 data_issues.py 登记，报告顶部提示。
+// 对比区间两端任一期有问题都会影响增减，所以新旧两期都查。用内联样式，避开 #reportBody * reset（见报告页 CSS 注入坑）。
+let DATA_ISSUES = {};
+function dataIssueBanner(oldTs, newTs, roles=['当期','上期']){
+  const esc = t => String(t).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  return [[newTs,roles[0]],[oldTs,roles[1]]].map(([ts,role]) => {
+    const e = DATA_ISSUES[ts];
+    if(!e) return '';
+    const items = (e.items||[]).map(esc).join('；');
+    if(e.status === 'open'){
+      return `<div style="margin:0 0 14px;padding:12px 16px;border:1px solid var(--warn);border-left-width:4px;border-radius:6px;background:color-mix(in srgb, var(--warn) 8%, transparent);font-size:13px;line-height:1.7;">
+        <b style="color:var(--warn)">⚠ ${role}（${fmtTs(ts)}）数据可能存在问题</b>，相关品牌的增减可能失真，待修正。<br><span style="color:var(--mute)">${items}${e.note ? '　｜　' + esc(e.note) : ''}</span></div>`;
+    }
+    return `<div style="margin:0 0 14px;padding:8px 14px;border-left:3px solid var(--mute);font-size:12px;line-height:1.7;color:var(--mute)">
+      ${role}（${fmtTs(ts)}）曾发现数据问题，已于 ${esc((e.resolved||'').slice(0,10))} 修正：${items}${e.note ? '　→　' + esc(e.note) : ''}</div>`;
+  }).join('');
+}
+
 function brandGapNote(newBrands, goneBrands){
   let s = '';
   if(newBrands && newBrands.length) s += `<p>${newBrands.join('、')} 上期无数据（新纳入统计或上期采集缺失），暂不计入本区间的总量与新增/退出。</p>`;
@@ -1201,6 +1221,7 @@ async function renderDynamicReport(){
     <div class="sub">数据周期：${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}　｜　覆盖品牌：${new Set(curLocs.map(l=>l.g)).size} 个　｜　报告日期：${reportDateText(pair.newTs)}</div>
   </div>
   <div class="body">
+    ${dataIssueBanner(pair.oldTs, pair.newTs)}
     <div class="sec-title">本期概览</div>
     <div class="kpi-row" style="grid-template-columns:repeat(4,1fr)">
       <div class="kpi"><div class="k-label">当期总网点</div><div class="k-val">${curLocs.length.toLocaleString()}</div><div class="k-sub">较上期 ${reportDeltaHtml(totalDelta, ' 家')}</div></div>
@@ -1293,6 +1314,7 @@ async function renderMonthlyReport(){
       <div class="sub">月度周期：${fmtTs(pair.oldTs)} → ${fmtTs(pair.newTs)}　｜　覆盖品牌：${brandCount} 个　｜　报告日期：${reportDateText(pair.newTs)}</div>
     </div>
     <div class="body">
+      ${dataIssueBanner(pair.oldTs, pair.newTs, ['月末','月初'])}
       <div class="kpi-row" style="grid-template-columns:repeat(5,1fr)">
         <div class="kpi"><div class="k-label">月末总网点</div><div class="k-val">${curTotal.toLocaleString()}</div><div class="k-sub">月初 ${prevTotal.toLocaleString()} 家</div></div>
         <div class="kpi"><div class="k-label">净变化</div><div class="k-val">${reportDeltaHtml(totalDelta)}</div><div class="k-sub">${reportDeltaHtml(Number(pct.toFixed(1)), '%')}</div></div>
