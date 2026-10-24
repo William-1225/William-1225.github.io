@@ -1018,14 +1018,17 @@ function reportNameList(rows, limit=3){
 }
 // 只有两期都在档的品牌才参与跨期对比：新纳入品牌（如 2026-10 起的 MINI）或某期整品牌缺失（抓取失败，
 // 如宾利 0921~1005）从两侧剔除，否则会把它全部门店计成「新增」或「退出」。与 precompute_views.mjs brandGap() 同口径。
+// P049：按子品牌判断而非品牌组——1019 一汽奥迪整期缺失时「奥迪」组因上汽奥迪在档被判正常，526 家全计退出。
+// 入参可以是原始 dealer（有 b）或物理门店（有 subs 集合）；非品牌组品牌 b 即品牌本身。
+const subsOf = x => x.subs ? [...x.subs] : [x.b || x.g];
 function brandGap(curAll, prevAll){
-  const cg = new Set(curAll.map(x=>x.g)), pg = new Set(prevAll.map(x=>x.g));
-  return {newBrands:[...cg].filter(g=>!pg.has(g)), goneBrands:[...pg].filter(g=>!cg.has(g))};
+  const cs = new Set(curAll.flatMap(subsOf)), ps = new Set(prevAll.flatMap(subsOf));
+  return {newBrands:[...cs].filter(s=>!ps.has(s)), goneBrands:[...ps].filter(s=>!cs.has(s))};
 }
-// 只留 otherAll（另一期全量）里也有的品牌
+// 只留另一期（otherAll 全量）也在档的子品牌的门店；同店多子品牌只要有一个在档就保留
 function cmpScope(locs, otherAll){
-  const og = new Set(otherAll.map(x=>x.g));
-  return locs.filter(l=>og.has(l.g));
+  const os = new Set(otherAll.flatMap(subsOf));
+  return locs.filter(l=>subsOf(l).some(s=>os.has(s)));
 }
 // P049：某期出现大批量缺失（品牌掉 0 / 大幅下跌）时由 data_issues.py 登记，报告顶部提示。
 // 对比区间两端任一期有问题都会影响增减，所以新旧两期都查。用内联样式，避开 #reportBody * reset（见报告页 CSS 注入坑）。
@@ -3015,16 +3018,20 @@ function renderNet(curLocs, prevLocs){
   if(aggPre) for(const k in aggPre) if(!(k in aggCur)) names.push(k);
   let data;
   if(PREV){
-    const gap = brandGap(CUR.dealers, PREV.dealers), gapG = new Set([...gap.newBrands, ...gap.goneBrands]);
+    const gap = brandGap(CUR.dealers, PREV.dealers), gapS = new Set([...gap.newBrands, ...gap.goneBrands]);
+    // P049：缺失按子品牌算——整组都缺才整行标 gap；组内部分子品牌缺失时，净变化只按两期都在档的子品牌算
+    const isGap = n => dim==='b' ? gapS.has(n) : (GROUP_SUBS[n] ? GROUP_SUBS[n].every(s=>gapS.has(s)) : gapS.has(n));
+    const sCur = cmpScope(curLocs, PREV.dealers), sPre = cmpScope(prevLocs, CUR.dealers);
+    const aggSCur = aggBy(sCur, dim), aggSPre = aggBy(sPre, dim);
     // 变化量：物理计数（与 KPI 总计对齐）
     data = names.map(n=>{
-      if(gapG.has(dim==='g' ? n : ACTIVE_BRAND)) return {n, cur:aggCur[n]||0, pre:null, d:null, add:0, rem:0, gap:true};
+      if(isGap(n)) return {n, cur:aggCur[n]||0, pre:null, d:null, add:0, rem:0, gap:true};
       const cur = aggCur[n] || 0;
-      const pre = aggPre[n] || 0;
-      const cList = curLocs.filter(l => dim==='b' ? l.subs.has(n) : l.g===n);
-      const pList = prevLocs.filter(l => dim==='b' ? l.subs.has(n) : l.g===n);
+      const pre = aggSPre[n] || 0;
+      const cList = sCur.filter(l => dim==='b' ? l.subs.has(n) : l.g===n);
+      const pList = sPre.filter(l => dim==='b' ? l.subs.has(n) : l.g===n);
       const diff = pairPeriodChanges(cList, pList);
-      return {n, cur, pre, d:cur-pre, add:diff.added.length, rem:diff.removed.length};
+      return {n, cur, pre, d:(aggSCur[n]||0)-pre, add:diff.added.length, rem:diff.removed.length};
     });
   } else {
     data = names.map(n=>({n, cur:aggCur[n]||0, pre:null, d:null, add:0, rem:0}));
