@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>竞对经销商网点变化报告 2026/10/26</title>
+<style>
+:root{--bg:#f7f7f4;--panel:#fbfbf8;--line:#dcdbd5;--fg:#1f1e1c;--mute:#5c5b56;
+      --acc:#5d7a8a;--acc-soft:#e3e8ec;--pos:#1a7f37;--neg:#a8443a;--card:#ffffff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:14px/1.6 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--fg);background:var(--bg)}
+a{color:var(--acc);text-decoration:none}
+
+/* ---- 封面区 ---- */
+.hero{background:var(--bg);color:var(--fg);padding:36px 48px 32px;border-bottom:2px solid var(--line)}
+.hero-top{display:flex;align-items:center;justify-content:flex-end;margin-bottom:20px}
+.hero .hero-date{font-size:12px;color:var(--mute)}
+.hero h1{font-size:30px;font-weight:700;line-height:1.25;margin-bottom:10px;color:var(--fg)}
+.hero .sub{font-size:13px;color:var(--mute)}
+
+/* ---- 正文容器 ---- */
+.body{max-width:1280px;margin:0 auto;padding:10px 16px 24px}
+.layout{display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start}
+.col-right{display:flex;flex-direction:column;gap:16px}
+
+/* ---- KPI 行 ---- */
+.kpi-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kpi{border:1px solid var(--line);border-radius:8px;padding:14px 16px;background:var(--card)}
+.kpi .k-label{font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px}
+.kpi .k-val{font-size:26px;font-weight:700;color:var(--fg);line-height:1}
+.kpi .k-sub{font-size:12px;color:var(--mute);margin-top:4px}
+
+/* ---- 节标题 ---- */
+.sec-title{font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--mute);border-bottom:2px solid var(--line);padding-bottom:6px;margin:0 0 14px}
+
+/* ---- 汇总表 ---- */
+table{width:100%;border-collapse:collapse;font-size:13px;background:var(--card);border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+th{text-align:left;font-size:11px;color:var(--mute);font-weight:600;letter-spacing:.4px;padding:8px 10px;border-bottom:2px solid var(--line);background:var(--panel);white-space:nowrap}
+td{padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--acc-soft)}
+
+.brand-cell{font-weight:600;font-size:13px;white-space:nowrap}
+.dot{display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--acc);margin-right:6px;vertical-align:middle}
+.num{text-align:left;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pos{color:var(--pos);font-weight:600}
+.neg{color:var(--neg);font-weight:600}
+.zero{color:var(--mute)}
+
+.detail-cell{font-size:11px;color:var(--mute);min-width:200px}
+.detail-add{color:var(--pos)}
+.detail-rem{color:var(--neg)}
+
+/* ---- 品牌变化段 ---- */
+.brand-detail-body{max-height:62vh;overflow:auto;padding-right:4px}
+.brand-block{margin-bottom:16px;padding:14px 18px;border-left:3px solid var(--acc);background:var(--card);border-radius:0 6px 6px 0;border:1px solid var(--line);border-left:3px solid var(--acc)}
+.brand-block h3{font-size:14px;font-weight:600;margin-bottom:4px;color:var(--fg)}
+.brand-block p{font-size:13px;color:var(--mute);line-height:1.7}
+
+/* ---- 脚注 ---- */
+.footnote{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:11px;color:var(--mute);line-height:1.8}
+
+/* ---- 页脚 ---- */
+footer{background:var(--panel);color:var(--mute);text-align:center;padding:18px;font-size:11px;margin-top:40px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-top">
+    <span class="hero-date">数据截至 2026/10/26</span>
+  </div>
+  <h1>竞对汽车品牌销售网点变化报告</h1>
+  <div class="sub">数据周期：2026/10/19 → 2026/10/26　｜　覆盖品牌：17 个　｜　报告日期：2026年10月26日</div>
+</div>
+
+<div class="body">
+  <div class="layout">
+
+    <!-- 左栏：汇总表 -->
+    <div class="col-left">
+      <div class="sec-title">销售网点数（家）& 城市覆盖</div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:110px">品牌</th>
+            <th class="num">本期销售网点数</th>
+            <th class="num">净变化</th>
+            <th class="num">覆盖城市</th>
+            <th class="num">城市变化</th>
+            <th>本期动态</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+  <td class="brand-cell"><span class="dot" style="background:#2563eb"></span>鸿蒙智行</td>
+  <td class="num">1735</td>
+  <td class="num"><span class="pos">+2</span></td>
+  <td class="num">258</td>
+  <td class="num"><span class="neg">-1</span></td>
+  <td class="detail-cell"><div class="detail-add">+新增 AITO授权用户中心•宣城昭亭北路、AITO授权用户中心•重庆南滨路、华为授权体验店（万达广场）等</div><div class="detail-rem">−退出 华为智能生活馆•六盘水爱琴海、鸿蒙智行尚界用户中心•昌吉汇京汽车城、鸿蒙智行尚界用户中心•杭州西溪湿地公园等</div></td>
+</tr>
+<tr>
+  <td class="brand-cell"><span class="dot" style="background:#dc2626"></span>小米</td>
+  <td class="num">859</td>
+  <td class="num"><span class="neg">-8</span></td>
+  <td class="num">235</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="detail-cell"><div class="detail-add">+新增 小米汽车北京市西城区大吉巷、小米汽车贵州省贵阳市南明区方圆荟海豚广场、小米汽车贵州省黔南布依族苗族自治州都匀市毛尖大道等</div><div class="detail-rem">−退出 小米之家海南省三亚市吉阳区三亚大悦城、小米汽车四川省资阳市雁江区资阳万达、小米汽车天津市滨海新区滨海万达等</div></td>
+</tr>
+<tr>
+  <td class="brand-cell"><span class="dot" style="background:#16a34a"></span>小鹏</td>
+  <td class="num">788</td>
+  <td class="num"><span class="pos">+9</span></td>
+  <td class="num">259</td>
+  <td class="num"><span class="pos">+2</span></td>
+  <td class="detail-cell"><div class="detail-add">+新增 小鹏汽车万宁销售中心、小鹏汽车上海浦东沪南路销售中心、小鹏汽车东台永宁销售中心等</div><div class="detail-rem">−退出 小鹏汽车深圳万象前海销售中心、小鹏汽车深圳龙华壹方天地销售展厅、小鹏汽车蚌埠小新庄销售展厅等</div></td>
+</tr>
+<tr>
+  <td class="brand-cell"><span class="dot" style="background:#9333ea"></span>奥迪</td>
+  <td class="num">721</td>
+  <td class="num"><span class="neg">-1</span></td>
+  <td class="num">237</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="detail-cell"><div class="detail-rem">−退出 上汽奥迪成都鹭洲里都市店</div></td>
+</tr>
+<tr>
+  <td class="brand-cell"><span class="dot" style="background:#ea580c"></span>理想</td>
+  <td class="num">708</td>
+  <td class="num"><span class="pos">+2</span></td>
+  <td class="num">203</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="detail-cell"><div class="detail-add">+新增 理想汽车东莞高埗汽车城零售中心、理想汽车佛山万象天地零售中心、理想汽车吕梁孝义授权服务中心（晋鹏捷店）等</div><div class="detail-rem">−退出 理想汽车东莞东城万达零售中心、理想汽车广州南沙环宇城零售中心、理想汽车广州番禺祈福零售展厅等</div></td>
+</tr>
+<tr>
+  <td class="brand-cell"><span class="dot" style="background:#0891b2"></span>特斯拉</td>
+  <td class="num">618</td>
+  <td class="num"><span class="pos">+6</span></td>
+  <td class="num">152</td>
+  <td class="num"><span class="pos">+1</span></td>
+  <td class="detail-cell"><div class="detail-add">+新增 六盘水万达、北京太古坊体验店、北京通州万达等</div><div class="detail-rem">−退出 北京颐堤港体验店</div></td>
+</tr>
+<tr>
+  <td class="brand-cell"><span class="dot" style="background:#ca8a04"></span>奔驰</td>
+  <td class="num">555</td>
+  <td class="num"><span class="neg">-3</span></td>
+  <td class="num">225</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="detail-cell"><div class="detail-rem">−退出 上海冠松之星汽车销售服务有限公司虹口分公司、台州黄岩之星汽车销售服务有限公司天台分公司、浙江欧龙汽车有限公司</div></td>
+</tr>
+<tr>
+  <td class="brand-cell"><span class="dot" style="background:#db2777"></span>宝马</td>
+  <td class="num">541</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="num">230</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="detail-cell"></td>
+</tr>
+<tr>
+  <td class="brand-cell"><span class="dot" style="background:#4f46e5"></span>沃尔沃</td>
+  <td class="num">299</td>
+  <td class="num"><span class="pos">+1</span></td>
+  <td class="num">165</td>
+  <td class="num"><span class="pos">+1</span></td>
+  <td class="detail-cell"><div class="detail-add">+新增 赤峰钧泽维修中心</div></td>
+</tr>
+<tr>
+  <td class="brand-cell"><span class="dot" style="background:#059669"></span>雷克萨斯</td>
+  <td class="num">251</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="num">115</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="detail-cell"></td>
+</tr>
+<tr>
+  <td class="brand-cell"><span class="dot" style="background:#b91c1c"></span>MINI</td>
+  <td class="num">134</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="num">81</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="detail-cell"></td>
+</tr>
+<tr>
+  <td class="brand-cell"><span class="dot" style="background:#7c3aed"></span>保时捷</td>
+  <td class="num">88</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="num">57</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="detail-cell"></td>
+</tr>
+<tr>
+  <td class="brand-cell"><span class="dot" style="background:#0f766e"></span>宾利</td>
+  <td class="num">39</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="num">34</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="detail-cell"></td>
+</tr>
+<tr>
+  <td class="brand-cell"><span class="dot" style="background:#d97706"></span>法拉利</td>
+  <td class="num">16</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="num">16</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="detail-cell"></td>
+</tr>
+<tr>
+  <td class="brand-cell"><span class="dot" style="background:#0284c7"></span>劳斯莱斯</td>
+  <td class="num">15</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="num">12</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="detail-cell"></td>
+</tr>
+<tr>
+  <td class="brand-cell"><span class="dot" style="background:#be123c"></span>兰博基尼</td>
+  <td class="num">14</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="num">12</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="detail-cell"></td>
+</tr>
+<tr>
+  <td class="brand-cell"><span class="dot" style="background:#65a30d"></span>阿斯顿·马丁</td>
+  <td class="num">13</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="num">11</td>
+  <td class="num"><span class="zero">—</span></td>
+  <td class="detail-cell"></td>
+</tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 右栏：KPI + 品牌变化详情 -->
+    <div class="col-right">
+      <div>
+        <div class="sec-title">本期概览</div>
+        <div class="kpi-row">
+          <div class="kpi">
+            <div class="k-label">当期总网点</div>
+            <div class="k-val">7,394</div>
+            <div class="k-sub">较上期 <span class="pos">+8</span> 家</div>
+          </div>
+          <div class="kpi">
+            <div class="k-label">覆盖品牌</div>
+            <div class="k-val">17</div>
+            <div class="k-sub">含新能源 / 豪华</div>
+          </div>
+          <div class="kpi">
+            <div class="k-label">本期新增</div>
+            <div class="k-val">48</div>
+            <div class="k-sub">跨 6 个品牌</div>
+          </div>
+          <div class="kpi">
+            <div class="k-label">本期退出</div>
+            <div class="k-val">40</div>
+            <div class="k-sub">跨 7 个品牌</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="sec-title">品牌变化详情</div>
+        <div class="brand-detail-body">
+          <div class="brand-block"><h3>鸿蒙智行</h3><p>净增 <strong>2</strong> 家；新增：AITO授权用户中心•宣城昭亭北路、AITO授权用户中心•重庆南滨路、华为授权体验店（万达广场）、华为授权体验店（上城天街）等；退出：华为智能生活馆•六盘水爱琴海、鸿蒙智行尚界用户中心•昌吉汇京汽车城、鸿蒙智行尚界用户中心•杭州西溪湿地公园、鸿蒙智行尚界用户中心•牡丹江兴业路等。</p></div>
+<div class="brand-block"><h3>小米</h3><p>净减少 <strong>8</strong> 家；新增：小米汽车北京市西城区大吉巷、小米汽车贵州省贵阳市南明区方圆荟海豚广场、小米汽车贵州省黔南布依族苗族自治州都匀市毛尖大道、小米汽车陕西省榆林市榆阳区麻黄梁销售服务中心；退出：小米之家海南省三亚市吉阳区三亚大悦城、小米汽车四川省资阳市雁江区资阳万达、小米汽车天津市滨海新区滨海万达、小米汽车广东省佛山市南海区佛山南海万达等。</p></div>
+<div class="brand-block"><h3>小鹏</h3><p>净增 <strong>9</strong> 家；新增：小鹏汽车万宁销售中心、小鹏汽车上海浦东沪南路销售中心、小鹏汽车东台永宁销售中心、小鹏汽车丽江成龙汽贸城销售中心等；退出：小鹏汽车深圳万象前海销售中心、小鹏汽车深圳龙华壹方天地销售展厅、小鹏汽车蚌埠小新庄销售展厅、小鹏汽车郑州东部汽车城销售服务中心。</p></div>
+<div class="brand-block"><h3>奥迪</h3><p>净减少 <strong>1</strong> 家；退出：上汽奥迪成都鹭洲里都市店。</p></div>
+<div class="brand-block"><h3>理想</h3><p>净增 <strong>2</strong> 家；新增：理想汽车东莞高埗汽车城零售中心、理想汽车佛山万象天地零售中心、理想汽车吕梁孝义授权服务中心（晋鹏捷店）、理想汽车娄底娄星授权服务中心（悦途店）等；退出：理想汽车东莞东城万达零售中心、理想汽车广州南沙环宇城零售中心、理想汽车广州番禺祈福零售展厅、理想汽车泉州中骏世界城零售展厅等。</p></div>
+<div class="brand-block"><h3>特斯拉</h3><p>净增 <strong>6</strong> 家；新增：六盘水万达、北京太古坊体验店、北京通州万达、广州天河领展广场等；退出：北京颐堤港体验店。</p></div>
+<div class="brand-block"><h3>奔驰</h3><p>净减少 <strong>3</strong> 家；退出：上海冠松之星汽车销售服务有限公司虹口分公司、台州黄岩之星汽车销售服务有限公司天台分公司、浙江欧龙汽车有限公司。</p></div>
+<div class="brand-block"><h3>沃尔沃</h3><p>净增 <strong>1</strong> 家；新增：赤峰钧泽维修中心。</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="sec-title">数据说明</div>
+        <div class="brand-block">
+          <p>网点数据来源于各品牌官方渠道查询页面，统计口径为销售类门店（含授权服务中心、城市展厅、交付中心等）。城市数以地级市为单位。跨期对比先按品牌组、原始店名、省份、地址识别物理网点；若店名或地址写法变化，会按同名同省市、区县不冲突、路名门牌或地址相似度，以及店名主干和地址相似度做兜底配对，命中的同店变化不计入新增/退出。</p><p>蔚来 本期无数据（采集缺失），暂不计入本期报告的总量与新增/退出。</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>竞对经销商网点监测 · 数据截至 2026/10/26</footer>
+</body>
+</html>
