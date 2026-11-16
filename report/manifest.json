@@ -1,29 +1,23 @@
 {
   "data": "data/snapshots.json",
   "geo": "cn.json",
-  "reportHtml": "reports/network_report_1109.html",
+  "reportHtml": "reports/network_report_1116.html",
   "downloads": [
     {
-      "ts": "20261109",
-      "name": "汇总_20261109.xlsx",
-      "href": "downloads/summary/汇总_20261109.xlsx",
+      "ts": "20261116",
+      "name": "汇总_20261116.xlsx",
+      "href": "downloads/summary/汇总_20261116.xlsx",
       "meta": "当期网点汇总数据（所有品牌）"
     },
     {
-      "ts": "20261109",
-      "label": "20261102 → 20261109",
-      "name": "网点变化对比报告_20261102_vs_20261109.xlsx",
-      "href": "downloads/reports/网点变化对比报告_20261102_vs_20261109.xlsx",
+      "ts": "20261116",
+      "label": "20261109 → 20261116",
+      "name": "网点变化对比报告_20261109_vs_20261116.xlsx",
+      "href": "downloads/reports/网点变化对比报告_20261109_vs_20261116.xlsx",
       "meta": "网点变化对比报告（品牌总量、省级对比、新增/减少/变更明细）"
     }
   ],
   "summaryDownloads": [
-    {
-      "ts": "20260810",
-      "name": "汇总_20260810.xlsx",
-      "href": "downloads/summary/汇总_20260810.xlsx",
-      "meta": "当期网点汇总数据（所有品牌）"
-    },
     {
       "ts": "20260817",
       "name": "汇总_20260817.xlsx",
@@ -101,16 +95,15 @@
       "name": "汇总_20261109.xlsx",
       "href": "downloads/summary/汇总_20261109.xlsx",
       "meta": "当期网点汇总数据（所有品牌）"
+    },
+    {
+      "ts": "20261116",
+      "name": "汇总_20261116.xlsx",
+      "href": "downloads/summary/汇总_20261116.xlsx",
+      "meta": "当期网点汇总数据（所有品牌）"
     }
   ],
   "reportDownloads": [
-    {
-      "ts": "20260817",
-      "label": "20260810 → 20260817",
-      "name": "网点变化对比报告_20260810_vs_20260817.xlsx",
-      "href": "downloads/reports/网点变化对比报告_20260810_vs_20260817.xlsx",
-      "meta": "网点变化对比报告（品牌总量、省级对比、新增/减少/变更明细）"
-    },
     {
       "ts": "20260824",
       "label": "20260817 → 20260824",
@@ -193,6 +186,13 @@
       "label": "20261102 → 20261109",
       "name": "网点变化对比报告_20261102_vs_20261109.xlsx",
       "href": "downloads/reports/网点变化对比报告_20261102_vs_20261109.xlsx",
+      "meta": "网点变化对比报告（品牌总量、省级对比、新增/减少/变更明细）"
+    },
+    {
+      "ts": "20261116",
+      "label": "20261109 → 20261116",
+      "name": "网点变化对比报告_20261109_vs_20261116.xlsx",
+      "href": "downloads/reports/网点变化对比报告_20261109_vs_20261116.xlsx",
       "meta": "网点变化对比报告（品牌总量、省级对比、新增/减少/变更明细）"
     }
   ]
