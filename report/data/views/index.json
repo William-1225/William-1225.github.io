@@ -1,11 +1,6 @@
 {
-  "generatedAt": "2026-11-18T02:09:41.430Z",
+  "generatedAt": "2026-11-23T01:18:51.768Z",
   "reports": [
-    {
-      "oldTs": "20260817",
-      "newTs": "20260824",
-      "href": "data/views/report_20260817_vs_20260824.json"
-    },
     {
       "oldTs": "20260824",
       "newTs": "20260831",
@@ -67,9 +62,14 @@
       "href": "data/views/report_20261109_vs_20261116.json"
     },
     {
-      "oldTs": "20260817",
+      "oldTs": "20261116",
+      "newTs": "20261123",
+      "href": "data/views/report_20261116_vs_20261123.json"
+    },
+    {
+      "oldTs": "20260824",
       "newTs": "20260907",
-      "href": "data/views/report_20260817_vs_20260907.json"
+      "href": "data/views/report_20260824_vs_20260907.json"
     },
     {
       "oldTs": "20260907",
